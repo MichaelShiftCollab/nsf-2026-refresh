@@ -10,7 +10,7 @@
 		"lint": "npm run lint:js && npm run lint:css",
 		"lint:js": "wp-scripts lint-js wp-content/plugins/nsf/src tests --no-error-on-unmatched-pattern",
 		"lint:css": "wp-scripts lint-style \"wp-content/{themes,plugins}/nsf/**/*.{css,scss}\" --allow-empty-input",
-		"serve": "php -S localhost:8080 bin/router.php",
+		"serve": "PHP_CLI_SERVER_WORKERS=4 php -S localhost:8080 bin/router.php",
 		"wp": "php bin/wp",
 		"test:visual": "node tests/visual/run.mjs",
 		"mockups:pull": "node tests/visual/pull.mjs"
