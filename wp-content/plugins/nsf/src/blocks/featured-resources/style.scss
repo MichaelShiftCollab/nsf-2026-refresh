@@ -1,0 +1,23 @@
+// Featured Resources: three cards, one column when the block is narrow
+// (Resources mockups 154:459 at 1440, 182:31 at 781, 187:205 at 600).
+
+.nsf-featured {
+	container-type: inline-size;
+
+	&__list {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: var(--wp--preset--spacing--gutter);
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	@container (max-width: 599px) {
+
+		&__list {
+			grid-template-columns: minmax(0, 1fr);
+			gap: var(--wp--preset--spacing--40);
+		}
+	}
+}

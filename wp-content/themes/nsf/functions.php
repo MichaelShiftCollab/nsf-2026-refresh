@@ -34,5 +34,12 @@ function nsf_theme_pattern_categories() {
 			'description' => __( 'Content Card grids.', 'nsf' ),
 		)
 	);
+	register_block_pattern_category(
+		'nsf-pages',
+		array(
+			'label'       => __( 'NSF: Page layouts', 'nsf' ),
+			'description' => __( 'Whole-page layouts such as the Resource Hub.', 'nsf' ),
+		)
+	);
 }
 add_action( 'init', 'nsf_theme_pattern_categories' );

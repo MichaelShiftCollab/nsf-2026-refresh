@@ -1,17 +1,57 @@
 [
-  {
-    "name": "styling",
-    "group": "tokens",
-    "url": "/style-guide/",
-    "widths": [1440],
-    "auth": true
-  },
-  {
-    "name": "cards-featured",
-    "group": "cards",
-    "url": "/card-test/",
-    "selector": "#cards-featured",
-    "ignore": ["#cards-featured .nsf-card__media"],
-    "auth": true
-  }
+	{
+		"name": "styling",
+		"group": "tokens",
+		"url": "/style-guide/",
+		"widths": [
+			1440
+		],
+		"auth": true
+	},
+	{
+		"name": "cards-featured",
+		"group": "cards",
+		"url": "/card-test/",
+		"selector": "#cards-featured",
+		"ignore": [
+			"#cards-featured .nsf-card__media"
+		],
+		"auth": true
+	},
+	{
+		"name": "hub-default",
+		"group": "resources",
+		"url": "/sleep-health-resources/",
+		"selector": "#resource-browser",
+		"widths": [
+			1440
+		]
+	},
+	{
+		"name": "hub-filtered",
+		"group": "resources",
+		"mockup": "hub-cards",
+		"url": "/sleep-health-resources/?topics=sleep-disorders,healthy-sleep-habits",
+		"selector": "#resource-browser",
+		"ignore": [
+			".nsf-card__media"
+		],
+		"widths": [
+			1440
+		]
+	},
+	{
+		"name": "hub-table",
+		"group": "resources",
+		"url": "/sleep-health-resources/?topics=sleep-disorders,healthy-sleep-habits",
+		"selector": "#resource-browser",
+		"actions": [
+			{
+				"click": "[data-view=\"table\"]"
+			}
+		],
+		"widths": [
+			1440
+		]
+	}
 ]

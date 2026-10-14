@@ -1,0 +1,22 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "nsf/resource-results",
+	"title": "Resource Results",
+	"category": "widgets",
+	"icon": "grid-view",
+	"description": "Resources and blog posts as cards or a table, filtered by the Resource Filter Controls block without reloading the page.",
+	"keywords": [ "results", "resources", "table", "cards" ],
+	"textdomain": "nsf",
+	"supports": {
+		"html": false,
+		"multiple": false,
+		"spacing": {
+			"margin": [ "top", "bottom" ]
+		}
+	},
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php"
+}

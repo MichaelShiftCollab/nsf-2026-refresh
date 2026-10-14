@@ -188,3 +188,15 @@
 		transform: translateX(0.25em);
 	}
 }
+
+// Result card: Resource Results grid (154:534). White, light blue outline,
+// 16px radius, no shadow, meta line under the title.
+.nsf-card--result {
+	border: 1px solid var(--wp--preset--color--light-blue);
+	border-radius: var(--wp--custom--radius--card);
+	background: var(--wp--preset--color--white);
+
+	.nsf-card__body {
+		padding: var(--wp--preset--spacing--30) var(--wp--custom--control--padding-inline) var(--wp--preset--spacing--40);
+	}
+}

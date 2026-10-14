@@ -70,6 +70,12 @@ if [ -z "$($WP post list --post_type=page --name=style-guide --post_status=any -
 		--page_template=blank --post_content='<!-- wp:pattern {"slug":"nsf/style-guide"} /-->'
 fi
 
+# Sleep Health Resources page (build plan step 7), built from the Resource Hub pattern.
+if [ -z "$($WP post list --post_type=page --name=sleep-health-resources --post_status=any --format=ids)" ]; then
+	$WP post create --post_type=page --post_title="Sleep Health Resources" --post_name=sleep-health-resources --post_status=publish \
+		--post_content='<!-- wp:pattern {"slug":"nsf/resource-hub"} /-->'
+fi
+
 npm install
 npm run build
 

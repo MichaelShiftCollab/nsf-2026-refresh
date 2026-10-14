@@ -1,0 +1,21 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "nsf/resource-filters",
+	"title": "Resource Filter Controls",
+	"category": "widgets",
+	"icon": "filter",
+	"description": "Search box and Topic, Audience and Type filters for the Resource Results block on the same page.",
+	"keywords": [ "filter", "facet", "search", "resources" ],
+	"textdomain": "nsf",
+	"supports": {
+		"html": false,
+		"multiple": false,
+		"spacing": {
+			"margin": [ "top", "bottom" ]
+		}
+	},
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

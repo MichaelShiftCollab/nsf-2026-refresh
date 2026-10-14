@@ -252,7 +252,8 @@
 			"radius": {
 				"pill": "100px",
 				"frame": "72px",
-				"card": "16px"
+				"card": "16px",
+				"checkbox": "2px"
 			},
 			"border": {
 				"button": "2px",
@@ -260,6 +261,14 @@
 			},
 			"letter-spacing": {
 				"caps": "0.08em"
+			},
+			"control": {
+				"height": "43px",
+				"chip-height": "38px",
+				"page-size": "48px",
+				"padding-inline": "20px",
+				"checkbox": "18px",
+				"gap": "12px"
 			}
 		},
 		"shadow": {

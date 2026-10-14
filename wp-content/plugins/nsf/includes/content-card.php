@@ -52,7 +52,7 @@ function nsf_content_card_data( $post, $attributes ) {
 		'eyebrow'   => '',
 		'excerpt'   => '',
 		'url'       => '',
-		'link_text' => 'featured-image' === $variant ? '' : __( 'Learn more', 'nsf' ),
+		'link_text' => in_array( $variant, array( 'navy', 'outline-icon' ), true ) ? __( 'Learn more', 'nsf' ) : '',
 		'media_id'  => 0,
 		'meta'      => array(),
 	);
@@ -96,4 +96,62 @@ function nsf_content_card_data( $post, $attributes ) {
 	}
 
 	return $card;
+}
+
+/**
+ * Card markup. The title link is stretched over the whole card.
+ *
+ * @param array       $card     Card fields from nsf_content_card_data().
+ * @param string      $variant  featured-image, navy, outline-icon or result.
+ * @param int         $level    Title heading level.
+ * @param string|null $wrapper  Wrapper attributes (from get_block_wrapper_attributes()); built here when null.
+ * @return string
+ */
+function nsf_content_card_html( $card, $variant, $level = 3, $wrapper = null ) {
+	$level = min( 6, max( 2, (int) $level ) );
+	$class = 'nsf-card nsf-card--' . $variant . ( $card['url'] ? ' has-link' : '' );
+	if ( null === $wrapper ) {
+		$wrapper = 'class="' . esc_attr( $class ) . '"';
+	}
+
+	$title = $card['url']
+		? sprintf( '<a class="nsf-card__link" href="%1$s">%2$s</a>', esc_url( $card['url'] ), esc_html( $card['title'] ) )
+		: esc_html( $card['title'] );
+
+	$media = '';
+	if ( $card['media_id'] ) {
+		$is_icon = 'outline-icon' === $variant;
+		$media   = wp_get_attachment_image(
+			$card['media_id'],
+			$is_icon ? 'thumbnail' : 'medium_large',
+			false,
+			array_filter(
+				array(
+					'class' => $is_icon ? 'nsf-card__icon' : 'nsf-card__image',
+					'alt'   => '',
+					'sizes' => $is_icon ? null : '(min-width: 1440px) 380px, (min-width: 782px) 30vw, 100vw',
+				)
+			)
+		);
+	}
+
+	$html = '<article ' . $wrapper . '>';
+	if ( $media && 'navy' !== $variant ) {
+		$html .= '<div class="nsf-card__media">' . $media . '</div>';
+	}
+	$html .= '<div class="nsf-card__body">';
+	if ( $card['eyebrow'] ) {
+		$html .= '<p class="nsf-card__eyebrow">' . esc_html( $card['eyebrow'] ) . '</p>';
+	}
+	$html .= sprintf( '<h%1$d class="nsf-card__title">%2$s</h%1$d>', $level, $title );
+	if ( $card['excerpt'] ) {
+		$html .= '<p class="nsf-card__excerpt">' . esc_html( $card['excerpt'] ) . '</p>';
+	}
+	if ( $card['meta'] ) {
+		$html .= '<p class="nsf-card__meta">' . esc_html( implode( '  ·  ', $card['meta'] ) ) . '</p>';
+	}
+	if ( $card['link_text'] && $card['url'] ) {
+		$html .= '<p class="nsf-card__more" aria-hidden="true">' . esc_html( $card['link_text'] ) . ' <span class="nsf-card__arrow">→</span></p>';
+	}
+	return $html . '</div></article>';
 }

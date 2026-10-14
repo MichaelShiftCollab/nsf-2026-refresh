@@ -1,4 +1,6 @@
 [
 	{ "name": "styling", "node": "362:219", "width": 1440 },
-	{ "name": "cards-featured", "node": "154:459", "width": 1440 }
+	{ "name": "cards-featured", "node": "154:459", "width": 1440 },
+	{ "name": "hub-cards", "node": "154:475", "width": 1440 },
+	{ "name": "hub-table", "node": "154:725", "width": 1440 }
 ]

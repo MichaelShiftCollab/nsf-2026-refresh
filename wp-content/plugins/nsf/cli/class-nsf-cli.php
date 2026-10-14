@@ -73,6 +73,32 @@ class NSF_CLI {
 	}
 
 	/**
+	 * Rebuilds the Resource Hub table sort keys (Type, Topic, Audience) for every post and Resource.
+	 *
+	 * They are kept up to date on save; run this after an import that skipped hooks.
+	 *
+	 * ## EXAMPLES
+	 *
+	 *     wp nsf reindex
+	 *
+	 * @subcommand reindex
+	 */
+	public function reindex() {
+		$ids = get_posts(
+			array(
+				'post_type'      => array( 'post', 'resource' ),
+				'post_status'    => 'any',
+				'posts_per_page' => -1,
+				'fields'         => 'ids',
+			)
+		);
+		foreach ( $ids as $id ) {
+			nsf_hub_update_sort_keys( $id );
+		}
+		WP_CLI::success( sprintf( 'Updated sort keys for %d items.', count( $ids ) ) );
+	}
+
+	/**
 	 * Creates missing terms from content/taxonomy-terms.json.
 	 *
 	 * @return int Number of terms created.
