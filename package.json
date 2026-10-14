@@ -12,9 +12,13 @@
 		"lint:css": "wp-scripts lint-style \"wp-content/{themes,plugins}/nsf/**/*.{css,scss}\" --allow-empty-input",
 		"serve": "php -S localhost:8080 bin/router.php",
 		"wp": "php bin/wp",
-		"test:visual": "node tests/visual/run.mjs"
+		"test:visual": "node tests/visual/run.mjs",
+		"mockups:pull": "node tests/visual/pull.mjs"
 	},
 	"devDependencies": {
-		"@wordpress/scripts": "^36.1.0"
+		"@wordpress/scripts": "^36.1.0",
+		"pixelmatch": "^7.2.0",
+		"playwright": "^1.56.1",
+		"pngjs": "^7.0.0"
 	}
 }
