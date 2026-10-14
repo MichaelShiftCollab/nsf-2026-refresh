@@ -18,22 +18,23 @@ trap 'rm -rf "$TMP"' EXIT
 
 if [ ! -f wp-settings.php ]; then
 	echo "Installing WordPress $WP_VERSION"
-	git clone -q --depth 1 --branch "$WP_VERSION" https://github.com/WordPress/WordPress.git "$TMP/wp"
+	git -c advice.detachedHead=false clone -q --depth 1 --branch "$WP_VERSION" https://github.com/WordPress/WordPress.git "$TMP/wp"
 	rm -rf "$TMP/wp/.git" "$TMP/wp/wp-content/themes/"twenty* "$TMP/wp/wp-content/plugins/akismet" "$TMP/wp/wp-content/plugins/hello.php"
 	cp -rn "$TMP/wp/." .
 fi
 
 if [ ! -d wp-content/themes/frost ]; then
 	echo "Installing Frost $FROST_VERSION"
-	git clone -q --depth 1 --branch "$FROST_VERSION" https://github.com/wpengine/frost.git wp-content/themes/frost
+	git -c advice.detachedHead=false clone -q --depth 1 --branch "$FROST_VERSION" https://github.com/wpengine/frost.git wp-content/themes/frost
 	rm -rf wp-content/themes/frost/.git
 fi
 
 SQLITE=wp-content/plugins/sqlite-database-integration
 if [ ! -d "$SQLITE" ]; then
 	echo "Installing SQLite Database Integration $SQLITE_VERSION"
-	git clone -q --depth 1 --branch "$SQLITE_VERSION" https://github.com/WordPress/sqlite-database-integration.git "$TMP/sqlite"
+	git -c advice.detachedHead=false clone -q --depth 1 --branch "$SQLITE_VERSION" https://github.com/WordPress/sqlite-database-integration.git "$TMP/sqlite"
 	cp -r "$TMP/sqlite/packages/plugin-sqlite-database-integration" "$SQLITE"
+	rm -rf "$SQLITE/wp-includes/database"
 	mkdir -p "$SQLITE/wp-includes/database"
 	cp -r "$TMP/sqlite/packages/mysql-on-sqlite/src/." "$SQLITE/wp-includes/database/"
 fi
