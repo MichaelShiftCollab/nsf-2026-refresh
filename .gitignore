@@ -1,0 +1,31 @@
+# Track only NSF's own code, docs, content and tests.
+# WordPress core, Frost and third-party plugins are installed by bin/setup.sh.
+/*
+!/.gitignore
+!/CLAUDE.md
+!/README.md
+!/package.json
+!/package-lock.json
+!/wp-config.php
+!/bin/
+!/docs/
+!/content/
+!/tests/
+
+/bin/wp
+
+!/wp-content/
+/wp-content/*
+!/wp-content/themes/
+/wp-content/themes/*
+!/wp-content/themes/nsf/
+!/wp-content/plugins/
+/wp-content/plugins/*
+!/wp-content/plugins/nsf/
+
+/wp-content/plugins/nsf/build/
+/tests/visual/results/
+node_modules/
+*.map
+.DS_Store
+debug.log

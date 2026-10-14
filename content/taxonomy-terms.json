@@ -1,0 +1,31 @@
+{
+  "_source": "Terms used in the Figma Sleep Health Resources mockups (nodes 154:431 cards, 154:681 table). Seeded by `wp nsf seed` and the term import.",
+  "topic": [
+    "Basics of Sleep",
+    "Children",
+    "Drowsy Driving Prevention",
+    "Healthy Sleep Habits",
+    "Seniors",
+    "Sleep and You",
+    "Sleep Disorders",
+    "Sleep Environment",
+    "Sleep Health Topics",
+    "Teens",
+    "Workforce"
+  ],
+  "audience": [
+    "Everyone",
+    "Employers",
+    "Medical Professionals",
+    "Researchers"
+  ],
+  "resource_type": [
+    "Infographic",
+    "Poll",
+    "Publication",
+    "Quiz",
+    "Report",
+    "Survey"
+  ],
+  "_notes": "\"Article / Blog Post\" appears as a Type in the mockups; it labels posts in the hub, not a Resource Type term."
+}

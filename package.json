@@ -1,0 +1,20 @@
+{
+	"name": "nsf-2026",
+	"version": "0.1.0",
+	"private": true,
+	"description": "National Sleep Foundation website: Frost child theme and NSF site plugin.",
+	"license": "GPL-2.0-or-later",
+	"scripts": {
+		"build": "wp-scripts build --webpack-src-dir=wp-content/plugins/nsf/src/blocks --output-path=wp-content/plugins/nsf/build --blocks-manifest",
+		"start": "wp-scripts start --webpack-src-dir=wp-content/plugins/nsf/src/blocks --output-path=wp-content/plugins/nsf/build --blocks-manifest",
+		"lint": "npm run lint:js && npm run lint:css",
+		"lint:js": "wp-scripts lint-js wp-content/plugins/nsf/src --no-error-on-unmatched-pattern",
+		"lint:css": "wp-scripts lint-style \"wp-content/{themes,plugins}/nsf/**/*.{css,scss}\" --allow-empty-input",
+		"serve": "php -S localhost:8080 bin/router.php",
+		"wp": "php bin/wp",
+		"test:visual": "node tests/visual/run.mjs"
+	},
+	"devDependencies": {
+		"@wordpress/scripts": "^36.1.0"
+	}
+}
