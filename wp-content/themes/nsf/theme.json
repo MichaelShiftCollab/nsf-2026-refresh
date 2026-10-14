@@ -244,7 +244,7 @@
 				{
 					"slug": "80",
 					"name": "Page gutter",
-					"size": "clamp(16px, 8.333vw, 120px)"
+					"size": "clamp(40px, calc(12.14vw - 54.8px), 120px)"
 				}
 			]
 		},
@@ -269,6 +269,9 @@
 				"padding-inline": "20px",
 				"checkbox": "18px",
 				"gap": "12px"
+			},
+			"font-size": {
+				"card-title": "24px"
 			}
 		},
 		"shadow": {

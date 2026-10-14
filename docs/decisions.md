@@ -31,6 +31,15 @@ Answers to the open questions in the build spec and build plan. Newest first.
 | Outline and icon card | White, 2px Light Blue border, 16px radius, icon picked per card; no mockup yet |
 | Featured image card image | 16:9 crop and 24px gap to the text, from the Resources mockup. The Home mockup's cards use a shorter image and a 40px gap; Resources wins until a designer says otherwise |
 | Card grid gap | 30px, from the mockups, added as the `gutter` spacing preset |
+| Resource Hub toolbar placement | Search and facets are the Resource Filter Controls block (left rail); result count, sort, Cards/Table toggle and chips sit in the Resource Results block, where the mockup puts them |
+| Resource Hub URL parameters | `q`, `topics`, `audiences`, `types`, `sort`, `pg`. Plural names because WordPress reserves `topic` and `audience` for the taxonomy archives |
+| Type facet for blog posts | "Article / Blog post", from the mockup; posts and Resources are searched together |
+| Facet counts | Shown in parentheses (the spec asks for counts; the mockup omits them). Options stay listed at 0 so choices do not jump around |
+| Results per page | 9 (three rows of cards). The table mockup shows 10 rows |
+| Featured Resources with fewer than 3 picks | The newest Resources fill the empty cards |
+| Cards/Table cookie | Applied in the browser, not by PHP, so WP Engine's page cache serves one page to everyone |
+| Filters below 782px | A full-screen drawer opened by the "Filters (n)" button; chips are hidden there, as in the 781 and 600 mockups |
+| Page gutter | 32px at 600, 40px at 781, rising to 120px at 1440, from the Resources mockups |
 
 ## Deferred
 

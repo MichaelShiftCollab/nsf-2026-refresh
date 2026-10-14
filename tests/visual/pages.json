@@ -22,10 +22,7 @@
 		"name": "hub-default",
 		"group": "resources",
 		"url": "/sleep-health-resources/",
-		"selector": "#resource-browser",
-		"widths": [
-			1440
-		]
+		"selector": "#resource-browser"
 	},
 	{
 		"name": "hub-filtered",
@@ -35,9 +32,6 @@
 		"selector": "#resource-browser",
 		"ignore": [
 			".nsf-card__media"
-		],
-		"widths": [
-			1440
 		]
 	},
 	{
@@ -49,9 +43,6 @@
 			{
 				"click": "[data-view=\"table\"]"
 			}
-		],
-		"widths": [
-			1440
 		]
 	}
 ]

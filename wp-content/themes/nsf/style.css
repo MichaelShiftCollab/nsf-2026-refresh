@@ -29,3 +29,14 @@ b,
 strong {
 	font-weight: var(--wp--custom--font-weight--bold);
 }
+
+/*
+ * Page gutter below 782px: 40px at 781 and 32px at 600, from the Resources
+ * mockups. theme.json holds the 782–1440 range (40px to 120px).
+ */
+@media (max-width: 781px) {
+
+	:root:root {
+		--wp--preset--spacing--80: clamp(24px, calc(4.42vw + 5.5px), 40px);
+	}
+}

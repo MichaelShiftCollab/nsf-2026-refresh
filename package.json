@@ -13,7 +13,8 @@
 		"serve": "PHP_CLI_SERVER_WORKERS=4 php -S localhost:8080 bin/router.php",
 		"wp": "php bin/wp",
 		"test:visual": "node tests/visual/run.mjs",
-		"mockups:pull": "node tests/visual/pull.mjs"
+		"mockups:pull": "node tests/visual/pull.mjs",
+		"test:hub": "node tests/hub.mjs"
 	},
 	"devDependencies": {
 		"@wordpress/scripts": "^36.1.0",

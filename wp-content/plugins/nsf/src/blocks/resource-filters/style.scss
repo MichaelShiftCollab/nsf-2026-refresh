@@ -213,6 +213,11 @@
 		}
 	}
 
+	// The rail's column takes no space while the rail is a drawer.
+	.nsf-hub-js .wp-block-column:has(> .nsf-hub-filters) {
+		display: contents;
+	}
+
 	.nsf-hub-drawer-open {
 		overflow: hidden;
 	}

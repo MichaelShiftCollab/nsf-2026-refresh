@@ -37,9 +37,11 @@ npm run build           # compile blocks to wp-content/plugins/nsf/build
 npm run start           # watch blocks
 npm run lint            # JS and CSS lint
 npm run test:visual     # screenshot comparison (step 2)
+npm run test:hub        # Resource Hub behavior: in-place filtering, URL state, view cookie (step 7)
 npm run wp -- <args>    # WP-CLI; add --allow-root when running as root
 npm run wp -- nsf terms import   # taxonomy terms from content/taxonomy-terms.json
 npm run wp -- nsf seed [--delete]  # 30 sample resources and 20 posts for building and testing
+npm run wp -- nsf reindex          # rebuild the Resource Hub table sort keys
 npm run wp -- eval-file bin/dev/card-test-page.php  # rebuild the private Card Test page
 ```
 
