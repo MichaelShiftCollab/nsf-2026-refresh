@@ -72,6 +72,61 @@ const crop = ( png, w, h ) => {
 	return out;
 };
 
+// Fills each box with one flat color so the region compares as identical.
+const paint = ( png, boxes ) => {
+	for ( const b of boxes ) {
+		const x0 = Math.max( 0, Math.floor( b.x ) );
+		const y0 = Math.max( 0, Math.floor( b.y ) );
+		const x1 = Math.min( png.width, Math.ceil( b.x + b.width ) );
+		const y1 = Math.min( png.height, Math.ceil( b.y + b.height ) );
+		for ( let y = y0; y < y1; y++ ) {
+			for ( let x = x0; x < x1; x++ ) {
+				const i = ( y * png.width + x ) * 4;
+				png.data[ i ] = 255;
+				png.data[ i + 1 ] = 0;
+				png.data[ i + 2 ] = 255;
+				png.data[ i + 3 ] = 255;
+			}
+		}
+	}
+};
+
+// Boxes of the "ignore" selectors (e.g. photos that differ from the mockup's),
+// relative to the captured element or page.
+async function ignoreBoxes( page, selector, ignore = [] ) {
+	if ( ! ignore.length ) {
+		return [];
+	}
+	return page.evaluate(
+		( [ base, selectors ] ) => {
+			const docRect = ( el ) => {
+				const r = el.getBoundingClientRect();
+				return {
+					x: r.x + window.scrollX,
+					y: r.y + window.scrollY,
+					width: r.width,
+					height: r.height,
+				};
+			};
+			const origin = base
+				? docRect( document.querySelector( base ) )
+				: { x: 0, y: 0 };
+			return selectors.flatMap( ( sel ) =>
+				[ ...document.querySelectorAll( sel ) ].map( ( el ) => {
+					const r = docRect( el );
+					return {
+						x: r.x - origin.x,
+						y: r.y - origin.y,
+						width: r.width,
+						height: r.height,
+					};
+				} )
+			);
+		},
+		[ selector, ignore ]
+	);
+}
+
 async function runActions( page, actions = [] ) {
 	for ( const a of actions ) {
 		if ( a.click ) {
@@ -149,6 +204,8 @@ for ( const entry of pages ) {
 					'#wpadminbar{display:none!important}html{margin-top:0!important}',
 			} );
 			await page.evaluate( () => document.fonts.ready );
+			// Park the pointer so no hover state leaks in from the login click.
+			await page.mouse.move( 0, 0 );
 			await runActions( page, entry.actions );
 			const shotFile = path.join( resultsDir, `${ id }.png` );
 			const options = {
@@ -168,8 +225,15 @@ for ( const entry of pages ) {
 				} );
 			}
 
+			const boxes = await ignoreBoxes(
+				page,
+				entry.selector,
+				entry.ignore
+			);
 			const actual = await readPng( shotFile );
 			const mockup = await readPng( mockupFile );
+			paint( actual, boxes );
+			paint( mockup, boxes );
 			const w = Math.min( actual.width, mockup.width );
 			const h = Math.min( actual.height, mockup.height );
 			const diff = new PNG( { width: w, height: h } );

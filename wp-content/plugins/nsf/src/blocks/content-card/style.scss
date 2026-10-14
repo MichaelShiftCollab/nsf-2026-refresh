@@ -1,0 +1,190 @@
+// Content Card. Every value is a theme.json token. Spacing follows the
+// Resources and Home mockups (154:459, 464:139) and the navy wireframe
+// (489:219).
+
+.nsf-card {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	overflow: hidden;
+	color: var(--wp--preset--color--gray);
+	font-family: var(--wp--preset--font-family--open-sans);
+
+	&__media {
+		aspect-ratio: 16 / 9;
+		overflow: hidden;
+	}
+
+	&__image {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	&__body {
+		display: flex;
+		flex: 1;
+		flex-direction: column;
+		gap: var(--wp--preset--spacing--20);
+		padding: var(--wp--preset--spacing--30) var(--wp--preset--spacing--30) var(--wp--preset--spacing--40);
+
+		> * {
+			margin: 0;
+			text-box: trim-both cap alphabetic;
+		}
+	}
+
+	&__eyebrow {
+		color: var(--wp--preset--color--primary-orange);
+		font-size: var(--wp--preset--font-size--x-small);
+		font-weight: 700;
+		line-height: 1.4286;
+		letter-spacing: var(--wp--custom--letter-spacing--caps);
+		text-transform: uppercase;
+	}
+
+	&__title {
+		color: var(--wp--preset--color--primary-blue);
+		font-family: var(--wp--preset--font-family--open-sans);
+		font-size: var(--wp--preset--font-size--medium);
+		font-weight: 600;
+		line-height: 1.3333;
+		letter-spacing: normal;
+		text-transform: none;
+	}
+
+	&__link {
+		color: inherit;
+		text-decoration: none;
+
+		// The title link covers the whole card.
+		&::after {
+			content: "";
+			position: absolute;
+			z-index: 1;
+			inset: 0;
+		}
+
+		&:focus {
+			outline: none;
+		}
+	}
+
+	&.has-link:hover &__title {
+		text-decoration: underline;
+		text-decoration-thickness: 1px;
+		text-underline-offset: 0.15em;
+	}
+
+	&:focus-within {
+		outline: var(--wp--custom--border--button) solid var(--wp--preset--color--primary-orange);
+		outline-offset: var(--wp--custom--border--button);
+	}
+
+	&__excerpt {
+		font-size: var(--wp--preset--font-size--small);
+		line-height: 1.5;
+	}
+
+	&__meta {
+		color: var(--wp--preset--color--primary-blue);
+		font-size: var(--wp--preset--font-size--x-small);
+		line-height: 1.4286;
+		white-space: pre-wrap;
+	}
+
+	&__more {
+		margin-top: auto;
+		font-size: var(--wp--preset--font-size--small);
+		font-weight: 600;
+	}
+
+	&__arrow {
+		margin-left: 0.25em;
+	}
+
+	// Featured image: white card, frame corner, soft shadow.
+	&--featured-image {
+		border-top-right-radius: var(--wp--custom--radius--frame);
+		background: var(--wp--preset--color--white);
+		box-shadow: var(--wp--preset--shadow--card);
+
+		.nsf-card__media {
+			border-top-right-radius: var(--wp--custom--radius--frame);
+		}
+	}
+
+	// Navy fill: related child pages (provisional, from the wireframe).
+	&--navy {
+		background: var(--wp--preset--color--dark-blue);
+		color: var(--wp--preset--color--light-blue);
+
+		.nsf-card__body {
+			gap: var(--wp--preset--spacing--20);
+			padding: var(--wp--preset--spacing--40);
+		}
+
+		.nsf-card__eyebrow {
+			color: var(--wp--preset--color--medium-orange);
+		}
+
+		.nsf-card__meta {
+			color: var(--wp--preset--color--light-blue);
+		}
+
+		.nsf-card__title,
+		.nsf-card__more {
+			color: var(--wp--preset--color--white);
+		}
+	}
+
+	// Outline and icon: for main parent pages (provisional, no mockup yet).
+	&--outline-icon {
+		border: var(--wp--custom--border--button) solid var(--wp--preset--color--light-blue);
+		border-radius: var(--wp--custom--radius--card);
+		background: var(--wp--preset--color--white);
+
+		.nsf-card__media {
+			aspect-ratio: auto;
+			padding: var(--wp--preset--spacing--40) var(--wp--preset--spacing--40) 0;
+		}
+
+		.nsf-card__icon {
+			display: block;
+			width: var(--wp--preset--spacing--60);
+			height: var(--wp--preset--spacing--60);
+			object-fit: contain;
+		}
+
+		.nsf-card__body {
+			padding: var(--wp--preset--spacing--30) var(--wp--preset--spacing--40) var(--wp--preset--spacing--40);
+		}
+
+		.nsf-card__media + .nsf-card__body {
+			padding-top: var(--wp--preset--spacing--30);
+		}
+
+		.nsf-card__more {
+			color: var(--wp--preset--color--primary-blue);
+		}
+	}
+}
+
+// Query Loop grids: cards fill their cell.
+.wp-block-post-template.is-layout-grid > li > .nsf-card {
+	height: 100%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+
+	.nsf-card__arrow {
+		display: inline-block;
+		transition: transform 0.15s ease-out;
+	}
+
+	.nsf-card.has-link:hover .nsf-card__arrow {
+		transform: translateX(0.25em);
+	}
+}

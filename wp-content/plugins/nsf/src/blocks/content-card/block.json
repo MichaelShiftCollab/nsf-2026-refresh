@@ -1,0 +1,71 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "nsf/content-card",
+	"title": "Content Card",
+	"category": "design",
+	"icon": "id-alt",
+	"description": "A linked card for a post, page or resource. Pick a post, or place it in a Query Loop post template.",
+	"keywords": [ "card", "teaser", "resource" ],
+	"textdomain": "nsf",
+	"usesContext": [ "postId", "postType" ],
+	"attributes": {
+		"variant": {
+			"type": "string",
+			"enum": [ "featured-image", "navy", "outline-icon" ],
+			"default": "featured-image"
+		},
+		"postId": {
+			"type": "integer"
+		},
+		"postType": {
+			"type": "string"
+		},
+		"eyebrow": {
+			"type": "string",
+			"default": ""
+		},
+		"title": {
+			"type": "string",
+			"default": ""
+		},
+		"excerpt": {
+			"type": "string",
+			"default": ""
+		},
+		"url": {
+			"type": "string",
+			"default": ""
+		},
+		"linkText": {
+			"type": "string",
+			"default": ""
+		},
+		"mediaId": {
+			"type": "integer"
+		},
+		"showExcerpt": {
+			"type": "boolean",
+			"default": true
+		},
+		"showMeta": {
+			"type": "boolean",
+			"default": false
+		},
+		"headingLevel": {
+			"type": "integer",
+			"default": 3
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": false,
+		"spacing": {
+			"margin": [ "top", "bottom" ]
+		}
+	},
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

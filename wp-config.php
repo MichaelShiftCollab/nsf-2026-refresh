@@ -32,6 +32,7 @@ defined( 'WP_DEBUG_LOG' ) || define( 'WP_DEBUG_LOG', true );
 defined( 'WP_DEBUG_DISPLAY' ) || define( 'WP_DEBUG_DISPLAY', false );
 defined( 'WP_ENVIRONMENT_TYPE' ) || define( 'WP_ENVIRONMENT_TYPE', 'local' );
 defined( 'WP_DEVELOPMENT_MODE' ) || define( 'WP_DEVELOPMENT_MODE', 'all' ); // No theme.json or pattern caching locally.
+defined( 'DISABLE_WP_CRON' ) || define( 'DISABLE_WP_CRON', true ); // The PHP dev server can stall on cron's loopback request.
 
 if ( ! defined( 'ABSPATH' ) ) {
 	define( 'ABSPATH', __DIR__ . '/' );

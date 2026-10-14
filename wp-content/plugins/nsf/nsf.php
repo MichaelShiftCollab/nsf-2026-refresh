@@ -21,6 +21,7 @@ define( 'NSF_URL', plugin_dir_url( __FILE__ ) );
 require_once NSF_PATH . 'includes/blocks.php';
 require_once NSF_PATH . 'includes/content-model.php';
 require_once NSF_PATH . 'includes/resource-file.php';
+require_once NSF_PATH . 'includes/content-card.php';
 
 if ( defined( 'WP_CLI' ) && WP_CLI ) {
 	require_once NSF_PATH . 'cli/class-nsf-cli.php';

@@ -217,6 +217,11 @@
 					"size": "24px"
 				},
 				{
+					"name": "Gutter (grid gap)",
+					"slug": "gutter",
+					"size": "30px"
+				},
+				{
 					"slug": "40",
 					"name": "32",
 					"size": "32px"
@@ -246,7 +251,8 @@
 		"custom": {
 			"radius": {
 				"pill": "100px",
-				"frame": "72px"
+				"frame": "72px",
+				"card": "16px"
 			},
 			"border": {
 				"button": "2px",
@@ -255,6 +261,16 @@
 			"letter-spacing": {
 				"caps": "0.08em"
 			}
+		},
+		"shadow": {
+			"defaultPresets": false,
+			"presets": [
+				{
+					"name": "Card",
+					"slug": "card",
+					"shadow": "8px 8px 8px 0 color-mix(in srgb, var(--wp--preset--color--light-blue) 50%, transparent)"
+				}
+			]
 		}
 	},
 	"styles": {

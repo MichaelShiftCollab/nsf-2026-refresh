@@ -73,4 +73,7 @@ fi
 npm install
 npm run build
 
+# Private Card Test page (build plan step 6); seed content first with: php bin/wp nsf seed --allow-root
+$WP eval-file bin/dev/card-test-page.php
+
 echo "Done. Run 'npm run serve' and open $URL (admin / admin)."

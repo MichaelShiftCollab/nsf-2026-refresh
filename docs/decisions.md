@@ -27,6 +27,10 @@ Answers to the open questions in the build spec and build plan. Newest first.
 | Blog posts and Resources source | WXR export of the current site (step 17) |
 | Dark Blue hex | Taken from the Styling frame swatch in step 3 |
 | Sponsor post type | Not built |
+| Navy content card colors | Dark Blue fill, Medium Orange eyebrow, white title and link, Light Blue text (the wireframe is gray) |
+| Outline and icon card | White, 2px Light Blue border, 16px radius, icon picked per card; no mockup yet |
+| Featured image card image | 16:9 crop and 24px gap to the text, from the Resources mockup. The Home mockup's cards use a shorter image and a 40px gap; Resources wins until a designer says otherwise |
+| Card grid gap | 30px, from the mockups, added as the `gutter` spacing preset |
 
 ## Deferred
 

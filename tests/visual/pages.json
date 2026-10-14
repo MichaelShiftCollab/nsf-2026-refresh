@@ -5,5 +5,14 @@
 		"url": "/style-guide/",
 		"widths": [ 1440 ],
 		"auth": true
+	},
+	{
+		"name": "cards-featured",
+		"group": "cards",
+		"url": "/card-test/",
+		"selector": "#cards-featured",
+		"ignore": [ "#cards-featured .nsf-card__media" ],
+		"widths": [ 1440 ],
+		"auth": true
 	}
 ]

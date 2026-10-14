@@ -4,7 +4,7 @@ Compares the local site to Figma mockups with Playwright and pixelmatch.
 
 - `mockups.json`: Figma frames to export (`name`, Figma `node` id, `width`).
 - `mockups/<name>-<width>.png`: exported mockups at 1x. Committed.
-- `pages.json`: what to capture. Fields: `name`, `url` (path on the site), `widths` (default 1440, 781, 600), optional `group` (for `--grep`), `mockup` (mockup name if different from `name`), `selector` (capture one section), `actions`, `auth` (log in first, for private pages; uses WP_USER and WP_PASS, default admin/admin), `threshold` (percent mismatch allowed, default 10), `heightTolerance` (percent of mockup height, default 15), `fullPage` (default true).
+- `pages.json`: what to capture. Fields: `name`, `url` (path on the site), `widths` (default 1440, 781, 600), optional `group` (for `--grep`), `mockup` (mockup name if different from `name`), `selector` (capture one section), `actions`, `auth` (log in first, for private pages; uses WP_USER and WP_PASS, default admin/admin), `threshold` (percent mismatch allowed, default 10), `heightTolerance` (percent of mockup height, default 15), `fullPage` (default true), `ignore` (selectors whose boxes are blanked in both images before comparing, for photos that differ from the mockup).
 - `actions`: run in order before capture. Each is one of `{ "click": sel }`, `{ "hover": sel }`, `{ "select": sel, "value": v }`, `{ "check": sel }`, `{ "fill": sel, "value": v }`, `{ "scroll": y }`, `{ "waitFor": sel }`, `{ "wait": ms }`.
 
 ## Commands

@@ -1,0 +1,13 @@
+// The editor preview is server-rendered; links in it must not navigate.
+.wp-block-nsf-content-card {
+	height: 100%;
+
+	a {
+		pointer-events: none;
+	}
+}
+
+.nsf-card--empty {
+	padding: var(--wp--preset--spacing--30);
+	border: 1px dashed var(--wp--preset--color--gray);
+}

@@ -22,3 +22,17 @@ function nsf_theme_enqueue_styles() {
 	);
 }
 add_action( 'wp_enqueue_scripts', 'nsf_theme_enqueue_styles' );
+
+/**
+ * Register the NSF pattern categories.
+ */
+function nsf_theme_pattern_categories() {
+	register_block_pattern_category(
+		'nsf-cards',
+		array(
+			'label'       => __( 'NSF: Cards', 'nsf' ),
+			'description' => __( 'Content Card grids.', 'nsf' ),
+		)
+	);
+}
+add_action( 'init', 'nsf_theme_pattern_categories' );
