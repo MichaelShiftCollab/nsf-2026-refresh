@@ -64,6 +64,12 @@ fi
 $WP plugin activate sqlite-database-integration nsf
 $WP theme activate nsf
 
+# Private Style Guide page (build plan step 3); the visual test compares it to the Figma Styling frame.
+if [ -z "$($WP post list --post_type=page --name=style-guide --post_status=any --format=ids)" ]; then
+	$WP post create --post_type=page --post_title="Style Guide" --post_name=style-guide --post_status=private \
+		--page_template=blank --post_content='<!-- wp:pattern {"slug":"nsf/style-guide"} /-->'
+fi
+
 npm install
 npm run build
 

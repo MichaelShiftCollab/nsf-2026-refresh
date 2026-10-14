@@ -1,0 +1,15 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"title": "Paragraph 2",
+	"slug": "paragraph-2",
+	"blockTypes": [
+		"core/paragraph"
+	],
+	"styles": {
+		"typography": {
+			"fontSize": "var(--wp--preset--font-size--medium)",
+			"lineHeight": "1.3333"
+		}
+	}
+}

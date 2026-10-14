@@ -1,0 +1,15 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"title": "Section: Light Orange to White",
+	"slug": "section-light-orange-to-white",
+	"blockTypes": [
+		"core/group"
+	],
+	"styles": {
+		"color": {
+			"gradient": "var(--wp--preset--gradient--light-orange-to-white)",
+			"text": "var(--wp--preset--color--gray)"
+		}
+	}
+}

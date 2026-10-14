@@ -31,6 +31,7 @@ defined( 'WP_DEBUG' ) || define( 'WP_DEBUG', true );
 defined( 'WP_DEBUG_LOG' ) || define( 'WP_DEBUG_LOG', true );
 defined( 'WP_DEBUG_DISPLAY' ) || define( 'WP_DEBUG_DISPLAY', false );
 defined( 'WP_ENVIRONMENT_TYPE' ) || define( 'WP_ENVIRONMENT_TYPE', 'local' );
+defined( 'WP_DEVELOPMENT_MODE' ) || define( 'WP_DEVELOPMENT_MODE', 'all' ); // No theme.json or pattern caching locally.
 
 if ( ! defined( 'ABSPATH' ) ) {
 	define( 'ABSPATH', __DIR__ . '/' );

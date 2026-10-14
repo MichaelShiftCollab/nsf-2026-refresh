@@ -12,3 +12,20 @@ License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: nsf
 */
+
+/* Style Guide page only: show the sample buttons in their hover state. */
+.wp-block-button.nsf-is-hover .wp-block-button__link {
+	background-color: transparent;
+	color: var(--wp--preset--color--primary-orange);
+}
+
+.wp-block-button.is-style-secondary.nsf-is-hover .wp-block-button__link {
+	background-color: var(--wp--preset--color--primary-blue);
+	color: var(--wp--preset--color--white);
+}
+
+/* Frost sets strong to medium; the NSF type scale uses bold. */
+b,
+strong {
+	font-weight: var(--wp--custom--font-weight--bold);
+}

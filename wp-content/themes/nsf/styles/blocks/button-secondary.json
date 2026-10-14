@@ -1,0 +1,19 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"title": "Secondary",
+	"slug": "secondary",
+	"blockTypes": [
+		"core/button"
+	],
+	"styles": {
+		"color": {
+			"background": "transparent",
+			"text": "var(--wp--preset--color--primary-blue)"
+		},
+		"border": {
+			"color": "var(--wp--preset--color--primary-blue)"
+		},
+		"css": "&:hover{background-color:var(--wp--preset--color--primary-blue);color:var(--wp--preset--color--white);border-color:var(--wp--preset--color--primary-blue);} &:focus{background-color:var(--wp--preset--color--primary-blue);color:var(--wp--preset--color--white);border-color:var(--wp--preset--color--primary-blue);}"
+	}
+}

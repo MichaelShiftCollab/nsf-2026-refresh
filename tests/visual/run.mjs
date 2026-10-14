@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 // Screenshot comparison: captures each pages.json entry at each width with Playwright,
 // compares it to tests/visual/mockups/<mockup>-<width>.png with pixelmatch, and writes
 // screenshots, diffs, results.json and report.html to tests/visual/results.
@@ -21,13 +22,41 @@ const arg = ( name ) => {
 	return i === -1 ? undefined : args[ i + 1 ];
 };
 const grep = arg( '--grep' )?.toLowerCase();
-const baseUrl = ( arg( '--base-url' ) || process.env.BASE_URL || 'http://localhost:8080' ).replace( /\/$/, '' );
+const baseUrl = (
+	arg( '--base-url' ) ||
+	process.env.BASE_URL ||
+	'http://localhost:8080'
+).replace( /\/$/, '' );
 
-const pages = JSON.parse( await fs.readFile( path.join( dir, 'pages.json' ), 'utf8' ) ).filter(
-	( p ) => ! grep || [ p.name, p.group ].some( ( v ) => v?.toLowerCase().includes( grep ) )
+const wpUser = process.env.WP_USER || 'admin';
+const wpPass = process.env.WP_PASS || 'admin';
+
+// Logs in for entries with "auth": true (private pages). The admin bar is hidden before capture.
+async function logIn( page, url ) {
+	await page.goto(
+		`${ baseUrl }/wp-login.php?redirect_to=${ encodeURIComponent( url ) }`
+	);
+	await page.fill( '#user_login', wpUser );
+	await page.fill( '#user_pass', wpPass );
+	await Promise.all( [
+		page.waitForURL( url, { timeout: 60000 } ),
+		page.click( '#wp-submit' ),
+	] );
+}
+
+const pages = JSON.parse(
+	await fs.readFile( path.join( dir, 'pages.json' ), 'utf8' )
+).filter(
+	( p ) =>
+		! grep ||
+		[ p.name, p.group ].some( ( v ) => v?.toLowerCase().includes( grep ) )
 );
 if ( ! pages.length ) {
-	console.error( grep ? `No pages.json entries match "${ grep }".` : 'pages.json is empty.' );
+	console.error(
+		grep
+			? `No pages.json entries match "${ grep }".`
+			: 'pages.json is empty.'
+	);
 	process.exit( 1 );
 }
 
@@ -45,14 +74,30 @@ const crop = ( png, w, h ) => {
 
 async function runActions( page, actions = [] ) {
 	for ( const a of actions ) {
-		if ( a.click ) await page.click( a.click );
-		if ( a.hover ) await page.hover( a.hover );
-		if ( a.select ) await page.selectOption( a.select, a.value );
-		if ( a.check ) await page.check( a.check );
-		if ( a.fill ) await page.fill( a.fill, a.value ?? '' );
-		if ( a.scroll !== undefined ) await page.evaluate( ( y ) => window.scrollTo( 0, y ), a.scroll );
-		if ( a.waitFor ) await page.waitForSelector( a.waitFor );
-		if ( a.wait ) await page.waitForTimeout( a.wait );
+		if ( a.click ) {
+			await page.click( a.click );
+		}
+		if ( a.hover ) {
+			await page.hover( a.hover );
+		}
+		if ( a.select ) {
+			await page.selectOption( a.select, a.value );
+		}
+		if ( a.check ) {
+			await page.check( a.check );
+		}
+		if ( a.fill ) {
+			await page.fill( a.fill, a.value ?? '' );
+		}
+		if ( a.scroll !== undefined ) {
+			await page.evaluate( ( y ) => window.scrollTo( 0, y ), a.scroll );
+		}
+		if ( a.waitFor ) {
+			await page.waitForSelector( a.waitFor );
+		}
+		if ( a.wait ) {
+			await page.waitForTimeout( a.wait );
+		}
 	}
 }
 
@@ -62,30 +107,65 @@ const results = [];
 for ( const entry of pages ) {
 	for ( const width of entry.widths || [ 1440, 781, 600 ] ) {
 		const id = `${ entry.name }-${ width }`;
-		const mockupFile = path.join( dir, 'mockups', `${ entry.mockup || entry.name }-${ width }.png` );
+		const mockupFile = path.join(
+			dir,
+			'mockups',
+			`${ entry.mockup || entry.name }-${ width }.png`
+		);
 		const threshold = entry.threshold ?? DEFAULT_THRESHOLD;
-		const result = { id, name: entry.name, width, url: baseUrl + entry.url, threshold };
+		const result = {
+			id,
+			name: entry.name,
+			width,
+			url: baseUrl + entry.url,
+			threshold,
+		};
 		results.push( result );
 
-		const hasMockup = await fs.access( mockupFile ).then( () => true, () => false );
+		const hasMockup = await fs.access( mockupFile ).then(
+			() => true,
+			() => false
+		);
 		if ( ! hasMockup ) {
 			result.status = 'no-mockup';
 			continue;
 		}
 
-		const context = await browser.newContext( { viewport: { width, height: 800 }, reducedMotion: 'reduce' } );
+		const context = await browser.newContext( {
+			viewport: { width, height: 800 },
+			reducedMotion: 'reduce',
+		} );
 		const page = await context.newPage();
 		try {
-			const response = await page.goto( result.url, { waitUntil: 'networkidle' } );
+			if ( entry.auth ) {
+				await logIn( page, result.url );
+			}
+			const response = await page.goto( result.url, {
+				waitUntil: 'networkidle',
+			} );
 			result.httpStatus = response?.status();
+			await page.addStyleTag( {
+				content:
+					'#wpadminbar{display:none!important}html{margin-top:0!important}',
+			} );
 			await page.evaluate( () => document.fonts.ready );
 			await runActions( page, entry.actions );
 			const shotFile = path.join( resultsDir, `${ id }.png` );
-			const options = { path: shotFile, animations: 'disabled', caret: 'hide' };
+			const options = {
+				path: shotFile,
+				animations: 'disabled',
+				caret: 'hide',
+			};
 			if ( entry.selector ) {
-				await page.locator( entry.selector ).first().screenshot( options );
+				await page
+					.locator( entry.selector )
+					.first()
+					.screenshot( options );
 			} else {
-				await page.screenshot( { ...options, fullPage: entry.fullPage ?? true } );
+				await page.screenshot( {
+					...options,
+					fullPage: entry.fullPage ?? true,
+				} );
 			}
 
 			const actual = await readPng( shotFile );
@@ -93,20 +173,44 @@ for ( const entry of pages ) {
 			const w = Math.min( actual.width, mockup.width );
 			const h = Math.min( actual.height, mockup.height );
 			const diff = new PNG( { width: w, height: h } );
-			const mismatched = pixelmatch( crop( actual, w, h ).data, crop( mockup, w, h ).data, diff.data, w, h, {
-				threshold: 0.1,
-			} );
+			const mismatched = pixelmatch(
+				crop( actual, w, h ).data,
+				crop( mockup, w, h ).data,
+				diff.data,
+				w,
+				h,
+				{
+					threshold: 0.1,
+				}
+			);
 
-			await fs.writeFile( path.join( resultsDir, `${ id }-diff.png` ), PNG.sync.write( diff ) );
-			await fs.copyFile( mockupFile, path.join( resultsDir, `${ id }-mockup.png` ) );
+			await fs.writeFile(
+				path.join( resultsDir, `${ id }-diff.png` ),
+				PNG.sync.write( diff )
+			);
+			await fs.copyFile(
+				mockupFile,
+				path.join( resultsDir, `${ id }-mockup.png` )
+			);
 
-			result.mismatch = Number( ( ( mismatched / ( w * h ) ) * 100 ).toFixed( 2 ) );
-			result.size = { actual: [ actual.width, actual.height ], mockup: [ mockup.width, mockup.height ] };
+			result.mismatch = Number(
+				( ( mismatched / ( w * h ) ) * 100 ).toFixed( 2 )
+			);
+			result.size = {
+				actual: [ actual.width, actual.height ],
+				mockup: [ mockup.width, mockup.height ],
+			};
 			result.heightDiff = actual.height - mockup.height;
 			result.widthDiff = actual.width - mockup.width;
-			const heightTolerance = entry.heightTolerance ?? DEFAULT_HEIGHT_TOLERANCE;
-			result.heightOk = Math.abs( result.heightDiff ) <= ( mockup.height * heightTolerance ) / 100;
-			result.status = result.mismatch <= threshold && result.heightOk ? 'pass' : 'fail';
+			const heightTolerance =
+				entry.heightTolerance ?? DEFAULT_HEIGHT_TOLERANCE;
+			result.heightOk =
+				Math.abs( result.heightDiff ) <=
+				( mockup.height * heightTolerance ) / 100;
+			result.status =
+				result.mismatch <= threshold && result.heightOk
+					? 'pass'
+					: 'fail';
 		} catch ( error ) {
 			result.status = 'error';
 			result.error = error.message.split( '\n' )[ 0 ];
@@ -117,23 +221,41 @@ for ( const entry of pages ) {
 
 await browser.close();
 
-await fs.writeFile( path.join( resultsDir, 'results.json' ), JSON.stringify( results, null, '\t' ) );
+await fs.writeFile(
+	path.join( resultsDir, 'results.json' ),
+	JSON.stringify( results, null, '\t' )
+);
 await fs.writeFile( path.join( resultsDir, 'report.html' ), report( results ) );
 
 for ( const r of results ) {
-	const detail =
-		r.status === 'no-mockup'
-			? 'no mockup yet'
-			: r.status === 'error'
-			? r.error
-			: `${ r.mismatch }% mismatch (limit ${ r.threshold }%), height ${ r.heightDiff >= 0 ? '+' : '' }${ r.heightDiff }px${ r.heightOk ? '' : ' (too far off)' }`;
-	console.log( `${ r.status.toUpperCase().padEnd( 9 ) } ${ r.id.padEnd( 32 ) } ${ detail }` );
+	let detail = `${ r.mismatch }% mismatch (limit ${ r.threshold }%), height ${
+		r.heightDiff >= 0 ? '+' : ''
+	}${ r.heightDiff }px${ r.heightOk ? '' : ' (too far off)' }`;
+	if ( r.status === 'no-mockup' ) {
+		detail = 'no mockup yet';
+	} else if ( r.status === 'error' ) {
+		detail = r.error;
+	}
+	console.log(
+		`${ r.status.toUpperCase().padEnd( 9 ) } ${ r.id.padEnd( 32 ) } ${ detail }`
+	);
 }
-console.log( `\nReport: ${ path.relative( process.cwd(), path.join( resultsDir, 'report.html' ) ) }` );
-if ( results.some( ( r ) => r.status === 'fail' || r.status === 'error' ) ) process.exitCode = 1;
+console.log(
+	`\nReport: ${ path.relative( process.cwd(), path.join( resultsDir, 'report.html' ) ) }`
+);
+if ( results.some( ( r ) => r.status === 'fail' || r.status === 'error' ) ) {
+	process.exitCode = 1;
+}
 
 function report( rows ) {
-	const esc = ( s ) => String( s ).replace( /[&<>"]/g, ( c ) => ( { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' } )[ c ] );
+	const esc = ( s ) =>
+		String( s ).replace(
+			/[&<>"]/g,
+			( c ) =>
+				( { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' } )[
+					c
+				]
+		);
 	const body = rows
 		.map( ( r ) => {
 			const head = `<h2><span class="badge ${ r.status }">${ r.status }</span> ${ esc( r.id ) }</h2>
@@ -142,7 +264,9 @@ function report( rows ) {
 					? ` · ${ r.mismatch }% mismatch (limit ${ r.threshold }%) · screenshot ${ r.size.actual.join( '×' ) }, mockup ${ r.size.mockup.join( '×' ) } (height ${ r.heightDiff >= 0 ? '+' : '' }${ r.heightDiff }px)`
 					: ''
 			}${ r.error ? ` · ${ esc( r.error ) }` : '' }</p>`;
-			if ( r.mismatch === undefined ) return `<section>${ head }</section>`;
+			if ( r.mismatch === undefined ) {
+				return `<section>${ head }</section>`;
+			}
 			return `<section>${ head }<div class="grid">
 <figure><figcaption>Screenshot</figcaption><img src="${ r.id }.png" loading="lazy"></figure>
 <figure><figcaption>Mockup</figcaption><img src="${ r.id }-mockup.png" loading="lazy"></figure>

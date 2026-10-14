@@ -1,0 +1,15 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"title": "Section: Light Blue to Light Orange",
+	"slug": "section-light-blue-to-light-orange",
+	"blockTypes": [
+		"core/group"
+	],
+	"styles": {
+		"color": {
+			"gradient": "var(--wp--preset--gradient--light-blue-to-light-orange)",
+			"text": "var(--wp--preset--color--gray)"
+		}
+	}
+}

@@ -1,8 +1,9 @@
 [
 	{
 		"name": "styling",
+		"group": "tokens",
 		"url": "/style-guide/",
 		"widths": [ 1440 ],
-		"note": "Style Guide page is created in build plan step 3; fails until then."
+		"auth": true
 	}
 ]

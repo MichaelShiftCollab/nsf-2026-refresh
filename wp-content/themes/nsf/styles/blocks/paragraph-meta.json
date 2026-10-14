@@ -1,0 +1,18 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"title": "Meta Text",
+	"slug": "meta",
+	"blockTypes": [
+		"core/paragraph"
+	],
+	"styles": {
+		"color": {
+			"text": "var(--wp--preset--color--primary-blue)"
+		},
+		"typography": {
+			"fontSize": "var(--wp--preset--font-size--x-small)",
+			"lineHeight": "1.4286"
+		}
+	}
+}

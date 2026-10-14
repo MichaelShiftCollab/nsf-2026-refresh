@@ -1,0 +1,12 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"title": "Frame",
+	"slug": "frame",
+	"blockTypes": [
+		"core/image"
+	],
+	"styles": {
+		"css": "& img{border-radius:0 var(--wp--custom--radius--frame) 0 var(--wp--custom--radius--frame);}"
+	}
+}

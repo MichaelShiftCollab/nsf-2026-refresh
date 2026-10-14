@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 // Exports the Figma frames in mockups.json to mockups/<name>-<width>.png at 1x.
 // Needs a Figma personal access token in FIGMA_TOKEN. Existing files are kept unless --force.
 // Without network access to api.figma.com, export through the Figma MCP server instead
@@ -11,13 +12,18 @@ const FILE_KEY = 'mVNfIISs9yQQurddJagkfU';
 const force = process.argv.includes( '--force' );
 const token = process.env.FIGMA_TOKEN;
 
-const mockups = JSON.parse( await fs.readFile( path.join( dir, 'mockups.json' ), 'utf8' ) );
+const mockups = JSON.parse(
+	await fs.readFile( path.join( dir, 'mockups.json' ), 'utf8' )
+);
 await fs.mkdir( path.join( dir, 'mockups' ), { recursive: true } );
 
 const todo = [];
 for ( const m of mockups ) {
 	const file = path.join( dir, 'mockups', `${ m.name }-${ m.width }.png` );
-	const exists = await fs.access( file ).then( () => true, () => false );
+	const exists = await fs.access( file ).then(
+		() => true,
+		() => false
+	);
 	if ( exists && ! force ) {
 		console.log( `keep   ${ path.basename( file ) }` );
 	} else {
@@ -26,15 +32,20 @@ for ( const m of mockups ) {
 }
 
 if ( todo.length && ! token ) {
-	console.error( `Missing FIGMA_TOKEN; cannot export ${ todo.map( ( m ) => m.name ).join( ', ' ) }.` );
+	console.error(
+		`Missing FIGMA_TOKEN; cannot export ${ todo.map( ( m ) => m.name ).join( ', ' ) }.`
+	);
 	process.exit( 1 );
 }
 
 if ( todo.length ) {
 	const ids = todo.map( ( m ) => m.node ).join( ',' );
-	const res = await fetch( `https://api.figma.com/v1/images/${ FILE_KEY }?ids=${ encodeURIComponent( ids ) }&format=png&scale=1`, {
-		headers: { 'X-Figma-Token': token },
-	} );
+	const res = await fetch(
+		`https://api.figma.com/v1/images/${ FILE_KEY }?ids=${ encodeURIComponent( ids ) }&format=png&scale=1`,
+		{
+			headers: { 'X-Figma-Token': token },
+		}
+	);
 	if ( ! res.ok ) {
 		console.error( `Figma API ${ res.status }: ${ await res.text() }` );
 		process.exit( 1 );
