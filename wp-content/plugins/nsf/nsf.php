@@ -19,3 +19,9 @@ define( 'NSF_PATH', plugin_dir_path( __FILE__ ) );
 define( 'NSF_URL', plugin_dir_url( __FILE__ ) );
 
 require_once NSF_PATH . 'includes/blocks.php';
+require_once NSF_PATH . 'includes/content-model.php';
+require_once NSF_PATH . 'includes/resource-file.php';
+
+if ( defined( 'WP_CLI' ) && WP_CLI ) {
+	require_once NSF_PATH . 'cli/class-nsf-cli.php';
+}
