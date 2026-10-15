@@ -221,5 +221,75 @@
 			".wp-block-post-featured-image",
 			".nsf-card__media"
 		]
+	},
+	{
+		"name": "national-programs",
+		"group": "interior",
+		"url": "/national-programs/",
+		"ignore": [
+			".nsf-photo",
+			".wp-block-image img",
+			".wp-block-cover__image-background"
+		]
+	},
+	{
+		"name": "sleep-awareness-week",
+		"group": "interior",
+		"url": "/national-programs/sleep-awareness-week/",
+		"ignore": [
+			".nsf-photo",
+			".wp-block-image img",
+			".wp-block-cover__image-background"
+		]
+	},
+	{
+		"name": "drowsy-driving-prevention-week",
+		"group": "interior",
+		"url": "/national-programs/drowsy-driving-prevention-week/",
+		"ignore": [
+			".nsf-photo",
+			".wp-block-image img",
+			".wp-block-cover__image-background"
+		]
+	},
+	{
+		"name": "drowsy-driving-resource-center",
+		"group": "interior",
+		"url": "/national-programs/drowsy-driving-prevention-week/drowsy-driving-prevention-resources/",
+		"ignore": [
+			".nsf-photo",
+			".wp-block-image img",
+			".wp-block-cover__image-background"
+		]
+	},
+	{
+		"name": "sleep-in-america-polls",
+		"group": "interior",
+		"url": "/research/nsf-research-reports/sleep-in-america-polls/",
+		"ignore": [
+			".nsf-photo",
+			".wp-block-image img",
+			".wp-block-cover__image-background"
+		]
+	},
+	{
+		"name": "sleeptech-network-membership",
+		"group": "interior",
+		"url": "/sleeptech/sleeptech-network/sleeptech-network-membership/",
+		"ignore": [
+			".nsf-photo",
+			".wp-block-image img",
+			".wp-block-cover__image-background"
+		]
+	},
+	{
+		"name": "media-center",
+		"group": "interior",
+		"url": "/media-center/",
+		"ignore": [
+			".nsf-photo",
+			".wp-block-image img",
+			".wp-block-cover__image-background"
+		]
 	}
 ]

@@ -1,0 +1,27 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"title": "Title band",
+	"slug": "section-title-band",
+	"blockTypes": [
+		"core/group"
+	],
+	"styles": {
+		"color": {
+			"gradient": "var(--wp--preset--gradient--inner-page-heading)",
+			"text": "var(--wp--preset--color--white)"
+		},
+		"elements": {
+			"heading": {
+				"color": {
+					"text": "var(--wp--preset--color--white)"
+				}
+			},
+			"link": {
+				"color": {
+					"text": "var(--wp--preset--color--white)"
+				}
+			}
+		}
+	}
+}

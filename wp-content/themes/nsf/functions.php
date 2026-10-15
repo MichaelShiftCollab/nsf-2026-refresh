@@ -41,6 +41,46 @@ function nsf_theme_enqueue_listing_styles() {
 add_action( 'wp_enqueue_scripts', 'nsf_theme_enqueue_listing_styles' );
 
 /**
+ * Interior page section styles (build plan step 15): one file per page in
+ * assets/css/pages/, loaded on every page and in the editor so the sections
+ * can be reused anywhere.
+ *
+ * @return string[] Theme-relative paths.
+ */
+function nsf_theme_page_styles() {
+	return array_map(
+		static fn( $file ) => 'assets/css/pages/' . basename( $file ),
+		glob( __DIR__ . '/assets/css/pages/*.css' )
+	);
+}
+
+/**
+ * Enqueue the interior page section styles on pages.
+ */
+function nsf_theme_enqueue_page_styles() {
+	if ( ! is_page() ) {
+		return;
+	}
+	foreach ( nsf_theme_page_styles() as $file ) {
+		wp_enqueue_style(
+			'nsf-page-' . basename( $file, '.css' ),
+			get_theme_file_uri( $file ),
+			array( 'nsf-theme' ),
+			wp_get_theme()->get( 'Version' )
+		);
+	}
+}
+add_action( 'wp_enqueue_scripts', 'nsf_theme_enqueue_page_styles' );
+
+/**
+ * Show the interior page section styles in the editor.
+ */
+function nsf_theme_page_editor_styles() {
+	add_editor_style( nsf_theme_page_styles() );
+}
+add_action( 'after_setup_theme', 'nsf_theme_page_editor_styles' );
+
+/**
  * Register the NSF pattern categories.
  */
 function nsf_theme_pattern_categories() {

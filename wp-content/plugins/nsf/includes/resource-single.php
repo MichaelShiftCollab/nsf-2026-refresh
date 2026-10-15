@@ -210,3 +210,21 @@ function nsf_resource_editor_assets() {
 	);
 }
 add_action( 'enqueue_block_editor_assets', 'nsf_resource_editor_assets' );
+
+/**
+ * Loads the page Title band panel (subtitle) in the page editor.
+ */
+function nsf_page_editor_assets() {
+	$screen = function_exists( 'get_current_screen' ) ? get_current_screen() : null;
+	if ( ! $screen || 'page' !== $screen->post_type ) {
+		return;
+	}
+	wp_enqueue_script(
+		'nsf-page-details',
+		NSF_URL . 'assets/page-details.js',
+		array( 'wp-components', 'wp-data', 'wp-editor', 'wp-element', 'wp-i18n', 'wp-plugins' ),
+		NSF_VERSION,
+		true
+	);
+}
+add_action( 'enqueue_block_editor_assets', 'nsf_page_editor_assets' );

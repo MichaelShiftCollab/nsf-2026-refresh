@@ -117,7 +117,7 @@ function nsf_register_content_model() {
 		),
 		'nsf_subtitle' => array(
 			'type'              => 'string',
-			'description'       => __( 'Subtitle shown in the Resource title band.', 'nsf' ),
+			'description'       => __( 'Subtitle shown in the title band.', 'nsf' ),
 			'sanitize_callback' => 'sanitize_text_field',
 			'default'           => '',
 		),
@@ -132,6 +132,20 @@ function nsf_register_content_model() {
 			'description' => __( 'Send the download through the Gated Download form.', 'nsf' ),
 			'default'     => false,
 		),
+	);
+
+	// Pages show a subtitle in their title band too (build plan step 15).
+	register_post_meta(
+		'page',
+		'nsf_subtitle',
+		array_merge(
+			$meta['nsf_subtitle'],
+			array(
+				'single'        => true,
+				'show_in_rest'  => true,
+				'auth_callback' => static fn() => current_user_can( 'edit_pages' ),
+			)
+		)
 	);
 
 	foreach ( $meta as $key => $args ) {

@@ -615,3 +615,52 @@ strong {
 .nsf-main-nav .wp-block-navigation__responsive-container.is-menu-open {
 	color: var(--wp--preset--color--primary-blue);
 }
+
+/*
+ * Title band (build plan step 15): the Inner Page Heading gradient with a
+ * white sheet whose top-right corner is rounded, from the page mockups.
+ * The band's bottom padding includes the sheet's height.
+ */
+.is-style-section-title-band {
+	position: relative;
+	padding-top: var(--wp--preset--spacing--50) !important;
+	padding-bottom: calc(var(--wp--preset--spacing--50) + var(--wp--preset--spacing--60)) !important;
+}
+
+.is-style-section-title-band::after {
+	content: "";
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	height: var(--wp--preset--spacing--60);
+	background: var(--nsf-title-band-sheet, var(--wp--preset--color--white));
+	border-top-right-radius: var(--wp--custom--radius--band);
+}
+
+.is-style-section-title-band.has-lightest-blue-sheet {
+	--nsf-title-band-sheet: var(--wp--preset--color--lightest-blue);
+}
+
+.is-style-section-title-band > * {
+	position: relative;
+	z-index: 1;
+}
+
+.is-style-section-title-band h1 {
+	margin-block: 0;
+}
+
+.is-style-section-title-band .is-style-paragraph-2 {
+	color: var(--wp--preset--color--white);
+}
+
+/* Content that follows the band starts close to the sheet. */
+.is-style-section-title-band + * {
+	margin-top: 0 !important;
+}
+
+.is-style-section-title-band .is-style-eyebrow-small,
+.is-style-section-title-band .is-style-eyebrow {
+	color: var(--wp--preset--color--white);
+}
