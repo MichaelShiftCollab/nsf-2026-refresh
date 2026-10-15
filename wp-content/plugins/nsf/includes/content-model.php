@@ -41,6 +41,8 @@ function nsf_register_content_model() {
 				'with_front' => false,
 			),
 			'supports'      => array( 'title', 'editor', 'author', 'excerpt', 'thumbnail', 'revisions', 'custom-fields' ),
+			// New Resources start with the overview, key findings and related content (child theme pattern).
+			'template'      => array( array( 'core/pattern', array( 'slug' => 'nsf/resource-layout' ) ) ),
 		)
 	);
 
@@ -116,6 +118,12 @@ function nsf_register_content_model() {
 		'nsf_subtitle' => array(
 			'type'              => 'string',
 			'description'       => __( 'Subtitle shown in the Resource title band.', 'nsf' ),
+			'sanitize_callback' => 'sanitize_text_field',
+			'default'           => '',
+		),
+		'nsf_byline'   => array(
+			'type'              => 'string',
+			'description'       => __( 'Credit line shown before the publish date in the Resource title band.', 'nsf' ),
 			'sanitize_callback' => 'sanitize_text_field',
 			'default'           => '',
 		),

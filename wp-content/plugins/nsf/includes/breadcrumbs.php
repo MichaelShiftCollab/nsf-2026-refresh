@@ -5,7 +5,8 @@
  * Pages: ancestors, then the page. Posts: the Sleep Learning Zone (posts
  * page), the first category, then the post. Category and tag archives: the
  * Sleep Learning Zone, parent terms, then the term. Resources: the Sleep
- * Health Resources hub, then the Resource (taxonomy crumbs come in step 12).
+ * Health Resources hub, the Resource Type and its parents (each linking to
+ * the hub filtered by that type), then the Resource.
  *
  * @package NSF
  */
@@ -59,9 +60,17 @@ function nsf_breadcrumb_trail( $post_id = null ) {
 			$trail[]  = $crumb( $category->name, get_category_link( $category ) );
 		}
 	} elseif ( 'resource' === $post->post_type ) {
-		$hub = get_page_by_path( 'sleep-health-resources' );
+		$hub = nsf_hub_page();
 		if ( $hub ) {
 			$trail[] = $crumb( get_the_title( $hub ), get_permalink( $hub ) );
+		}
+		$type = nsf_resource_primary_type( $post );
+		if ( $type ) {
+			$ids = array_reverse( get_ancestors( $type->term_id, 'resource_type', 'taxonomy' ) );
+			foreach ( array_merge( $ids, array( $type->term_id ) ) as $id ) {
+				$term    = get_term( $id, 'resource_type' );
+				$trail[] = $crumb( $term->name, $hub ? add_query_arg( 'types', rawurlencode( $term->slug ), get_permalink( $hub ) ) : get_term_link( $term ) );
+			}
 		}
 	} else {
 		foreach ( array_reverse( get_post_ancestors( $post ) ) as $ancestor_id ) {

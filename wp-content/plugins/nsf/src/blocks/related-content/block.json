@@ -1,0 +1,30 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "nsf/related-content",
+	"title": "Related Content",
+	"category": "widgets",
+	"icon": "screenoptions",
+	"description": "Three picked posts, pages or resources as featured image cards, each with its type as the eyebrow. Until all three are picked, resources on the same topic fill the gaps.",
+	"keywords": [ "related", "cards", "more" ],
+	"textdomain": "nsf",
+	"usesContext": [ "postId" ],
+	"attributes": {
+		"items": {
+			"type": "array",
+			"default": [],
+			"items": {
+				"type": "object"
+			}
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": [ "wide", "full" ],
+		"spacing": {
+			"margin": [ "top", "bottom" ]
+		}
+	},
+	"editorScript": "file:./index.js",
+	"render": "file:./render.php"
+}

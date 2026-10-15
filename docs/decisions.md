@@ -93,6 +93,14 @@ Answers to the open questions in the build spec and build plan. Newest first.
 | 404 link URLs | Typed from the site outline (`/national-programs/`, `/contact-us/` and so on); check them after the content migration in step 17 |
 | FAQ accordion | Core Details blocks inside a Group with the FAQ block style; first question open, as in the wireframe (489:6). Every Details block in an FAQ group goes into one FAQPage JSON-LD per page. Core Accordion is not used because the spec names Details |
 | Sponsor/Collaborator grid | Core Image blocks in a Group with the Logo grid block style (grid layout, 8rem minimum column). Each logo is contained in the same 5:3 box; the Image caption carries optional text such as an award and year. From the Drowsy Driving Prevention Week wireframe (341:150) |
+| Resource breadcrumb | Sleep Health Resources / Resource Type (and its parents) / title, each type linking to the hub with `types=` set. The wireframe shows a page path (Research / NSF Research Reports); the spec's taxonomy trail wins |
+| Breadcrumbs block scope (step 12) | Resources and pages. Posts and archives get their trail in step 5 |
+| Resource title band | Lightest Blue section (the wireframe is gray). The Inner Page Heading gradient waits for a mockup that shows how it is used |
+| Resource byline | New `nsf_byline` meta (credit line) followed by "Published Month YYYY" |
+| Gated Resource download | Download button and file details are hidden until the Gated Download block (step 9) exists, so the file URL never reaches the page |
+| Related Content eyebrow | Resource Type for Resources, "Article / Blog post" for posts (as in the hub), the top-level section for pages |
+| Related Content with fewer than 3 picks | Resources sharing a topic with the current item fill the empty cards, then the newest Resources |
+| Statistics row | Built in step 12 as a 2-across grid of Panel-style cards; the 4-across version comes with step 9 |
 
 ## Deferred
 
