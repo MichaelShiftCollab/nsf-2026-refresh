@@ -77,7 +77,6 @@ Answers to the open questions in the build spec and build plan. Newest first.
 | Title band on search and 404 | Lightest Blue section style, standing in for the wireframe's gray band until the Title band pattern (step 15) and mockups exist |
 | Posts per page on the blog and archives | 9 (three rows of cards); search stays at 10 |
 | Blog-only search | The search field sends `post_type=post`, so it lands on the search template limited to posts |
-| Topic archive breadcrumb | A bound paragraph (Sleep Learning Zone® / topic) until the Breadcrumbs block in step 5 replaces it |
 | 404 link URLs | Typed from the site outline (`/national-programs/`, `/contact-us/` and so on); check them after the content migration in step 17 |
 
 ## Deferred

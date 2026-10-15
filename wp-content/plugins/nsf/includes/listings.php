@@ -6,7 +6,7 @@
  * the search filter buttons, a result's eyebrow and the "42 results for …"
  * line, come from two block bindings sources:
  *
- * - nsf/listing (page level): count, filters, breadcrumb.
+ * - nsf/listing (page level): count, filters.
  * - nsf/result (inside a Query Loop): eyebrow, date.
  *
  * Search filters are in the URL as filter=taxonomy:slug,taxonomy:slug. A
@@ -269,23 +269,6 @@ function nsf_listing_count_text() {
 }
 
 /**
- * Breadcrumb on topic (category) archives: Sleep Learning Zone® / Topic.
- * Stands in until the Breadcrumbs block (build plan step 5) replaces it.
- *
- * @return string
- */
-function nsf_listing_breadcrumb_html() {
-	if ( ! is_category() ) {
-		return '';
-	}
-	$blog_id = (int) get_option( 'page_for_posts' );
-	$blog    = $blog_id
-		? sprintf( '<a href="%1$s">%2$s</a>', esc_url( get_permalink( $blog_id ) ), esc_html( get_the_title( $blog_id ) ) )
-		: esc_html__( 'Sleep Learning Zone®', 'nsf' );
-	return $blog . ' <span class="nsf-breadcrumb__sep" aria-hidden="true">/</span> <span aria-current="page">' . esc_html( single_cat_title( '', false ) ) . '</span>';
-}
-
-/**
  * A search result's eyebrow: the site section (top-level ancestor) for pages,
  * the Resource Type for Resources, "Sleep Learning Zone® Post" for posts.
  *
@@ -321,8 +304,6 @@ function nsf_register_listing_bindings() {
 						return nsf_listing_count_text();
 					case 'filters':
 						return nsf_search_filters_html();
-					case 'breadcrumb':
-						return nsf_listing_breadcrumb_html();
 				}
 				return null;
 			},

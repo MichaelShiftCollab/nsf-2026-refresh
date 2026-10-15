@@ -80,7 +80,7 @@
 	color: var(--wp--preset--color--primary-orange);
 }
 
-/* Count, breadcrumb and kicker lines */
+/* Count and kicker lines */
 .nsf-search + .nsf-listing-count {
 	margin-top: var(--wp--preset--spacing--30);
 }
@@ -95,17 +95,6 @@
 	font-size: var(--wp--preset--font-size--small);
 	font-weight: var(--wp--custom--font-weight--bold);
 	line-height: 1.5;
-}
-
-.nsf-breadcrumb {
-	margin: 0;
-	color: var(--wp--preset--color--gray);
-	font-size: var(--wp--preset--font-size--x-small);
-	line-height: 1.4286;
-}
-
-.nsf-breadcrumb__sep {
-	margin: 0 0.4em;
 }
 
 .nsf-listing-intro h1 {
@@ -192,19 +181,12 @@
 
 .nsf-result__meta p {
 	margin: 0;
-	font-size: var(--wp--preset--font-size--x-small);
-	line-height: 1.4286;
-}
-
-.nsf-result__eyebrow {
-	color: var(--wp--preset--color--primary-orange);
-	font-weight: var(--wp--custom--font-weight--bold);
-	letter-spacing: var(--wp--custom--letter-spacing--caps);
-	text-transform: uppercase;
 }
 
 .nsf-result__date {
 	color: var(--wp--preset--color--gray);
+	font-size: var(--wp--preset--font-size--x-small);
+	line-height: 1.4286;
 }
 
 .nsf-result__eyebrow + .nsf-result__date::before {

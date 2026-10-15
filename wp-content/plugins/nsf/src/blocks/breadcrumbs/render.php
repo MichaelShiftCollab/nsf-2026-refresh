@@ -11,7 +11,10 @@
 
 defined( 'ABSPATH' ) || exit;
 
-$nsf_trail = nsf_breadcrumb_trail( $block->context['postId'] ?? null );
+// Block templates pass the first post of an archive as postId context, so
+// archive and search views ignore it and build the trail from the query.
+$nsf_post_id = ( is_singular() || wp_is_serving_rest_request() ) ? ( $block->context['postId'] ?? null ) : null;
+$nsf_trail   = nsf_breadcrumb_trail( $nsf_post_id );
 if ( empty( $attributes['showCurrent'] ) ) {
 	$nsf_trail = array_slice( $nsf_trail, 0, -1 );
 }
