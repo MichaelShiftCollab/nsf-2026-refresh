@@ -100,7 +100,7 @@ Answers to the open questions in the build spec and build plan. Newest first.
 | Gated Resource download | Download button and file details are hidden until the Gated Download block (step 9) exists, so the file URL never reaches the page |
 | Related Content eyebrow | Resource Type for Resources, "Article / Blog post" for posts (as in the hub), the top-level section for pages |
 | Related Content with fewer than 3 picks | Resources sharing a topic with the current item fill the empty cards, then the newest Resources |
-| Statistics row | Built in step 12 as a 2-across grid of Panel-style cards; the 4-across version comes with step 9 |
+| Statistics row | One shared grid (`inc/statistics-grid.php`) of Statistic panels for the 2- and 4-across patterns (step 9) and the Resource layout (step 12) |
 
 ## Deferred
 

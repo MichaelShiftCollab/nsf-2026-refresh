@@ -12,6 +12,10 @@
  */
 
 require __DIR__ . '/resource-overview.php';
+
+$nsf_stats = array_fill( 0, 4, array( '00%', __( 'One or two lines on what this number measures. Replace with the finding and its source.', 'nsf' ) ) );
+
+$nsf_columns = 2;
 ?>
 
 <!-- wp:group {"metadata":{"name":"Key findings"},"align":"full","className":"is-style-section-lightest-blue","style":{"spacing":{"margin":{"top":"0"},"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60"},"blockGap":"var:preset|spacing|40"}},"layout":{"type":"constrained"}} -->
@@ -19,7 +23,7 @@ require __DIR__ . '/resource-overview.php';
 <h2 class="wp-block-heading"><?php echo esc_html__( 'Key findings', 'nsf' ); ?></h2>
 <!-- /wp:heading -->
 
-<?php require __DIR__ . '/statistics-row.php'; ?>
+<?php require __DIR__ . '/../inc/statistics-grid.php'; ?>
 
 <!-- wp:buttons -->
 <div class="wp-block-buttons"><!-- wp:button {"metadata":{"bindings":{"url":{"source":"nsf/resource","args":{"key":"file-url"}}}}} -->
