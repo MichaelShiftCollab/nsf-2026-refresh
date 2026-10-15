@@ -13,9 +13,21 @@
 		list-style: none;
 	}
 
+	// Related Content (Resource single mockup at 781): two across on tablets.
+	&.nsf-related {
+
+		@container (max-width: 760px) {
+
+			.nsf-featured__list {
+				grid-template-columns: repeat(2, minmax(0, 1fr));
+			}
+		}
+	}
+
 	@container (max-width: 599px) {
 
-		&__list {
+		&__list,
+		&.nsf-related .nsf-featured__list {
 			grid-template-columns: minmax(0, 1fr);
 			gap: var(--wp--preset--spacing--40);
 		}

@@ -1,0 +1,256 @@
+/*
+ * Sleep in America® Polls (mockup pages/sleep-in-america-polls, wireframe
+ * 224:2): poll entries (pattern nsf/poll-entry) and earlier poll topics by
+ * year. Classes are prefixed nsf-poll- (the reusable entry) and nsf-sap-
+ * (this page) because every page stylesheet loads on every page.
+ */
+
+/* Poll entry: the cover on the left, the copy beside it. */
+.nsf-poll {
+	display: flex;
+	gap: var(--wp--preset--spacing--50);
+	align-items: flex-start;
+	padding-block: calc(var(--wp--preset--spacing--40) + var(--wp--preset--spacing--10));
+	border-bottom: var(--wp--custom--border--button) solid var(--wp--preset--color--light-blue);
+}
+
+.nsf-poll > *,
+.nsf-poll__copy > *,
+.nsf-poll__cover > *,
+.nsf-poll__cover-text > * {
+	margin-block: 0 !important;
+}
+
+.nsf-sap-polls {
+	padding-top: calc(var(--wp--preset--spacing--30) + var(--wp--preset--spacing--40)) !important;
+}
+
+.nsf-sap-polls > .nsf-poll {
+	margin-block: 0 !important;
+}
+
+.nsf-sap-polls > .nsf-poll:first-child {
+	padding-top: var(--wp--preset--spacing--10);
+}
+
+.nsf-sap-polls > .nsf-poll:last-child {
+	padding-bottom: 0;
+	border-bottom: 0;
+}
+
+.nsf-poll__cover {
+	position: relative;
+	display: flex;
+	flex: none;
+	flex-direction: column;
+	justify-content: space-between;
+	width: 220px;
+	aspect-ratio: 220 / 285;
+	overflow: hidden;
+	padding: calc(var(--wp--preset--spacing--30) - 2px) calc(var(--wp--preset--spacing--20) + 4px);
+	border-top-right-radius: var(--wp--custom--radius--photo-medium);
+	background: var(--wp--preset--gradient--primary-blue-to-dark-blue);
+	box-shadow: 0 8px 24px color-mix(in srgb, var(--wp--preset--color--dark-blue) 16%, transparent);
+	color: var(--wp--preset--color--white);
+}
+
+.nsf-poll__cover::after {
+	content: "";
+	position: absolute;
+	right: -40px;
+	bottom: -40px;
+	width: 140px;
+	height: 140px;
+	border-radius: 50%;
+	background: color-mix(in srgb, var(--wp--preset--color--white) 8%, transparent);
+}
+
+.nsf-poll__cover.is-sunrise {
+	background: linear-gradient(160deg, var(--wp--preset--color--primary-blue) 0%, var(--wp--preset--color--medium-blue) 55%, var(--wp--preset--color--primary-orange) 120%);
+}
+
+.nsf-poll__cover.is-blue {
+	background: linear-gradient(180deg, var(--wp--preset--color--medium-blue) 0%, var(--wp--preset--color--primary-blue) 100%);
+}
+
+/* A real cover image replaces the drawn one. */
+.nsf-poll > .wp-block-image {
+	flex: none;
+	width: 220px;
+}
+
+.nsf-poll > .wp-block-image img {
+	display: block;
+	width: 100%;
+	height: auto;
+	border-top-right-radius: var(--wp--custom--radius--photo-medium);
+}
+
+.nsf-poll__logo img {
+	display: block;
+	width: 92px;
+	height: auto;
+}
+
+.nsf-poll__kicker {
+	color: var(--wp--preset--color--medium-orange);
+	font-size: 0.6875rem;
+	font-weight: 700;
+	line-height: 1.4545;
+	letter-spacing: var(--wp--custom--letter-spacing--caps);
+	text-transform: uppercase;
+}
+
+.nsf-poll__cover.is-sunrise .nsf-poll__kicker {
+	color: var(--wp--preset--color--white);
+}
+
+.nsf-poll__cover-title {
+	margin-top: 6px !important;
+	color: var(--wp--preset--color--white);
+	font-family: var(--wp--preset--font-family--test-family);
+	font-size: 1.375rem;
+	line-height: 1.2273;
+	text-wrap: balance;
+}
+
+.nsf-poll__copy {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	gap: calc(var(--wp--preset--spacing--10) + 4px);
+	max-width: 900px;
+}
+
+/* Without a cover the copy runs wider. */
+.nsf-poll__copy:first-child {
+	max-width: 1000px;
+}
+
+.nsf-poll__copy h3 {
+	margin: 0;
+}
+
+.nsf-poll__summary {
+	font-size: 1.125rem;
+	line-height: 1.5556;
+}
+
+.nsf-poll__links.nsf-poll__links {
+	gap: var(--wp--preset--spacing--40);
+	padding-top: var(--wp--preset--spacing--10);
+}
+
+.nsf-poll__links > * {
+	margin: 0 !important;
+}
+
+.nsf-download .wp-block-button__link::after {
+	content: "\00a0\00a0↓";
+}
+
+/* Earlier poll topics: three lists of year and topic. */
+.nsf-sap-topics {
+	display: flex;
+	flex-direction: column;
+	gap: calc(var(--wp--preset--spacing--40) + var(--wp--preset--spacing--10));
+}
+
+.nsf-sap-topics > * {
+	width: 100%;
+	margin-block: 0 !important;
+}
+
+.nsf-sap-topics h2 sup {
+	font-size: 0.6em;
+	line-height: 0;
+	vertical-align: 0.6em;
+}
+
+.nsf-sap-topics__grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 0 calc(var(--wp--preset--spacing--40) + var(--wp--preset--spacing--10));
+}
+
+.nsf-sap-topics__list.nsf-sap-topics__list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.nsf-sap-topics__list li {
+	display: flex;
+	gap: var(--wp--preset--spacing--20);
+	align-items: baseline;
+	margin: 0;
+	padding-block: 12px;
+	border-bottom: var(--wp--custom--border--button) solid var(--wp--preset--color--light-blue);
+	color: var(--wp--preset--color--primary-blue);
+}
+
+.nsf-sap-topics__list strong {
+	flex: none;
+	width: 46px;
+	color: var(--wp--preset--color--primary-orange);
+	font-size: 0.9375rem;
+	font-weight: 700;
+}
+
+.nsf-sap-contact a {
+	font-weight: 600;
+	text-decoration: none;
+}
+
+@media (max-width: 1099px) {
+
+	.nsf-sap-topics__grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 781px) {
+
+	/* Section rhythm from the 781 mockup. */
+	.nsf-sap-polls,
+	.nsf-sap-topics {
+		--wp--preset--spacing--section: calc(var(--wp--preset--spacing--30) + var(--wp--preset--spacing--40));
+	}
+
+	.nsf-poll {
+		flex-direction: column;
+		gap: var(--wp--preset--spacing--30);
+	}
+
+	.nsf-poll__links.nsf-poll__links {
+		gap: var(--wp--preset--spacing--20) calc(var(--wp--preset--spacing--40) + var(--wp--preset--spacing--10));
+	}
+
+	/* Tablet type scale from the 781 mockup. */
+	.nsf-poll__copy h3 {
+		font-size: 1.75rem;
+		line-height: 1.2857;
+	}
+
+	.nsf-poll__cover-title {
+		font-size: 2rem;
+		line-height: 1.1875;
+	}
+}
+
+@media (max-width: 600px) {
+
+	.nsf-sap-polls,
+	.nsf-sap-topics {
+		--wp--preset--spacing--section: calc(var(--wp--preset--spacing--40) + var(--wp--preset--spacing--20));
+	}
+
+	.nsf-sap-topics__grid {
+		grid-template-columns: minmax(0, 1fr);
+	}
+
+	.nsf-poll__copy h3 {
+		font-size: var(--wp--preset--font-size--large);
+		line-height: 1.3333;
+	}
+}

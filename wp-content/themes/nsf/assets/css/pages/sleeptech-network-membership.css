@@ -1,0 +1,119 @@
+/*
+ * SleepTech® Network Membership (build plan step 15): intro copy and the
+ * membership application panel. Until the SleepTech® Network Membership form
+ * exists, .nsf-field-preview paragraphs show its fields the way the NSF Form
+ * preview draws them (pill fields with a Medium Blue border).
+ */
+
+.nsf-membership-intro__text {
+	font-size: calc(var(--wp--preset--font-size--small) * 1.125);
+	line-height: 1.5556;
+}
+
+.nsf-membership-form.nsf-membership-form {
+	border-top-right-radius: var(--wp--custom--radius--photo-medium);
+	box-shadow: var(--wp--preset--shadow--card);
+}
+
+.nsf-membership-form.nsf-membership-form {
+	display: flex;
+	flex-direction: column;
+	gap: var(--wp--preset--spacing--20);
+}
+
+.nsf-membership-form > * {
+	margin-block: 0;
+}
+
+.nsf-membership-form__fields {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: var(--wp--preset--spacing--20);
+}
+
+.nsf-membership-form__fields > * {
+	grid-column: 1 / -1;
+	margin-block: 0;
+}
+
+.nsf-membership-form__fields > .is-half {
+	grid-column: auto;
+}
+
+.nsf-field-preview:not(.is-checkbox) {
+	display: flex;
+	box-sizing: border-box;
+	align-items: center;
+	justify-content: space-between;
+	height: var(--wp--custom--control--field-height);
+	padding: 0 var(--wp--custom--control--padding-inline);
+	border: var(--wp--custom--border--hairline) solid var(--wp--preset--color--medium-blue);
+	border-radius: var(--wp--custom--radius--pill);
+	background: var(--wp--preset--color--white);
+	color: var(--wp--preset--color--gray);
+	font-size: var(--wp--preset--font-size--small);
+}
+
+.nsf-field-preview.is-select::after {
+	content: "";
+	width: 8px;
+	height: 8px;
+	border-right: var(--wp--custom--border--button) solid var(--wp--preset--color--primary-blue);
+	border-bottom: var(--wp--custom--border--button) solid var(--wp--preset--color--primary-blue);
+	transform: translateY(-25%) rotate(45deg);
+}
+
+.nsf-field-preview.is-area {
+	align-items: flex-start;
+	height: calc(var(--wp--custom--control--field-height) * 2 + var(--wp--preset--spacing--30) * 1.25);
+	padding-top: var(--wp--custom--control--gap);
+	border-radius: var(--wp--custom--radius--card);
+}
+
+.nsf-field-preview.is-checkbox {
+	display: flex;
+	gap: var(--wp--custom--control--gap);
+	align-items: flex-start;
+	color: var(--wp--preset--color--gray);
+	font-size: var(--wp--preset--font-size--x-small);
+	line-height: 1.5;
+}
+
+.nsf-field-preview.is-checkbox::before {
+	content: "";
+	flex: none;
+	box-sizing: border-box;
+	width: var(--wp--custom--control--checkbox);
+	height: var(--wp--custom--control--checkbox);
+	margin-top: 2px;
+	border: var(--wp--custom--border--hairline) solid var(--wp--preset--color--medium-blue);
+	border-radius: var(--wp--custom--radius--checkbox);
+	background: var(--wp--preset--color--white);
+}
+
+.nsf-membership-form__submit {
+	margin-top: var(--wp--preset--spacing--10) !important;
+}
+
+@media (max-width: 781px) {
+
+	/* The mockups keep 56px section padding at 781 and 600. */
+	.nsf-membership-intro.nsf-membership-intro {
+		padding-bottom: var(--wp--preset--spacing--70) !important;
+	}
+
+	.nsf-membership-join.nsf-membership-join {
+		padding-block: var(--wp--preset--spacing--70) !important;
+	}
+
+	.nsf-membership-form.nsf-membership-form {
+		padding: var(--wp--preset--spacing--40);
+	}
+}
+
+@media (max-width: 600px) {
+
+	.nsf-membership-form__fields > .is-half {
+		grid-column: 1 / -1;
+	}
+}

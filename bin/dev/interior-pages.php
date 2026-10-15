@@ -44,7 +44,12 @@ function nsf_interior_page( $path, $title ) {
 	}
 	$parts  = explode( '/', $path );
 	$slug   = array_pop( $parts );
-	$parent = $parts ? nsf_interior_page( implode( '/', $parts ), ucwords( str_replace( '-', ' ', end( $parts ) ) ) ) : 0;
+	$names  = array(
+		'nsf-research-reports' => 'NSF Research Reports',
+		'sleeptech'            => 'SleepTech®',
+		'sleeptech-network'    => 'SleepTech® Network',
+	);
+	$parent = $parts ? nsf_interior_page( implode( '/', $parts ), $names[ end( $parts ) ] ?? ucwords( str_replace( '-', ' ', end( $parts ) ) ) ) : 0;
 	return (int) wp_insert_post(
 		array(
 			'post_type'   => 'page',

@@ -1,0 +1,391 @@
+/*
+ * Drowsy Driving Prevention Resource Center (mockup
+ * pages/drowsy-driving-resource-center, wireframe 226:2): about copy,
+ * activity cards, the forum video with speakers, and blog, infographic and
+ * report cards. Classes are prefixed nsf-rc- (this page) and nsf-dl-
+ * (pattern nsf/download-cards) because every page stylesheet loads on
+ * every page.
+ */
+
+.nsf-rc-about,
+.nsf-rc-section {
+	--nsf-rc-shadow: 0 4px 24px color-mix(in srgb, var(--wp--preset--color--dark-blue) 8%, transparent);
+	--nsf-rc-body-size: 1.125rem;
+}
+
+/* About: a lead paragraph, then body copy, 880px wide. */
+.nsf-rc-about__copy {
+	display: flex;
+	flex-direction: column;
+	gap: calc(var(--wp--preset--spacing--30) - 2px);
+}
+
+.nsf-rc-about__copy > * {
+	max-width: 880px;
+	margin-block: 0 !important;
+	font-size: var(--nsf-rc-body-size);
+	line-height: 1.5556;
+}
+
+.nsf-rc-about__copy > .is-style-paragraph-2 {
+	font-size: 1.5rem;
+	line-height: 1.4167;
+}
+
+/* Sections: heading and content stacked with a 40px gap. */
+.nsf-rc-section {
+	display: flex;
+	flex-direction: column;
+	gap: calc(var(--wp--preset--spacing--40) + var(--wp--preset--spacing--10));
+}
+
+.nsf-rc-section > *,
+.nsf-rc-group > *,
+.nsf-rc-card__body > *,
+.nsf-rc-speaker > *,
+.nsf-rc-speakers > *,
+.nsf-dl-card__body > * {
+	margin-block: 0 !important;
+}
+
+.nsf-rc-section > * {
+	width: 100%;
+}
+
+.nsf-rc-resources {
+	gap: var(--wp--preset--spacing--50);
+}
+
+/* Card grids. */
+.nsf-rc-grid,
+.nsf-dl-grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: var(--wp--preset--spacing--gutter);
+}
+
+.nsf-rc-grid--2 {
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+/* Cards: white, soft shadow, rounded top-right corner. */
+.nsf-rc-card,
+.nsf-dl-card {
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	border-top-right-radius: var(--wp--custom--radius--photo-medium);
+	background: var(--wp--preset--color--white);
+	box-shadow: var(--nsf-rc-shadow, 0 4px 24px color-mix(in srgb, var(--wp--preset--color--dark-blue) 8%, transparent));
+}
+
+.nsf-rc-card > *,
+.nsf-dl-card > * {
+	margin-block: 0 !important;
+}
+
+.nsf-rc-card__image img {
+	display: block;
+	width: 100%;
+	height: 170px;
+	object-fit: cover;
+}
+
+.nsf-rc-card--activity .nsf-rc-card__image img {
+	height: 240px;
+}
+
+.nsf-rc-card__body,
+.nsf-dl-card__body {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	gap: var(--wp--preset--spacing--10);
+	padding: var(--wp--preset--spacing--30);
+}
+
+.nsf-rc-card--activity .nsf-rc-card__body {
+	gap: calc(var(--wp--preset--spacing--10) + 4px);
+	padding: calc(var(--wp--preset--spacing--30) + 4px) calc(var(--wp--preset--spacing--30) + 4px) var(--wp--preset--spacing--40);
+}
+
+.nsf-rc-card__title {
+	color: var(--wp--preset--color--primary-blue);
+	font-family: var(--wp--preset--font-family--test-family);
+	font-size: 1.75rem;
+	font-weight: 500;
+	line-height: 1.2857;
+}
+
+.nsf-rc-card__title sup {
+	font-size: 0.6em;
+	line-height: 0;
+	vertical-align: 0.6em;
+}
+
+.nsf-rc-card__text {
+	font-size: 1.0625rem;
+	line-height: 1.5294;
+}
+
+.nsf-rc-card--activity .wp-block-buttons {
+	margin-top: var(--wp--preset--spacing--10) !important;
+}
+
+.nsf-dl-card__title {
+	color: var(--wp--preset--color--primary-blue);
+	font-family: var(--wp--preset--font-family--open-sans);
+	font-size: 1.25rem;
+	font-weight: 600;
+	line-height: 1.4;
+	letter-spacing: normal;
+}
+
+.nsf-dl-card__title a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.nsf-dl-card__title a:hover {
+	text-decoration: underline;
+}
+
+.nsf-rc-card__date {
+	color: var(--wp--preset--color--gray);
+	font-size: var(--wp--preset--font-size--x-small);
+	line-height: 1.4286;
+}
+
+/* Forum: the video beside the speakers. */
+.nsf-rc-forum {
+	display: grid;
+	grid-template-columns: minmax(0, 740fr) minmax(0, 420fr);
+	gap: calc(var(--wp--preset--spacing--40) + var(--wp--preset--spacing--10));
+	align-items: start;
+}
+
+.nsf-rc-forum > * {
+	margin-block: 0 !important;
+}
+
+.nsf-rc-video.wp-block-cover {
+	min-height: 0;
+	aspect-ratio: 16 / 9;
+	padding: 0;
+	border-top-right-radius: var(--wp--custom--radius--photo-medium);
+}
+
+.nsf-rc-video .wp-block-cover__background {
+	opacity: 0.55;
+}
+
+.nsf-rc-video .wp-block-cover__inner-container {
+	position: static;
+	display: grid;
+	place-items: center;
+	width: 100%;
+	height: 100%;
+}
+
+.nsf-rc-video__play {
+	position: relative;
+	z-index: 1;
+	margin: 0;
+}
+
+.nsf-rc-video__play a {
+	display: grid;
+	place-items: center;
+	width: 88px;
+	height: 88px;
+	overflow: hidden;
+	border-radius: 50%;
+	background: var(--wp--preset--color--primary-orange);
+	color: transparent;
+	font-size: 0;
+}
+
+.nsf-rc-video__play a::before {
+	content: "";
+	margin-left: 6px;
+	border-block: 14px solid transparent;
+	border-left: 22px solid var(--wp--preset--color--white);
+}
+
+.nsf-rc-video__caption {
+	position: absolute;
+	z-index: 1;
+	bottom: calc(var(--wp--preset--spacing--30) - 4px);
+	left: var(--wp--preset--spacing--30);
+	margin: 0;
+	color: var(--wp--preset--color--white);
+	font-size: var(--wp--preset--font-size--x-small);
+	line-height: 1.4286;
+	white-space: pre;
+}
+
+.nsf-rc-speakers.is-style-panel {
+	display: flex;
+	flex-direction: column;
+	padding: calc(var(--wp--preset--spacing--30) + 4px) var(--wp--preset--spacing--40);
+}
+
+.nsf-rc-speakers > .is-style-eyebrow-small {
+	margin-bottom: 6px !important;
+}
+
+.nsf-rc-speaker {
+	display: grid;
+	gap: 2px;
+	padding-block: 14px;
+	border-bottom: var(--wp--custom--border--button) solid var(--wp--preset--color--light-blue);
+}
+
+.nsf-rc-speaker:last-child {
+	border-bottom: 0;
+}
+
+.nsf-rc-speaker__name {
+	color: var(--wp--preset--color--primary-blue);
+	font-size: 1.0625rem;
+	font-weight: 700;
+	line-height: 1.4;
+}
+
+.nsf-rc-speaker__role {
+	font-size: var(--wp--preset--font-size--x-small);
+	line-height: 1.4286;
+}
+
+/* Resource groups: an orange label with a rule, then cards. */
+.nsf-rc-group {
+	display: flex;
+	flex-direction: column;
+	gap: calc(var(--wp--preset--spacing--30) - 2px);
+}
+
+.nsf-rc-subhead {
+	display: flex;
+	gap: var(--wp--preset--spacing--20);
+	align-items: center;
+}
+
+.nsf-rc-subhead::after {
+	content: "";
+	flex: 1;
+	border-top: var(--wp--custom--border--button) solid var(--wp--preset--color--light-blue);
+}
+
+/* Download cards (pattern nsf/download-cards). */
+.nsf-rc-grid > *,
+.nsf-dl-grid > * {
+	margin-block: 0 !important;
+}
+
+.nsf-dl-card__media {
+	display: grid;
+	place-items: center;
+	height: 230px;
+	background: var(--wp--preset--color--lightest-blue);
+}
+
+.nsf-dl-grid.is-orange .nsf-dl-card__media {
+	background: var(--wp--preset--color--light-orange);
+}
+
+.nsf-dl-card__cover {
+	display: grid;
+	place-items: center;
+	width: 136px;
+	aspect-ratio: var(--wp--custom--cover--ratio);
+	padding: 12px;
+	border-top-right-radius: var(--wp--custom--radius--card);
+	background: var(--wp--preset--color--white);
+	box-shadow: 0 8px 24px color-mix(in srgb, var(--wp--preset--color--dark-blue) 12%, transparent);
+}
+
+.nsf-dl-card__cover p {
+	margin: 0;
+	color: var(--wp--preset--color--primary-blue);
+	font-size: 0.6875rem;
+	font-weight: 700;
+	line-height: 1.4;
+	letter-spacing: var(--wp--custom--letter-spacing--caps);
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.nsf-dl-card__media img {
+	display: block;
+	width: 136px;
+	height: auto;
+}
+
+.nsf-dl-card__link {
+	margin-top: 4px !important;
+	font-weight: 700;
+}
+
+.nsf-dl-card__link a {
+	color: var(--wp--preset--color--primary-blue);
+	text-decoration: none;
+}
+
+.nsf-dl-card__link a::after {
+	content: "\00a0\00a0↓";
+	color: var(--wp--preset--color--primary-orange);
+}
+
+.nsf-dl-card__link a:hover {
+	text-decoration: underline;
+}
+
+@media (max-width: 781px) {
+
+	/* Section rhythm from the 781 mockup: 56px, 48px under the title band. */
+	.nsf-rc-about,
+	.nsf-rc-section {
+		--wp--preset--spacing--section: calc(var(--wp--preset--spacing--30) + var(--wp--preset--spacing--40));
+	}
+
+	.nsf-rc-about {
+		padding-top: calc(var(--wp--preset--spacing--40) + var(--wp--preset--spacing--20)) !important;
+	}
+
+	.nsf-rc-grid--3,
+	.nsf-dl-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: var(--wp--preset--spacing--30);
+	}
+
+	.nsf-rc-grid--2 {
+		gap: var(--wp--preset--spacing--30);
+	}
+
+	.nsf-rc-forum {
+		grid-template-columns: minmax(0, 1fr);
+	}
+
+	.nsf-rc-speakers.is-style-panel {
+		padding: var(--wp--preset--spacing--40);
+	}
+}
+
+@media (max-width: 600px) {
+
+	.nsf-rc-about,
+	.nsf-rc-section {
+		--wp--preset--spacing--section: calc(var(--wp--preset--spacing--40) + var(--wp--preset--spacing--20));
+	}
+
+	.nsf-rc-grid--2,
+	.nsf-rc-grid--3,
+	.nsf-dl-grid {
+		grid-template-columns: minmax(0, 1fr);
+	}
+
+	.nsf-rc-card__title {
+		font-size: 1.375rem;
+		line-height: 1.3636;
+	}
+}

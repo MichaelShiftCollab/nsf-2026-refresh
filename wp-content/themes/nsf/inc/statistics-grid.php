@@ -11,7 +11,7 @@
 defined( 'ABSPATH' ) || exit;
 
 ?>
-<!-- wp:group {"metadata":{"name":"Statistics"},"className":"nsf-stats","style":{"spacing":{"blockGap":"var:preset|spacing|gutter"}},"layout":{"type":"grid","columnCount":<?php echo (int) $nsf_columns; ?>,"minimumColumnWidth":"<?php echo 4 === (int) $nsf_columns ? '12rem' : '18rem'; ?>"}} -->
+<!-- wp:group {"metadata":{"name":"Statistics"},"className":"nsf-stats","style":{"spacing":{"blockGap":"var:preset|spacing|gutter"}},"layout":{"type":"grid","columnCount":<?php echo (int) $nsf_columns; ?>,"minimumColumnWidth":"<?php echo 4 === (int) $nsf_columns ? '15rem' : '18rem'; ?>"}} -->
 <div class="wp-block-group nsf-stats">
 <?php foreach ( $nsf_stats as $nsf_stat ) : ?>
 <!-- wp:group {"className":"is-style-stat","layout":{"type":"default"}} -->

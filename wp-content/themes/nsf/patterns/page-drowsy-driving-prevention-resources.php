@@ -1,0 +1,241 @@
+<?php
+/**
+ * Title: Page: Drowsy Driving Prevention Resources
+ * Slug: nsf/page-drowsy-driving-prevention-resources
+ * Categories: nsf-pages
+ * Post Types: page
+ * Keywords: drowsy driving, resource center, forum, infographics, reports, page
+ * Description: Drowsy Driving Prevention Resource Center page body for the "No Title" template: title band with a photo, about the program, activity cards, the forum video with speakers, and blog, infographic and report cards. Placeholder copy from the mockup.
+ *
+ * @package NSF
+ */
+
+/**
+ * One activity card: photo, eyebrow, serif title, text and a button.
+ *
+ * @param string $image   Theme image path.
+ * @param string $eyebrow Date or place.
+ * @param string $title   Card title (may hold <sup>).
+ * @param string $text    Short description.
+ * @param string $button  Button text.
+ * @param string $url     Button URL.
+ * @param bool   $outline Outline button instead of filled.
+ */
+$nsf_rc_activity = function ( $image, $eyebrow, $title, $text, $button, $url, $outline ) {
+	$nsf_button_attrs = $outline ? '{"textColor":"primary-orange","className":"is-style-outline"}' : '';
+	$nsf_button_class = $outline ? ' is-style-outline' : '';
+	$nsf_link_class   = $outline ? ' has-primary-orange-color has-text-color' : '';
+	?>
+<!-- wp:group {"metadata":{"name":"Activity card"},"className":"nsf-rc-card nsf-rc-card--activity","layout":{"type":"default"}} -->
+<div class="wp-block-group nsf-rc-card nsf-rc-card--activity"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"nsf-rc-card__image nsf-photo"} -->
+<figure class="wp-block-image size-full nsf-rc-card__image nsf-photo"><img src="<?php echo esc_url( get_theme_file_uri( $image ) ); ?>" alt=""/></figure>
+<!-- /wp:image -->
+
+<!-- wp:group {"className":"nsf-rc-card__body","layout":{"type":"default"}} -->
+<div class="wp-block-group nsf-rc-card__body"><!-- wp:paragraph {"className":"is-style-eyebrow-small"} -->
+<p class="is-style-eyebrow-small"><?php echo esc_html( $eyebrow ); ?></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"className":"nsf-rc-card__title"} -->
+<h3 class="wp-block-heading nsf-rc-card__title"><?php echo wp_kses( $title, array( 'sup' => array() ) ); ?></h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"className":"nsf-rc-card__text"} -->
+<p class="nsf-rc-card__text"><?php echo esc_html( $text ); ?></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:buttons -->
+<div class="wp-block-buttons"><!-- wp:button <?php echo $nsf_button_attrs; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- fixed JSON. ?> -->
+<div class="wp-block-button<?php echo esc_attr( $nsf_button_class ); ?>"><a class="wp-block-button__link<?php echo esc_attr( $nsf_link_class ); ?> wp-element-button" href="<?php echo esc_url( $url ); ?>"><?php echo esc_html( $button ); ?></a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons --></div>
+<!-- /wp:group --></div>
+<!-- /wp:group -->
+	<?php
+};
+
+/**
+ * One blog post card: photo, category eyebrow, title and date.
+ *
+ * @param string $image   Theme image path.
+ * @param string $eyebrow Category.
+ * @param string $title   Post title.
+ * @param string $date    Post date.
+ */
+$nsf_rc_post = function ( $image, $eyebrow, $title, $date ) {
+	?>
+<!-- wp:group {"metadata":{"name":"Post card"},"className":"nsf-rc-card nsf-rc-card--post","layout":{"type":"default"}} -->
+<div class="wp-block-group nsf-rc-card nsf-rc-card--post"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"nsf-rc-card__image nsf-photo"} -->
+<figure class="wp-block-image size-full nsf-rc-card__image nsf-photo"><img src="<?php echo esc_url( get_theme_file_uri( $image ) ); ?>" alt=""/></figure>
+<!-- /wp:image -->
+
+<!-- wp:group {"className":"nsf-rc-card__body","layout":{"type":"default"}} -->
+<div class="wp-block-group nsf-rc-card__body"><!-- wp:paragraph {"className":"is-style-eyebrow-small"} -->
+<p class="is-style-eyebrow-small"><?php echo esc_html( $eyebrow ); ?></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"className":"nsf-dl-card__title"} -->
+<h3 class="wp-block-heading nsf-dl-card__title"><a href="#"><?php echo esc_html( $title ); ?></a></h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"className":"nsf-rc-card__date"} -->
+<p class="nsf-rc-card__date"><?php echo esc_html( $date ); ?></p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group --></div>
+<!-- /wp:group -->
+	<?php
+};
+
+/**
+ * One forum speaker: name and role.
+ */
+$nsf_rc_speaker = function () {
+	?>
+<!-- wp:group {"className":"nsf-rc-speaker","layout":{"type":"default"}} -->
+<div class="wp-block-group nsf-rc-speaker"><!-- wp:paragraph {"className":"nsf-rc-speaker__name"} -->
+<p class="nsf-rc-speaker__name"><?php esc_html_e( 'Speaker name', 'nsf' ); ?></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"className":"nsf-rc-speaker__role"} -->
+<p class="nsf-rc-speaker__role"><?php esc_html_e( 'Role, Organization', 'nsf' ); ?></p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+
+	<?php
+};
+
+/**
+ * A small orange label with a rule to its right.
+ *
+ * @param string $label Label text.
+ */
+$nsf_rc_subhead = function ( $label ) {
+	?>
+<!-- wp:paragraph {"className":"is-style-eyebrow-small nsf-rc-subhead"} -->
+<p class="is-style-eyebrow-small nsf-rc-subhead"><?php echo esc_html( $label ); ?></p>
+<!-- /wp:paragraph -->
+
+	<?php
+};
+
+$nsf_tbp = array(
+	'eyebrow'    => __( 'National Programs', 'nsf' ),
+	'heading'    => __( 'Drowsy Driving Prevention Resource Center', 'nsf' ),
+	'subtitle'   => __( 'Drowsy driving is impaired driving, and is responsible for more than one in every five crash-related fatalities. These aren’t just statistics: they represent real people, families, and communities. Drowsy driving is largely preventable.', 'nsf' ),
+	'image'      => 'assets/images/home/hero-1.jpg',
+	'lead_class' => 'nsf-tbp__lead',
+);
+require __DIR__ . '/title-band-photo.php';
+?>
+
+<!-- wp:group {"metadata":{"name":"About the program"},"align":"full","className":"is-style-section-white nsf-rc-about","style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|section"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull is-style-section-white nsf-rc-about" style="padding-top:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--section)"><!-- wp:group {"className":"nsf-rc-about__copy","layout":{"type":"default"}} -->
+<div class="wp-block-group nsf-rc-about__copy"><!-- wp:paragraph {"className":"is-style-paragraph-2","textColor":"primary-blue"} -->
+<p class="is-style-paragraph-2 has-primary-blue-color has-text-color"><?php esc_html_e( 'National Sleep Foundation is the public’s leading authority on sleep and its impact on health, well-being, performance, and safety. For over 35 years, NSF has advanced education, research, public awareness, and stakeholder engagement to reduce drowsy driving and improve roadway safety. Drowsy driving prevention is a core focus area within NSF’s broader sleep health and safety efforts.', 'nsf' ); ?></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><?php esc_html_e( 'Throughout the year, NSF works with transportation leaders, employers, policymakers, researchers, and industry partners to advance evidence-based approaches to drowsy driving prevention. Activities include public education, research and data initiatives, policy engagement, and development of practical tools and resources for drivers and communities.', 'nsf' ); ?></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><?php esc_html_e( 'Drowsy Driving Prevention Week® and NSF’s annual Drowsy Driving Forum serve as anchor activities within these year-round efforts. NSF brings together leaders from transportation, public health, policymaking, and industry to address drowsy driving as a critical and solvable public safety issue.', 'nsf' ); ?></p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"metadata":{"name":"Activities"},"align":"full","className":"is-style-section-lightest-blue nsf-band nsf-rc-section","style":{"spacing":{"padding":{"top":"var:preset|spacing|section","bottom":"var:preset|spacing|section"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull is-style-section-lightest-blue nsf-band nsf-rc-section" style="padding-top:var(--wp--preset--spacing--section);padding-bottom:var(--wp--preset--spacing--section)"><!-- wp:heading -->
+<h2 class="wp-block-heading"><?php esc_html_e( 'Activities', 'nsf' ); ?></h2>
+<!-- /wp:heading -->
+
+<!-- wp:group {"className":"nsf-rc-grid nsf-rc-grid--2","layout":{"type":"default"}} -->
+<div class="wp-block-group nsf-rc-grid nsf-rc-grid--2"><?php
+$nsf_rc_activity( 'assets/images/home/campaign-large.jpg', __( 'November 1–7, 2026', 'nsf' ), 'Drowsy Driving Prevention Week<sup>®</sup>', __( 'Sleep First. Drive Alert.® NSF’s annual campaign encourages everyone to prioritize sleep and drive alert and refreshed.', 'nsf' ), __( 'Visit the campaign →', 'nsf' ), '/national-programs/drowsy-driving-prevention-week/', true );
+$nsf_rc_activity( 'assets/images/home/campaign-small-right.jpg', __( 'October 29, Washington, DC', 'nsf' ), __( 'NSF Drowsy Driving Forum', 'nsf' ), __( 'Leaders from transportation, public health, policymaking and industry meet to address drowsy driving as a solvable public safety issue.', 'nsf' ), __( 'Learn more and register →', 'nsf' ), '#', false );
+?></div>
+<!-- /wp:group --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"metadata":{"name":"Forum video"},"align":"full","className":"is-style-section-lightest-blue nsf-rc-section","style":{"spacing":{"padding":{"top":"0","bottom":"var:preset|spacing|section"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull is-style-section-lightest-blue nsf-rc-section" style="padding-top:0;padding-bottom:var(--wp--preset--spacing--section)"><!-- wp:heading -->
+<h2 class="wp-block-heading"><?php esc_html_e( '2025 Forum', 'nsf' ); ?></h2>
+<!-- /wp:heading -->
+
+<!-- wp:group {"className":"nsf-rc-forum","layout":{"type":"default"}} -->
+<div class="wp-block-group nsf-rc-forum"><!-- wp:cover {"url":"<?php echo esc_url( get_theme_file_uri( 'assets/images/home/research.jpg' ) ); ?>","dimRatio":60,"overlayColor":"dark-blue","isUserOverlayColor":true,"contentPosition":"center center","className":"nsf-rc-video","layout":{"type":"default"}} -->
+<div class="wp-block-cover nsf-rc-video"><img class="wp-block-cover__image-background" alt="" src="<?php echo esc_url( get_theme_file_uri( 'assets/images/home/research.jpg' ) ); ?>" data-object-fit="cover"/><span aria-hidden="true" class="wp-block-cover__background has-dark-blue-background-color has-background-dim-60 has-background-dim"></span><div class="wp-block-cover__inner-container"><!-- wp:paragraph {"className":"nsf-rc-video__play"} -->
+<p class="nsf-rc-video__play"><a href="#"><?php esc_html_e( 'Play the 2025 Forum video', 'nsf' ); ?></a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"className":"nsf-rc-video__caption"} -->
+<p class="nsf-rc-video__caption"><?php esc_html_e( 'Embedded video  ·  16:9 third-party embed', 'nsf' ); ?></p>
+<!-- /wp:paragraph --></div></div>
+<!-- /wp:cover -->
+
+<!-- wp:group {"metadata":{"name":"Speakers"},"className":"is-style-panel nsf-rc-speakers","layout":{"type":"default"}} -->
+<div class="wp-block-group is-style-panel nsf-rc-speakers"><!-- wp:paragraph {"className":"is-style-eyebrow-small"} -->
+<p class="is-style-eyebrow-small"><?php esc_html_e( 'Speakers', 'nsf' ); ?></p>
+<!-- /wp:paragraph -->
+
+<?php
+for ( $nsf_i = 0; $nsf_i < 5; $nsf_i++ ) {
+	$nsf_rc_speaker();
+}
+?></div>
+<!-- /wp:group --></div>
+<!-- /wp:group --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"metadata":{"name":"Prevention resources"},"align":"full","className":"is-style-section-white nsf-rc-section nsf-rc-resources","style":{"spacing":{"padding":{"top":"var:preset|spacing|section","bottom":"var:preset|spacing|section"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull is-style-section-white nsf-rc-section nsf-rc-resources" style="padding-top:var(--wp--preset--spacing--section);padding-bottom:var(--wp--preset--spacing--section)"><!-- wp:heading -->
+<h2 class="wp-block-heading"><?php esc_html_e( 'Drowsy Driving Prevention Resources', 'nsf' ); ?></h2>
+<!-- /wp:heading -->
+
+<!-- wp:group {"metadata":{"name":"Key blog posts"},"className":"nsf-rc-group","layout":{"type":"default"}} -->
+<div class="wp-block-group nsf-rc-group"><?php $nsf_rc_subhead( __( 'Key blog posts', 'nsf' ) ); ?><!-- wp:group {"className":"nsf-rc-grid nsf-rc-grid--3","layout":{"type":"default"}} -->
+<div class="wp-block-group nsf-rc-grid nsf-rc-grid--3"><?php
+$nsf_rc_post( 'assets/images/home/card-1.jpg', __( 'Drowsy Driving Prevention', 'nsf' ), __( 'Drowsy Driving is a Family Sleep Health Issue', 'nsf' ), __( 'November 4, 2025', 'nsf' ) );
+$nsf_rc_post( 'assets/images/home/campaign-small-left.jpg', __( 'Teens', 'nsf' ), __( 'What To Know about Teens and Sleep', 'nsf' ), __( 'October 21, 2025', 'nsf' ) );
+$nsf_rc_post( 'assets/images/home/research.jpg', __( 'Drowsy Driving Prevention', 'nsf' ), __( 'Fall-Asleep Crashes Are Often Caused by Not Getting the Sleep You Need', 'nsf' ), __( 'September 16, 2025', 'nsf' ) );
+?></div>
+<!-- /wp:group --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"metadata":{"name":"Infographics"},"className":"nsf-rc-group","layout":{"type":"default"}} -->
+<div class="wp-block-group nsf-rc-group"><?php
+$nsf_rc_subhead( __( 'Infographics', 'nsf' ) );
+$nsf_dl = array(
+	'label' => __( 'Infographic', 'nsf' ),
+	'items' => array(
+		array( '2025', __( 'Sleep First. Drive Alert.® Infographic', 'nsf' ), '#' ),
+		array( '2024', __( 'Drowsy Driving Prevention Week® Infographic', 'nsf' ), '#' ),
+		array( '2023', __( 'Drowsy Driving by the Numbers', 'nsf' ), '#' ),
+	),
+);
+require __DIR__ . '/download-cards.php';
+?></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"metadata":{"name":"Reports"},"className":"nsf-rc-group","layout":{"type":"default"}} -->
+<div class="wp-block-group nsf-rc-group"><?php
+$nsf_rc_subhead( __( 'Reports', 'nsf' ) );
+$nsf_dl = array(
+	'label'  => __( 'Cover', 'nsf' ),
+	'orange' => true,
+	'items'  => array(
+		array( '2026', __( 'Sleep in America® Poll: Drowsy Driving and Family Sleep Health', 'nsf' ), '#' ),
+		array( '2025', __( 'Drowsy Driving Prevention Week® Findings', 'nsf' ), '#' ),
+		array( '2024', __( 'Drowsy Driving Position Statement', 'nsf' ), '#' ),
+	),
+);
+require __DIR__ . '/download-cards.php';
+?></div>
+<!-- /wp:group -->
+
+<!-- wp:buttons -->
+<div class="wp-block-buttons"><!-- wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="/sleep-health-resources/"><?php esc_html_e( 'More Drowsy Driving Prevention resources', 'nsf' ); ?></a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons --></div>
+<!-- /wp:group -->

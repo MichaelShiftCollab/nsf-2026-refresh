@@ -216,11 +216,14 @@
 		"name": "resource-single",
 		"group": "resource",
 		"url": "/resources/shift-work-and-sleep-a-guide-for-employers/",
-		"selector": "main",
 		"ignore": [
 			".wp-block-post-featured-image",
-			".nsf-card__media"
-		]
+			".nsf-card__media",
+			"header.site-header",
+			".nsf-signup",
+			".nsf-footer"
+		],
+		"heightTolerance": 25
 	},
 	{
 		"name": "national-programs",
@@ -229,7 +232,10 @@
 		"ignore": [
 			".nsf-photo",
 			".wp-block-image img",
-			".wp-block-cover__image-background"
+			".wp-block-cover__image-background",
+			"header.site-header",
+			".nsf-signup",
+			".nsf-footer"
 		]
 	},
 	{
@@ -239,7 +245,10 @@
 		"ignore": [
 			".nsf-photo",
 			".wp-block-image img",
-			".wp-block-cover__image-background"
+			".wp-block-cover__image-background",
+			"header.site-header",
+			".nsf-signup",
+			".nsf-footer"
 		]
 	},
 	{
@@ -249,7 +258,10 @@
 		"ignore": [
 			".nsf-photo",
 			".wp-block-image img",
-			".wp-block-cover__image-background"
+			".wp-block-cover__image-background",
+			"header.site-header",
+			".nsf-signup",
+			".nsf-footer"
 		]
 	},
 	{
@@ -259,7 +271,10 @@
 		"ignore": [
 			".nsf-photo",
 			".wp-block-image img",
-			".wp-block-cover__image-background"
+			".wp-block-cover__image-background",
+			"header.site-header",
+			".nsf-signup",
+			".nsf-footer"
 		]
 	},
 	{
@@ -269,7 +284,10 @@
 		"ignore": [
 			".nsf-photo",
 			".wp-block-image img",
-			".wp-block-cover__image-background"
+			".wp-block-cover__image-background",
+			"header.site-header",
+			".nsf-signup",
+			".nsf-footer"
 		]
 	},
 	{
@@ -277,6 +295,9 @@
 		"group": "interior",
 		"url": "/sleeptech/sleeptech-network/sleeptech-network-membership/",
 		"ignore": [
+			"header.site-header",
+			".nsf-signup",
+			".nsf-footer",
 			".nsf-photo",
 			".wp-block-image img",
 			".wp-block-cover__image-background"
@@ -287,6 +308,9 @@
 		"group": "interior",
 		"url": "/media-center/",
 		"ignore": [
+			"header.site-header",
+			".nsf-signup",
+			".nsf-footer",
 			".nsf-photo",
 			".wp-block-image img",
 			".wp-block-cover__image-background"

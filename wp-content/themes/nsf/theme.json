@@ -239,7 +239,7 @@
 				{
 					"name": "Section",
 					"slug": "section",
-					"size": "clamp(40px, 5vw, 72px)"
+					"size": "clamp(48px, 7vw, 72px)"
 				},
 				{
 					"slug": "70",

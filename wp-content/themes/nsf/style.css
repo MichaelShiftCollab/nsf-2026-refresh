@@ -664,3 +664,21 @@ strong {
 .is-style-section-title-band .is-style-eyebrow {
 	color: var(--wp--preset--color--white);
 }
+
+/* A Statistic on a tinted section turns white with a shadow, as in the
+   Resource single mockup's key findings. */
+.is-style-section-lightest-blue .is-style-stat,
+.is-style-section-light-orange .is-style-stat {
+	background-color: var(--wp--preset--color--white);
+	border-top-right-radius: var(--wp--custom--radius--photo-medium);
+	box-shadow: var(--wp--preset--shadow--card);
+}
+
+/* ® and ™ in headings sit small and raised, as in the mockups. */
+h1 sup,
+h2 sup,
+h3 sup {
+	font-size: 0.6em;
+	line-height: 0;
+	vertical-align: 0.6em;
+}

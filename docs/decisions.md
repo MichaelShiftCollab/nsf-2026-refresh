@@ -9,6 +9,21 @@ Answers to the open questions in the build spec and build plan. Newest first.
 | Best Slept Self® band | Build it as the Home mockup shows it ([Figma 473:60](https://www.figma.com/design/mVNfIISs9yQQurddJagkfU/NSF-2026?node-id=473-60)): full-width Light Blue to Light Orange gradient, 96px top-right corner, three photos over a faded sun. Replaces Option A |
 | Logo | Use the logo from the mockups until NSF sends final files |
 
+## October 15, 2026 (defaults chosen while building step 15)
+
+| Question | Decision |
+| :--- | :--- |
+| Interior page mockups | Claude's HTML mockups in the project files (`mockups/`), drawn from the wireframes and the Home and Resources mockups because Figma could not be edited from a Dev seat. Rendered at 1440, 781 and 600 and copied to `tests/visual/mockups/` as the visual test references. Provisional until Michael signs them off |
+| Title band | The Inner Page Heading gradient with a white sheet whose top-right corner is rounded (block style "Title band"). Pages, Resources, search and 404 use it, replacing the Lightest Blue stand-in |
+| Pages whose band has more than a title | They use the "No Title" template (full-width content only) and start with a title band section: the plain `nsf/title-band` pattern, or one with a photo or a contact box |
+| Page subtitle | `nsf_subtitle` meta on pages too, set in the editor's "Title band" panel |
+| Page URLs | From the site outline until the page docs give URLs (step 17): `/national-programs/…`, `/research/nsf-research-reports/sleep-in-america-polls/`, `/sleeptech/sleeptech-network/sleeptech-network-membership/`, `/media-center/` |
+| Page section CSS | One file per page in `assets/css/pages/`, loaded on every page and in the editor so sections can be reused anywhere |
+| Statistic on a tinted section | Turns white with the card shadow and rounded top-right corner, as in the Resource single mockup |
+| Related Content at tablet width | Two cards across, one on phones |
+| Visual test scope for pages | Interior pages and the Resource single ignore the header, sign-up and footer, which have their own tests and differ from the HTML mockups at 781 and 600. The Resource single allows 25% height difference because the seeded Resource has much shorter copy than the mockup's |
+| Section spacing | The `section` spacing token is now 48px at 600 and about 55px at 781 (was 40px), rising to 72px, to match the page mockups |
+
 ## October 15, 2026 (defaults chosen while building step 9)
 
 | Question | Decision |
@@ -87,7 +102,7 @@ Answers to the open questions in the build spec and build plan. Newest first.
 | Search URL parameter | `filter=taxonomy:slug,taxonomy:slug` |
 | Dates in search results | On everything but pages. The spec says "posts only", but the wireframe dates Resources too |
 | Page result eyebrow | The top-level ancestor's title; top-level pages show none |
-| Title band on search and 404 | Lightest Blue section style, standing in for the wireframe's gray band until the Title band pattern (step 15) and mockups exist |
+| Title band on search and 404 | Superseded in step 15: the gradient Title band |
 | Posts per page on the blog and archives | 9 (three rows of cards); search stays at 10 |
 | Blog-only search | The search field sends `post_type=post`, so it lands on the search template limited to posts |
 | 404 link URLs | Typed from the site outline (`/national-programs/`, `/contact-us/` and so on); check them after the content migration in step 17 |
@@ -95,7 +110,7 @@ Answers to the open questions in the build spec and build plan. Newest first.
 | Sponsor/Collaborator grid | Core Image blocks in a Group with the Logo grid block style (grid layout, 8rem minimum column). Each logo is contained in the same 5:3 box; the Image caption carries optional text such as an award and year. From the Drowsy Driving Prevention Week wireframe (341:150) |
 | Resource breadcrumb | Sleep Health Resources / Resource Type (and its parents) / title, each type linking to the hub with `types=` set. The wireframe shows a page path (Research / NSF Research Reports); the spec's taxonomy trail wins |
 | Breadcrumbs block scope (step 12) | Resources and pages. Posts and archives get their trail in step 5 |
-| Resource title band | Lightest Blue section (the wireframe is gray). The Inner Page Heading gradient waits for a mockup that shows how it is used |
+| Resource title band | Superseded in step 15: the gradient Title band |
 | Resource byline | New `nsf_byline` meta (credit line) followed by "Published Month YYYY" |
 | Gated Resource download | Download button and file details are hidden until the Gated Download block (step 9) exists, so the file URL never reaches the page |
 | Related Content eyebrow | Resource Type for Resources, "Article / Blog post" for posts (as in the hub), the top-level section for pages |
