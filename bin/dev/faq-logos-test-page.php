@@ -84,20 +84,20 @@ foreach ( array( 'logo-wide', 'logo-tall', 'logo-square', 'logo-standard', 'logo
 ';
 }
 
-$nsf_content = '<!-- wp:group {"anchor":"faq","layout":{"type":"default"}} -->
-<div id="faq" class="wp-block-group"><!-- wp:pattern {"slug":"nsf/faq"} /--></div>
+$nsf_content = '<!-- wp:group {"anchor":"faq","align":"full","layout":{"type":"constrained"}} -->
+<div id="faq" class="wp-block-group alignfull"><!-- wp:pattern {"slug":"nsf/faq"} /--></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"anchor":"logos-tiered","layout":{"type":"default"}} -->
-<div id="logos-tiered" class="wp-block-group"><!-- wp:pattern {"slug":"nsf/logos-tiered"} /--></div>
+<!-- wp:group {"anchor":"logos-tiered","align":"full","layout":{"type":"constrained"}} -->
+<div id="logos-tiered" class="wp-block-group alignfull"><!-- wp:pattern {"slug":"nsf/logos-tiered"} /--></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"anchor":"logos-grid","layout":{"type":"default"}} -->
-<div id="logos-grid" class="wp-block-group"><!-- wp:pattern {"slug":"nsf/logos-grid"} /--></div>
+<!-- wp:group {"anchor":"logos-grid","align":"full","layout":{"type":"constrained"}} -->
+<div id="logos-grid" class="wp-block-group alignfull"><!-- wp:pattern {"slug":"nsf/logos-grid"} /--></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"anchor":"logos-mixed","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60"}}},"layout":{"type":"constrained"}} -->
-<div id="logos-mixed" class="wp-block-group" style="padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--60)"><!-- wp:heading -->
+<!-- wp:group {"anchor":"logos-mixed","align":"full","className":"is-style-section-white","style":{"spacing":{"padding":{"top":"var:preset|spacing|section","bottom":"var:preset|spacing|section"}}},"layout":{"type":"constrained"}} -->
+<div id="logos-mixed" class="wp-block-group alignfull is-style-section-white" style="padding-top:var(--wp--preset--spacing--section);padding-bottom:var(--wp--preset--spacing--section)"><!-- wp:heading -->
 <h2 class="wp-block-heading">Logos in mixed shapes, linked, one with a caption</h2>
 <!-- /wp:heading -->
 
