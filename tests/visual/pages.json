@@ -74,5 +74,15 @@
 		"group": "global",
 		"url": "/sleep-health-resources/",
 		"selector": ".nsf-footer"
+	},
+	{
+		"name": "resource-single",
+		"group": "resource",
+		"url": "/resources/shift-work-and-sleep-a-guide-for-employers/",
+		"selector": "main",
+		"ignore": [
+			".wp-block-post-featured-image",
+			".nsf-card__media"
+		]
 	}
 ]

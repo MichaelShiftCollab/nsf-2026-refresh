@@ -70,6 +70,14 @@ Answers to the open questions in the build spec and build plan. Newest first.
 | Cards/Table cookie | Applied in the browser, not by PHP, so WP Engine's page cache serves one page to everyone |
 | Filters below 782px | A full-screen drawer opened by the "Filters (n)" button; chips are hidden there, as in the 781 and 600 mockups |
 | Page gutter | 32px at 600, 40px at 781, rising to 120px at 1440, from the Resources mockups |
+| Resource breadcrumb | Sleep Health Resources / Resource Type (and its parents) / title, each type linking to the hub with `types=` set. The wireframe shows a page path (Research / NSF Research Reports); the spec's taxonomy trail wins |
+| Breadcrumbs block scope (step 12) | Resources and pages. Posts and archives get their trail in step 5 |
+| Resource title band | Lightest Blue section (the wireframe is gray). The Inner Page Heading gradient waits for a mockup that shows how it is used |
+| Resource byline | New `nsf_byline` meta (credit line) followed by "Published Month YYYY" |
+| Gated Resource download | Download button and file details are hidden until the Gated Download block (step 9) exists, so the file URL never reaches the page |
+| Related Content eyebrow | Resource Type for Resources, "Article / Blog post" for posts (as in the hub), the top-level section for pages |
+| Related Content with fewer than 3 picks | Resources sharing a topic with the current item fill the empty cards, then the newest Resources |
+| Statistics row | Built in step 12 as a 2-across grid of Panel-style cards; the 4-across version comes with step 9 |
 
 ## Deferred
 

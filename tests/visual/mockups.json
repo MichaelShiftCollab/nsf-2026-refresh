@@ -8,5 +8,6 @@
 	{ "name": "home", "node": "464:67", "width": 1440, "crop": { "y": 178, "height": 4848 } },
 	{ "name": "global-header", "node": "464:22", "width": 1440 },
 	{ "name": "global-signup", "node": "464:36", "width": 1440 },
-	{ "name": "global-footer", "node": "464:66", "width": 1440 }
+	{ "name": "global-footer", "node": "464:66", "width": 1440 },
+	{ "name": "resource-single", "node": "229:24", "width": 1440 }
 ]

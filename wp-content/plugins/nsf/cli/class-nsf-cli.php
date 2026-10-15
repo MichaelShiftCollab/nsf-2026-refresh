@@ -198,11 +198,12 @@ class NSF_CLI {
 					'post_status'  => 'publish',
 					'post_title'   => $title,
 					'post_excerpt' => 'A short summary of this resource, written for the card and search results.',
-					'post_content' => $this->lorem_blocks( 3 ),
+					'post_content' => wp_slash( $this->resource_blocks() ),
 					'post_date'    => gmdate( 'Y-m-d H:i:s', strtotime( '2026-10-01 -' . ( $i * 17 ) . ' days' ) ),
 					'meta_input'   => array(
 						self::SEED_KEY => 1,
 						'nsf_subtitle' => 'Subtitle for this resource, one line',
+						'nsf_byline'   => 'A report from the National Sleep Foundation',
 						'nsf_gated'    => 0 === $i % 7,
 					),
 				),
@@ -228,6 +229,16 @@ class NSF_CLI {
 				update_post_meta( $id, 'nsf_file_id', $file );
 			}
 		}
+	}
+
+	/**
+	 * Resource body: the theme's Resource layout pattern, or lorem paragraphs without it.
+	 *
+	 * @return string
+	 */
+	private function resource_blocks() {
+		$pattern = WP_Block_Patterns_Registry::get_instance()->get_registered( 'nsf/resource-layout' );
+		return $pattern ? $pattern['content'] : $this->lorem_blocks( 3 );
 	}
 
 	/**
