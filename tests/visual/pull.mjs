@@ -6,6 +6,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { PNG } from 'pngjs';
 
 const dir = path.dirname( fileURLToPath( import.meta.url ) );
 const FILE_KEY = 'mVNfIISs9yQQurddJagkfU';
@@ -58,7 +59,24 @@ if ( todo.length ) {
 			process.exitCode = 1;
 			continue;
 		}
-		const png = Buffer.from( await ( await fetch( url ) ).arrayBuffer() );
+		let png = Buffer.from( await ( await fetch( url ) ).arrayBuffer() );
+		// "crop": { "y", "height" } keeps a band of the frame, e.g. Home
+		// without the header and footer, which are tested on their own.
+		if ( m.crop ) {
+			const full = PNG.sync.read( png );
+			const out = new PNG( { width: full.width, height: m.crop.height } );
+			PNG.bitblt(
+				full,
+				out,
+				0,
+				m.crop.y,
+				full.width,
+				m.crop.height,
+				0,
+				0
+			);
+			png = PNG.sync.write( out );
+		}
 		await fs.writeFile( m.file, png );
 		console.log( `pulled ${ path.basename( m.file ) }` );
 	}

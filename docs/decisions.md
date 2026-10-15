@@ -2,6 +2,25 @@
 
 Answers to the open questions in the build spec and build plan. Newest first.
 
+## October 15, 2026 (Michael)
+
+| Question | Decision |
+| :--- | :--- |
+| Best Slept Self® band | Build it as the Home mockup shows it ([Figma 473:60](https://www.figma.com/design/mVNfIISs9yQQurddJagkfU/NSF-2026?node-id=473-60)): full-width Light Blue to Light Orange gradient, 96px top-right corner, three photos over a faded sun. Replaces Option A |
+| Logo | Use the logo from the mockups until NSF sends final files |
+
+## October 15, 2026 (defaults chosen while building step 8)
+
+| Question | Decision |
+| :--- | :--- |
+| Home page source | A "Home" page holds the sections as editable blocks and is the static front page; `templates/front-page.html` is header, post content, footer. Rebuild it with `bin/dev/home-page.php` |
+| Home Hero images | Placeholders cut from the mockup until NSF picks six photos; the hero advances every 6 seconds, crossfades, and stays on the first image under reduced motion or in a hidden tab |
+| Home resource cards | Featured Resources block with the new Short image style (150px image, 40px gap) and excerpts on. The Resources page keeps the 16:9 image |
+| Research panels on Home | Outlined text panels with a dot list and a link, as in the mockup, rather than featured image cards as the plan says |
+| SleepMark® form before Gravity Forms | `[nsf_form key="sleepmark-lead"]` places a form by its key from `forms/<key>.json`; until Gravity Forms is installed it shows a disabled preview |
+| Drowsy Driving Prevention Week® and Sleep Awareness Week® bands | Same layout as Best Slept Self® with placeholder copy and photos until their mockups arrive |
+| Section padding | 72px at 1440, as the `section` spacing preset (`clamp(40px, 5vw, 72px)`) |
+
 ## October 14, 2026 (Michael)
 
 | Question | Decision |
@@ -29,7 +48,7 @@ Answers to the open questions in the build spec and build plan. Newest first.
 | Sponsor post type | Not built |
 | Navy content card colors | Dark Blue fill, Medium Orange eyebrow, white title and link, Light Blue text (the wireframe is gray) |
 | Outline and icon card | White, 2px Light Blue border, 16px radius, icon picked per card; no mockup yet |
-| Featured image card image | 16:9 crop and 24px gap to the text, from the Resources mockup. The Home mockup's cards use a shorter image and a 40px gap; Resources wins until a designer says otherwise |
+| Featured image card image | 16:9 crop and 24px gap to the text, from the Resources mockup. Home uses the Short image style of Featured Resources (150px image, 40px gap), from the Home mockup |
 | Card grid gap | 30px, from the mockups, added as the `gutter` spacing preset |
 | Resource Hub toolbar placement | Search and facets are the Resource Filter Controls block (left rail); result count, sort, Cards/Table toggle and chips sit in the Resource Results block, where the mockup puts them |
 | Resource Hub URL parameters | `q`, `topics`, `audiences`, `types`, `sort`, `pg`. Plural names because WordPress reserves `topic` and `audience` for the taxonomy archives |

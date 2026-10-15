@@ -10,6 +10,8 @@
 
 defined( 'ABSPATH' ) || exit;
 
+require_once __DIR__ . '/inc/campaign-band.php';
+
 /**
  * Enqueue the child theme stylesheet after Frost's.
  */
@@ -32,6 +34,20 @@ function nsf_theme_pattern_categories() {
 		array(
 			'label'       => __( 'NSF: Cards', 'nsf' ),
 			'description' => __( 'Content Card grids.', 'nsf' ),
+		)
+	);
+	register_block_pattern_category(
+		'nsf-sections',
+		array(
+			'label'       => __( 'NSF: Sections', 'nsf' ),
+			'description' => __( 'Full-width page sections, such as those on Home.', 'nsf' ),
+		)
+	);
+	register_block_pattern_category(
+		'nsf-campaigns',
+		array(
+			'label'       => __( 'NSF: Campaign bands', 'nsf' ),
+			'description' => __( 'Best Slept Self®, Drowsy Driving Prevention Week® and Sleep Awareness Week® bands. Swap one for another by hand.', 'nsf' ),
 		)
 	);
 	register_block_pattern_category(

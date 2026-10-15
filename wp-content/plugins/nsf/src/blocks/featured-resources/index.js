@@ -4,7 +4,7 @@
 import { registerBlockType } from '@wordpress/blocks';
 import { __, sprintf } from '@wordpress/i18n';
 import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
-import { PanelBody } from '@wordpress/components';
+import { PanelBody, ToggleControl } from '@wordpress/components';
 import ServerSideRender from '@wordpress/server-side-render';
 
 import metadata from './block.json';
@@ -43,6 +43,14 @@ function Edit( { attributes, setAttributes } ) {
 							'nsf'
 						) }
 					</p>
+					<ToggleControl
+						__nextHasNoMarginBottom
+						label={ __( 'Show excerpts', 'nsf' ) }
+						checked={ attributes.showExcerpt }
+						onChange={ ( value ) =>
+							setAttributes( { showExcerpt: value } )
+						}
+					/>
 				</PanelBody>
 			</InspectorControls>
 			<div { ...useBlockProps() }>

@@ -47,7 +47,7 @@ if ( ! $nsf_posts ) {
 				array(
 					'variant'     => 'featured-image',
 					'eyebrow'     => nsf_hub_item_labels( $nsf_post )['type'],
-					'showExcerpt' => false,
+					'showExcerpt' => ! empty( $attributes['showExcerpt'] ),
 				)
 			);
 			?>

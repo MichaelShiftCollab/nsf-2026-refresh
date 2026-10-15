@@ -1,0 +1,36 @@
+{
+	"nsfKey": "sleepmark-lead",
+	"title": "SleepMark lead",
+	"description": "Home page SleepMark® panel: request information.",
+	"labelPlacement": "hidden_label",
+	"button": {
+		"type": "text",
+		"text": "Apply now"
+	},
+	"fields": [
+		{
+			"id": 1,
+			"type": "text",
+			"label": "Name",
+			"placeholder": "Name",
+			"isRequired": true,
+			"autocompleteAttribute": "name"
+		},
+		{
+			"id": 2,
+			"type": "email",
+			"label": "Work email",
+			"placeholder": "Work email",
+			"isRequired": true,
+			"autocompleteAttribute": "email"
+		},
+		{
+			"id": 3,
+			"type": "text",
+			"label": "Company",
+			"placeholder": "Company",
+			"isRequired": false,
+			"autocompleteAttribute": "organization"
+		}
+	]
+}

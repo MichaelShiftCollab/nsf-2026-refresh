@@ -40,3 +40,201 @@ strong {
 		--wp--preset--spacing--80: clamp(24px, calc(4.42vw + 5.5px), 40px);
 	}
 }
+
+/* Text the mockups trim to cap height and baseline, so gaps match Figma. */
+.nsf-trim,
+.nsf-trim > li {
+	text-box: trim-both cap alphabetic;
+}
+
+/* Front page: full-width sections sit edge to edge. */
+.nsf-front-page .wp-block-post-content > * {
+	margin-block: 0;
+}
+
+/* Campaign band (Home mockup 464:121): gradient, one rounded corner. */
+.nsf-band {
+	overflow: hidden;
+	border-top-right-radius: var(--wp--custom--radius--band);
+}
+
+/*
+ * Photo cluster: three photos over a faded sun, positioned as percentages of
+ * the 568 x 460 Figma frame (473:60) so the cluster scales as one piece.
+ */
+.nsf-photo-cluster {
+	position: relative;
+	width: 100%;
+	max-width: 568px;
+	aspect-ratio: 568 / 460;
+	margin-inline: auto;
+}
+
+.nsf-photo-cluster::before {
+	content: "";
+	position: absolute;
+	top: -17.39%;
+	left: 8.45%;
+	width: 92.1%;
+	height: 110.65%;
+	background: url(assets/images/home/sun-watermark.png) center / 100% 100% no-repeat;
+}
+
+.nsf-photo-cluster > .wp-block-image {
+	position: absolute;
+	margin: 0;
+}
+
+.nsf-photo-cluster > .wp-block-image img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.nsf-photo-cluster__large {
+	top: 0;
+	left: 7.04%;
+	width: 70.42%;
+	height: 76.09%;
+}
+
+.nsf-photo-cluster__large img {
+	border-radius: 0 var(--wp--custom--radius--frame) 0 var(--wp--custom--radius--frame);
+}
+
+.nsf-photo-cluster__right {
+	top: 25.43%;
+	left: 67.43%;
+	width: 25.88%;
+	height: 27.83%;
+}
+
+.nsf-photo-cluster__right img {
+	border-radius: 0 var(--wp--custom--radius--photo-small) 0 var(--wp--custom--radius--photo-small);
+	box-shadow: var(--wp--preset--shadow--photo);
+}
+
+.nsf-photo-cluster__left {
+	top: 55.87%;
+	left: 12.15%;
+	width: 35.21%;
+	height: 38.04%;
+}
+
+.nsf-photo-cluster__left img {
+	border-radius: 0 var(--wp--custom--radius--photo-medium) 0 var(--wp--custom--radius--photo-medium);
+	box-shadow: var(--wp--preset--shadow--photo);
+}
+
+/* Featured row (Home mockup 464:164): copy beside an image, in a frame. */
+.nsf-feature-row {
+	overflow: hidden;
+	border-radius: 0 var(--wp--custom--radius--frame) 0 var(--wp--custom--radius--frame);
+	background: var(--wp--preset--color--lightest-blue);
+}
+
+.nsf-feature-row__copy {
+	padding-block: var(--wp--preset--spacing--50);
+	padding-left: var(--wp--preset--spacing--50);
+}
+
+.nsf-feature-row__media {
+	align-self: stretch;
+}
+
+.nsf-feature-row__media .wp-block-image,
+.nsf-feature-row__media img {
+	height: 100%;
+	margin: 0;
+}
+
+.nsf-feature-row__media img {
+	width: 100%;
+	object-fit: cover;
+}
+
+@media (max-width: 781px) {
+
+	.nsf-feature-row__copy {
+		padding-right: var(--wp--preset--spacing--50);
+	}
+}
+
+/* Logo boxes (Home mockup 464:238). */
+.nsf-logo-box {
+	min-height: var(--wp--custom--logo-box--height);
+	padding-block: 0;
+}
+
+/* A gray sentence that ends in a link with an arrow. */
+.nsf-inline-link a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.nsf-inline-link a::after {
+	content: "\00a0\00a0→";
+}
+
+.nsf-inline-link a:hover {
+	color: var(--wp--preset--color--primary-blue);
+}
+
+/*
+ * Forms: pill fields with a Medium Blue border and the primary button
+ * (Home mockup 464:207). .nsf-form wraps both the Gravity Forms markup and
+ * the preview shown until Gravity Forms is installed.
+ */
+.nsf-form form,
+.nsf-form.is-preview {
+	display: flex;
+	flex-direction: column;
+	gap: var(--wp--preset--spacing--20);
+}
+
+.nsf-form input:not([type="checkbox"], [type="radio"], [type="submit"]),
+.nsf-form textarea {
+	box-sizing: border-box;
+	width: 100%;
+	height: var(--wp--custom--control--field-height);
+	padding: 0 var(--wp--custom--control--padding-inline);
+	border: 1px solid var(--wp--preset--color--medium-blue);
+	border-radius: var(--wp--custom--radius--pill);
+	background: var(--wp--preset--color--white);
+	color: var(--wp--preset--color--dark-blue);
+	font-family: var(--wp--preset--font-family--open-sans);
+	font-size: var(--wp--preset--font-size--small);
+}
+
+.nsf-form textarea {
+	height: auto;
+	min-height: calc(var(--wp--custom--control--field-height) * 3);
+	padding-block: var(--wp--preset--spacing--20);
+	border-radius: var(--wp--custom--radius--card);
+}
+
+.nsf-form ::placeholder {
+	color: var(--wp--preset--color--gray);
+	opacity: 1;
+}
+
+.nsf-form__footer {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: var(--wp--preset--spacing--30);
+	margin-top: var(--wp--preset--spacing--10);
+}
+
+.nsf-form__link {
+	font-weight: 700;
+	text-decoration: none;
+}
+
+.nsf-form__link::after {
+	content: "\00a0\00a0→";
+}
+
+.nsf-form.is-preview button[disabled] {
+	cursor: not-allowed;
+}

@@ -44,5 +44,17 @@
 				"click": "[data-view=\"table\"]"
 			}
 		]
+	},
+	{
+		"name": "home",
+		"group": "home",
+		"url": "/",
+		"selector": ".nsf-front-page .wp-block-post-content",
+		"widths": [
+			1440
+		],
+		"ignore": [
+			".nsf-card__media"
+		]
 	}
 ]
