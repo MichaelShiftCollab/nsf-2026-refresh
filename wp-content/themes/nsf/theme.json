@@ -265,7 +265,11 @@
 			},
 			"border": {
 				"button": "2px",
-				"rule": "3px"
+				"rule": "3px",
+				"hairline": "1px"
+			},
+			"logo": {
+				"aspect-ratio": "5 / 3"
 			},
 			"letter-spacing": {
 				"caps": "0.08em"

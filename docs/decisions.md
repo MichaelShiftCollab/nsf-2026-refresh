@@ -91,6 +91,8 @@ Answers to the open questions in the build spec and build plan. Newest first.
 | Posts per page on the blog and archives | 9 (three rows of cards); search stays at 10 |
 | Blog-only search | The search field sends `post_type=post`, so it lands on the search template limited to posts |
 | 404 link URLs | Typed from the site outline (`/national-programs/`, `/contact-us/` and so on); check them after the content migration in step 17 |
+| FAQ accordion | Core Details blocks inside a Group with the FAQ block style; first question open, as in the wireframe (489:6). Every Details block in an FAQ group goes into one FAQPage JSON-LD per page. Core Accordion is not used because the spec names Details |
+| Sponsor/Collaborator grid | Core Image blocks in a Group with the Logo grid block style (grid layout, 8rem minimum column). Each logo is contained in the same 5:3 box; the Image caption carries optional text such as an award and year. From the Drowsy Driving Prevention Week wireframe (341:150) |
 
 ## Deferred
 

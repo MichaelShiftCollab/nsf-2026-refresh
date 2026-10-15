@@ -49,6 +49,7 @@ npm run wp -- eval-file bin/dev/card-test-page.php  # rebuild the private Card T
 npm run wp -- eval-file bin/dev/listing-pages.php   # Sleep Learning Zone® posts page and stub pages for search (add `delete` to remove)
 npm run wp -- eval-file bin/dev/home-page.php       # rebuild the Home page from the nsf/home pattern (add keep to keep its content)
 npm run wp -- eval-file bin/dev/cta-test-page.php   # rebuild the private CTA Test page and the prospectus Thank you page
+npm run wp -- eval-file bin/dev/faq-logos-test-page.php  # rebuild the private FAQ and Logo Test page
 ```
 
 The local database is SQLite (`.local/database/nsf.sqlite`) through the sqlite-database-integration drop-in, so no MySQL is needed. Machine-specific settings go in `wp-config-local.php`, which is not committed.
