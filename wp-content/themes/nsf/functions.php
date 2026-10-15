@@ -26,6 +26,18 @@ function nsf_theme_enqueue_styles() {
 add_action( 'wp_enqueue_scripts', 'nsf_theme_enqueue_styles' );
 
 /**
+ * Preload the upright Open Sans file, used by nearly all text, so it starts
+ * downloading before the stylesheet that names it is parsed.
+ */
+function nsf_theme_preload_fonts() {
+	printf(
+		'<link rel="preload" href="%s" as="font" type="font/woff2" crossorigin>' . "\n",
+		esc_url( get_theme_file_uri( 'assets/fonts/open-sans/OpenSans-Variable.woff2' ) )
+	);
+}
+add_action( 'wp_head', 'nsf_theme_preload_fonts', 1 );
+
+/**
  * Enqueue the search, archive and 404 template styles on those views only.
  */
 function nsf_theme_enqueue_listing_styles() {
@@ -42,8 +54,9 @@ add_action( 'wp_enqueue_scripts', 'nsf_theme_enqueue_listing_styles' );
 
 /**
  * Interior page section styles (build plan step 15): one file per page in
- * assets/css/pages/, loaded on every page and in the editor so the sections
- * can be reused anywhere.
+ * assets/css/pages/. The editor loads them all so the sections can be reused
+ * anywhere; a page on the front end loads only the files whose classes its
+ * content uses.
  *
  * @return string[] Theme-relative paths.
  */
@@ -55,22 +68,76 @@ function nsf_theme_page_styles() {
 }
 
 /**
- * Enqueue the interior page section styles on pages.
+ * The nsf- class names a page style file targets, cached until it changes.
+ *
+ * @param string $file Theme-relative path.
+ * @return string[]
+ */
+function nsf_theme_page_style_classes( $file ) {
+	$path  = get_theme_file_path( $file );
+	$key   = 'nsf_css_classes_' . md5( $file . filemtime( $path ) );
+	$names = get_transient( $key );
+	if ( false === $names ) {
+		preg_match_all( '/\.(nsf-[a-z0-9_-]+)/', (string) file_get_contents( $path ), $m ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents -- local theme file.
+		$names = array_values( array_unique( $m[1] ) );
+		set_transient( $key, $names, MONTH_IN_SECONDS );
+	}
+	return $names;
+}
+
+/**
+ * Enqueue the section styles a page uses. Each carries its file path, so
+ * WordPress prints small ones inline instead of as render-blocking links.
  */
 function nsf_theme_enqueue_page_styles() {
 	if ( ! is_page() ) {
 		return;
 	}
+	$content = (string) get_post_field( 'post_content', get_queried_object_id() );
+	// Synced patterns keep their blocks elsewhere; load everything for those.
+	$all = str_contains( $content, '<!-- wp:block ' ) || str_contains( $content, '<!-- wp:pattern ' );
 	foreach ( nsf_theme_page_styles() as $file ) {
-		wp_enqueue_style(
-			'nsf-page-' . basename( $file, '.css' ),
-			get_theme_file_uri( $file ),
-			array( 'nsf-theme' ),
-			wp_get_theme()->get( 'Version' )
-		);
+		$used = $all;
+		foreach ( $used ? array() : nsf_theme_page_style_classes( $file ) as $name ) {
+			if ( preg_match( '/[\s"]' . preg_quote( $name, '/' ) . '[\s"]/', $content ) ) {
+				$used = true;
+				break;
+			}
+		}
+		if ( ! $used ) {
+			continue;
+		}
+		$handle = 'nsf-page-' . basename( $file, '.css' );
+		wp_enqueue_style( $handle, get_theme_file_uri( $file ), array( 'nsf-theme' ), wp_get_theme()->get( 'Version' ) );
+		wp_style_add_data( $handle, 'path', get_theme_file_path( $file ) );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'nsf_theme_enqueue_page_styles' );
+
+/**
+ * Give theme images placed by patterns (logos, the seal) their intrinsic
+ * width and height, so the browser reserves their space before they load.
+ *
+ * @param string $html  Block HTML.
+ * @return string
+ */
+function nsf_theme_image_dimensions( $html ) {
+	$tags = new WP_HTML_Tag_Processor( $html );
+	$base = get_stylesheet_directory_uri() . '/';
+	while ( $tags->next_tag( 'img' ) ) {
+		$src = (string) $tags->get_attribute( 'src' );
+		if ( null !== $tags->get_attribute( 'width' ) || ! str_starts_with( $src, $base ) ) {
+			continue;
+		}
+		$size = wp_getimagesize( get_stylesheet_directory() . '/' . substr( strtok( $src, '?' ), strlen( $base ) ) );
+		if ( $size ) {
+			$tags->set_attribute( 'width', (string) $size[0] );
+			$tags->set_attribute( 'height', (string) $size[1] );
+		}
+	}
+	return $tags->get_updated_html();
+}
+add_filter( 'render_block_core/image', 'nsf_theme_image_dimensions' );
 
 /**
  * Show the interior page section styles in the editor.

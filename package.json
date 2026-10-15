@@ -17,7 +17,8 @@
 		"test:hub": "node tests/hub.mjs",
 		"test:home": "node tests/home.mjs",
 		"test:global": "node tests/global.mjs",
-		"test:cta": "node tests/cta.mjs"
+		"test:cta": "node tests/cta.mjs",
+		"test:a11y": "node tests/a11y.mjs"
 	},
 	"devDependencies": {
 		"@wordpress/scripts": "^36.1.0",

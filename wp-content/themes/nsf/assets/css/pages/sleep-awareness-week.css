@@ -91,7 +91,7 @@
 	border: var(--wp--custom--border--button) dashed var(--wp--preset--color--medium-blue);
 	border-radius: var(--wp--custom--radius--card);
 	background: var(--wp--preset--color--white);
-	color: var(--wp--preset--color--medium-blue);
+	color: var(--wp--preset--color--primary-blue);
 	font-size: var(--wp--preset--font-size--x-small);
 	font-weight: 700;
 	letter-spacing: var(--wp--custom--letter-spacing--caps);

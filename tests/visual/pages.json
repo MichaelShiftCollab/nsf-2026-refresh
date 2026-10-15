@@ -95,6 +95,22 @@
 		]
 	},
 	{
+		"name": "home-tablet-phone",
+		"group": "home",
+		"url": "/",
+		"selector": ".nsf-front-page .wp-block-post-content",
+		"widths": [
+			781,
+			600
+		],
+		"ignore": [
+			".nsf-card__media"
+		],
+		"mockup": "home",
+		"threshold": 15,
+		"note": "HTML kit mockups (not Figma); the kit's stand-in heading font and untrimmed text spacing drift the page by 1–3% of its height"
+	},
+	{
 		"name": "global-header",
 		"group": "global",
 		"url": "/sleep-health-resources/",

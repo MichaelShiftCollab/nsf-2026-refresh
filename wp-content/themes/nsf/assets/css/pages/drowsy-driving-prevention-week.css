@@ -168,7 +168,7 @@
 	bottom: -120px;
 	width: 420px;
 	aspect-ratio: 1;
-	background: url(../../images/home/sun-watermark.png) center / contain no-repeat;
+	background: url(../../images/home/sun-watermark.webp) center / contain no-repeat;
 	opacity: 0.12;
 	pointer-events: none;
 }

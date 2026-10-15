@@ -18,7 +18,7 @@ Answers to the open questions in the build spec and build plan. Newest first.
 | Pages whose band has more than a title | They use the "No Title" template (full-width content only) and start with a title band section: the plain `nsf/title-band` pattern, or one with a photo or a contact box |
 | Page subtitle | `nsf_subtitle` meta on pages too, set in the editor's "Title band" panel |
 | Page URLs | From the site outline until the page docs give URLs (step 17): `/national-programs/…`, `/research/nsf-research-reports/sleep-in-america-polls/`, `/sleeptech/sleeptech-network/sleeptech-network-membership/`, `/media-center/` |
-| Page section CSS | One file per page in `assets/css/pages/`, loaded on every page and in the editor so sections can be reused anywhere |
+| Page section CSS | One file per page in `assets/css/pages/`, available on every page and in the editor so sections can be reused anywhere |
 | Statistic on a tinted section | Turns white with the card shadow and rounded top-right corner, as in the Resource single mockup |
 | Related Content at tablet width | Two cards across, one on phones |
 | Visual test scope for pages | Interior pages and the Resource single ignore the header, sign-up and footer, which have their own tests and differ from the HTML mockups at 781 and 600. The Resource single allows 25% height difference because the seeded Resource has much shorter copy than the mockup's |
@@ -29,6 +29,11 @@ Answers to the open questions in the build spec and build plan. Newest first.
 | Flexible CTA with Form options | An optional eyebrow above the form and a "One field per row" toggle that stacks half-width fields (used by the Sleep Awareness Week® toolkit, as in its mockup) |
 | SleepTech® Network Membership form | A real form (`forms/sleeptech-network-membership.json`) replaces the drawn field preview. Company type choices are provisional: Device or wearable maker, App or software, Bedding or sleep products, Health care or research, Other |
 | Half-width fields on phones | Stack at 600px and below (was 599), matching the mockups' phone breakpoint |
+| Home at 781 and 600 | HTML kit mockups (`mockups/pages/home.frag.html`) drawn from the Figma 1440 frame and the site's reflow. They allow 15% mismatch (other pages 10%) because the kit's stand-in heading font and untrimmed text spacing drift the long page. Featured cards stay 3 across at 781, as the block's Figma 182:31 reference says |
+| Band corner below 782px | The campaign bands use the 64px `band-tablet` corner, like the title band |
+| Accessibility check | `npm run test:a11y` runs axe-core (WCAG 2.2 A and AA) on 15 pages at 1440 and 390. Only color contrast fails, all from mockup colors (Primary Orange text, white on orange buttons, Medium Blue pagination); waiting on Michael |
+| Page section CSS on the front end | A page loads only the section files whose classes its content uses (all of them when it holds a synced pattern), printed inline when small. The editor still loads all of them |
+| Performance | Open Sans is preloaded; the sun watermark is WebP (130 KB to 30 KB); theme images in patterns get their width and height. Local Lighthouse mobile: Home 88, Resources 86, on PHP's dev server without compression or caching, which WP Engine adds |
 
 ## October 15, 2026 (defaults chosen while building step 9)
 

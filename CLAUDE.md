@@ -41,6 +41,7 @@ npm run test:hub        # Resource Hub behavior: in-place filtering, URL state, 
 npm run test:global     # header search, mobile menu, Alert Banner on/off (step 5)
 npm run test:home       # Home Hero rotation and reduced motion, valid blocks in the editor (step 8)
 npm run test:cta        # Gated Download: no file URL in the page, form to success page, download works (step 9)
+npm run test:a11y       # axe-core WCAG 2.2 AA check of the main templates at 1440 and 390 (spec: accessibility)
 npm run wp -- <args>    # WP-CLI; add --allow-root when running as root
 npm run wp -- nsf terms import   # taxonomy terms from content/taxonomy-terms.json
 npm run wp -- nsf seed [--delete]  # 30 sample resources and 20 posts for building and testing
