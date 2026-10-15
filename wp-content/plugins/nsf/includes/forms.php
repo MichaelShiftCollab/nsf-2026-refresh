@@ -103,10 +103,28 @@ function nsf_form_preview_field_html( $field, $base, $live ) {
 			);
 		}
 		return sprintf(
-			'<fieldset class="%1$s nsf-form__choices"><legend>%2$s%3$s</legend>%4$s%5$s</fieldset>',
+			'<fieldset class="%1$s nsf-form__choices"><legend%6$s>%2$s%3$s</legend>%4$s%5$s</fieldset>',
 			esc_attr( $classes ),
 			esc_html( $label ),
 			$required ? '<span class="nsf-form__required"> *</span>' : '',
+			$options,
+			$note,
+			'hidden_label' === ( $field['labelPlacement'] ?? '' ) ? ' class="screen-reader-text"' : ''
+		);
+	}
+
+	if ( 'select' === $type ) {
+		$options = sprintf( '<option value="">%s</option>', esc_html( ( $field['placeholder'] ?? $label ) . ( $required ? '*' : '' ) ) );
+		foreach ( (array) ( $field['choices'] ?? array() ) as $choice ) {
+			$options .= sprintf( '<option value="%1$s">%2$s</option>', esc_attr( $choice['value'] ?? $choice['text'] ), esc_html( $choice['text'] ) );
+		}
+		return sprintf(
+			'<div class="%1$s"><label class="screen-reader-text" for="%2$s">%3$s</label><select id="%2$s" name="%4$s"%5$s>%6$s</select>%7$s</div>',
+			esc_attr( $classes . ' nsf-form__select' ),
+			esc_attr( $id ),
+			esc_html( $label . ( $required ? ' *' : '' ) ),
+			esc_attr( $name ),
+			$state,
 			$options,
 			$note
 		);

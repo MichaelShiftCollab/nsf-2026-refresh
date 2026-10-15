@@ -206,6 +206,43 @@ strong {
 	font-size: var(--wp--preset--font-size--small);
 }
 
+/* Dropdown: a field with a Primary Blue chevron drawn by its wrapper. */
+.nsf-form__select {
+	position: relative;
+}
+
+.nsf-form__select::after {
+	content: "";
+	position: absolute;
+	top: calc(var(--wp--custom--control--field-height) / 2);
+	right: var(--wp--custom--control--padding-inline);
+	width: 8px;
+	height: 8px;
+	border-right: var(--wp--custom--border--button) solid var(--wp--preset--color--primary-blue);
+	border-bottom: var(--wp--custom--border--button) solid var(--wp--preset--color--primary-blue);
+	transform: translateY(-75%) rotate(45deg);
+	pointer-events: none;
+}
+
+.nsf-form select {
+	box-sizing: border-box;
+	width: 100%;
+	height: var(--wp--custom--control--field-height);
+	padding: 0 calc(var(--wp--custom--control--padding-inline) * 2) 0 var(--wp--custom--control--padding-inline);
+	border: 1px solid var(--wp--preset--color--medium-blue);
+	border-radius: var(--wp--custom--radius--pill);
+	background: var(--wp--preset--color--white);
+	color: var(--wp--preset--color--dark-blue);
+	font-family: var(--wp--preset--font-family--open-sans);
+	font-size: var(--wp--preset--font-size--small);
+	appearance: none;
+}
+
+.nsf-form select:invalid,
+.nsf-form select:has(option[value=""]:checked) {
+	color: var(--wp--preset--color--gray);
+}
+
 .nsf-form textarea {
 	height: auto;
 	min-height: calc(var(--wp--custom--control--field-height) * 3);
@@ -328,9 +365,10 @@ strong {
 	font-size: var(--wp--preset--font-size--x-small);
 }
 
-@media (max-width: 599px) {
+@media (max-width: 600px) {
 
-	.nsf-form.is-preview:not(.nsf-form--inline) > .is-half {
+	.nsf-form.is-preview:not(.nsf-form--inline) > .is-half,
+	.nsf-form .gform_fields > .gfield--width-half {
 		grid-column: 1 / -1;
 	}
 }
@@ -363,6 +401,24 @@ strong {
 
 .nsf-split__panel .wp-block-nsf-form {
 	margin: 0;
+}
+
+/* Same look as the "Eyebrow, small" paragraph style, which WordPress only
+   prints on pages that use it. */
+.nsf-split__eyebrow.nsf-split__eyebrow {
+	margin: 0 0 var(--wp--preset--spacing--30);
+	color: var(--wp--preset--color--primary-orange);
+	font-size: var(--wp--preset--font-size--x-small);
+	font-weight: 700;
+	line-height: 1.4286;
+	letter-spacing: var(--wp--custom--letter-spacing--caps);
+	text-transform: uppercase;
+}
+
+/* "One field per row": half-width fields stack, in the preview and in Gravity Forms. */
+.nsf-split__panel.is-stacked .nsf-form.is-preview > .is-half,
+.nsf-split__panel.is-stacked .gform_fields > .gfield {
+	grid-column: 1 / -1;
 }
 
 @media (max-width: 899px) {

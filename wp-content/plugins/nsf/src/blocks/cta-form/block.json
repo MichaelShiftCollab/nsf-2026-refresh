@@ -12,6 +12,14 @@
 		"formKey": {
 			"type": "string",
 			"default": ""
+		},
+		"eyebrow": {
+			"type": "string",
+			"default": ""
+		},
+		"stackFields": {
+			"type": "boolean",
+			"default": false
 		}
 	},
 	"supports": {

@@ -1,0 +1,115 @@
+{
+	"nsfKey": "sleeptech-network-membership",
+	"title": "SleepTech® Network Membership Application",
+	"description": "SleepTech® Network Membership page (wireframe 207:2, mockup). Fields from the mockup; Zoho module SleepTech® Network Membership. Company type choices are provisional until NSF confirms them.",
+	"labelPlacement": "hidden_label",
+	"button": {
+		"type": "text",
+		"text": "Submit application"
+	},
+	"fields": [
+		{
+			"id": 1,
+			"type": "text",
+			"label": "Company name",
+			"placeholder": "Company name*",
+			"isRequired": true,
+			"autocompleteAttribute": "organization",
+			"layoutGridColumnSpan": 6
+		},
+		{
+			"id": 2,
+			"type": "website",
+			"label": "Website",
+			"placeholder": "Website",
+			"isRequired": false,
+			"autocompleteAttribute": "url",
+			"layoutGridColumnSpan": 6
+		},
+		{
+			"id": 3,
+			"type": "text",
+			"label": "Contact name",
+			"placeholder": "Contact name*",
+			"isRequired": true,
+			"autocompleteAttribute": "name",
+			"layoutGridColumnSpan": 6
+		},
+		{
+			"id": 4,
+			"type": "text",
+			"label": "Job title",
+			"placeholder": "Job title",
+			"isRequired": false,
+			"autocompleteAttribute": "organization-title",
+			"layoutGridColumnSpan": 6
+		},
+		{
+			"id": 5,
+			"type": "email",
+			"label": "Work email",
+			"placeholder": "Work email*",
+			"isRequired": true,
+			"autocompleteAttribute": "email",
+			"layoutGridColumnSpan": 6
+		},
+		{
+			"id": 6,
+			"type": "phone",
+			"label": "Phone",
+			"placeholder": "Phone",
+			"isRequired": false,
+			"autocompleteAttribute": "tel",
+			"layoutGridColumnSpan": 6
+		},
+		{
+			"id": 7,
+			"type": "select",
+			"label": "Company type",
+			"placeholder": "Company type",
+			"isRequired": true,
+			"choices": [
+				{
+					"text": "Device or wearable maker",
+					"value": "Device or wearable maker"
+				},
+				{
+					"text": "App or software",
+					"value": "App or software"
+				},
+				{
+					"text": "Bedding or sleep products",
+					"value": "Bedding or sleep products"
+				},
+				{
+					"text": "Health care or research",
+					"value": "Health care or research"
+				},
+				{
+					"text": "Other",
+					"value": "Other"
+				}
+			]
+		},
+		{
+			"id": 8,
+			"type": "textarea",
+			"label": "What are you hoping to get from membership?",
+			"placeholder": "What are you hoping to get from membership?",
+			"isRequired": false
+		},
+		{
+			"id": 9,
+			"type": "checkbox",
+			"label": "Updates",
+			"isRequired": false,
+			"choices": [
+				{
+					"text": "Yes, send me SleepTech® Network updates from the National Sleep Foundation.",
+					"value": "yes"
+				}
+			],
+			"labelPlacement": "hidden_label"
+		}
+	]
+}

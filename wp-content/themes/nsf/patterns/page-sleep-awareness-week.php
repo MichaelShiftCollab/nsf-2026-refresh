@@ -199,7 +199,7 @@ require __DIR__ . '/../inc/post-cards.php';
 
 <!-- wp:group {"metadata":{"name":"Participation Toolkit"},"align":"full","className":"is-style-section-light-blue-to-light-orange nsf-saw-toolkit","style":{"spacing":{"padding":{"top":"var:preset|spacing|section","bottom":"var:preset|spacing|section"}}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group alignfull is-style-section-light-blue-to-light-orange nsf-saw-toolkit" style="padding-top:var(--wp--preset--spacing--section);padding-bottom:var(--wp--preset--spacing--section)">
-<!-- wp:nsf/cta-form {"formKey":"participation-toolkit"} -->
+<!-- wp:nsf/cta-form {"formKey":"participation-toolkit","eyebrow":"<?php echo esc_attr__( 'Request the toolkit', 'nsf' ); ?>","stackFields":true} -->
 <!-- wp:paragraph {"className":"is-style-eyebrow"} -->
 <p class="is-style-eyebrow"><?php esc_html_e( 'Participation Toolkit', 'nsf' ); ?></p>
 <!-- /wp:paragraph -->

@@ -25,6 +25,10 @@ Answers to the open questions in the build spec and build plan. Newest first.
 | Section spacing | The `section` spacing token is now 56px at 781 and below (was 40px), rising to 72px, to match the page mockups |
 | Tablet type and corners | New `body-large` (20px) and `body-medium` (18px) font tokens and a `band-tablet` (64px) radius for the title band at 781 and below replace sizes typed into the page CSS; the per-page 56px section overrides are gone now the `section` token covers them |
 | Breadcrumbs on phones | Home stays left out at every width (the October 15 step 5 decision). The interior page mockups wrongly showed "Home /" and were corrected |
+| Dropdown fields | The NSF Form preview draws Gravity Forms `select` fields as a pill with a Primary Blue chevron; the first option is the placeholder |
+| Flexible CTA with Form options | An optional eyebrow above the form and a "One field per row" toggle that stacks half-width fields (used by the Sleep Awareness Week® toolkit, as in its mockup) |
+| SleepTech® Network Membership form | A real form (`forms/sleeptech-network-membership.json`) replaces the drawn field preview. Company type choices are provisional: Device or wearable maker, App or software, Bedding or sleep products, Health care or research, Other |
+| Half-width fields on phones | Stack at 600px and below (was 599), matching the mockups' phone breakpoint |
 
 ## October 15, 2026 (defaults chosen while building step 9)
 

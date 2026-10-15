@@ -9,7 +9,7 @@ import {
 	useBlockProps,
 	useInnerBlocksProps,
 } from '@wordpress/block-editor';
-import { PanelBody } from '@wordpress/components';
+import { PanelBody, TextControl, ToggleControl } from '@wordpress/components';
 import ServerSideRender from '@wordpress/server-side-render';
 
 import { FormPicker } from '../../editor/controls';
@@ -48,11 +48,44 @@ function Edit( { attributes, setAttributes } ) {
 						value={ attributes.formKey }
 						onChange={ ( formKey ) => setAttributes( { formKey } ) }
 					/>
+					<TextControl
+						__nextHasNoMarginBottom
+						__next40pxDefaultSize
+						label={ __( 'Eyebrow above the form', 'nsf' ) }
+						help={ __(
+							'Optional, such as “Request the toolkit”.',
+							'nsf'
+						) }
+						value={ attributes.eyebrow }
+						onChange={ ( eyebrow ) => setAttributes( { eyebrow } ) }
+					/>
+					<ToggleControl
+						__nextHasNoMarginBottom
+						label={ __( 'One field per row', 'nsf' ) }
+						help={ __(
+							'Stack half-width fields instead of pairing them.',
+							'nsf'
+						) }
+						checked={ attributes.stackFields }
+						onChange={ ( stackFields ) =>
+							setAttributes( { stackFields } )
+						}
+					/>
 				</PanelBody>
 			</InspectorControls>
 			<div { ...blockProps }>
 				<div { ...innerBlocksProps } />
-				<div className="nsf-split__panel">
+				<div
+					className={
+						'nsf-split__panel' +
+						( attributes.stackFields ? ' is-stacked' : '' )
+					}
+				>
+					{ attributes.eyebrow && (
+						<p className="nsf-split__eyebrow">
+							{ attributes.eyebrow }
+						</p>
+					) }
 					{ attributes.formKey ? (
 						<ServerSideRender
 							block="nsf/form"
