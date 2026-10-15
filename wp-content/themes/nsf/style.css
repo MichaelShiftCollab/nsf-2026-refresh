@@ -415,7 +415,8 @@ strong {
 	text-transform: uppercase;
 }
 
-/* "One field per row": half-width fields stack, in the preview and in Gravity Forms. */
+/* "One field per row": half-width fields stack, in the preview and in
+   Gravity Forms. */
 .nsf-split__panel.is-stacked .nsf-form.is-preview > .is-half,
 .nsf-split__panel.is-stacked .gform_fields > .gfield {
 	grid-column: 1 / -1;
