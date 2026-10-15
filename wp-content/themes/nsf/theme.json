@@ -237,6 +237,11 @@
 					"size": "clamp(40px, 4.44vw, 64px)"
 				},
 				{
+					"name": "Section",
+					"slug": "section",
+					"size": "clamp(40px, 5vw, 72px)"
+				},
+				{
 					"slug": "70",
 					"name": "96",
 					"size": "clamp(56px, 6.67vw, 96px)"
@@ -253,7 +258,10 @@
 				"pill": "100px",
 				"frame": "72px",
 				"card": "16px",
-				"checkbox": "2px"
+				"checkbox": "2px",
+				"band": "96px",
+				"photo-small": "32px",
+				"photo-medium": "40px"
 			},
 			"border": {
 				"button": "2px",
@@ -268,10 +276,24 @@
 				"page-size": "48px",
 				"padding-inline": "20px",
 				"checkbox": "18px",
-				"gap": "12px"
+				"gap": "12px",
+				"field-height": "45px"
 			},
 			"font-size": {
 				"card-title": "24px"
+			},
+			"hero": {
+				"heading-width": "760px",
+				"heading-offset": "38px",
+				"image-width": "849px",
+				"image-ratio": "849 / 550",
+				"padding-bottom": "40px"
+			},
+			"card": {
+				"image-short": "150px"
+			},
+			"logo-box": {
+				"height": "100px"
 			}
 		},
 		"shadow": {
@@ -281,6 +303,11 @@
 					"name": "Card",
 					"slug": "card",
 					"shadow": "8px 8px 8px 0 color-mix(in srgb, var(--wp--preset--color--light-blue) 50%, transparent)"
+				},
+				{
+					"name": "Photo",
+					"slug": "photo",
+					"shadow": "0 8px 24px 0 color-mix(in srgb, var(--wp--preset--color--dark-blue) 18%, transparent)"
 				}
 			]
 		}

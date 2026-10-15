@@ -24,6 +24,8 @@ if ( in_array( 'delete', $args ?? array(), true ) ) {
 			'meta_key'    => '_nsf_seed', // phpcs:ignore WordPress.DB.SlowDBQuery
 			'fields'      => 'ids',
 			'numberposts' => -1,
+			// Keep the front page: bin/dev/home-page.php may have filled the stub Home.
+			'exclude'     => array( (int) get_option( 'page_on_front' ) ),
 		)
 	);
 	foreach ( $ids as $id ) {

@@ -1,0 +1,20 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"title": "Link with arrow",
+	"slug": "link",
+	"blockTypes": [
+		"core/paragraph"
+	],
+	"styles": {
+		"color": {
+			"text": "var(--wp--preset--color--primary-blue)"
+		},
+		"typography": {
+			"fontSize": "var(--wp--preset--font-size--small)",
+			"lineHeight": "1.5",
+			"fontWeight": "700"
+		},
+		"css": "& a{text-decoration:none;} & a::after{content:\"\\00a0\\00a0→\";} & a:hover{text-decoration:underline;text-underline-offset:0.15em;}"
+	}
+}

@@ -21,3 +21,16 @@
 		}
 	}
 }
+
+// Short image (Home mockup 464:138): a 150px image and a 40px gap to the text.
+.nsf-featured.is-style-short-image {
+
+	.nsf-card__media {
+		aspect-ratio: auto;
+		height: var(--wp--custom--card--image-short);
+	}
+
+	.nsf-card__body {
+		padding-top: calc(var(--wp--preset--spacing--30) + var(--wp--preset--spacing--20));
+	}
+}

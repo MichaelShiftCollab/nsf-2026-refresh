@@ -1,0 +1,19 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"title": "Card heading",
+	"slug": "card-heading",
+	"blockTypes": [
+		"core/heading"
+	],
+	"styles": {
+		"typography": {
+			"fontFamily": "var(--wp--preset--font-family--open-sans)",
+			"fontSize": "var(--wp--custom--font-size--card-title)",
+			"fontWeight": "600",
+			"lineHeight": "1.3333",
+			"letterSpacing": "0",
+			"textTransform": "none"
+		}
+	}
+}

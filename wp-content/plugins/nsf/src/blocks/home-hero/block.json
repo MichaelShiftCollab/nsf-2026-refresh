@@ -1,0 +1,38 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "nsf/home-hero",
+	"title": "Home Hero",
+	"category": "design",
+	"icon": "format-gallery",
+	"description": "H1 over up to six rotating images. The images advance on their own, with no indicators, and stay still when the visitor prefers reduced motion.",
+	"keywords": [ "hero", "slideshow", "home" ],
+	"textdomain": "nsf",
+	"attributes": {
+		"heading": {
+			"type": "string",
+			"default": ""
+		},
+		"images": {
+			"type": "array",
+			"default": [],
+			"items": {
+				"type": "object"
+			}
+		},
+		"interval": {
+			"type": "number",
+			"default": 6
+		}
+	},
+	"supports": {
+		"html": false,
+		"multiple": false,
+		"align": [ "full" ]
+	},
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php"
+}

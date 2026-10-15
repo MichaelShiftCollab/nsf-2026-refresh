@@ -1,0 +1,12 @@
+.nsf-hero__editor-images {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 8px;
+	margin-bottom: 12px;
+
+	img {
+		width: 100%;
+		aspect-ratio: 849 / 550;
+		object-fit: cover;
+	}
+}

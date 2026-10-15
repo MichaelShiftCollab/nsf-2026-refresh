@@ -5,8 +5,12 @@
 	"title": "Featured Resources",
 	"category": "widgets",
 	"icon": "star-filled",
-	"description": "Three picked resources, posts or pages as featured image cards. Until all three are picked, the newest resources fill the gaps.",
-	"keywords": [ "featured", "resources", "cards" ],
+	"description": "Three picked resources, posts or pages as featured image cards. Until all three are picked, the newest resources fill the gaps. The Short image style matches the Home cards.",
+	"keywords": [
+		"featured",
+		"resources",
+		"cards"
+	],
 	"textdomain": "nsf",
 	"attributes": {
 		"items": {
@@ -15,16 +19,37 @@
 			"items": {
 				"type": "object"
 			}
+		},
+		"showExcerpt": {
+			"type": "boolean",
+			"default": false
 		}
 	},
 	"supports": {
 		"html": false,
-		"align": [ "wide", "full" ],
+		"align": [
+			"wide",
+			"full"
+		],
 		"spacing": {
-			"margin": [ "top", "bottom" ]
+			"margin": [
+				"top",
+				"bottom"
+			]
 		}
 	},
 	"editorScript": "file:./index.js",
 	"style": "file:./style-index.css",
-	"render": "file:./render.php"
+	"render": "file:./render.php",
+	"styles": [
+		{
+			"name": "default",
+			"label": "Default",
+			"isDefault": true
+		},
+		{
+			"name": "short-image",
+			"label": "Short image"
+		}
+	]
 }

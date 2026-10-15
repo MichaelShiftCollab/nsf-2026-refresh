@@ -24,6 +24,7 @@ require_once NSF_PATH . 'includes/resource-file.php';
 require_once NSF_PATH . 'includes/content-card.php';
 require_once NSF_PATH . 'includes/resource-hub.php';
 require_once NSF_PATH . 'includes/listings.php';
+require_once NSF_PATH . 'includes/forms.php';
 
 if ( defined( 'WP_CLI' ) && WP_CLI ) {
 	require_once NSF_PATH . 'cli/class-nsf-cli.php';
