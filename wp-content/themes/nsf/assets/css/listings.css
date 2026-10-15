@@ -1,0 +1,324 @@
+/*
+ * Search results, Sleep Learning Zone® and topic archives, and 404
+ * (build plan steps 13 and 14). Provisional: built from the wireframes
+ * (211:2, 215:2, 219:2, 220:2) until mockups exist. Every value is a
+ * theme.json token.
+ */
+
+/* Title band */
+.nsf-title-band h1 {
+	margin: 0;
+}
+
+/* Search fields */
+.nsf-search {
+	max-width: 600px;
+}
+
+.nsf-search--compact {
+	max-width: 400px;
+}
+
+.nsf-search .wp-block-search__inside-wrapper {
+	gap: var(--wp--custom--control--gap);
+}
+
+.nsf-search .wp-block-search__input {
+	box-sizing: border-box;
+	height: var(--wp--custom--control--height);
+	padding: 0 var(--wp--custom--control--padding-inline);
+	border: 1px solid var(--wp--preset--color--medium-blue);
+	border-radius: var(--wp--custom--radius--pill);
+	background: var(--wp--preset--color--white);
+	color: var(--wp--preset--color--primary-blue);
+	font-family: inherit;
+	font-size: var(--wp--preset--font-size--small);
+}
+
+.nsf-search .wp-block-search__input::placeholder {
+	color: var(--wp--preset--color--gray);
+	opacity: 1;
+}
+
+.nsf-search .wp-block-search__input:focus {
+	outline: var(--wp--custom--border--button) solid var(--wp--preset--color--primary-orange);
+	outline-offset: var(--wp--custom--border--button);
+}
+
+.nsf-search .wp-block-search__button {
+	height: var(--wp--custom--control--height);
+	margin: 0;
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+/* Icon button inside the field (Sleep Learning Zone® search). */
+.nsf-search--compact .wp-block-search__inside-wrapper {
+	position: relative;
+	padding: 0;
+	border: 0;
+}
+
+.nsf-search--compact .wp-block-search__input {
+	padding-right: calc(var(--wp--custom--control--height) + var(--wp--preset--spacing--10));
+}
+
+.nsf-search--compact .wp-block-search__button {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: var(--wp--custom--control--height);
+	padding: 0;
+	border-color: transparent;
+	background: transparent;
+	color: var(--wp--preset--color--primary-blue);
+}
+
+.nsf-search--compact .wp-block-search__button:hover,
+.nsf-search--compact .wp-block-search__button:focus {
+	border-color: transparent;
+	color: var(--wp--preset--color--primary-orange);
+}
+
+/* Count and kicker lines */
+.nsf-search + .nsf-listing-count {
+	margin-top: var(--wp--preset--spacing--30);
+}
+
+.nsf-archive-results .wp-block-post-template {
+	margin-top: var(--wp--preset--spacing--30);
+}
+
+.nsf-listing-count {
+	margin: 0;
+	color: var(--wp--preset--color--primary-blue);
+	font-size: var(--wp--preset--font-size--small);
+	font-weight: var(--wp--custom--font-weight--bold);
+	line-height: 1.5;
+}
+
+.nsf-listing-intro h1 {
+	margin: 0;
+}
+
+.nsf-listing-intro > p,
+.nsf-listing-intro > .wp-block-term-description,
+.nsf-404-search > p {
+	max-width: 840px;
+}
+
+.nsf-kicker.wp-block-heading {
+	color: var(--wp--preset--color--gray);
+	font-family: var(--wp--preset--font-family--open-sans);
+	font-size: var(--wp--preset--font-size--x-small);
+	font-weight: var(--wp--custom--font-weight--bold);
+	line-height: 1.4286;
+	letter-spacing: var(--wp--custom--letter-spacing--caps);
+	text-transform: uppercase;
+}
+
+/* Search filter buttons */
+.nsf-search-filters {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--wp--custom--control--gap);
+	margin-top: var(--wp--preset--spacing--30);
+}
+
+.nsf-filter {
+	display: inline-flex;
+	box-sizing: border-box;
+	align-items: center;
+	height: var(--wp--custom--control--chip-height);
+	padding: 0 var(--wp--custom--control--padding-inline);
+	border: 1px solid var(--wp--preset--color--medium-blue);
+	border-radius: var(--wp--custom--radius--pill);
+	background: var(--wp--preset--color--white);
+	color: var(--wp--preset--color--primary-blue);
+	font-size: var(--wp--preset--font-size--x-small);
+	font-weight: var(--wp--custom--font-weight--semi-bold);
+	line-height: 1.4286;
+	text-decoration: none;
+	white-space: nowrap;
+}
+
+.nsf-filter:hover,
+.nsf-filter:focus {
+	background: var(--wp--preset--color--lightest-blue);
+	color: var(--wp--preset--color--primary-blue);
+}
+
+.nsf-filter.is-active {
+	border-color: var(--wp--preset--color--primary-blue);
+	background: var(--wp--preset--color--primary-blue);
+	color: var(--wp--preset--color--white);
+}
+
+.nsf-filter:focus-visible {
+	outline: var(--wp--custom--border--button) solid var(--wp--preset--color--primary-orange);
+	outline-offset: var(--wp--custom--border--button);
+}
+
+/* Search results list */
+.nsf-result-list {
+	margin-top: var(--wp--preset--spacing--40);
+}
+
+.nsf-result-list > li {
+	margin: 0;
+	padding: var(--wp--preset--spacing--30) 0;
+	border-bottom: 1px solid var(--wp--preset--color--light-blue);
+}
+
+.nsf-result > * {
+	max-width: 840px;
+	margin: 0;
+}
+
+.nsf-result__meta {
+	gap: 0;
+}
+
+.nsf-result__meta p {
+	margin: 0;
+}
+
+.nsf-result__date {
+	color: var(--wp--preset--color--gray);
+	font-size: var(--wp--preset--font-size--x-small);
+	line-height: 1.4286;
+}
+
+.nsf-result__eyebrow + .nsf-result__date::before {
+	content: "·";
+	margin: 0 0.6em;
+}
+
+.nsf-result__title.wp-block-post-title {
+	color: var(--wp--preset--color--primary-blue);
+	font-family: var(--wp--preset--font-family--open-sans);
+	font-size: var(--wp--custom--font-size--card-title);
+	font-weight: var(--wp--custom--font-weight--semi-bold);
+	line-height: 1.3333;
+}
+
+.nsf-result__title a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.nsf-result__title a:hover,
+.nsf-result__title a:focus {
+	text-decoration: underline;
+	text-decoration-thickness: 1px;
+	text-underline-offset: 0.15em;
+}
+
+.nsf-result__excerpt p {
+	margin: 0;
+	font-size: var(--wp--preset--font-size--small);
+	line-height: 1.5;
+}
+
+.nsf-listing-empty {
+	color: var(--wp--preset--color--primary-blue);
+}
+
+/* Pagination: same pills as the Resource Hub. */
+.nsf-pagination {
+	gap: 10px;
+	margin-top: var(--wp--preset--spacing--50);
+}
+
+.nsf-pagination .wp-block-query-pagination-numbers {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	margin: 0;
+}
+
+.nsf-pagination .page-numbers,
+.nsf-pagination .wp-block-query-pagination-previous,
+.nsf-pagination .wp-block-query-pagination-next {
+	display: inline-flex;
+	box-sizing: border-box;
+	align-items: center;
+	justify-content: center;
+	min-width: var(--wp--custom--control--page-size);
+	height: var(--wp--custom--control--page-size);
+	margin: 0;
+	border: 1px solid var(--wp--preset--color--medium-blue);
+	border-radius: var(--wp--custom--radius--pill);
+	background: var(--wp--preset--color--lightest-blue);
+	color: var(--wp--preset--color--medium-blue);
+	font-size: var(--wp--preset--font-size--small);
+	font-weight: var(--wp--custom--font-weight--bold);
+	line-height: 1.5;
+	text-decoration: none;
+}
+
+.nsf-pagination .wp-block-query-pagination-previous,
+.nsf-pagination .wp-block-query-pagination-next {
+	padding: 0 var(--wp--custom--control--padding-inline);
+}
+
+.nsf-pagination .page-numbers.current {
+	background: var(--wp--preset--color--medium-blue);
+	color: var(--wp--preset--color--white);
+}
+
+.nsf-pagination a:hover,
+.nsf-pagination a:focus {
+	border-color: var(--wp--preset--color--primary-blue);
+	background: var(--wp--preset--color--primary-blue);
+	color: var(--wp--preset--color--white);
+}
+
+/* 404: "Where to go instead" link columns */
+.nsf-link-columns {
+	margin: 0;
+}
+
+.nsf-link-list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.nsf-link-list li {
+	margin: 0;
+	border-bottom: 1px solid var(--wp--preset--color--light-blue);
+}
+
+.nsf-link-list a {
+	display: block;
+	padding: var(--wp--preset--spacing--20) 0;
+	color: var(--wp--preset--color--primary-blue);
+	font-size: var(--wp--preset--font-size--small);
+	font-weight: var(--wp--custom--font-weight--semi-bold);
+	line-height: 1.5;
+	text-decoration: none;
+}
+
+.nsf-link-list a:hover,
+.nsf-link-list a:focus {
+	text-decoration: underline;
+	text-decoration-thickness: 1px;
+	text-underline-offset: 0.15em;
+}
+
+.nsf-link-list__arrow {
+	display: inline-block;
+	margin-left: 0.4em;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+
+	.nsf-link-list__arrow {
+		transition: transform 0.15s ease-out;
+	}
+
+	.nsf-link-list a:hover .nsf-link-list__arrow {
+		transform: translateX(0.25em);
+	}
+}

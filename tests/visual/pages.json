@@ -46,6 +46,43 @@
 		]
 	},
 	{
+		"name": "search",
+		"group": "search",
+		"url": "/?s=sleep",
+		"selector": "main"
+	},
+	{
+		"name": "search-filtered",
+		"group": "search",
+		"mockup": "search",
+		"url": "/?s=sleep&filter=topic:sleep-disorders,category:sleep-disorders",
+		"selector": "main"
+	},
+	{
+		"name": "blog-archive",
+		"group": "archive",
+		"url": "/sleep-health-resources/sleep-learning-zone/",
+		"selector": "main",
+		"ignore": [
+			".nsf-card__media"
+		]
+	},
+	{
+		"name": "topic-archive",
+		"group": "archive",
+		"url": "/category/sleep-disorders/",
+		"selector": "main",
+		"ignore": [
+			".nsf-card__media"
+		]
+	},
+	{
+		"name": "404",
+		"group": "archive",
+		"url": "/this-page-does-not-exist/",
+		"selector": "main"
+	},
+	{
 		"name": "home",
 		"group": "home",
 		"url": "/",

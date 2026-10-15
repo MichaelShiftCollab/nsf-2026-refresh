@@ -26,6 +26,21 @@ function nsf_theme_enqueue_styles() {
 add_action( 'wp_enqueue_scripts', 'nsf_theme_enqueue_styles' );
 
 /**
+ * Enqueue the search, archive and 404 template styles on those views only.
+ */
+function nsf_theme_enqueue_listing_styles() {
+	if ( is_search() || is_home() || is_archive() || is_404() ) {
+		wp_enqueue_style(
+			'nsf-listings',
+			get_theme_file_uri( 'assets/css/listings.css' ),
+			array( 'nsf-theme' ),
+			wp_get_theme()->get( 'Version' )
+		);
+	}
+}
+add_action( 'wp_enqueue_scripts', 'nsf_theme_enqueue_listing_styles' );
+
+/**
  * Register the NSF pattern categories.
  */
 function nsf_theme_pattern_categories() {

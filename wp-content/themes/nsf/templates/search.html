@@ -1,0 +1,57 @@
+<!-- wp:template-part {"slug":"header","tagName":"header","className":"site-header"} /-->
+
+<!-- wp:group {"tagName":"main","className":"site-content nsf-listing","style":{"spacing":{"margin":{"top":"0"},"padding":{"bottom":"var:preset|spacing|70"}}},"layout":{"type":"constrained"}} -->
+<main class="wp-block-group site-content nsf-listing" style="margin-top:0;padding-bottom:var(--wp--preset--spacing--70)"><!-- wp:group {"metadata":{"name":"Title band"},"align":"full","className":"is-style-section-lightest-blue nsf-title-band","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60"},"blockGap":"var:preset|spacing|40"}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull is-style-section-lightest-blue nsf-title-band" style="padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--60)"><!-- wp:heading {"level":1} -->
+<h1 class="wp-block-heading">Search results</h1>
+<!-- /wp:heading -->
+
+<!-- wp:group {"metadata":{"name":"Search"},"layout":{"type":"default"}} -->
+<div class="wp-block-group"><!-- wp:search {"label":"Search","showLabel":false,"placeholder":"Search thensf.org","buttonText":"Search","className":"nsf-search"} /--></div>
+<!-- /wp:group --></div>
+<!-- /wp:group -->
+
+<!-- wp:query {"queryId":1,"query":{"perPage":10,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"relevance","author":"","search":"","exclude":[],"sticky":"","inherit":true},"metadata":{"name":"Search results"},"className":"nsf-search-results","style":{"spacing":{"margin":{"top":"var:preset|spacing|60"}}}} -->
+<div class="wp-block-query nsf-search-results" style="margin-top:var(--wp--preset--spacing--60)"><!-- wp:paragraph {"metadata":{"name":"Result count","bindings":{"content":{"source":"nsf/listing","args":{"key":"count"}}}},"className":"nsf-listing-count"} -->
+<p class="nsf-listing-count"></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"metadata":{"name":"Filter buttons","bindings":{"content":{"source":"nsf/listing","args":{"key":"filters"}}}},"className":"nsf-search-filters"} -->
+<p class="nsf-search-filters"></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:post-template {"className":"nsf-result-list"} -->
+<!-- wp:group {"metadata":{"name":"Result"},"className":"nsf-result","style":{"spacing":{"blockGap":"var:preset|spacing|10"}},"layout":{"type":"flex","orientation":"vertical"}} -->
+<div class="wp-block-group nsf-result"><!-- wp:group {"metadata":{"name":"Eyebrow and date"},"className":"nsf-result__meta","layout":{"type":"flex","flexWrap":"wrap"}} -->
+<div class="wp-block-group nsf-result__meta"><!-- wp:paragraph {"metadata":{"name":"Eyebrow","bindings":{"content":{"source":"nsf/result","args":{"key":"eyebrow"}}}},"className":"nsf-result__eyebrow is-style-eyebrow-small"} -->
+<p class="nsf-result__eyebrow is-style-eyebrow-small"></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"metadata":{"name":"Date (not on pages)","bindings":{"content":{"source":"nsf/result","args":{"key":"date"}}}},"className":"nsf-result__date"} -->
+<p class="nsf-result__date"></p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+
+<!-- wp:post-title {"level":2,"isLink":true,"className":"nsf-result__title"} /-->
+
+<!-- wp:post-excerpt {"excerptLength":30,"className":"nsf-result__excerpt"} /--></div>
+<!-- /wp:group -->
+<!-- /wp:post-template -->
+
+<!-- wp:query-pagination {"paginationArrow":"arrow","className":"nsf-pagination","layout":{"type":"flex","justifyContent":"center"}} -->
+<!-- wp:query-pagination-previous {"label":"Previous"} /-->
+
+<!-- wp:query-pagination-numbers {"midSize":1} /-->
+
+<!-- wp:query-pagination-next {"label":"Next"} /-->
+<!-- /wp:query-pagination -->
+
+<!-- wp:query-no-results -->
+<!-- wp:paragraph {"className":"nsf-listing-empty"} -->
+<p class="nsf-listing-empty">Nothing matched your search. Try different words, or browse <a href="/sleep-health-resources/">Sleep Health Resources</a>.</p>
+<!-- /wp:paragraph -->
+<!-- /wp:query-no-results --></div>
+<!-- /wp:query --></main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer","className":"site-footer"} /-->

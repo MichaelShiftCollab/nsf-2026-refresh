@@ -1,0 +1,39 @@
+<!-- wp:template-part {"slug":"header","tagName":"header","className":"site-header"} /-->
+
+<!-- wp:group {"tagName":"main","className":"site-content nsf-listing","style":{"spacing":{"margin":{"top":"0"},"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|70"}}},"layout":{"type":"constrained"}} -->
+<main class="wp-block-group site-content nsf-listing" style="margin-top:0;padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--70)"><!-- wp:group {"metadata":{"name":"Intro"},"className":"nsf-listing-intro","style":{"spacing":{"blockGap":"var:preset|spacing|20"}},"layout":{"type":"default"}} -->
+<div class="wp-block-group nsf-listing-intro"><!-- wp:nsf/breadcrumbs /-->
+
+<!-- wp:query-title {"type":"archive","showPrefix":false} /-->
+
+<!-- wp:term-description {"className":"is-style-paragraph-2"} /--></div>
+<!-- /wp:group -->
+
+<!-- wp:query {"queryId":1,"query":{"perPage":9,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true},"metadata":{"name":"Posts in this topic"},"className":"nsf-archive-results","style":{"spacing":{"margin":{"top":"var:preset|spacing|60"},"blockGap":"var:preset|spacing|30"}}} -->
+<div class="wp-block-query nsf-archive-results" style="margin-top:var(--wp--preset--spacing--60)"><!-- wp:search {"label":"Search the Sleep Learning Zone®","showLabel":false,"placeholder":"Search the Sleep Learning Zone®","buttonText":"Search","buttonPosition":"button-inside","buttonUseIcon":true,"query":{"post_type":"post"},"className":"nsf-search nsf-search--compact"} /-->
+
+<!-- wp:paragraph {"metadata":{"name":"Post count","bindings":{"content":{"source":"nsf/listing","args":{"key":"count"}}}},"className":"nsf-listing-count"} -->
+<p class="nsf-listing-count"></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:post-template {"style":{"spacing":{"blockGap":"var:preset|spacing|gutter"}},"layout":{"type":"grid","columnCount":3,"minimumColumnWidth":"16rem"}} -->
+<!-- wp:nsf/content-card {"eyebrowSource":"none","showExcerpt":false,"showDate":true} /-->
+<!-- /wp:post-template -->
+
+<!-- wp:query-pagination {"paginationArrow":"arrow","className":"nsf-pagination","layout":{"type":"flex","justifyContent":"center"}} -->
+<!-- wp:query-pagination-previous {"label":"Previous"} /-->
+
+<!-- wp:query-pagination-numbers {"midSize":1} /-->
+
+<!-- wp:query-pagination-next {"label":"Next"} /-->
+<!-- /wp:query-pagination -->
+
+<!-- wp:query-no-results -->
+<!-- wp:paragraph {"className":"nsf-listing-empty"} -->
+<p class="nsf-listing-empty">No posts yet.</p>
+<!-- /wp:paragraph -->
+<!-- /wp:query-no-results --></div>
+<!-- /wp:query --></main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer","className":"site-footer"} /-->

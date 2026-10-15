@@ -39,6 +39,24 @@ function nsf_content_card_eyebrow( $post ) {
 }
 
 /**
+ * Eyebrow from the source the block asks for: auto (see above), category or none.
+ *
+ * @param WP_Post $post   Post.
+ * @param string  $source auto, category or none.
+ * @return string
+ */
+function nsf_content_card_eyebrow_from( $post, $source ) {
+	if ( 'none' === $source ) {
+		return '';
+	}
+	if ( 'category' === $source ) {
+		$name = nsf_first_term_name( $post, 'category' );
+		return 'uncategorized' === sanitize_title( $name ) ? '' : $name;
+	}
+	return nsf_content_card_eyebrow( $post );
+}
+
+/**
  * Card fields from a source post merged with the block's override attributes.
  *
  * @param WP_Post|null $post       Source post, or null for a manual card.
@@ -59,7 +77,7 @@ function nsf_content_card_data( $post, $attributes ) {
 
 	if ( $post ) {
 		$card['title']    = wp_strip_all_tags( get_the_title( $post ) );
-		$card['eyebrow']  = nsf_content_card_eyebrow( $post );
+		$card['eyebrow']  = nsf_content_card_eyebrow_from( $post, $attributes['eyebrowSource'] ?? 'auto' );
 		$card['url']      = get_permalink( $post );
 		// Outline cards show an icon picked on the card, never the featured image.
 		$card['media_id'] = 'outline-icon' === $variant ? 0 : (int) get_post_thumbnail_id( $post );
@@ -77,6 +95,8 @@ function nsf_content_card_data( $post, $attributes ) {
 					)
 				)
 			);
+		} elseif ( ! empty( $attributes['showDate'] ) ) {
+			$card['meta'] = array( get_the_date( '', $post ) );
 		}
 	}
 
