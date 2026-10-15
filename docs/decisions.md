@@ -70,6 +70,8 @@ Answers to the open questions in the build spec and build plan. Newest first.
 | Cards/Table cookie | Applied in the browser, not by PHP, so WP Engine's page cache serves one page to everyone |
 | Filters below 782px | A full-screen drawer opened by the "Filters (n)" button; chips are hidden there, as in the 781 and 600 mockups |
 | Page gutter | 32px at 600, 40px at 781, rising to 120px at 1440, from the Resources mockups |
+| FAQ accordion | Core Details blocks inside a Group with the FAQ block style; first question open, as in the wireframe (489:6). Every Details block in an FAQ group goes into one FAQPage JSON-LD per page. Core Accordion is not used because the spec names Details |
+| Sponsor/Collaborator grid | Core Image blocks in a Group with the Logo grid block style (grid layout, 8rem minimum column). Each logo is contained in the same 5:3 box; the Image caption carries optional text such as an award and year. From the Drowsy Driving Prevention Week wireframe (341:150) |
 
 ## Deferred
 

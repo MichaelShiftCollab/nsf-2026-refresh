@@ -74,5 +74,26 @@
 		"group": "global",
 		"url": "/sleep-health-resources/",
 		"selector": ".nsf-footer"
+	},
+	{
+		"name": "faq",
+		"group": "faq-logos",
+		"url": "/faq-logo-test/",
+		"selector": "#faq",
+		"auth": true
+	},
+	{
+		"name": "logos-tiered",
+		"group": "faq-logos",
+		"url": "/faq-logo-test/",
+		"selector": "#logos-tiered",
+		"auth": true
+	},
+	{
+		"name": "logos-grid",
+		"group": "faq-logos",
+		"url": "/faq-logo-test/",
+		"selector": "#logos-grid",
+		"auth": true
 	}
 ]

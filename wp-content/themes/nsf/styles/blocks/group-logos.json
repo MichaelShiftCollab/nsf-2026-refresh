@@ -1,0 +1,12 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"title": "Logo grid",
+	"slug": "logos",
+	"blockTypes": [
+		"core/group"
+	],
+	"styles": {
+		"css": "& > .wp-block-image{display:flex;flex-direction:column;gap:var(--wp--preset--spacing--10);margin:0;}& > .wp-block-image > a{display:block;}& > .wp-block-image img{display:block;box-sizing:border-box;width:100% !important;height:auto !important;aspect-ratio:var(--wp--custom--logo--aspect-ratio);object-fit:contain;padding:var(--wp--preset--spacing--10);}& > .wp-block-image figcaption{margin:0;text-align:center;font-size:var(--wp--preset--font-size--x-small);font-style:normal;line-height:1.4286;}"
+	}
+}
