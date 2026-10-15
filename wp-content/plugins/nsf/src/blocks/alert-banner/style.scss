@@ -1,0 +1,30 @@
+// Alert Banner (Header mockup 464:4): Announcement Bar gradient, white text,
+// 48px tall at 1440.
+
+.nsf-alert {
+	padding: var(--wp--custom--alert--padding-block) var(--wp--style--root--padding-right);
+	background: var(--wp--preset--gradient--announcement-bar);
+	color: var(--wp--preset--color--white);
+	text-align: center;
+
+	&__text {
+		margin: 0;
+		font-family: var(--wp--preset--font-family--open-sans);
+		font-size: var(--wp--custom--font-size--alert);
+		font-weight: 600;
+		line-height: var(--wp--custom--alert--line-height);
+		white-space: pre-wrap;
+	}
+
+	&__link {
+		color: inherit;
+		font-weight: 700;
+		text-decoration: underline;
+
+		&:hover,
+		&:focus {
+			color: inherit;
+			text-decoration-thickness: 2px;
+		}
+	}
+}

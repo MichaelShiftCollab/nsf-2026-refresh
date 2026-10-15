@@ -238,3 +238,250 @@ strong {
 .nsf-form.is-preview button[disabled] {
 	cursor: not-allowed;
 }
+
+/* Inline form: fields and button on one row (Sign up mockup 464:30). */
+.nsf-form--inline form,
+.nsf-form--inline.is-preview {
+	flex-direction: row;
+	align-items: center;
+	gap: var(--wp--custom--control--gap);
+}
+
+.nsf-form--inline .nsf-form__field {
+	flex: 1;
+}
+
+.nsf-form--inline .nsf-form__footer {
+	margin-top: 0;
+}
+
+@media (max-width: 599px) {
+
+	.nsf-form--inline form,
+	.nsf-form--inline.is-preview {
+		flex-direction: column;
+		align-items: stretch;
+	}
+}
+
+/*
+ * Header (Header mockup 464:22): logo on the left; utility menu with search
+ * over the main menu on the right. Below 1100px both menus move into the
+ * main menu's overlay, opened by the menu button. The 1px rule sits inside
+ * the mockup's 24px bottom padding.
+ */
+.nsf-header {
+	padding-bottom: calc(var(--wp--preset--spacing--30) - 1px);
+}
+
+.nsf-header__logo {
+	flex-shrink: 0;
+	margin: 0;
+}
+
+.nsf-header__logo a {
+	display: block;
+}
+
+.nsf-header__logo img {
+	display: block;
+	width: var(--wp--custom--header--logo-width);
+	height: auto;
+}
+
+.nsf-header__menus.nsf-header__menus {
+	gap: var(--wp--custom--header--menus-gap);
+}
+
+.nsf-header__utility.nsf-header__utility {
+	gap: var(--wp--custom--header--utility-gap);
+}
+
+.nsf-header .wp-block-navigation {
+	color: var(--wp--preset--color--primary-blue);
+	font-size: var(--wp--preset--font-size--small);
+	line-height: 1.5;
+}
+
+.nsf-header .wp-block-navigation-item__content {
+	text-box: trim-both cap alphabetic;
+}
+
+.nsf-header .wp-block-navigation .wp-block-navigation-item__content:hover,
+.nsf-header .wp-block-navigation .wp-block-navigation-item__content:focus {
+	text-decoration: underline;
+	text-underline-offset: 0.3em;
+}
+
+.nsf-utility-nav .wp-block-navigation__container {
+	gap: var(--wp--custom--header--utility-gap);
+}
+
+.nsf-main-nav {
+	font-weight: 600;
+}
+
+.nsf-main-nav .wp-block-navigation__container {
+	gap: var(--wp--custom--header--main-gap);
+}
+
+.nsf-main-nav sup {
+	font-size: 0.645em;
+	line-height: 0;
+}
+
+/* Utility links appear in the main menu only inside the overlay. */
+.nsf-main-nav .nsf-nav-utility-item {
+	display: none;
+}
+
+.nsf-main-nav .is-menu-open .nsf-nav-utility-item {
+	display: block;
+	font-weight: 400;
+}
+
+/* Header search: an icon that opens a field (core Search, button only). */
+.nsf-header-search .wp-block-search__button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	background: transparent;
+	color: var(--wp--preset--color--primary-blue);
+}
+
+.nsf-header-search .wp-block-search__button {
+	width: var(--wp--custom--header--icon-size);
+	height: var(--wp--custom--header--icon-size);
+}
+
+.nsf-header-search .wp-block-search__button svg {
+	width: var(--wp--custom--header--icon-size);
+	height: var(--wp--custom--header--icon-size);
+	fill: currentcolor;
+}
+
+.nsf-header-search .wp-block-search__inside-wrapper {
+	align-items: center;
+	padding: 0;
+	border: 0;
+}
+
+.nsf-header-search.wp-block-search__searchfield-hidden .wp-block-search__input {
+	height: 0;
+	padding: 0;
+	border: 0;
+}
+
+.nsf-header-search:not(.wp-block-search__searchfield-hidden) .wp-block-search__input {
+	height: var(--wp--custom--control--height);
+	padding: 0 var(--wp--custom--control--padding-inline);
+	border: 1px solid var(--wp--preset--color--medium-blue);
+	border-radius: var(--wp--custom--radius--pill);
+	font-size: var(--wp--preset--font-size--small);
+}
+
+.nsf-main-nav .wp-block-navigation__responsive-container-open,
+.nsf-main-nav .wp-block-navigation__responsive-container-close {
+	color: var(--wp--preset--color--primary-blue);
+}
+
+.nsf-main-nav .wp-block-navigation__responsive-container.is-menu-open {
+	padding: var(--wp--preset--spacing--40) var(--wp--style--root--padding-right);
+	font-size: var(--wp--preset--font-size--medium);
+}
+
+@media (max-width: 1099px) {
+
+	.nsf-utility-nav {
+		display: none;
+	}
+
+	.nsf-header__menus.nsf-header__menus {
+		flex-direction: row-reverse;
+		align-items: center;
+	}
+
+	.nsf-main-nav .wp-block-navigation__responsive-container-open:not(.always-shown) {
+		display: flex;
+	}
+
+	.nsf-main-nav .wp-block-navigation__responsive-container:not(.hidden-by-default):not(.is-menu-open) {
+		display: none;
+	}
+}
+
+/* Footer (Footer mockup 464:66). */
+.nsf-footer {
+	font-size: var(--wp--preset--font-size--small);
+}
+
+.nsf-footer a:hover,
+.nsf-footer a:focus {
+	text-decoration: underline;
+}
+
+.nsf-footer p {
+	margin: 0;
+}
+
+.nsf-footer__logo,
+.nsf-footer__seal {
+	margin: 0;
+}
+
+.nsf-footer__logo img {
+	display: block;
+	width: var(--wp--custom--footer--logo-width);
+	height: auto;
+}
+
+.nsf-footer-nav .wp-block-navigation__container {
+	gap: var(--wp--custom--footer--links-gap);
+}
+
+.nsf-footer__rule.nsf-footer__rule {
+	height: 1px;
+	margin-block: 0;
+}
+
+.nsf-footer__legal {
+	max-width: var(--wp--custom--footer--legal-width);
+	line-height: 1.4286;
+}
+
+.nsf-footer__legal.nsf-footer__legal > * + * {
+	margin-block-start: var(--wp--custom--footer--legal-gap);
+}
+
+.nsf-footer__social.nsf-footer__social {
+	gap: var(--wp--custom--footer--social-gap);
+	color: var(--wp--preset--color--white);
+}
+
+.nsf-footer__social .wp-social-link {
+	color: inherit;
+	font-size: var(--wp--custom--footer--social-size);
+}
+
+.nsf-footer__social .wp-social-link a {
+	padding: 0;
+}
+
+/* Newsletter sign-up row (Sign up mockup 464:36). */
+.nsf-signup__form .wp-block-nsf-form {
+	margin: 0;
+}
+
+.nsf-main-nav .wp-block-navigation__responsive-container-open,
+.nsf-main-nav .wp-block-navigation__responsive-container-close {
+	padding: 0;
+	border: 0;
+	background: transparent;
+}
+
+.nsf-main-nav .wp-block-navigation__responsive-container.is-menu-open {
+	color: var(--wp--preset--color--primary-blue);
+}

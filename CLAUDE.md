@@ -38,6 +38,7 @@ npm run start           # watch blocks
 npm run lint            # JS and CSS lint
 npm run test:visual     # screenshot comparison (step 2)
 npm run test:hub        # Resource Hub behavior: in-place filtering, URL state, view cookie (step 7)
+npm run test:global     # header search, mobile menu, Alert Banner on/off (step 5)
 npm run test:home       # Home Hero rotation and reduced motion, valid blocks in the editor (step 8)
 npm run wp -- <args>    # WP-CLI; add --allow-root when running as root
 npm run wp -- nsf terms import   # taxonomy terms from content/taxonomy-terms.json

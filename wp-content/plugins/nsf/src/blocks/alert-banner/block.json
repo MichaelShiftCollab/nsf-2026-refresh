@@ -1,0 +1,37 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "nsf/alert-banner",
+	"title": "Alert Banner",
+	"category": "design",
+	"icon": "megaphone",
+	"description": "A time-sensitive announcement above the header, with a link. Turn it off to remove it from every page.",
+	"keywords": [ "alert", "announcement", "banner" ],
+	"textdomain": "nsf",
+	"attributes": {
+		"enabled": {
+			"type": "boolean",
+			"default": true
+		},
+		"text": {
+			"type": "string",
+			"default": ""
+		},
+		"linkText": {
+			"type": "string",
+			"default": ""
+		},
+		"url": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"supports": {
+		"html": false,
+		"multiple": false,
+		"align": [ "full" ]
+	},
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

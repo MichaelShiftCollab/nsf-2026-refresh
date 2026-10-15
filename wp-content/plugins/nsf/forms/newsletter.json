@@ -1,0 +1,20 @@
+{
+	"nsfKey": "newsletter",
+	"title": "Newsletter sign-up",
+	"description": "Stay Connected row above the footer on every page.",
+	"labelPlacement": "hidden_label",
+	"button": {
+		"type": "text",
+		"text": "Sign up"
+	},
+	"fields": [
+		{
+			"id": 1,
+			"type": "email",
+			"label": "Email address",
+			"placeholder": "Email address",
+			"isRequired": true,
+			"autocompleteAttribute": "email"
+		}
+	]
+}

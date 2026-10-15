@@ -280,7 +280,8 @@
 				"field-height": "45px"
 			},
 			"font-size": {
-				"card-title": "24px"
+				"card-title": "24px",
+				"alert": "15px"
 			},
 			"hero": {
 				"heading-width": "760px",
@@ -294,6 +295,25 @@
 			},
 			"logo-box": {
 				"height": "100px"
+			},
+			"alert": {
+				"padding-block": "14px",
+				"line-height": "20px"
+			},
+			"header": {
+				"logo-width": "180px",
+				"utility-gap": "28px",
+				"main-gap": "32px",
+				"menus-gap": "24px",
+				"icon-size": "20px"
+			},
+			"footer": {
+				"logo-width": "200px",
+				"links-gap": "36px",
+				"legal-width": "600px",
+				"legal-gap": "22px",
+				"social-gap": "22px",
+				"social-size": "22px"
 			}
 		},
 		"shadow": {

@@ -1,8 +1,9 @@
 <?php
 /**
- * Forms: the [nsf_form] shortcode places a Gravity Form by its stable key
- * (the nsfKey in forms/<key>.json), so patterns do not depend on form IDs,
- * which differ between local and staging.
+ * Forms: the NSF Form block and the [nsf_form] shortcode place a Gravity
+ * Form by its stable key (the nsfKey in forms/<key>.json), so patterns do not
+ * depend on form IDs, which differ between local and staging. Patterns and
+ * template parts use the block; shortcodes are not run in template parts.
  *
  * Until Gravity Forms is installed (build plan step 4) the shortcode shows a
  * disabled preview of the form's fields, so pages that use it can be built
@@ -10,6 +11,7 @@
  *
  * Usage: [nsf_form key="sleepmark-lead" link="/sleepmark/" link_text="See the application process"]
  * The optional link sits beside the submit button, as in the Home mockup.
+ * layout="inline" puts the fields and the button on one row (newsletter).
  *
  * @package NSF
  */
@@ -90,12 +92,23 @@ function nsf_form_preview_html( $form, $atts ) {
 		);
 	}
 	return sprintf(
-		'<form class="nsf-form is-preview" aria-label="%1$s" onsubmit="return false">%2$s<div class="nsf-form__footer"><button type="submit" class="wp-element-button" disabled>%3$s</button>%4$s</div></form>',
+		'<form class="%5$s" aria-label="%1$s" onsubmit="return false">%2$s<div class="nsf-form__footer"><button type="submit" class="wp-element-button" disabled>%3$s</button>%4$s</div></form>',
 		esc_attr( $form['title'] ?? '' ),
 		$html,
 		esc_html( $form['button']['text'] ?? __( 'Submit', 'nsf' ) ),
-		nsf_form_link_html( $atts )
+		nsf_form_link_html( $atts ),
+		esc_attr( nsf_form_classes( $atts ) . ' is-preview' )
 	);
+}
+
+/**
+ * Wrapper classes for a form.
+ *
+ * @param array $atts Shortcode attributes.
+ * @return string
+ */
+function nsf_form_classes( $atts ) {
+	return 'nsf-form' . ( 'inline' === $atts['layout'] ? ' nsf-form--inline' : '' );
 }
 
 /**
@@ -110,6 +123,7 @@ function nsf_form_shortcode( $atts ) {
 			'key'       => '',
 			'link'      => '',
 			'link_text' => '',
+			'layout'    => '',
 		),
 		$atts,
 		'nsf_form'
@@ -128,9 +142,27 @@ function nsf_form_shortcode( $atts ) {
 		add_filter( "gform_submit_button_{$id}", $filter );
 		$html = gravity_form( $id, false, false, false, null, true, 0, false );
 		remove_filter( "gform_submit_button_{$id}", $filter );
-		return '<div class="nsf-form">' . $html . '</div>';
+		return '<div class="' . esc_attr( nsf_form_classes( $atts ) ) . '">' . $html . '</div>';
 	}
 
 	return nsf_form_preview_html( $form, $atts );
 }
 add_shortcode( 'nsf_form', 'nsf_form_shortcode' );
+
+/**
+ * Lists the forms for the NSF Form block's picker.
+ */
+function nsf_form_editor_data() {
+	$forms = array();
+	foreach ( glob( NSF_PATH . 'forms/*.json' ) ?: array() as $file ) {
+		$form = nsf_form_definition( basename( $file, '.json' ) );
+		if ( $form ) {
+			$forms[] = array(
+				'value' => $form['nsfKey'],
+				'label' => $form['title'],
+			);
+		}
+	}
+	wp_add_inline_script( 'nsf-form-editor-script', 'window.nsfForms = ' . wp_json_encode( $forms ) . ';', 'before' );
+}
+add_action( 'enqueue_block_editor_assets', 'nsf_form_editor_data' );
