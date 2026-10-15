@@ -38,6 +38,8 @@ export default function Edit( { attributes, setAttributes, context } ) {
 		mediaId,
 		showExcerpt,
 		showMeta,
+		showDate,
+		eyebrowSource,
 		headingLevel,
 	} = attributes;
 	const inQueryLoop = !! context.postId && ! postId;
@@ -204,6 +206,40 @@ export default function Edit( { attributes, setAttributes, context } ) {
 						checked={ showMeta }
 						onChange={ ( value ) =>
 							setAttributes( { showMeta: value } )
+						}
+					/>
+					{ ! showMeta && (
+						<ToggleControl
+							__nextHasNoMarginBottom
+							label={ __( 'Show date', 'nsf' ) }
+							checked={ showDate }
+							onChange={ ( value ) =>
+								setAttributes( { showDate: value } )
+							}
+						/>
+					) }
+					<SelectControl
+						__nextHasNoMarginBottom
+						__next40pxDefaultSize
+						label={ __( 'Eyebrow from', 'nsf' ) }
+						help={ __(
+							'Used when the eyebrow field is empty.',
+							'nsf'
+						) }
+						value={ eyebrowSource }
+						options={ [
+							{
+								value: 'auto',
+								label: __( 'Type, topic or category', 'nsf' ),
+							},
+							{
+								value: 'category',
+								label: __( 'Category', 'nsf' ),
+							},
+							{ value: 'none', label: __( 'No eyebrow', 'nsf' ) },
+						] }
+						onChange={ ( value ) =>
+							setAttributes( { eyebrowSource: value } )
 						}
 					/>
 					<SelectControl

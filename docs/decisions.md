@@ -40,6 +40,15 @@ Answers to the open questions in the build spec and build plan. Newest first.
 | Cards/Table cookie | Applied in the browser, not by PHP, so WP Engine's page cache serves one page to everyone |
 | Filters below 782px | A full-screen drawer opened by the "Filters (n)" button; chips are hidden there, as in the 781 and 600 mockups |
 | Page gutter | 32px at 600, 40px at 781, rising to 120px at 1440, from the Resources mockups |
+| Search filter buttons | Built from core blocks plus two block bindings sources in the NSF plugin (`nsf/listing`, `nsf/result`), not a custom block, since the spec lists none. A result matches any selected term. Terms with the same name in different taxonomies (Sleep Disorders topic and category) share one button. The 12 most used show; selected ones always show |
+| Search URL parameter | `filter=taxonomy:slug,taxonomy:slug` |
+| Dates in search results | On everything but pages. The spec says "posts only", but the wireframe dates Resources too |
+| Page result eyebrow | The top-level ancestor's title; top-level pages show none |
+| Title band on search and 404 | Lightest Blue section style, standing in for the wireframe's gray band until the Title band pattern (step 15) and mockups exist |
+| Posts per page on the blog and archives | 9 (three rows of cards); search stays at 10 |
+| Blog-only search | The search field sends `post_type=post`, so it lands on the search template limited to posts |
+| Topic archive breadcrumb | A bound paragraph (Sleep Learning Zone® / topic) until the Breadcrumbs block in step 5 replaces it |
+| 404 link URLs | Typed from the site outline (`/national-programs/`, `/contact-us/` and so on); check them after the content migration in step 17 |
 
 ## Deferred
 

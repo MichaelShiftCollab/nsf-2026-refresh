@@ -52,6 +52,15 @@
 			"type": "boolean",
 			"default": false
 		},
+		"showDate": {
+			"type": "boolean",
+			"default": false
+		},
+		"eyebrowSource": {
+			"type": "string",
+			"enum": [ "auto", "category", "none" ],
+			"default": "auto"
+		},
 		"headingLevel": {
 			"type": "integer",
 			"default": 3
