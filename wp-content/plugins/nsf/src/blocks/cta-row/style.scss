@@ -1,0 +1,37 @@
+/*
+ * General CTA Row (wireframe 489:196): Lightest Blue band, copy on the left,
+ * one button on the right; stacks below 782px.
+ */
+.nsf-cta-row {
+	display: flex;
+	align-items: center;
+	gap: var(--wp--preset--spacing--50);
+	padding: var(--wp--preset--spacing--50) var(--wp--preset--spacing--60);
+	border-radius: var(--wp--custom--radius--card);
+	background: var(--wp--preset--color--lightest-blue);
+
+	> .nsf-cta-row__copy {
+		flex: 1;
+		min-width: 0;
+		margin: 0;
+
+		> * {
+			margin-block: 0;
+		}
+
+		> * + * {
+			margin-top: var(--wp--preset--spacing--10);
+		}
+	}
+
+	> .wp-block-buttons {
+		flex: none;
+		margin: 0;
+	}
+
+	@media (max-width: 781px) {
+		flex-direction: column;
+		align-items: flex-start;
+		padding: var(--wp--preset--spacing--40);
+	}
+}

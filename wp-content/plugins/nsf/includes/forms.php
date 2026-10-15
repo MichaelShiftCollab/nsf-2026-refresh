@@ -69,35 +69,101 @@ function nsf_form_link_html( $atts ) {
 }
 
 /**
- * Disabled preview of a form, styled like the real one.
+ * Preview markup for one field.
+ *
+ * @param array  $field Field definition.
+ * @param string $base  ID prefix for this form.
+ * @param bool   $live  Whether the field can be filled in (local Gated Download fallback).
+ * @return string
+ */
+function nsf_form_preview_field_html( $field, $base, $live ) {
+	$type     = $field['type'] ?? 'text';
+	$id       = $base . '-' . (int) $field['id'];
+	$name     = 'input_' . (int) $field['id'];
+	$label    = $field['label'] ?? '';
+	$required = ! empty( $field['isRequired'] );
+	$state    = $live ? ( $required ? ' required' : '' ) : ' disabled';
+	$classes  = 'nsf-form__field' . ( 6 === (int) ( $field['layoutGridColumnSpan'] ?? 12 ) ? ' is-half' : '' );
+	$note     = empty( $field['description'] ) ? '' : '<p class="nsf-form__description">' . esc_html( $field['description'] ) . '</p>';
+
+	if ( 'section' === $type ) {
+		return '<p class="nsf-form__section">' . esc_html( $label ) . '</p>';
+	}
+
+	if ( in_array( $type, array( 'radio', 'checkbox' ), true ) ) {
+		$options = '';
+		foreach ( (array) ( $field['choices'] ?? array() ) as $i => $choice ) {
+			$options .= sprintf(
+				'<label class="nsf-form__choice"><input type="%1$s" name="%2$s" value="%3$s"%4$s /><span>%5$s</span></label>',
+				esc_attr( $type ),
+				esc_attr( 'checkbox' === $type ? $name . '_' . ( $i + 1 ) : $name ),
+				esc_attr( $choice['value'] ?? $choice['text'] ),
+				$live ? ( $required && 'radio' === $type ? ' required' : '' ) : ' disabled',
+				esc_html( $choice['text'] )
+			);
+		}
+		return sprintf(
+			'<fieldset class="%1$s nsf-form__choices"><legend>%2$s%3$s</legend>%4$s%5$s</fieldset>',
+			esc_attr( $classes ),
+			esc_html( $label ),
+			$required ? '<span class="nsf-form__required"> *</span>' : '',
+			$options,
+			$note
+		);
+	}
+
+	$types = array(
+		'email'   => 'email',
+		'phone'   => 'tel',
+		'website' => 'url',
+	);
+	$input = 'textarea' === $type
+		? sprintf( '<textarea id="%1$s" name="%2$s" placeholder="%3$s"%4$s></textarea>', esc_attr( $id ), esc_attr( $name ), esc_attr( $field['placeholder'] ?? $label ), $state )
+		: sprintf(
+			'<input id="%1$s" name="%2$s" type="%3$s" placeholder="%4$s" autocomplete="%5$s"%6$s />',
+			esc_attr( $id ),
+			esc_attr( $name ),
+			esc_attr( $types[ $type ] ?? 'text' ),
+			esc_attr( $field['placeholder'] ?? $label ),
+			esc_attr( $field['autocompleteAttribute'] ?? 'on' ),
+			$state
+		);
+	return sprintf(
+		'<div class="%1$s"><label class="screen-reader-text" for="%2$s">%3$s</label>%4$s%5$s</div>',
+		esc_attr( $classes ),
+		esc_attr( $id ),
+		esc_html( $label . ( $required ? ' *' : '' ) ),
+		$input,
+		$note
+	);
+}
+
+/**
+ * Preview of a form, styled like the real one. Disabled, unless $atts['action']
+ * is set: then it posts there (the local Gated Download fallback).
  *
  * @param array $form Form definition.
  * @param array $atts Shortcode attributes.
  * @return string
  */
 function nsf_form_preview_html( $form, $atts ) {
+	$live = '' !== ( $atts['action'] ?? '' );
 	$html = '';
 	foreach ( (array) ( $form['fields'] ?? array() ) as $field ) {
-		$id    = 'nsf-form-' . sanitize_key( $form['nsfKey'] ) . '-' . (int) $field['id'];
-		$type  = in_array( $field['type'] ?? '', array( 'email', 'phone', 'textarea' ), true ) ? $field['type'] : 'text';
-		$label = $field['label'] ?? '';
-		$input = 'textarea' === $type
-			? sprintf( '<textarea id="%1$s" placeholder="%2$s" disabled></textarea>', esc_attr( $id ), esc_attr( $field['placeholder'] ?? $label ) )
-			: sprintf( '<input id="%1$s" type="%2$s" placeholder="%3$s" disabled />', esc_attr( $id ), esc_attr( 'phone' === $type ? 'tel' : $type ), esc_attr( $field['placeholder'] ?? $label ) );
-		$html .= sprintf(
-			'<div class="nsf-form__field"><label class="screen-reader-text" for="%1$s">%2$s</label>%3$s</div>',
-			esc_attr( $id ),
-			esc_html( $label ),
-			$input
-		);
+		$html .= nsf_form_preview_field_html( $field, 'nsf-form-' . sanitize_key( $form['nsfKey'] ), $live );
+	}
+	foreach ( (array) ( $atts['hidden'] ?? array() ) as $name => $value ) {
+		$html .= sprintf( '<input type="hidden" name="%1$s" value="%2$s" />', esc_attr( $name ), esc_attr( $value ) );
 	}
 	return sprintf(
-		'<form class="%5$s" aria-label="%1$s" onsubmit="return false">%2$s<div class="nsf-form__footer"><button type="submit" class="wp-element-button" disabled>%3$s</button>%4$s</div></form>',
+		'<form class="%5$s" aria-label="%1$s" %6$s>%2$s<div class="nsf-form__footer"><button type="submit" class="wp-element-button"%7$s>%3$s</button>%4$s</div></form>',
 		esc_attr( $form['title'] ?? '' ),
 		$html,
 		esc_html( $form['button']['text'] ?? __( 'Submit', 'nsf' ) ),
 		nsf_form_link_html( $atts ),
-		esc_attr( nsf_form_classes( $atts ) . ' is-preview' )
+		esc_attr( nsf_form_classes( $atts ) . ' is-preview' . ( $live ? ' is-live' : '' ) ),
+		$live ? 'method="post" action="' . esc_url( $atts['action'] ) . '"' : 'onsubmit="return false"',
+		$live ? '' : ' disabled'
 	);
 }
 
@@ -118,7 +184,12 @@ function nsf_form_classes( $atts ) {
  * @return string
  */
 function nsf_form_shortcode( $atts ) {
-	$atts = shortcode_atts(
+	// Gated Download passes hidden fields and, locally, a fallback action; the shortcode itself does not.
+	$extra = array(
+		'hidden' => (array) ( $atts['hidden'] ?? array() ),
+		'action' => (string) ( $atts['action'] ?? '' ),
+	);
+	$atts  = shortcode_atts(
 		array(
 			'key'       => '',
 			'link'      => '',
@@ -127,8 +198,8 @@ function nsf_form_shortcode( $atts ) {
 		),
 		$atts,
 		'nsf_form'
-	);
-	$form = nsf_form_definition( $atts['key'] );
+	) + $extra;
+	$form  = nsf_form_definition( $atts['key'] );
 	if ( ! $form ) {
 		return '';
 	}
@@ -139,9 +210,18 @@ function nsf_form_shortcode( $atts ) {
 		$filter = function ( $button ) use ( $link ) {
 			return $button . $link;
 		};
+		$hidden = '';
+		foreach ( $atts['hidden'] as $name => $value ) {
+			$hidden .= sprintf( '<input type="hidden" name="%1$s" value="%2$s" />', esc_attr( $name ), esc_attr( $value ) );
+		}
+		$tag = function ( $form_tag ) use ( $hidden ) {
+			return $form_tag . $hidden;
+		};
 		add_filter( "gform_submit_button_{$id}", $filter );
+		add_filter( "gform_form_tag_{$id}", $tag );
 		$html = gravity_form( $id, false, false, false, null, true, 0, false );
 		remove_filter( "gform_submit_button_{$id}", $filter );
+		remove_filter( "gform_form_tag_{$id}", $tag );
 		return '<div class="' . esc_attr( nsf_form_classes( $atts ) ) . '">' . $html . '</div>';
 	}
 
@@ -163,6 +243,6 @@ function nsf_form_editor_data() {
 			);
 		}
 	}
-	wp_add_inline_script( 'nsf-form-editor-script', 'window.nsfForms = ' . wp_json_encode( $forms ) . ';', 'before' );
+	wp_add_inline_script( 'wp-blocks', 'window.nsfForms = ' . wp_json_encode( $forms ) . ';', 'after' );
 }
 add_action( 'enqueue_block_editor_assets', 'nsf_form_editor_data' );

@@ -265,6 +265,136 @@ strong {
 }
 
 /*
+ * Longer forms (Contact Us 489:45, Sponsorship Prospectus 489:89): fields
+ * marked half width pair up; section labels, choices and the textarea span
+ * both columns. Gravity Forms lays out its own markup the same way.
+ */
+.nsf-form.is-preview:not(.nsf-form--inline) {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: var(--wp--custom--control--gap);
+}
+
+.nsf-form.is-preview:not(.nsf-form--inline) > * {
+	grid-column: 1 / -1;
+}
+
+.nsf-form.is-preview:not(.nsf-form--inline) > .is-half {
+	grid-column: auto;
+}
+
+.nsf-form__section {
+	margin: 0;
+	color: var(--wp--preset--color--gray);
+	font-size: var(--wp--preset--font-size--x-small);
+	font-weight: 700;
+	letter-spacing: var(--wp--custom--letter-spacing--caps);
+	text-transform: uppercase;
+}
+
+.nsf-form__choices {
+	display: flex;
+	flex-direction: column;
+	gap: var(--wp--preset--spacing--10);
+	margin: var(--wp--preset--spacing--10) 0 0;
+	padding: 0;
+	border: 0;
+}
+
+.nsf-form__choices legend {
+	margin-bottom: var(--wp--preset--spacing--10);
+	padding: 0;
+	color: var(--wp--preset--color--dark-blue);
+	font-weight: 700;
+}
+
+.nsf-form__choice {
+	display: flex;
+	align-items: center;
+	gap: var(--wp--custom--control--gap);
+	color: var(--wp--preset--color--gray);
+}
+
+.nsf-form__choice input {
+	width: var(--wp--custom--control--checkbox);
+	height: var(--wp--custom--control--checkbox);
+	margin: 0;
+	accent-color: var(--wp--preset--color--primary-blue);
+}
+
+.nsf-form__description {
+	margin: 0;
+	color: var(--wp--preset--color--gray);
+	font-size: var(--wp--preset--font-size--x-small);
+}
+
+@media (max-width: 599px) {
+
+	.nsf-form.is-preview:not(.nsf-form--inline) > .is-half {
+		grid-column: 1 / -1;
+	}
+}
+
+/*
+ * Copy beside a form (Flexible CTA with Form, Gated Download; wireframes
+ * 489:45 and 489:134): the form sits in a white panel 640px wide at 1440.
+ * Stacks below 900px.
+ */
+.nsf-split {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) minmax(0, var(--wp--custom--split--panel-width));
+	align-items: start;
+	gap: var(--wp--custom--split--copy-gap);
+}
+
+.nsf-split__copy > * {
+	margin-block: 0;
+}
+
+.nsf-split__copy > * + * {
+	margin-top: var(--wp--preset--spacing--30);
+}
+
+.nsf-split__panel {
+	padding: var(--wp--preset--spacing--40);
+	border-radius: var(--wp--custom--radius--card);
+	background: var(--wp--preset--color--white);
+}
+
+.nsf-split__panel .wp-block-nsf-form {
+	margin: 0;
+}
+
+@media (max-width: 899px) {
+
+	.nsf-split {
+		grid-template-columns: minmax(0, 1fr);
+		gap: var(--wp--preset--spacing--40);
+	}
+}
+
+/* File type, size and pages under a cover. */
+.nsf-file-details {
+	margin: 0;
+	color: var(--wp--preset--color--gray);
+	font-size: var(--wp--preset--font-size--x-small);
+}
+
+/* Pull quote, NSF quote style: the citation in body type. */
+.wp-block-pullquote.is-style-nsf-quote blockquote {
+	margin: 0;
+}
+
+.wp-block-pullquote.is-style-nsf-quote cite {
+	display: block;
+	margin-top: var(--wp--preset--spacing--20);
+	color: var(--wp--preset--color--gray);
+	font-family: var(--wp--preset--font-family--open-sans);
+	font-size: var(--wp--preset--font-size--small);
+	font-style: normal;
+}
+
+/*
  * Header (Header mockup 464:22): logo on the left; utility menu with search
  * over the main menu on the right. Below 1100px both menus move into the
  * main menu's overlay, opened by the menu button. The 1px rule sits inside

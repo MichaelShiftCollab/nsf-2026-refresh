@@ -15,9 +15,19 @@ defined( 'ABSPATH' ) || exit;
  *         `label` reads like "PDF · 2.4 MB · 28 pages".
  */
 function nsf_get_resource_file( $post = null ) {
-	$post    = get_post( $post );
-	$file_id = $post ? (int) get_post_meta( $post->ID, 'nsf_file_id', true ) : 0;
-	$path    = $file_id ? get_attached_file( $file_id ) : false;
+	$post = get_post( $post );
+	return $post ? nsf_get_file_details( (int) get_post_meta( $post->ID, 'nsf_file_id', true ) ) : null;
+}
+
+/**
+ * Returns details of an attachment file, or null when it is missing. Used for
+ * Resources and the Gated Download block.
+ *
+ * @param int $file_id Attachment ID.
+ * @return array{id:int,url:string,path:string,type:string,size:int,size_label:string,pages:int|null,label:string}|null
+ */
+function nsf_get_file_details( $file_id ) {
+	$path = $file_id ? get_attached_file( $file_id ) : false;
 
 	if ( ! $path || ! file_exists( $path ) ) {
 		return null;
@@ -34,8 +44,9 @@ function nsf_get_resource_file( $post = null ) {
 	}
 
 	return array(
-		'id'         => $file_id,
+		'id'         => (int) $file_id,
 		'url'        => (string) wp_get_attachment_url( $file_id ),
+		'path'       => $path,
 		'type'       => strtoupper( $extension ),
 		'size'       => $size,
 		'size_label' => size_format( $size, $size >= MB_IN_BYTES ? 1 : 0 ),

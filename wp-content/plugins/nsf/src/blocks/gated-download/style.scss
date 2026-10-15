@@ -1,0 +1,66 @@
+/*
+ * Gated Download (wireframes 489:134 and 489:182). The cover keeps the
+ * wireframe's 300 × 388 shape; the success page shows it at 260 wide.
+ */
+.nsf-gated__cover,
+.nsf-gated-success__cover {
+	width: 100%;
+	max-width: var(--wp--custom--cover--width);
+	aspect-ratio: var(--wp--custom--cover--ratio);
+	overflow: hidden;
+	background: var(--wp--preset--color--light-blue);
+	box-shadow: var(--wp--preset--shadow--photo);
+}
+
+.nsf-gated-success__cover {
+	max-width: var(--wp--custom--cover--width-small);
+}
+
+.nsf-gated__cover__img,
+.nsf-gated-success__cover__img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.nsf-gated {
+	display: flex;
+	flex-direction: column;
+	gap: var(--wp--preset--spacing--30);
+}
+
+.nsf-gated__text > * {
+	margin-block: 0;
+}
+
+.nsf-gated__text > * + * {
+	margin-top: var(--wp--preset--spacing--20);
+}
+
+.nsf-gated-success {
+	display: flex;
+	align-items: flex-start;
+	gap: var(--wp--preset--spacing--50);
+
+	@media (max-width: 599px) {
+		flex-direction: column;
+	}
+}
+
+.nsf-gated-success__body {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: var(--wp--preset--spacing--30);
+	max-width: 720px;
+}
+
+.nsf-gated-success__text > * {
+	margin-block: 0;
+}
+
+.nsf-download-button::after {
+	content: "\00a0\00a0↓";
+}

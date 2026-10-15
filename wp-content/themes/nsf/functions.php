@@ -51,6 +51,13 @@ function nsf_theme_pattern_categories() {
 		)
 	);
 	register_block_pattern_category(
+		'nsf-ctas',
+		array(
+			'label'       => __( 'NSF: Calls to action and callouts', 'nsf' ),
+			'description' => __( 'CTA rows, CTAs with a form or link, Gated Download, statistics and pull quotes.', 'nsf' ),
+		)
+	);
+	register_block_pattern_category(
 		'nsf-pages',
 		array(
 			'label'       => __( 'NSF: Page layouts', 'nsf' ),

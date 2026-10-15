@@ -1,0 +1,90 @@
+{
+	"nsfKey": "contact-us",
+	"title": "Contact Us",
+	"description": "Contact Us CTA: partnerships, research, healthcare information and other questions. Fields from the current Contact page.",
+	"labelPlacement": "hidden_label",
+	"button": {
+		"type": "text",
+		"text": "Submit"
+	},
+	"fields": [
+		{
+			"id": 1,
+			"type": "section",
+			"label": "Your information"
+		},
+		{
+			"id": 2,
+			"type": "text",
+			"label": "First Name",
+			"placeholder": "First Name*",
+			"isRequired": true,
+			"autocompleteAttribute": "given-name",
+			"layoutGridColumnSpan": 6
+		},
+		{
+			"id": 3,
+			"type": "text",
+			"label": "Last Name",
+			"placeholder": "Last Name*",
+			"isRequired": true,
+			"autocompleteAttribute": "family-name",
+			"layoutGridColumnSpan": 6
+		},
+		{
+			"id": 4,
+			"type": "email",
+			"label": "Email Address",
+			"placeholder": "Email Address*",
+			"isRequired": true,
+			"autocompleteAttribute": "email",
+			"layoutGridColumnSpan": 6
+		},
+		{
+			"id": 5,
+			"type": "phone",
+			"label": "Phone",
+			"placeholder": "Phone*",
+			"isRequired": true,
+			"autocompleteAttribute": "tel",
+			"layoutGridColumnSpan": 6
+		},
+		{
+			"id": 6,
+			"type": "text",
+			"label": "Business or Organization Name",
+			"placeholder": "Business or Organization Name",
+			"isRequired": false,
+			"autocompleteAttribute": "organization",
+			"layoutGridColumnSpan": 6
+		},
+		{
+			"id": 7,
+			"type": "text",
+			"label": "Title",
+			"placeholder": "Title",
+			"isRequired": false,
+			"autocompleteAttribute": "organization-title",
+			"layoutGridColumnSpan": 6
+		},
+		{
+			"id": 8,
+			"type": "radio",
+			"label": "I’d like to talk about...",
+			"isRequired": true,
+			"choices": [
+				{ "text": "Business or educational partnerships", "value": "Business or educational partnerships" },
+				{ "text": "Sleep research, methodologies, and data", "value": "Sleep research, methodologies, and data" },
+				{ "text": "Sleep health information for healthcare professionals", "value": "Sleep health information for healthcare professionals" },
+				{ "text": "Other (Please tell us more in the section below)", "value": "Other" }
+			]
+		},
+		{
+			"id": 9,
+			"type": "textarea",
+			"label": "Tell us why you’d like to get in touch",
+			"placeholder": "Tell us why you’d like to get in touch…*",
+			"isRequired": true
+		}
+	]
+}

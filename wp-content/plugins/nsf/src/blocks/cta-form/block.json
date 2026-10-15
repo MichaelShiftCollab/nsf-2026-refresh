@@ -1,0 +1,23 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "nsf/cta-form",
+	"title": "Flexible CTA with Form",
+	"category": "design",
+	"icon": "feedback",
+	"description": "Heading and copy beside a form picked from the site's Gravity Forms. Used for Contact Us, the Sponsorship Prospectus and the Participation Toolkit.",
+	"keywords": [ "cta", "call to action", "form", "contact", "gravity" ],
+	"textdomain": "nsf",
+	"attributes": {
+		"formKey": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": [ "wide" ]
+	},
+	"editorScript": "file:./index.js",
+	"render": "file:./render.php"
+}

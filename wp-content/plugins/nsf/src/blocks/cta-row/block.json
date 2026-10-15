@@ -1,0 +1,18 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "nsf/cta-row",
+	"title": "General CTA Row",
+	"category": "design",
+	"icon": "align-pull-right",
+	"description": "A heading, one line of copy and one button that goes to a form page or sends an email.",
+	"keywords": [ "cta", "call to action", "button", "email" ],
+	"textdomain": "nsf",
+	"supports": {
+		"html": false,
+		"align": [ "wide" ]
+	},
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

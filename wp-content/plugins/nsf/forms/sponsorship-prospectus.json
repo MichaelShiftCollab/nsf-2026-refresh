@@ -1,0 +1,94 @@
+{
+	"nsfKey": "sponsorship-prospectus",
+	"title": "Sponsorship Prospectus",
+	"description": "Sponsorship Opportunities page: Flexible CTA with Form and the Gated Download for the prospectus PDF.",
+	"labelPlacement": "hidden_label",
+	"button": {
+		"type": "text",
+		"text": "Submit"
+	},
+	"fields": [
+		{
+			"id": 1,
+			"type": "text",
+			"label": "Company",
+			"placeholder": "Company*",
+			"isRequired": true,
+			"autocompleteAttribute": "organization",
+			"layoutGridColumnSpan": 6
+		},
+		{
+			"id": 2,
+			"type": "website",
+			"label": "Website",
+			"placeholder": "Website",
+			"isRequired": false,
+			"autocompleteAttribute": "url",
+			"layoutGridColumnSpan": 6
+		},
+		{
+			"id": 3,
+			"type": "text",
+			"label": "First Name",
+			"placeholder": "First Name*",
+			"isRequired": true,
+			"autocompleteAttribute": "given-name",
+			"layoutGridColumnSpan": 6
+		},
+		{
+			"id": 4,
+			"type": "text",
+			"label": "Last Name",
+			"placeholder": "Last Name*",
+			"isRequired": true,
+			"autocompleteAttribute": "family-name",
+			"layoutGridColumnSpan": 6
+		},
+		{
+			"id": 5,
+			"type": "text",
+			"label": "Title",
+			"placeholder": "Title*",
+			"isRequired": true,
+			"autocompleteAttribute": "organization-title",
+			"layoutGridColumnSpan": 6
+		},
+		{
+			"id": 6,
+			"type": "email",
+			"label": "Email",
+			"placeholder": "Email*",
+			"isRequired": true,
+			"autocompleteAttribute": "email",
+			"layoutGridColumnSpan": 6
+		},
+		{
+			"id": 7,
+			"type": "checkbox",
+			"label": "I’m interested in:",
+			"description": "Check all that apply.",
+			"isRequired": true,
+			"choices": [
+				{ "text": "Sleep Awareness Week®", "value": "Sleep Awareness Week®" },
+				{ "text": "Drowsy Driving Prevention Week®", "value": "Drowsy Driving Prevention Week®" },
+				{ "text": "SleepTech Network®", "value": "SleepTech Network®" },
+				{ "text": "Custom Partnership Opportunities", "value": "Custom Partnership Opportunities" },
+				{ "text": "Other", "value": "Other" }
+			],
+			"inputs": [
+				{ "id": "7.1", "label": "Sleep Awareness Week®" },
+				{ "id": "7.2", "label": "Drowsy Driving Prevention Week®" },
+				{ "id": "7.3", "label": "SleepTech Network®" },
+				{ "id": "7.4", "label": "Custom Partnership Opportunities" },
+				{ "id": "7.5", "label": "Other" }
+			]
+		},
+		{
+			"id": 8,
+			"type": "textarea",
+			"label": "Tell us why you’d like to get in touch",
+			"placeholder": "Tell us why you’d like to get in touch",
+			"isRequired": false
+		}
+	]
+}

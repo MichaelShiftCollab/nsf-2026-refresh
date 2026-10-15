@@ -1,0 +1,36 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "nsf/gated-download",
+	"title": "Gated Download",
+	"category": "design",
+	"icon": "download",
+	"description": "A cover, title and file details beside a form. Visitors get the file on a success page after they submit the form; the file's address is not in this page.",
+	"keywords": [ "download", "gated", "pdf", "prospectus", "form" ],
+	"textdomain": "nsf",
+	"attributes": {
+		"coverId": {
+			"type": "number",
+			"default": 0
+		},
+		"fileId": {
+			"type": "number",
+			"default": 0
+		},
+		"formKey": {
+			"type": "string",
+			"default": "sponsorship-prospectus"
+		},
+		"successPageId": {
+			"type": "number",
+			"default": 0
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": [ "wide" ]
+	},
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

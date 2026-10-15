@@ -314,6 +314,18 @@
 				"legal-gap": "22px",
 				"social-gap": "22px",
 				"social-size": "22px"
+			},
+			"cover": {
+				"width": "300px",
+				"width-small": "260px",
+				"ratio": "300 / 388"
+			},
+			"split": {
+				"panel-width": "640px",
+				"copy-gap": "60px"
+			},
+			"stat": {
+				"number-size": "48px"
 			}
 		},
 		"shadow": {

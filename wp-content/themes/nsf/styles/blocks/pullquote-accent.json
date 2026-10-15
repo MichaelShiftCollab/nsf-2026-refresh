@@ -1,0 +1,36 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"title": "NSF quote",
+	"slug": "nsf-quote",
+	"blockTypes": [
+		"core/pullquote"
+	],
+	"styles": {
+		"color": {
+			"text": "var(--wp--preset--color--primary-blue)"
+		},
+		"border": {
+			"left": {
+				"color": "var(--wp--preset--color--primary-orange)",
+				"style": "solid",
+				"width": "var(--wp--custom--border--rule)"
+			}
+		},
+		"spacing": {
+			"padding": {
+				"top": "0",
+				"right": "0",
+				"bottom": "0",
+				"left": "var(--wp--preset--spacing--50)"
+			}
+		},
+		"typography": {
+			"fontFamily": "var(--wp--preset--font-family--test-family)",
+			"fontSize": "var(--wp--preset--font-size--large)",
+			"fontWeight": "500",
+			"lineHeight": "1.375",
+			"textAlign": "left"
+		}
+	}
+}

@@ -1,0 +1,24 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "nsf/gated-download-success",
+	"title": "Gated Download Success",
+	"category": "design",
+	"icon": "yes-alt",
+	"description": "Goes on the page visitors reach after a Gated Download form: the cover, a confirmation message and the download button for the file they asked for.",
+	"keywords": [ "download", "gated", "thank you", "success" ],
+	"textdomain": "nsf",
+	"attributes": {
+		"buttonText": {
+			"type": "string",
+			"default": "Download the file"
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": [ "wide" ]
+	},
+	"editorScript": "file:./index.js",
+	"style": "nsf-gated-download-style",
+	"render": "file:./render.php"
+}

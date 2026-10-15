@@ -1,0 +1,20 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"title": "Big number",
+	"slug": "stat-number",
+	"blockTypes": [
+		"core/paragraph"
+	],
+	"styles": {
+		"color": {
+			"text": "var(--wp--preset--color--primary-blue)"
+		},
+		"typography": {
+			"fontFamily": "var(--wp--preset--font-family--test-family)",
+			"fontSize": "var(--wp--custom--stat--number-size)",
+			"fontWeight": "500",
+			"lineHeight": "1.2"
+		}
+	}
+}

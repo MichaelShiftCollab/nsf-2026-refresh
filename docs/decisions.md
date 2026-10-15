@@ -9,6 +9,19 @@ Answers to the open questions in the build spec and build plan. Newest first.
 | Best Slept Self® band | Build it as the Home mockup shows it ([Figma 473:60](https://www.figma.com/design/mVNfIISs9yQQurddJagkfU/NSF-2026?node-id=473-60)): full-width Light Blue to Light Orange gradient, 96px top-right corner, three photos over a faded sun. Replaces Option A |
 | Logo | Use the logo from the mockups until NSF sends final files |
 
+## October 15, 2026 (defaults chosen while building step 9)
+
+| Question | Decision |
+| :--- | :--- |
+| CTA look before mockups | The wireframes are gray; the blocks use the brand: General CTA Row on a Lightest Blue panel, Flexible CTA with Link on Dark Blue (Navy, default) or Lightest Blue, forms in a white panel 640px wide beside the copy. All Provisional |
+| Contact Us CTA, Participation Toolkit | Patterns built on the Flexible CTA with Form block with the `contact-us` and `participation-toolkit` forms. Toolkit fields: Name and Email required, Organization and "How you plan to use it" optional |
+| CTA blocks' text | Headings, copy and buttons are ordinary blocks inside the CTA blocks, so editors use the usual tools; the blocks add the layout, the form and the file |
+| Gated Download flow | The form carries a signed token naming the file, cover and success page, never the file URL. Gravity Forms' confirmation redirects to the success page with a signed link that works for 7 days; the button streams the file through `?nsf_file=`. The PDF stays in the media library, so someone who already has its uploads URL can still open it |
+| Gated Download success page | A "Thank you" page (`/prospectus-thank-you/`) with the Gated Download Success block. Without a success page the block returns visitors to its own page |
+| Gated Download before Gravity Forms | On local and development sites only, the form posts to a stand-in handler that checks required fields and stores nothing, so the flow can be tested now |
+| Statistics row and pull quote copy | Placeholders ("00%", "A short quote…") so no unsourced number reaches a page. Big numbers use the H2 font at 48px |
+| Email CTA address | The email variation links to `mailto:` with no address; the editor adds it |
+
 ## October 15, 2026 (defaults chosen while building step 5)
 
 | Question | Decision |

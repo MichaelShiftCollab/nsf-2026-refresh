@@ -24,6 +24,7 @@ require_once NSF_PATH . 'includes/resource-file.php';
 require_once NSF_PATH . 'includes/content-card.php';
 require_once NSF_PATH . 'includes/resource-hub.php';
 require_once NSF_PATH . 'includes/forms.php';
+require_once NSF_PATH . 'includes/gated-download.php';
 require_once NSF_PATH . 'includes/breadcrumbs.php';
 
 if ( defined( 'WP_CLI' ) && WP_CLI ) {

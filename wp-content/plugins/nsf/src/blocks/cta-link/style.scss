@@ -1,0 +1,43 @@
+/*
+ * Flexible CTA with Link: centered copy and button on a Dark Blue panel
+ * (Navy, the default) or Lightest Blue. No mockup yet; colors follow the navy
+ * content card.
+ */
+.nsf-cta-link {
+	padding: var(--wp--preset--spacing--60) var(--wp--preset--spacing--50);
+	border-radius: var(--wp--custom--radius--card);
+	background: var(--wp--preset--color--dark-blue);
+	color: var(--wp--preset--color--light-blue);
+	text-align: center;
+
+	> * {
+		max-width: 760px;
+		margin-inline: auto;
+		margin-block: 0;
+	}
+
+	> * + * {
+		margin-top: var(--wp--preset--spacing--30);
+	}
+
+	> .wp-block-heading {
+		color: var(--wp--preset--color--white);
+	}
+
+	> .is-style-eyebrow-small {
+		color: var(--wp--preset--color--medium-orange);
+	}
+
+	&.is-style-light {
+		background: var(--wp--preset--color--lightest-blue);
+		color: var(--wp--preset--color--gray);
+
+		> .wp-block-heading {
+			color: var(--wp--preset--color--primary-blue);
+		}
+
+		> .is-style-eyebrow-small {
+			color: var(--wp--preset--color--primary-orange);
+		}
+	}
+}

@@ -74,5 +74,84 @@
 		"group": "global",
 		"url": "/sleep-health-resources/",
 		"selector": ".nsf-footer"
+	},
+	{
+		"name": "cta-row",
+		"group": "cta",
+		"url": "/cta-test/",
+		"selector": "#cta-row",
+		"auth": true
+	},
+	{
+		"name": "cta-row-email",
+		"group": "cta",
+		"url": "/cta-test/",
+		"selector": "#cta-row-email",
+		"auth": true
+	},
+	{
+		"name": "cta-link",
+		"group": "cta",
+		"url": "/cta-test/",
+		"selector": "#cta-link",
+		"auth": true
+	},
+	{
+		"name": "cta-contact",
+		"group": "cta",
+		"url": "/cta-test/",
+		"selector": "#cta-contact",
+		"auth": true
+	},
+	{
+		"name": "cta-sponsorship",
+		"group": "cta",
+		"url": "/cta-test/",
+		"selector": "#cta-sponsorship",
+		"auth": true
+	},
+	{
+		"name": "cta-toolkit",
+		"group": "cta",
+		"url": "/cta-test/",
+		"selector": "#cta-toolkit",
+		"auth": true
+	},
+	{
+		"name": "cta-gated",
+		"group": "cta",
+		"url": "/cta-test/",
+		"selector": "#cta-gated",
+		"auth": true,
+		"ignore": [
+			"#cta-gated .nsf-gated__cover"
+		]
+	},
+	{
+		"name": "stats-2",
+		"group": "cta",
+		"url": "/cta-test/",
+		"selector": "#stats-2",
+		"auth": true
+	},
+	{
+		"name": "stats-4",
+		"group": "cta",
+		"url": "/cta-test/",
+		"selector": "#stats-4",
+		"auth": true
+	},
+	{
+		"name": "pull-quote",
+		"group": "cta",
+		"url": "/cta-test/",
+		"selector": "#pull-quote",
+		"auth": true
+	},
+	{
+		"name": "cta-gated-success",
+		"group": "cta",
+		"url": "/prospectus-thank-you/",
+		"selector": ".nsf-gated-success"
 	}
 ]

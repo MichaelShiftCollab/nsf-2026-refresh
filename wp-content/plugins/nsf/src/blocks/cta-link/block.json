@@ -1,0 +1,22 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "nsf/cta-link",
+	"title": "Flexible CTA with Link",
+	"category": "design",
+	"icon": "megaphone",
+	"description": "An eyebrow, heading, copy and a button link, for example to the donation page. Navy or Light Blue.",
+	"keywords": [ "cta", "call to action", "donate", "link" ],
+	"textdomain": "nsf",
+	"supports": {
+		"html": false,
+		"align": [ "wide" ]
+	},
+	"styles": [
+		{ "name": "navy", "label": "Navy", "isDefault": true },
+		{ "name": "light", "label": "Light Blue" }
+	],
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}
