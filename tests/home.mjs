@@ -45,12 +45,9 @@ const browser = await chromium.launch();
 		() =>
 			document.querySelector( '.nsf-hero' ).getBoundingClientRect().bottom
 	);
-	// The 178px header is still to come (step 5); Frost's header stands in.
 	check(
-		bottom <= 800 - 178 + 97,
-		`hero fits above the fold with the mockup header (bottom ${ Math.round(
-			bottom
-		) }px)`
+		bottom <= 800,
+		`hero ends above the fold (bottom ${ Math.round( bottom ) }px)`
 	);
 	await page.waitForTimeout( INTERVAL_WAIT );
 	check( ( await activeIndex( page ) ) > 0, 'hero rotates on its own' );

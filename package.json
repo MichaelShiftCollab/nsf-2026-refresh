@@ -15,7 +15,8 @@
 		"test:visual": "node tests/visual/run.mjs",
 		"mockups:pull": "node tests/visual/pull.mjs",
 		"test:hub": "node tests/hub.mjs",
-		"test:home": "node tests/home.mjs"
+		"test:home": "node tests/home.mjs",
+		"test:global": "node tests/global.mjs"
 	},
 	"devDependencies": {
 		"@wordpress/scripts": "^36.1.0",

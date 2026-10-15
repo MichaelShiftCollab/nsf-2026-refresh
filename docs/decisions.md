@@ -9,6 +9,17 @@ Answers to the open questions in the build spec and build plan. Newest first.
 | Best Slept Self® band | Build it as the Home mockup shows it ([Figma 473:60](https://www.figma.com/design/mVNfIISs9yQQurddJagkfU/NSF-2026?node-id=473-60)): full-width Light Blue to Light Orange gradient, 96px top-right corner, three photos over a faded sun. Replaces Option A |
 | Logo | Use the logo from the mockups until NSF sends final files |
 
+## October 15, 2026 (defaults chosen while building step 5)
+
+| Question | Decision |
+| :--- | :--- |
+| Logo files | PNGs cut from the mockup at 1x (`assets/images/brand/`). Swap in SVGs when NSF sends them; they will look soft on high-density screens until then |
+| Newsletter sign-up row | Part of the footer template part (pattern `nsf/newsletter-signup`), not a synced pattern post: a template part is already synced across the site, and a synced pattern's ID would differ between local and staging |
+| Forms in patterns and parts | The NSF Form block places a form by its key (`forms/<key>.json`). Shortcodes do not run inside template parts, so the block replaces `[nsf_form]` there |
+| Mobile menu breakpoint | Below 1100px the utility and main menus move into one menu button; the search icon stays in the bar. 781 and 600 header mockups are still to come |
+| Social links | `#` until NSF confirms each profile URL |
+| Breadcrumbs | Leave out Home (the logo links there). Added to the page and post templates now; archive, search and Resource templates add the block in steps 12 to 14 |
+
 ## October 15, 2026 (defaults chosen while building step 8)
 
 | Question | Decision |

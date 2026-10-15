@@ -1,0 +1,35 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "nsf/form",
+	"title": "NSF Form",
+	"category": "widgets",
+	"icon": "feedback",
+	"description": "Places one of the site's Gravity Forms by its key, so the same page works on local, staging and live. Shows a preview until Gravity Forms is installed.",
+	"keywords": [ "form", "gravity", "newsletter", "sign up" ],
+	"textdomain": "nsf",
+	"attributes": {
+		"formKey": {
+			"type": "string",
+			"default": ""
+		},
+		"layout": {
+			"type": "string",
+			"enum": [ "", "inline" ],
+			"default": ""
+		},
+		"linkText": {
+			"type": "string",
+			"default": ""
+		},
+		"url": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"editorScript": "file:./index.js",
+	"render": "file:./render.php"
+}

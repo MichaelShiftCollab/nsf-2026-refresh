@@ -93,5 +93,23 @@
 		"ignore": [
 			".nsf-card__media"
 		]
+	},
+	{
+		"name": "global-header",
+		"group": "global",
+		"url": "/sleep-health-resources/",
+		"selector": "header.site-header"
+	},
+	{
+		"name": "global-signup",
+		"group": "global",
+		"url": "/sleep-health-resources/",
+		"selector": ".nsf-signup"
+	},
+	{
+		"name": "global-footer",
+		"group": "global",
+		"url": "/sleep-health-resources/",
+		"selector": ".nsf-footer"
 	}
 ]

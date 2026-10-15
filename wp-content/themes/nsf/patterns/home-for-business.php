@@ -49,9 +49,7 @@
 <p class="is-style-eyebrow-small has-primary-blue-color has-text-color"><?php esc_html_e( 'Request information', 'nsf' ); ?></p>
 <!-- /wp:paragraph -->
 
-<!-- wp:shortcode -->
-[nsf_form key="sleepmark-lead" link="/sleepmark/" link_text="<?php esc_attr_e( 'See the application process', 'nsf' ); ?>"]
-<!-- /wp:shortcode --></div>
+<!-- wp:nsf/form {"formKey":"sleepmark-lead","linkText":"<?php esc_attr_e( 'See the application process', 'nsf' ); ?>","url":"/sleepmark/"} /--></div>
 <!-- /wp:group -->
 
 <!-- wp:group {"metadata":{"name":"SleepTech® Network"},"className":"is-style-panel","style":{"spacing":{"blockGap":"var:preset|spacing|20"}},"layout":{"type":"default"}} -->

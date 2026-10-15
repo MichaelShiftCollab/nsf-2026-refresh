@@ -1,0 +1,31 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "nsf/breadcrumbs",
+	"title": "Breadcrumbs",
+	"category": "theme",
+	"icon": "arrow-right-alt2",
+	"description": "Links to the current page's parents: page ancestry on pages, the Sleep Learning Zone and topic on posts and archives, and the Sleep Health Resources hub on Resources.",
+	"keywords": [ "breadcrumb", "navigation", "trail" ],
+	"textdomain": "nsf",
+	"attributes": {
+		"showCurrent": {
+			"type": "boolean",
+			"default": true
+		}
+	},
+	"usesContext": [ "postId", "postType" ],
+	"supports": {
+		"html": false,
+		"color": {
+			"text": true,
+			"link": true
+		},
+		"spacing": {
+			"margin": [ "top", "bottom" ]
+		}
+	},
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}
