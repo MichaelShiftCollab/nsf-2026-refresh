@@ -132,6 +132,12 @@ function nsf_register_content_model() {
 			'description' => __( 'Send the download through the Gated Download form.', 'nsf' ),
 			'default'     => false,
 		),
+		'nsf_gate_form' => array(
+			'type'              => 'string',
+			'description'       => __( 'Form key of the form a gated Resource asks visitors to fill in.', 'nsf' ),
+			'sanitize_callback' => 'sanitize_key',
+			'default'           => '',
+		),
 	);
 
 	// Pages show a subtitle in their title band too (build plan step 15).

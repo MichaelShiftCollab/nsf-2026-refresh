@@ -1,0 +1,25 @@
+/*
+ * Post cards (inc/post-cards.php): Content Cards in a Query Loop on interior
+ * pages. The compact version has the short image and a smaller title, from
+ * the Sleep Awareness Week® mockup.
+ */
+.nsf-post-cards .wp-block-post-template {
+	margin-block: 0;
+}
+
+.nsf-post-cards .wp-block-post {
+	display: flex;
+}
+
+.nsf-post-cards .nsf-card {
+	flex: 1;
+}
+
+.nsf-post-cards.is-compact .nsf-card__media {
+	aspect-ratio: auto;
+	height: var(--wp--custom--card--image-short);
+}
+
+.nsf-post-cards.is-compact .nsf-card__title {
+	font-size: var(--wp--preset--font-size--medium);
+}

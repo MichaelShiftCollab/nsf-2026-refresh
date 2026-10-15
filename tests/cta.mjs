@@ -107,6 +107,39 @@ check(
 );
 await visitor.close();
 
+// A gated Resource (seeded with a file and nsf_gated on) shows the form at
+// the end of its page, never the file URL, and sends visitors back to itself
+// with the download.
+const resourceUrl = `${ baseUrl }/resources/sleep-in-america-poll-2026-a-look-at-childrens-sleep-health-and-family-sleep-habits/`;
+const reader = await browser.newContext( { acceptDownloads: true } );
+const readerPage = await reader.newPage();
+await readerPage.goto( resourceUrl );
+check(
+	! /\.pdf/i.test( await readerPage.content() ) &&
+		( await readerPage
+			.locator( '#get-the-file input[name="nsf_gate"]' )
+			.count() ) === 1 &&
+		( await readerPage.locator( 'a[href="#get-the-file"]' ).count() ) > 0,
+	'a gated Resource links its download buttons to its form and hides the file URL'
+);
+const gate = readerPage.locator( '#get-the-file form' );
+await gate.locator( 'input[name="input_1"]' ).fill( 'Test Person' );
+await gate.locator( 'input[name="input_2"]' ).fill( 'test@example.com' );
+await Promise.all( [
+	readerPage.waitForURL( /\?nsf_download=/, { timeout: 30000 } ),
+	gate.locator( 'button[type="submit"]' ).click(),
+] );
+const [ resourceDownload ] = await Promise.all( [
+	readerPage.waitForEvent( 'download' ),
+	readerPage.click( '#get-the-file .nsf-download-button' ),
+] );
+check(
+	readerPage.url().startsWith( resourceUrl ) &&
+		( await resourceDownload.suggestedFilename() ).endsWith( '.pdf' ),
+	'submitting it returns to the Resource with a working download'
+);
+await reader.close();
+
 // Every block on the CTA Test page is valid in the editor.
 await page.goto( `${ baseUrl }/cta-test/` );
 const id = await page.evaluate(

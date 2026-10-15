@@ -55,38 +55,6 @@ $nsf_rc_activity = function ( $image, $eyebrow, $title, $text, $button, $url, $o
 };
 
 /**
- * One blog post card: photo, category eyebrow, title and date.
- *
- * @param string $image   Theme image path.
- * @param string $eyebrow Category.
- * @param string $title   Post title.
- * @param string $date    Post date.
- */
-$nsf_rc_post = function ( $image, $eyebrow, $title, $date ) {
-	?>
-<!-- wp:group {"metadata":{"name":"Post card"},"className":"nsf-rc-card nsf-rc-card--post","layout":{"type":"default"}} -->
-<div class="wp-block-group nsf-rc-card nsf-rc-card--post"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"nsf-rc-card__image nsf-photo"} -->
-<figure class="wp-block-image size-full nsf-rc-card__image nsf-photo"><img src="<?php echo esc_url( get_theme_file_uri( $image ) ); ?>" alt=""/></figure>
-<!-- /wp:image -->
-
-<!-- wp:group {"className":"nsf-rc-card__body","layout":{"type":"default"}} -->
-<div class="wp-block-group nsf-rc-card__body"><!-- wp:paragraph {"className":"is-style-eyebrow-small"} -->
-<p class="is-style-eyebrow-small"><?php echo esc_html( $eyebrow ); ?></p>
-<!-- /wp:paragraph -->
-
-<!-- wp:heading {"level":3,"className":"nsf-dl-card__title"} -->
-<h3 class="wp-block-heading nsf-dl-card__title"><a href="#"><?php echo esc_html( $title ); ?></a></h3>
-<!-- /wp:heading -->
-
-<!-- wp:paragraph {"className":"nsf-rc-card__date"} -->
-<p class="nsf-rc-card__date"><?php echo esc_html( $date ); ?></p>
-<!-- /wp:paragraph --></div>
-<!-- /wp:group --></div>
-<!-- /wp:group -->
-	<?php
-};
-
-/**
  * One forum speaker: name and role.
  */
 $nsf_rc_speaker = function () {
@@ -193,13 +161,10 @@ for ( $nsf_i = 0; $nsf_i < 5; $nsf_i++ ) {
 <!-- /wp:heading -->
 
 <!-- wp:group {"metadata":{"name":"Key blog posts"},"className":"nsf-rc-group","layout":{"type":"default"}} -->
-<div class="wp-block-group nsf-rc-group"><?php $nsf_rc_subhead( __( 'Key blog posts', 'nsf' ) ); ?><!-- wp:group {"className":"nsf-rc-grid nsf-rc-grid--3","layout":{"type":"default"}} -->
-<div class="wp-block-group nsf-rc-grid nsf-rc-grid--3"><?php
-$nsf_rc_post( 'assets/images/home/card-1.jpg', __( 'Drowsy Driving Prevention', 'nsf' ), __( 'Drowsy Driving is a Family Sleep Health Issue', 'nsf' ), __( 'November 4, 2025', 'nsf' ) );
-$nsf_rc_post( 'assets/images/home/campaign-small-left.jpg', __( 'Teens', 'nsf' ), __( 'What To Know about Teens and Sleep', 'nsf' ), __( 'October 21, 2025', 'nsf' ) );
-$nsf_rc_post( 'assets/images/home/research.jpg', __( 'Drowsy Driving Prevention', 'nsf' ), __( 'Fall-Asleep Crashes Are Often Caused by Not Getting the Sleep You Need', 'nsf' ), __( 'September 16, 2025', 'nsf' ) );
+<div class="wp-block-group nsf-rc-group"><?php $nsf_rc_subhead( __( 'Key blog posts', 'nsf' ) ); ?><?php
+$nsf_cards = array( 'count' => 3, 'columns' => 3, 'category' => 'drowsy-driving', 'excerpt' => false, 'date' => true, 'compact' => true, 'link' => '' );
+require __DIR__ . '/../inc/post-cards.php';
 ?></div>
-<!-- /wp:group --></div>
 <!-- /wp:group -->
 
 <!-- wp:group {"metadata":{"name":"Infographics"},"className":"nsf-rc-group","layout":{"type":"default"}} -->

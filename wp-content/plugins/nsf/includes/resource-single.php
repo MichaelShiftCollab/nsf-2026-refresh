@@ -9,6 +9,9 @@
 
 defined( 'ABSPATH' ) || exit;
 
+/** Anchor of the Gated Download section on a gated Resource. */
+const NSF_RESOURCE_GATE_ANCHOR = 'get-the-file';
+
 /**
  * The Sleep Health Resources page (the Resource Hub), or null.
  *
@@ -92,17 +95,45 @@ function nsf_content_type_label( $post ) {
 
 /**
  * The Resource's file when it can be downloaded directly: it has one and is
- * not gated. Gated files go through the Gated Download form (build plan step 9),
- * so their URL never reaches the page.
+ * not gated. Gated files go through the Gated Download form, so their URL
+ * never reaches the page.
  *
  * @param WP_Post $post Resource.
  * @return array|null File details from nsf_get_resource_file().
  */
 function nsf_resource_download( $post ) {
-	if ( 'resource' !== $post->post_type || get_post_meta( $post->ID, 'nsf_gated', true ) ) {
+	if ( 'resource' !== $post->post_type || nsf_resource_is_gated( $post ) ) {
 		return null;
 	}
 	return nsf_get_resource_file( $post );
+}
+
+/**
+ * Whether a Resource's file goes through the Gated Download form: it is
+ * marked gated and has a file.
+ *
+ * @param WP_Post $post Resource.
+ * @return bool
+ */
+function nsf_resource_is_gated( $post ) {
+	return 'resource' === $post->post_type
+		&& get_post_meta( $post->ID, 'nsf_gated', true )
+		&& nsf_get_resource_file( $post );
+}
+
+/**
+ * Form a gated Resource uses: the one picked in Resource details, else the
+ * Resource download form (name, email, organization).
+ *
+ * @param WP_Post $post Resource.
+ * @return string Form key.
+ */
+function nsf_resource_gate_form( $post ) {
+	$key = (string) get_post_meta( $post->ID, 'nsf_gate_form', true );
+	if ( '' === $key || ! nsf_form_definition( $key ) ) {
+		$key = (string) apply_filters( 'nsf_resource_gate_form_default', 'resource-download' );
+	}
+	return $key;
 }
 
 /**
@@ -124,8 +155,9 @@ function nsf_resource_byline( $post ) {
 
 /**
  * Registers the nsf/resource bindings source. Keys: byline, file-url and
- * file-details. Blocks bound to a file key are removed when there is no
- * direct download (see nsf_resource_drop_empty_bound_blocks()).
+ * file-details. Blocks bound to a file key are removed when there is no file
+ * (see nsf_resource_drop_empty_bound_blocks()). For a gated Resource the
+ * file URL is the anchor of its Gated Download section.
  */
 function nsf_register_resource_bindings() {
 	if ( ! function_exists( 'register_block_bindings_source' ) ) {
@@ -145,11 +177,15 @@ function nsf_register_resource_bindings() {
 					case 'byline':
 						return esc_html( nsf_resource_byline( $post ) );
 					case 'file-url':
+						// Gated Resources link to the form further down the page.
+						if ( nsf_resource_is_gated( $post ) ) {
+							return '#' . NSF_RESOURCE_GATE_ANCHOR;
+						}
 						$file = nsf_resource_download( $post );
 						// The HTML API escapes attribute values.
 						return $file ? esc_url_raw( $file['url'] ) : '';
 					case 'file-details':
-						$file = nsf_resource_download( $post );
+						$file = nsf_resource_is_gated( $post ) ? nsf_get_resource_file( $post ) : nsf_resource_download( $post );
 						return $file ? esc_html( $file['label'] ) : '';
 				}
 				return null;
@@ -228,3 +264,66 @@ function nsf_page_editor_assets() {
 	);
 }
 add_action( 'enqueue_block_editor_assets', 'nsf_page_editor_assets' );
+
+/**
+ * Adds the Gated Download section to the end of a gated Resource: the form,
+ * or, when the visitor comes back from it with a valid link for this
+ * Resource, the cover and download button. The section reuses the Gated
+ * Download blocks, so it looks and works like the Sponsorship Prospectus.
+ *
+ * @param string $content Rendered post content.
+ * @return string
+ */
+function nsf_resource_gate_section( $content ) {
+	$post = get_post();
+	if ( ! $post || ! is_singular( 'resource' ) || ! in_the_loop() || ! is_main_query() || ! nsf_resource_is_gated( $post ) ) {
+		return $content;
+	}
+
+	$file  = nsf_get_resource_file( $post );
+	$cover = (int) get_post_thumbnail_id( $post );
+	$token = nsf_gate_download_from_request();
+	$type  = nsf_content_type_label( $post );
+	$title = wp_strip_all_tags( get_the_title( $post ) );
+
+	if ( $token && (int) $token['r'] === $post->ID ) {
+		$inner = sprintf(
+			"<!-- wp:heading {\"className\":\"is-style-card-heading\"} -->\n<h2 class=\"wp-block-heading is-style-card-heading\">%s</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>%s</p>\n<!-- /wp:paragraph -->",
+			esc_html__( 'Thank you. Your download is ready.', 'nsf' ),
+			/* translators: %s: Resource title. */
+			esc_html( sprintf( __( 'Download %s below. The link works for 7 days.', 'nsf' ), $title ) )
+		);
+		$block = sprintf(
+			'<!-- wp:nsf/gated-download-success %1$s -->%2$s<!-- /wp:nsf/gated-download-success -->',
+			wp_json_encode( array( 'buttonText' => __( 'Download', 'nsf' ) ) ),
+			$inner
+		);
+	} else {
+		$inner = sprintf(
+			"<!-- wp:paragraph {\"className\":\"is-style-eyebrow-small\"} -->\n<p class=\"is-style-eyebrow-small\">%s</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading {\"className\":\"is-style-card-heading\"} -->\n<h2 class=\"wp-block-heading is-style-card-heading\">%s</h2>\n<!-- /wp:heading -->",
+			esc_html( $type ),
+			/* translators: %s: Resource title. */
+			esc_html( sprintf( __( 'Fill out the form to get %s.', 'nsf' ), $title ) )
+		);
+		$block = sprintf(
+			'<!-- wp:nsf/gated-download %1$s -->%2$s<!-- /wp:nsf/gated-download -->',
+			wp_json_encode(
+				array(
+					'coverId'       => $cover,
+					'fileId'        => (int) $file['id'],
+					'formKey'       => nsf_resource_gate_form( $post ),
+					'successPageId' => 0,
+				)
+			),
+			$inner
+		);
+	}
+
+	$section = sprintf(
+		'<!-- wp:group {"anchor":"%1$s","align":"full","className":"is-style-section-lightest-blue nsf-resource-gate","style":{"spacing":{"padding":{"top":"var:preset|spacing|section","bottom":"var:preset|spacing|section"}}},"layout":{"type":"constrained"}} --><div id="%1$s" class="wp-block-group alignfull is-style-section-lightest-blue nsf-resource-gate" style="padding-top:var(--wp--preset--spacing--section);padding-bottom:var(--wp--preset--spacing--section)">%2$s</div><!-- /wp:group -->',
+		NSF_RESOURCE_GATE_ANCHOR,
+		$block
+	);
+	return $content . do_blocks( $section );
+}
+add_filter( 'the_content', 'nsf_resource_gate_section', 20 );

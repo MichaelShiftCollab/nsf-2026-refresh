@@ -11,38 +11,6 @@
  */
 
 /**
- * One article card: short photo, eyebrow, title and a link.
- *
- * @param string $image Theme image path.
- * @param string $title Article title.
- */
-$nsf_saw_card = function ( $image, $title ) {
-	?>
-<!-- wp:group {"className":"nsf-saw-card","layout":{"type":"default"}} -->
-<div class="wp-block-group nsf-saw-card"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"nsf-saw-card__image nsf-photo"} -->
-<figure class="wp-block-image size-full nsf-saw-card__image nsf-photo"><img src="<?php echo esc_url( get_theme_file_uri( $image ) ); ?>" alt=""/></figure>
-<!-- /wp:image -->
-
-<!-- wp:group {"className":"nsf-saw-card__body","layout":{"type":"default"}} -->
-<div class="wp-block-group nsf-saw-card__body"><!-- wp:group {"className":"nsf-saw-card__text","layout":{"type":"default"}} -->
-<div class="wp-block-group nsf-saw-card__text"><!-- wp:paragraph {"className":"is-style-eyebrow-small"} -->
-<p class="is-style-eyebrow-small"><?php esc_html_e( 'Article', 'nsf' ); ?></p>
-<!-- /wp:paragraph -->
-
-<!-- wp:heading {"level":3,"className":"nsf-saw-card__title"} -->
-<h3 class="wp-block-heading nsf-saw-card__title"><?php echo esc_html( $title ); ?></h3>
-<!-- /wp:heading --></div>
-<!-- /wp:group -->
-
-<!-- wp:paragraph {"className":"is-style-link"} -->
-<p class="is-style-link"><a href="/sleep-health-resources/sleep-learning-zone/"><?php esc_html_e( 'Learn more', 'nsf' ); ?></a></p>
-<!-- /wp:paragraph --></div>
-<!-- /wp:group --></div>
-<!-- /wp:group -->
-	<?php
-};
-
-/**
  * Logo placeholders for a logo grid.
  *
  * @param int $count Number of logos.
@@ -164,18 +132,10 @@ $nsf_saw_logos = function ( $count ) {
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"metadata":{"name":"Articles"},"className":"nsf-saw-cards","layout":{"type":"default"}} -->
-<div class="wp-block-group nsf-saw-cards"><?php
-$nsf_saw_card( 'assets/images/home/card-1.jpg', __( 'Here’s Something Your Kid’s Mood, Grades, and Immunity Have in Common', 'nsf' ) );
-$nsf_saw_card( 'assets/images/home/research.jpg', __( 'Living with 24-Hour Sleep Disorders: Narcolepsy and Idiopathic Hypersomnia', 'nsf' ) );
-$nsf_saw_card( 'assets/images/home/campaign-small-right.jpg', __( 'The Family That Sleeps Well, Does Well', 'nsf' ) );
-$nsf_saw_card( 'assets/images/home/hero-1.jpg', __( 'How Much Sleep Do You Really Need?', 'nsf' ) );
-$nsf_saw_card( 'assets/images/home/campaign-small-left.jpg', __( 'Do You Fall Asleep Without Warning? You Might Have Narcolepsy', 'nsf' ) );
-$nsf_saw_card( 'assets/images/home/campaign-large.jpg', __( 'Is Your Bedroom Too Warm? It Could Be Affecting Your Sleep', 'nsf' ) );
-$nsf_saw_card( 'assets/images/home/card-1.jpg', __( 'Understanding the Two Types of Narcolepsy', 'nsf' ) );
-$nsf_saw_card( 'assets/images/home/research.jpg', __( 'What To Know about Teens and Sleep', 'nsf' ) );
-?></div>
-<!-- /wp:group -->
+<?php
+$nsf_cards = array( 'count' => 8, 'columns' => 4, 'category' => '', 'excerpt' => false, 'date' => false, 'compact' => true, 'link' => __( 'Learn more', 'nsf' ) );
+require __DIR__ . '/../inc/post-cards.php';
+?>
 
 <!-- wp:paragraph {"className":"is-style-link"} -->
 <p class="is-style-link"><a href="/sleep-health-resources/sleep-learning-zone/"><?php esc_html_e( 'Read our Sleep Health Topics blog', 'nsf' ); ?></a></p>

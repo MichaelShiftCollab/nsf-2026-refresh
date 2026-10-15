@@ -1,6 +1,7 @@
 /**
  * Resource details panel in the Resource editor sidebar: subtitle, byline,
- * attached file and the gated switch (Resource meta from the NSF plugin).
+ * attached file, the gated switch and its form (Resource meta from the NSF
+ * plugin).
  *
  * Plain script on the wp globals, so it needs no build step.
  */
@@ -10,7 +11,7 @@
 	const { registerPlugin } = wp.plugins;
 	const { PluginDocumentSettingPanel } = wp.editor;
 	const { MediaUpload, MediaUploadCheck } = wp.blockEditor;
-	const { Button, TextControl, ToggleControl } = wp.components;
+	const { Button, SelectControl, TextControl, ToggleControl } = wp.components;
 	const { useSelect, useDispatch } = wp.data;
 
 	function ResourceDetails() {
@@ -97,12 +98,27 @@
 				__nextHasNoMarginBottom: true,
 				label: __( 'Gated download', 'nsf' ),
 				help: __(
-					'Visitors fill in a form to get the file. The download button is hidden until the Gated Download form is built.',
+					'Visitors fill in a form to get the file. The download buttons jump to the form, which is added at the end of the page.',
 					'nsf'
 				),
 				checked: !! meta.nsf_gated,
 				onChange: ( value ) => setMeta( 'nsf_gated', value ),
-			} )
+			} ),
+			!! meta.nsf_gated &&
+				el( SelectControl, {
+					__nextHasNoMarginBottom: true,
+					__next40pxDefaultSize: true,
+					label: __( 'Form', 'nsf' ),
+					value: meta.nsf_gate_form || '',
+					options: [
+						{
+							value: '',
+							label: __( 'Default (Resource download)', 'nsf' ),
+						},
+						...( window.nsfForms || [] ),
+					],
+					onChange: ( value ) => setMeta( 'nsf_gate_form', value ),
+				} )
 		);
 	}
 

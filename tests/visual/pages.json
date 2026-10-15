@@ -248,7 +248,8 @@
 			".wp-block-cover__image-background",
 			"header.site-header",
 			".nsf-signup",
-			".nsf-footer"
+			".nsf-footer",
+			".nsf-card__media"
 		]
 	},
 	{
@@ -261,7 +262,8 @@
 			".wp-block-cover__image-background",
 			"header.site-header",
 			".nsf-signup",
-			".nsf-footer"
+			".nsf-footer",
+			".nsf-card__media"
 		]
 	},
 	{
@@ -274,7 +276,8 @@
 			".wp-block-cover__image-background",
 			"header.site-header",
 			".nsf-signup",
-			".nsf-footer"
+			".nsf-footer",
+			".nsf-card__media"
 		]
 	},
 	{

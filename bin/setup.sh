@@ -62,6 +62,12 @@ if ! $WP core is-installed 2>/dev/null; then
 	$WP rewrite structure '/%postname%/'
 fi
 $WP plugin activate sqlite-database-integration nsf
+# WordPress's sample post and page would show up in post cards and search.
+for nsf_sample in "post hello-world" "page sample-page"; do
+	set -- $nsf_sample
+	nsf_id=$($WP post list --post_type="$1" --name="$2" --post_status=any --format=ids)
+	[ -n "$nsf_id" ] && $WP post delete $nsf_id --force
+done
 $WP theme activate nsf
 
 # Private Style Guide page (build plan step 3); the visual test compares it to the Figma Styling frame.

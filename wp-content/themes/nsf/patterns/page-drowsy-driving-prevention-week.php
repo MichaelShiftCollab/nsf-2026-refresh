@@ -50,41 +50,6 @@ $nsf_ddpw_reason = function ( $icon, $title, $text ) use ( $nsf_ddpw_icon ) {
 };
 
 /**
- * One article card with an excerpt.
- *
- * @param string $image   Theme image path.
- * @param string $title   Title.
- * @param string $excerpt Excerpt.
- */
-$nsf_ddpw_card = function ( $image, $title, $excerpt ) {
-	?>
-<!-- wp:group {"className":"nsf-ddpw-card","layout":{"type":"default"}} -->
-<div class="wp-block-group nsf-ddpw-card"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"nsf-ddpw-card__image nsf-photo"} -->
-<figure class="wp-block-image size-full nsf-ddpw-card__image nsf-photo"><img src="<?php echo esc_url( get_theme_file_uri( $image ) ); ?>" alt=""/></figure>
-<!-- /wp:image -->
-
-<!-- wp:group {"className":"nsf-ddpw-card__body","layout":{"type":"default"}} -->
-<div class="wp-block-group nsf-ddpw-card__body"><!-- wp:paragraph {"className":"is-style-eyebrow-small"} -->
-<p class="is-style-eyebrow-small"><?php esc_html_e( 'Article', 'nsf' ); ?></p>
-<!-- /wp:paragraph -->
-
-<!-- wp:heading {"level":3,"className":"is-style-card-heading"} -->
-<h3 class="wp-block-heading is-style-card-heading"><?php echo esc_html( $title ); ?></h3>
-<!-- /wp:heading -->
-
-<!-- wp:paragraph -->
-<p><?php echo esc_html( $excerpt ); ?></p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph {"className":"is-style-link nsf-ddpw-card__more"} -->
-<p class="is-style-link nsf-ddpw-card__more"><a href="/sleep-health-resources/sleep-learning-zone/"><?php esc_html_e( 'Learn more', 'nsf' ); ?></a></p>
-<!-- /wp:paragraph --></div>
-<!-- /wp:group --></div>
-<!-- /wp:group -->
-	<?php
-};
-
-/**
  * Logo placeholders.
  *
  * @param int $count Number of logos.
@@ -242,16 +207,10 @@ $nsf_ddpw_reason( 'people', __( 'Drowsy driving is dangerously common.', 'nsf' )
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"metadata":{"name":"Articles"},"className":"nsf-ddpw-grid-3","layout":{"type":"default"}} -->
-<div class="wp-block-group nsf-ddpw-grid-3"><?php
-$nsf_ddpw_card( 'assets/images/home/card-1.jpg', __( 'Protecting Your Family on the Road Starts at Home with Healthy Sleep', 'nsf' ), __( 'You might not realize that choosing to drive when not fully alert is a form of impaired driving.', 'nsf' ) );
-$nsf_ddpw_card( 'assets/images/home/campaign-small-left.jpg', __( 'Sleep First to Prevent Drowsy Driving.', 'nsf' ), __( 'Drowsy driving is dangerous, but preventable. Learn some things you can do before getting behind the wheel.', 'nsf' ) );
-$nsf_ddpw_card( 'assets/images/home/research.jpg', __( 'Signs and Symptoms of Drowsy Driving', 'nsf' ), __( 'Before getting into the car with someone or driving yourself, review our tips for preventing Drowsy Driving. Learn the 8 drowsy driving warning signs.', 'nsf' ) );
-$nsf_ddpw_card( 'assets/images/home/campaign-small-right.jpg', __( 'Wait. Drowsy Driving is like Drunk Driving?', 'nsf' ), __( 'When people drive after sleeping four hours or less, it’s like driving drunk. Learn why teenagers are more susceptible to drowsy driving.', 'nsf' ) );
-$nsf_ddpw_card( 'assets/images/home/hero-1.jpg', __( 'Sleep Health and Safety: Navigating the Road to Alert Driving', 'nsf' ), __( 'Understand how technological advancements can enhance two of the most critical aspects of our lives: healthy sleep and safe driving.', 'nsf' ) );
-$nsf_ddpw_card( 'assets/images/home/campaign-large.jpg', __( 'Staying Alert on the Road After Work', 'nsf' ), __( 'If you work early mornings, late nights, or alternating shifts, you have a higher chance of drowsy driving. When you’re sleep-deprived, your motor functions and reaction time are impaired.', 'nsf' ) );
+<?php
+$nsf_cards = array( 'count' => 6, 'columns' => 3, 'category' => 'drowsy-driving', 'excerpt' => true, 'date' => false, 'compact' => false, 'link' => __( 'Learn more', 'nsf' ) );
+require __DIR__ . '/../inc/post-cards.php';
 ?></div>
-<!-- /wp:group --></div>
 <!-- /wp:group -->
 
 <!-- wp:group {"metadata":{"name":"Sponsors and collaborators"},"align":"full","className":"is-style-section-lightest-blue nsf-ddpw-section","style":{"spacing":{"padding":{"top":"var:preset|spacing|section","bottom":"var:preset|spacing|section"}}},"layout":{"type":"constrained"}} -->

@@ -26,8 +26,6 @@
 
 .nsf-saw-section > *,
 .nsf-saw-stack > *,
-.nsf-saw-card__body > *,
-.nsf-saw-card__text > *,
 .nsf-saw-finding > * {
 	margin-block: 0 !important;
 }
@@ -66,7 +64,6 @@
 
 .nsf-saw-split > *,
 .nsf-saw-columns > *,
-.nsf-saw-cards > *,
 .nsf-saw-findings > *,
 .nsf-saw-feature > * {
 	margin: 0 !important;
@@ -110,54 +107,10 @@
 	background: linear-gradient(180deg, var(--wp--preset--color--white) 0%, var(--wp--preset--color--lightest-blue) 100%);
 }
 
-/* Article cards, 4-up. */
-.nsf-saw-cards {
+/* Article cards {
 	display: grid;
 	grid-template-columns: repeat(4, minmax(0, 1fr));
 	gap: var(--wp--preset--spacing--gutter);
-}
-
-.nsf-saw-card {
-	display: flex;
-	flex-direction: column;
-	overflow: hidden;
-	border-top-right-radius: var(--wp--custom--radius--photo-medium);
-	background: var(--wp--preset--color--white);
-	box-shadow: var(--wp--preset--shadow--card);
-}
-
-.nsf-saw-card__image {
-	margin: 0;
-}
-
-.nsf-saw-card__image img {
-	display: block;
-	width: 100%;
-	height: var(--wp--custom--card--image-short);
-	object-fit: cover;
-}
-
-.nsf-saw-card__body {
-	display: flex;
-	flex: 1;
-	flex-direction: column;
-	justify-content: space-between;
-	gap: var(--wp--preset--spacing--20);
-	margin: 0 !important;
-	padding: calc(var(--wp--preset--spacing--20) + 4px);
-}
-
-.nsf-saw-card__text {
-	display: flex;
-	flex-direction: column;
-	gap: var(--wp--preset--spacing--10);
-}
-
-.nsf-saw-card__title {
-	font-family: var(--wp--preset--font-family--open-sans);
-	font-size: var(--nsf-saw-text-md);
-	font-weight: 600;
-	line-height: 1.4444;
 }
 
 /* Poll feature: logo box beside the copy, in a Lightest Blue frame. */
@@ -314,10 +267,6 @@
 		gap: var(--nsf-saw-gap);
 	}
 
-	.nsf-saw-cards {
-		grid-template-columns: repeat(2, minmax(0, 1fr));
-	}
-
 	.nsf-saw-feature {
 		grid-template-columns: minmax(0, 1fr);
 	}
@@ -341,8 +290,7 @@
 		padding-top: var(--wp--preset--spacing--30) !important;
 	}
 
-	.nsf-saw-findings,
-	.nsf-saw-cards {
+	.nsf-saw-findings {
 		gap: var(--wp--preset--spacing--30);
 	}
 
@@ -359,8 +307,7 @@
 @media (max-width: 600px) {
 
 	.nsf-saw-columns,
-	.nsf-saw-findings,
-	.nsf-saw-cards {
+	.nsf-saw-findings {
 		grid-template-columns: minmax(0, 1fr);
 		gap: var(--wp--preset--spacing--30);
 	}

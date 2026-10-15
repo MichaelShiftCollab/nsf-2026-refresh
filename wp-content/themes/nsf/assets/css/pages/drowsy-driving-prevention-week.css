@@ -37,7 +37,6 @@
 .nsf-ddpw-stack > *,
 .nsf-ddpw-hero__copy > *,
 .nsf-ddpw-box > *,
-.nsf-ddpw-card__body > *,
 .nsf-ddpw-result__copy > *,
 .nsf-ddpw-tier > *,
 .nsf-ddpw-results > *,
@@ -453,39 +452,6 @@
 .nsf-ddpw-dots li::before {
 	color: var(--wp--preset--color--primary-orange);
 	font-weight: 700;
-}
-
-/* Article cards with an excerpt. */
-.nsf-ddpw-card {
-	display: flex;
-	flex-direction: column;
-	overflow: hidden;
-	border-top-right-radius: var(--wp--custom--radius--photo-medium);
-	background: var(--wp--preset--color--white);
-	box-shadow: var(--wp--preset--shadow--card);
-}
-
-.nsf-ddpw-card__image {
-	margin: 0;
-}
-
-.nsf-ddpw-card__image img {
-	display: block;
-	width: 100%;
-	height: 200px;
-	object-fit: cover;
-}
-
-.nsf-ddpw-card__body {
-	display: flex;
-	flex-direction: column;
-	gap: var(--wp--preset--spacing--10);
-	margin: 0 !important;
-	padding: var(--wp--preset--spacing--30);
-}
-
-.nsf-ddpw-card__more {
-	margin-top: var(--wp--preset--spacing--10) !important;
 }
 
 /* Sponsors and collaborators. */

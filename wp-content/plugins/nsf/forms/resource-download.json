@@ -1,0 +1,38 @@
+{
+	"nsfKey": "resource-download",
+	"title": "Resource download",
+	"description": "Gated Resources (survey results, reports): who is downloading the file. Default form of a gated Resource; Provisional.",
+	"labelPlacement": "hidden_label",
+	"button": {
+		"type": "text",
+		"text": "Get the file"
+	},
+	"fields": [
+		{
+			"id": 1,
+			"type": "text",
+			"label": "Name",
+			"placeholder": "Name",
+			"isRequired": true,
+			"autocompleteAttribute": "name",
+			"layoutGridColumnSpan": 6
+		},
+		{
+			"id": 2,
+			"type": "email",
+			"label": "Email",
+			"placeholder": "Email",
+			"isRequired": true,
+			"autocompleteAttribute": "email",
+			"layoutGridColumnSpan": 6
+		},
+		{
+			"id": 3,
+			"type": "text",
+			"label": "Organization",
+			"placeholder": "Organization",
+			"isRequired": false,
+			"autocompleteAttribute": "organization"
+		}
+	]
+}
