@@ -153,16 +153,6 @@
 
 @media (max-width: 781px) {
 
-	/* The mockups keep 56px section padding at 781 and 48px at 600. */
-	.nsf-np-intro,
-	.nsf-np-section {
-		padding-bottom: var(--wp--preset--spacing--70) !important;
-	}
-
-	.nsf-np-section {
-		padding-top: var(--wp--preset--spacing--70) !important;
-	}
-
 	.nsf-np-cards {
 		grid-template-columns: repeat(2, minmax(0, 1fr));
 		gap: var(--wp--preset--spacing--30);

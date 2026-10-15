@@ -10,7 +10,7 @@
 .nsf-rc-about,
 .nsf-rc-section {
 	--nsf-rc-shadow: 0 4px 24px color-mix(in srgb, var(--wp--preset--color--dark-blue) 8%, transparent);
-	--nsf-rc-body-size: 1.125rem;
+	--nsf-rc-body-size: var(--wp--custom--font-size--body-medium);
 }
 
 /* About: a lead paragraph, then body copy, 880px wide. */
@@ -135,7 +135,7 @@
 .nsf-dl-card__title {
 	color: var(--wp--preset--color--primary-blue);
 	font-family: var(--wp--preset--font-family--open-sans);
-	font-size: 1.25rem;
+	font-size: var(--wp--custom--font-size--body-large);
 	font-weight: 600;
 	line-height: 1.4;
 	letter-spacing: normal;

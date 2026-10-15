@@ -22,7 +22,9 @@ Answers to the open questions in the build spec and build plan. Newest first.
 | Statistic on a tinted section | Turns white with the card shadow and rounded top-right corner, as in the Resource single mockup |
 | Related Content at tablet width | Two cards across, one on phones |
 | Visual test scope for pages | Interior pages and the Resource single ignore the header, sign-up and footer, which have their own tests and differ from the HTML mockups at 781 and 600. The Resource single allows 25% height difference because the seeded Resource has much shorter copy than the mockup's |
-| Section spacing | The `section` spacing token is now 48px at 600 and about 55px at 781 (was 40px), rising to 72px, to match the page mockups |
+| Section spacing | The `section` spacing token is now 56px at 781 and below (was 40px), rising to 72px, to match the page mockups |
+| Tablet type and corners | New `body-large` (20px) and `body-medium` (18px) font tokens and a `band-tablet` (64px) radius for the title band at 781 and below replace sizes typed into the page CSS; the per-page 56px section overrides are gone now the `section` token covers them |
+| Breadcrumbs on phones | Home stays left out at every width (the October 15 step 5 decision). The interior page mockups wrongly showed "Home /" and were corrected |
 
 ## October 15, 2026 (defaults chosen while building step 9)
 

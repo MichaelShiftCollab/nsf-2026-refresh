@@ -239,7 +239,7 @@
 				{
 					"name": "Section",
 					"slug": "section",
-					"size": "clamp(48px, 7vw, 72px)"
+					"size": "clamp(56px, 7vw, 72px)"
 				},
 				{
 					"slug": "70",
@@ -260,6 +260,7 @@
 				"card": "16px",
 				"checkbox": "2px",
 				"band": "96px",
+				"band-tablet": "64px",
 				"photo-small": "32px",
 				"photo-medium": "40px"
 			},
@@ -284,6 +285,8 @@
 				"field-height": "45px"
 			},
 			"font-size": {
+				"body-large": "20px",
+				"body-medium": "18px",
 				"card-title": "24px",
 				"alert": "15px"
 			},

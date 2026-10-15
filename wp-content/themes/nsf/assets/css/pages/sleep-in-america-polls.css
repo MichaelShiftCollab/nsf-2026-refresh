@@ -132,7 +132,7 @@
 }
 
 .nsf-poll__summary {
-	font-size: 1.125rem;
+	font-size: var(--wp--custom--font-size--body-medium);
 	line-height: 1.5556;
 }
 

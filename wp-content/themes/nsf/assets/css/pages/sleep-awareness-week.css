@@ -8,8 +8,8 @@
 .nsf-saw-section,
 .nsf-saw-toolkit {
 	--nsf-saw-gap: calc(var(--wp--preset--spacing--40) + var(--wp--preset--spacing--10));
-	--nsf-saw-text-lg: 20px;
-	--nsf-saw-text-md: 18px;
+	--nsf-saw-text-lg: var(--wp--custom--font-size--body-large);
+	--nsf-saw-text-md: var(--wp--custom--font-size--body-medium);
 	--nsf-saw-logo-height: 80px;
 }
 
@@ -278,13 +278,6 @@
 }
 
 @media (max-width: 781px) {
-
-	/* The mockups keep 56px section padding at 781 and 48px at 600. */
-	.nsf-saw-section,
-	.nsf-saw-toolkit {
-		padding-top: var(--wp--preset--spacing--70) !important;
-		padding-bottom: var(--wp--preset--spacing--70) !important;
-	}
 
 	.nsf-saw-section.nsf-saw-intro {
 		padding-top: var(--wp--preset--spacing--30) !important;

@@ -97,15 +97,6 @@
 
 @media (max-width: 781px) {
 
-	/* The mockups keep 56px section padding at 781 and 600. */
-	.nsf-membership-intro.nsf-membership-intro {
-		padding-bottom: var(--wp--preset--spacing--70) !important;
-	}
-
-	.nsf-membership-join.nsf-membership-join {
-		padding-block: var(--wp--preset--spacing--70) !important;
-	}
-
 	.nsf-membership-form.nsf-membership-form {
 		padding: var(--wp--preset--spacing--40);
 	}

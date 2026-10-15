@@ -642,6 +642,13 @@ strong {
 	--nsf-title-band-sheet: var(--wp--preset--color--lightest-blue);
 }
 
+@media (max-width: 781px) {
+
+	.is-style-section-title-band::after {
+		border-top-right-radius: var(--wp--custom--radius--band-tablet);
+	}
+}
+
 .is-style-section-title-band > * {
 	position: relative;
 	z-index: 1;

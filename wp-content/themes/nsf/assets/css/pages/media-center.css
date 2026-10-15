@@ -229,14 +229,6 @@
 
 @media (max-width: 781px) {
 
-	/* The mockups keep 56px section padding at 781 and 600. */
-	.nsf-media-key-facts.nsf-media-key-facts,
-	.nsf-media-experts.nsf-media-experts,
-	.nsf-press-mentions.nsf-press-mentions,
-	.nsf-press-releases.nsf-press-releases {
-		padding-block: var(--wp--preset--spacing--70) !important;
-	}
-
 	.nsf-press-mention,
 	.nsf-press-release {
 		grid-template-columns: minmax(0, 1fr);
