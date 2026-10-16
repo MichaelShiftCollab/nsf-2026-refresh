@@ -105,7 +105,11 @@ class NSF_CLI {
 	 * @return int Number of terms created.
 	 */
 	private function import_terms() {
+		// The repo keeps the list in content/; deploys copy it into the plugin.
 		$file = dirname( NSF_PATH, 3 ) . '/content/taxonomy-terms.json';
+		if ( ! file_exists( $file ) ) {
+			$file = NSF_PATH . 'data/taxonomy-terms.json';
+		}
 		if ( ! file_exists( $file ) ) {
 			WP_CLI::error( "Missing $file" );
 		}
