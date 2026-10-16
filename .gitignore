@@ -2,6 +2,7 @@
 # WordPress core, Frost and third-party plugins are installed by bin/setup.sh.
 /*
 !/.gitignore
+!/.github/
 !/eslint.config.cjs
 !/CLAUDE.md
 !/README.md
