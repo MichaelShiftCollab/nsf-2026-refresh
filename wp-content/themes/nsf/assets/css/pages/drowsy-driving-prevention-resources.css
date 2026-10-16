@@ -327,7 +327,7 @@
 
 .nsf-dl-card__link a::after {
 	content: "\00a0\00a0↓";
-	color: var(--wp--preset--color--primary-orange);
+	color: var(--wp--preset--color--dark-orange);
 }
 
 .nsf-dl-card__link a:hover {

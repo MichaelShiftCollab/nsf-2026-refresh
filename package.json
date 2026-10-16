@@ -8,7 +8,7 @@
 		"build": "wp-scripts build --webpack-src-dir=wp-content/plugins/nsf/src/blocks --output-path=wp-content/plugins/nsf/build --blocks-manifest",
 		"start": "wp-scripts start --webpack-src-dir=wp-content/plugins/nsf/src/blocks --output-path=wp-content/plugins/nsf/build --blocks-manifest",
 		"lint": "npm run lint:js && npm run lint:css",
-		"lint:js": "wp-scripts lint-js wp-content/plugins/nsf/src tests --no-error-on-unmatched-pattern",
+		"lint:js": "wp-scripts lint-js wp-content/plugins/nsf/src wp-content/themes/nsf/assets/js tests --no-error-on-unmatched-pattern",
 		"lint:css": "wp-scripts lint-style \"wp-content/{themes,plugins}/nsf/**/*.{css,scss}\" --allow-empty-input",
 		"serve": "PHP_CLI_SERVER_WORKERS=4 php -S localhost:8080 bin/router.php",
 		"wp": "php bin/wp",

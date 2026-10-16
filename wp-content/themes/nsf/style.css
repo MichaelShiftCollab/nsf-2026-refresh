@@ -16,7 +16,7 @@ Text Domain: nsf
 /* Style Guide page only: show the sample buttons in their hover state. */
 .wp-block-button.nsf-is-hover .wp-block-button__link {
 	background-color: transparent;
-	color: var(--wp--preset--color--primary-orange);
+	color: var(--wp--preset--color--dark-orange);
 }
 
 .wp-block-button.is-style-secondary.nsf-is-hover .wp-block-button__link {
@@ -414,7 +414,7 @@ strong {
    prints on pages that use it. */
 .nsf-split__eyebrow.nsf-split__eyebrow {
 	margin: 0 0 var(--wp--preset--spacing--30);
-	color: var(--wp--preset--color--primary-orange);
+	color: var(--wp--preset--color--dark-orange);
 	font-size: var(--wp--preset--font-size--x-small);
 	font-weight: 700;
 	line-height: 1.4286;

@@ -46,6 +46,11 @@
 					"color": "#F28411"
 				},
 				{
+					"slug": "dark-orange",
+					"name": "Dark Orange",
+					"color": "#B05500"
+				},
+				{
 					"slug": "medium-orange",
 					"name": "Medium Orange",
 					"color": "#F8C188"
@@ -58,7 +63,7 @@
 				{
 					"slug": "gray",
 					"name": "Gray",
-					"color": "#707171"
+					"color": "#6A6B6B"
 				},
 				{
 					"slug": "white",
@@ -453,7 +458,7 @@
 			"button": {
 				"color": {
 					"background": "var(--wp--preset--color--primary-orange)",
-					"text": "var(--wp--preset--color--white)"
+					"text": "var(--wp--preset--color--dark-blue)"
 				},
 				"border": {
 					"color": "var(--wp--preset--color--primary-orange)",
@@ -478,7 +483,7 @@
 				":hover": {
 					"color": {
 						"background": "transparent",
-						"text": "var(--wp--preset--color--primary-orange)"
+						"text": "var(--wp--preset--color--dark-orange)"
 					},
 					"border": {
 						"color": "var(--wp--preset--color--primary-orange)"
@@ -487,7 +492,7 @@
 				":focus": {
 					"color": {
 						"background": "transparent",
-						"text": "var(--wp--preset--color--primary-orange)"
+						"text": "var(--wp--preset--color--dark-orange)"
 					},
 					"border": {
 						"color": "var(--wp--preset--color--primary-orange)"

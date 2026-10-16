@@ -103,8 +103,8 @@ $nsf_saw_logos = function ( $count ) {
 <!-- /wp:paragraph -->
 
 <!-- wp:buttons {"className":"nsf-saw-actions"} -->
-<div class="wp-block-buttons nsf-saw-actions"><!-- wp:button {"textColor":"primary-orange","className":"is-style-outline"} -->
-<div class="wp-block-button is-style-outline"><a class="wp-block-button__link has-primary-orange-color has-text-color wp-element-button" href="#"><?php esc_html_e( 'Read how to get better sleep (PDF)  ↓', 'nsf' ); ?></a></div>
+<div class="wp-block-buttons nsf-saw-actions"><!-- wp:button {"textColor":"dark-orange","className":"is-style-outline"} -->
+<div class="wp-block-button is-style-outline"><a class="wp-block-button__link has-dark-orange-color has-text-color wp-element-button" href="#"><?php esc_html_e( 'Read how to get better sleep (PDF)  ↓', 'nsf' ); ?></a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons --></div>
 <!-- /wp:group -->

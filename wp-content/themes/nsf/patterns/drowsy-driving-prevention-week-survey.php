@@ -67,6 +67,6 @@ $nsf_ddpw_results = array(
 <!-- /wp:group -->
 
 <!-- wp:paragraph {"className":"nsf-ddpw-serif nsf-ddpw-pull"} -->
-<p class="nsf-ddpw-serif nsf-ddpw-pull"><?php esc_html_e( 'Keep your family and others safe on the road. The best way to avoid drowsy driving is to', 'nsf' ); ?> <span class="has-primary-orange-color"><?php esc_html_e( 'Sleep First. Drive Alert.', 'nsf' ); ?><sup>®</sup></span></p>
+<p class="nsf-ddpw-serif nsf-ddpw-pull"><?php esc_html_e( 'Keep your family and others safe on the road. The best way to avoid drowsy driving is to', 'nsf' ); ?> <span class="has-dark-orange-color"><?php esc_html_e( 'Sleep First. Drive Alert.', 'nsf' ); ?><sup>®</sup></span></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->

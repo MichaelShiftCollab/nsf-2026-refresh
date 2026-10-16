@@ -2,6 +2,14 @@
 
 Answers to the open questions in the build spec and build plan. Newest first.
 
+## October 16, 2026 (Michael: "just defaults")
+
+| Question | Decision |
+| :--- | :--- |
+| Contrast of mockup colors | Accessible shades: orange text uses the new Dark Orange (#B05500, 4.6:1 or better on the light backgrounds); buttons keep the Primary Orange fill with Dark Blue text (6.3:1) and turn Dark Orange on hover; pagination text and the current page pill use Primary Blue; Gray darkens from #707171 to #6A6B6B so it passes on Light Orange |
+| SleepTech® Company type choices | Keep the placeholders until NSF sends the list |
+| Press releases | A "Press release" post category (slug `press-release`, from the Media Center wireframe 488:2 and the spec's press release list). The Media Center lists the newest six with Load more, which appends the next page in place and falls back to ordinary paging without JavaScript. Press releases stay out of the Sleep Learning Zone, the Resource Hub and Query Loops that pick no category; search still finds them |
+
 ## October 15, 2026 (Michael)
 
 | Question | Decision |
@@ -31,7 +39,7 @@ Answers to the open questions in the build spec and build plan. Newest first.
 | Half-width fields on phones | Stack at 600px and below (was 599), matching the mockups' phone breakpoint |
 | Home at 781 and 600 | HTML kit mockups (`mockups/pages/home.frag.html`) drawn from the Figma 1440 frame and the site's reflow. They allow 15% mismatch (other pages 10%) because the kit's stand-in heading font and untrimmed text spacing drift the long page. Featured cards stay 3 across at 781, as the block's Figma 182:31 reference says |
 | Band corner below 782px | The campaign bands use the 64px `band-tablet` corner, like the title band |
-| Accessibility check | `npm run test:a11y` runs axe-core (WCAG 2.2 A and AA) on 15 pages at 1440 and 390. Only color contrast fails, all from mockup colors (Primary Orange text, white on orange buttons, Medium Blue pagination); waiting on Michael |
+| Accessibility check | `npm run test:a11y` runs axe-core (WCAG 2.2 A and AA) on 15 pages at 1440 and 390; all pass |
 | Page section CSS on the front end | A page loads only the section files whose classes its content uses (all of them when it holds a synced pattern), printed inline when small. The editor still loads all of them |
 | Performance | Open Sans is preloaded; the sun watermark is WebP (130 KB to 30 KB); theme images in patterns get their width and height. Local Lighthouse mobile: Home 88, Resources 86, on PHP's dev server without compression or caching, which WP Engine adds |
 

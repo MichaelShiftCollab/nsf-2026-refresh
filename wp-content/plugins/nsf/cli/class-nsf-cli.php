@@ -18,7 +18,7 @@ class NSF_CLI {
 	const SEED_KEY = '_nsf_seed';
 
 	/**
-	 * Imports Topic, Audience and Resource Type terms from content/taxonomy-terms.json.
+	 * Imports Topic, Audience, Resource Type and post category terms from content/taxonomy-terms.json.
 	 *
 	 * Existing terms are kept; running it twice creates nothing new.
 	 *
@@ -69,7 +69,8 @@ class NSF_CLI {
 		$images = $this->seed_images();
 		$this->seed_resources( $images );
 		$this->seed_posts( $images );
-		WP_CLI::success( 'Seeded 30 Resources and 20 posts.' );
+		$this->seed_press_releases();
+		WP_CLI::success( 'Seeded 30 Resources, 20 posts and 8 press releases.' );
 	}
 
 	/**
@@ -110,7 +111,7 @@ class NSF_CLI {
 		}
 		$terms   = json_decode( (string) file_get_contents( $file ), true ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
 		$created = 0;
-		foreach ( array( 'topic', 'audience', 'resource_type' ) as $taxonomy ) {
+		foreach ( array( 'topic', 'audience', 'resource_type', 'category' ) as $taxonomy ) {
 			foreach ( $terms[ $taxonomy ] ?? array() as $name ) {
 				if ( ! term_exists( $name, $taxonomy ) ) {
 					wp_insert_term( $name, $taxonomy );
@@ -301,6 +302,45 @@ class NSF_CLI {
 			wp_set_object_terms( $id, $topics[ ( $i * 2 ) % count( $topics ) ], 'topic' );
 			wp_set_object_terms( $id, $audiences[ $i % count( $audiences ) ], 'audience' );
 			set_post_thumbnail( $id, $images[ ( $i + 3 ) % count( $images ) ] );
+		}
+	}
+
+	/**
+	 * Creates eight press releases in the Press release category for the
+	 * Media Center list.
+	 */
+	private function seed_press_releases() {
+		$term = term_exists( NSF_PRESS_RELEASE_CATEGORY, 'category' );
+		if ( ! $term ) {
+			$term = wp_insert_term( 'Press release', 'category', array( 'slug' => NSF_PRESS_RELEASE_CATEGORY ) );
+		}
+		$titles = array(
+			'National Sleep Foundation Assembles Leading Experts to Shape the Future of Drowsy Driving Prevention',
+			'National Sleep Foundation Will Convene National Roadway Safety Leaders To Advance Sleep Health and Transportation Safety',
+			'National Sleep Foundation Expands Drowsy Driving Programs to Enhance Sleep Health and Safety',
+			'National Sleep Foundation Announces 9th Annual SleepTech® Award',
+			'National Sleep Foundation Names Mark R. Rosekind, PhD, To Chair Board of Directors',
+			'National Sleep Foundation and Tempur-Pedic Compare Notes on What’s Keeping the Nation Awake',
+			'National Sleep Foundation Releases 2026 Sleep in America® Poll',
+			'National Sleep Foundation Marks Sleep Awareness Week® 2026',
+		);
+		foreach ( $titles as $i => $title ) {
+			$id = wp_insert_post(
+				array(
+					'post_type'     => 'post',
+					'post_status'   => 'publish',
+					'post_title'    => $title,
+					'post_excerpt'  => 'A one-sentence summary of this press release.',
+					'post_content'  => $this->lorem_blocks( 4 ),
+					'post_date'     => gmdate( 'Y-m-d H:i:s', strtotime( '2026-10-08 -' . ( $i * 17 ) . ' days' ) ),
+					'post_category' => array( (int) $term['term_id'] ),
+					'meta_input'    => array( self::SEED_KEY => 1 ),
+				),
+				true
+			);
+			if ( is_wp_error( $id ) ) {
+				WP_CLI::error( $id );
+			}
 		}
 	}
 

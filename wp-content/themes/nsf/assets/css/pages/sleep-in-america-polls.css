@@ -192,7 +192,7 @@
 .nsf-sap-topics__list strong {
 	flex: none;
 	width: 46px;
-	color: var(--wp--preset--color--primary-orange);
+	color: var(--wp--preset--color--dark-orange);
 	font-size: 0.9375rem;
 	font-weight: 700;
 }

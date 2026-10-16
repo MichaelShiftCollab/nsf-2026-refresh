@@ -22,9 +22,9 @@
  * @param bool   $outline Outline button instead of filled.
  */
 $nsf_rc_activity = function ( $image, $eyebrow, $title, $text, $button, $url, $outline ) {
-	$nsf_button_attrs = $outline ? '{"textColor":"primary-orange","className":"is-style-outline"}' : '';
+	$nsf_button_attrs = $outline ? '{"textColor":"dark-orange","className":"is-style-outline"}' : '';
 	$nsf_button_class = $outline ? ' is-style-outline' : '';
-	$nsf_link_class   = $outline ? ' has-primary-orange-color has-text-color' : '';
+	$nsf_link_class   = $outline ? ' has-dark-orange-color has-text-color' : '';
 	?>
 <!-- wp:group {"metadata":{"name":"Activity card"},"className":"nsf-rc-card nsf-rc-card--activity","layout":{"type":"default"}} -->
 <div class="wp-block-group nsf-rc-card nsf-rc-card--activity"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"nsf-rc-card__image nsf-photo"} -->

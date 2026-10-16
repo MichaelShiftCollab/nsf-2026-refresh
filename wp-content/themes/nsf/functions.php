@@ -115,6 +115,22 @@ function nsf_theme_enqueue_page_styles() {
 add_action( 'wp_enqueue_scripts', 'nsf_theme_enqueue_page_styles' );
 
 /**
+ * Load more for Query Loops with the nsf-load-more class (press releases).
+ */
+function nsf_theme_enqueue_load_more() {
+	if ( is_singular() && str_contains( (string) get_post_field( 'post_content', get_queried_object_id() ), 'nsf-load-more' ) ) {
+		wp_enqueue_script(
+			'nsf-load-more',
+			get_theme_file_uri( 'assets/js/load-more.js' ),
+			array(),
+			wp_get_theme()->get( 'Version' ),
+			array( 'strategy' => 'defer' )
+		);
+	}
+}
+add_action( 'wp_enqueue_scripts', 'nsf_theme_enqueue_load_more' );
+
+/**
  * Give theme images placed by patterns (logos, the seal) their intrinsic
  * width and height, so the browser reserves their space before they load.
  *

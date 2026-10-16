@@ -177,7 +177,7 @@ function nsf_hub_query_args( $params, $skip = null ) {
 		$args['s'] = $params['q'];
 	}
 
-	$tax_query = array( 'relation' => 'AND' );
+	$tax_query = array( 'relation' => 'AND', nsf_press_release_exclusion() );
 	foreach ( array( 'topics', 'audiences' ) as $facet ) {
 		if ( $skip !== $facet && $params[ $facet ] ) {
 			$tax_query[] = array(
@@ -211,9 +211,7 @@ function nsf_hub_query_args( $params, $skip = null ) {
 			$args['post_type'] = 'post';
 		}
 	}
-	if ( count( $tax_query ) > 1 ) {
-		$args['tax_query'] = $tax_query; // phpcs:ignore WordPress.DB.SlowDBQuery
-	}
+	$args['tax_query'] = $tax_query; // phpcs:ignore WordPress.DB.SlowDBQuery
 
 	list( $field, $direction ) = explode( '-', $params['sort'] );
 	$direction                 = strtoupper( $direction );

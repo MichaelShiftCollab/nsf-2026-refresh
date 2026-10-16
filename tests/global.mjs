@@ -1,7 +1,8 @@
 /* eslint-disable no-console */
 // Global parts behavior check (build plan step 5): header search lands on
-// the search results page, the mobile menu opens with every link, and the
-// Alert Banner prints nothing when it is off.
+// the search results page, the mobile menu opens with every link, the
+// Alert Banner prints nothing when it is off, and the Media Center's press
+// releases load more in place.
 // Usage: npm run test:global [-- --base-url <url>]
 import { execFileSync } from 'node:child_process';
 import { chromium } from 'playwright';
@@ -68,6 +69,28 @@ const browser = await chromium.launch();
 			labels.some( ( text ) => text.includes( label ) )
 		),
 		`mobile menu lists the main and utility links (${ labels.length } links)`
+	);
+	await page.close();
+}
+
+// Press releases: Load more appends the next page without leaving the page.
+{
+	const page = await browser.newPage( {
+		viewport: { width: 1440, height: 800 },
+	} );
+	await page.goto( `${ baseUrl }/media-center/` );
+	const items = page.locator( '.nsf-press-list > li' );
+	const before = await items.count();
+	await page.click( '.nsf-press-releases .wp-block-query-pagination-next' );
+	await page.waitForFunction(
+		( n ) => document.querySelectorAll( '.nsf-press-list > li' ).length > n,
+		before
+	);
+	check(
+		before === 6 &&
+			( await items.count() ) > before &&
+			page.url().endsWith( '/media-center/' ),
+		`press releases Load more appends in place (${ before } to ${ await items.count() })`
 	);
 	await page.close();
 }

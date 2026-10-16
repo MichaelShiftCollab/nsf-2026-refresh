@@ -42,7 +42,7 @@
 }
 
 .nsf-contact-box .is-style-eyebrow-small {
-	color: var(--wp--preset--color--primary-orange);
+	color: var(--wp--preset--color--dark-orange);
 }
 
 .nsf-contact-box__name {
@@ -210,8 +210,73 @@
 	font-weight: var(--wp--custom--font-weight--semi-bold);
 }
 
-.nsf-press-releases .wp-block-buttons {
+.nsf-press-list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.nsf-press-release > * {
+	margin-block: 0;
+}
+
+/* Read more: the "Link with arrow" look. */
+.nsf-press-release .wp-block-read-more {
+	color: var(--wp--preset--color--primary-blue);
+	font-size: var(--wp--preset--font-size--small);
+	font-weight: 700;
+	line-height: 1.5;
+	text-decoration: none;
+}
+
+.nsf-press-release .wp-block-read-more::after {
+	content: "\00a0\00a0→";
+}
+
+.nsf-press-release .wp-block-read-more:hover,
+.nsf-press-release .wp-block-read-more:focus {
+	text-decoration: underline;
+	text-underline-offset: 0.15em;
+}
+
+.nsf-press-release__title.nsf-press-release__title {
+	font-family: var(--wp--preset--font-family--open-sans);
+}
+
+.nsf-press-release__title a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.nsf-press-release__title a:hover,
+.nsf-press-release__title a:focus {
+	text-decoration: underline;
+}
+
+/* Load more: the Query Loop's next-page link, drawn as a secondary button. */
+.nsf-press-releases .wp-block-query-pagination {
 	margin-top: var(--wp--preset--spacing--40);
+}
+
+.nsf-press-releases .wp-block-query-pagination-next {
+	display: inline-flex;
+	box-sizing: border-box;
+	align-items: center;
+	min-height: var(--wp--custom--control--height);
+	padding: 0 var(--wp--preset--spacing--40);
+	border: var(--wp--custom--border--button) solid var(--wp--preset--color--primary-blue);
+	border-radius: var(--wp--custom--radius--pill);
+	color: var(--wp--preset--color--primary-blue);
+	font-size: var(--wp--preset--font-size--small);
+	font-weight: 700;
+	line-height: 1.5;
+	text-decoration: none;
+}
+
+.nsf-press-releases .wp-block-query-pagination-next:hover,
+.nsf-press-releases .wp-block-query-pagination-next:focus {
+	background-color: var(--wp--preset--color--primary-blue);
+	color: var(--wp--preset--color--white);
 }
 
 @media (max-width: 1099px) {

@@ -98,6 +98,57 @@ function nsf_search_apply_filters( $query ) {
 }
 add_action( 'pre_get_posts', 'nsf_search_apply_filters' );
 
+// Post category for press releases, listed on the Media Center and kept out
+// of the Sleep Learning Zone and the Resource Hub.
+const NSF_PRESS_RELEASE_CATEGORY = 'press-release';
+
+/**
+ * Tax query clause that leaves out press releases.
+ *
+ * @return array
+ */
+function nsf_press_release_exclusion() {
+	return array(
+		'taxonomy' => 'category',
+		'field'    => 'slug',
+		'terms'    => array( NSF_PRESS_RELEASE_CATEGORY ),
+		'operator' => 'NOT IN',
+	);
+}
+
+/**
+ * Keep press releases out of the Sleep Learning Zone (the posts page).
+ *
+ * @param WP_Query $query Query.
+ */
+function nsf_blog_without_press_releases( $query ) {
+	if ( ! is_admin() && $query->is_main_query() && $query->is_home() ) {
+		$tax_query   = (array) $query->get( 'tax_query' );
+		$tax_query[] = nsf_press_release_exclusion();
+		$query->set( 'tax_query', $tax_query ); // phpcs:ignore WordPress.DB.SlowDBQuery
+	}
+}
+add_action( 'pre_get_posts', 'nsf_blog_without_press_releases' );
+
+/**
+ * Keep press releases out of Query Loops that don't pick a category, such as
+ * the article grids on the program pages.
+ *
+ * @param array $query Query vars.
+ * @return array
+ */
+function nsf_query_loop_without_press_releases( $query ) {
+	$tax_query = (array) ( $query['tax_query'] ?? array() );
+	$taxes     = wp_list_pluck( array_filter( $tax_query, 'is_array' ), 'taxonomy' );
+	$post_type = (array) ( $query['post_type'] ?? 'post' );
+	if ( in_array( 'post', $post_type, true ) && ! in_array( 'category', $taxes, true ) && empty( $query['cat'] ) && empty( $query['category_name'] ) ) {
+		$tax_query[]        = nsf_press_release_exclusion();
+		$query['tax_query'] = $tax_query; // phpcs:ignore WordPress.DB.SlowDBQuery
+	}
+	return $query;
+}
+add_filter( 'query_loop_block_query_vars', 'nsf_query_loop_without_press_releases' );
+
 /**
  * Nine posts a page on the blog and its archives: three rows of three cards.
  *

@@ -77,7 +77,7 @@
 .nsf-search--compact .wp-block-search__button:hover,
 .nsf-search--compact .wp-block-search__button:focus {
 	border-color: transparent;
-	color: var(--wp--preset--color--primary-orange);
+	color: var(--wp--preset--color--dark-orange);
 }
 
 /* Count and kicker lines */
@@ -250,7 +250,7 @@
 	border: 1px solid var(--wp--preset--color--medium-blue);
 	border-radius: var(--wp--custom--radius--pill);
 	background: var(--wp--preset--color--lightest-blue);
-	color: var(--wp--preset--color--medium-blue);
+	color: var(--wp--preset--color--primary-blue);
 	font-size: var(--wp--preset--font-size--small);
 	font-weight: var(--wp--custom--font-weight--bold);
 	line-height: 1.5;
@@ -263,7 +263,7 @@
 }
 
 .nsf-pagination .page-numbers.current {
-	background: var(--wp--preset--color--medium-blue);
+	background: var(--wp--preset--color--primary-blue);
 	color: var(--wp--preset--color--white);
 }
 
