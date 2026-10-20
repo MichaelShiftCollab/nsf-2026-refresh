@@ -17,8 +17,12 @@
 
 defined( 'ABSPATH' ) || exit;
 
-/** Search filter buttons shown before the rest are left out (selected ones always show). */
-const NSF_SEARCH_FILTER_LIMIT = 12;
+/**
+ * Search filter buttons shown before the rest are left out (selected ones
+ * always show). Five plus "All results" keeps them on one row, as in the
+ * search mockup (542:332).
+ */
+const NSF_SEARCH_FILTER_LIMIT = 5;
 
 /**
  * Taxonomies whose terms can filter search results, in tie-break order.

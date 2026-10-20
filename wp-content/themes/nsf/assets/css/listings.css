@@ -1,13 +1,37 @@
 /*
  * Search results, Sleep Learning Zone® and topic archives, and 404
- * (build plan steps 13 and 14). Provisional: built from the wireframes
- * (211:2, 215:2, 219:2, 220:2) until mockups exist. Every value is a
- * theme.json token.
+ * (build plan steps 13 and 14). Search, blog and topic archive follow the
+ * mockups (542:332, 552:509, 546:390); the 404 its own mockup (555:2).
+ * Every value is a theme.json token.
  */
 
 /* Title band */
 .nsf-title-band h1 {
 	margin: 0;
+}
+
+/* Intro and topic description: a measure of 840px, left-aligned with the
+   heading (the constrained layout keeps the full content width). */
+.nsf-listing-band > p,
+.nsf-listing-band > .wp-block-term-description {
+	padding-right: max(0px, calc(100% - 840px));
+}
+
+.nsf-listing-band > .wp-block-term-description {
+	color: var(--wp--preset--color--white);
+}
+
+.nsf-listing-band > .wp-block-term-description p {
+	margin: 0;
+}
+
+/* The listing starts a little below the band's white sheet. */
+.nsf-listing-band + .wp-block-query {
+	padding-top: var(--wp--preset--spacing--30);
+}
+
+.nsf-listing-band + .nsf-search-results {
+	padding-top: var(--wp--preset--spacing--20);
 }
 
 /* Search fields */
@@ -17,6 +41,15 @@
 
 .nsf-search--compact {
 	max-width: 400px;
+}
+
+/* Field and outside button, as in the listing mockups. */
+.nsf-search--wide {
+	max-width: 860px;
+}
+
+.nsf-search--wide .wp-block-search__inside-wrapper {
+	gap: var(--wp--preset--spacing--20);
 }
 
 .nsf-search .wp-block-search__inside-wrapper {
@@ -82,7 +115,7 @@
 
 /* Count and kicker lines */
 .nsf-search + .nsf-listing-count {
-	margin-top: var(--wp--preset--spacing--30);
+	margin-top: var(--wp--preset--spacing--40);
 }
 
 .nsf-archive-results .wp-block-post-template {
@@ -129,15 +162,15 @@
 	display: inline-flex;
 	box-sizing: border-box;
 	align-items: center;
-	height: var(--wp--custom--control--chip-height);
+	min-height: var(--wp--custom--control--height);
 	padding: 0 var(--wp--custom--control--padding-inline);
 	border: 1px solid var(--wp--preset--color--medium-blue);
 	border-radius: var(--wp--custom--radius--pill);
 	background: var(--wp--preset--color--white);
 	color: var(--wp--preset--color--primary-blue);
-	font-size: var(--wp--preset--font-size--x-small);
+	font-size: var(--wp--preset--font-size--small);
 	font-weight: var(--wp--custom--font-weight--semi-bold);
-	line-height: 1.4286;
+	line-height: 1.5;
 	text-decoration: none;
 	white-space: nowrap;
 }
@@ -170,8 +203,12 @@
 	border-bottom: 1px solid var(--wp--preset--color--light-blue);
 }
 
+.nsf-result.wp-block-group {
+	gap: calc(var(--wp--preset--spacing--10) / 2);
+}
+
 .nsf-result > * {
-	max-width: 840px;
+	max-width: 880px;
 	margin: 0;
 }
 
@@ -222,6 +259,28 @@
 
 .nsf-listing-empty {
 	color: var(--wp--preset--color--primary-blue);
+}
+
+/* Post cards on the blog and topic archives: light blue outline, rounded
+   corners, no shadow, date at the foot of the card. */
+.nsf-archive-results .wp-block-post {
+	display: flex;
+}
+
+.nsf-listing-card.nsf-card {
+	flex: 1;
+	border: 1px solid var(--wp--preset--color--light-blue);
+	border-radius: var(--wp--custom--radius--card);
+	box-shadow: none;
+}
+
+.nsf-listing-card .nsf-card__media {
+	border-top-right-radius: 0;
+}
+
+.nsf-listing-card .nsf-card__meta {
+	margin-top: auto;
+	padding-top: var(--wp--preset--spacing--10);
 }
 
 /* Pagination: same pills as the Resource Hub. */

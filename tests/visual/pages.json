@@ -82,7 +82,9 @@
 		],
 		"widths": [
 			1440
-		]
+		],
+		"fullPage": false,
+		"heightTolerance": 75
 	},
 	{
 		"name": "404",
