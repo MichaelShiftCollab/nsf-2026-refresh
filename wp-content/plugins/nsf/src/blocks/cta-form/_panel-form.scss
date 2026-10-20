@@ -1,0 +1,89 @@
+// Form panel beside copy (Flexible CTA with Form and Gated Download; Figma
+// 577:839, 577:883, 577:928). Shared by both blocks' stylesheets; the base
+// field styles live with .nsf-form in the theme.
+//
+// The panel is white on a tinted section and Lightest Blue on a white one.
+// Rows sit 20px apart (12 + 8), fields pair 16px apart, and choices get
+// Medium Blue outlined boxes.
+
+.is-style-section-white .nsf-split__panel {
+	background: var(--wp--preset--color--lightest-blue);
+}
+
+.nsf-split__panel {
+	--nsf-panel-row-gap: calc(var(--wp--custom--control--gap) + var(--wp--preset--spacing--10));
+
+	.nsf-form.is-preview:not(.nsf-form--inline),
+	.nsf-form .gform_fields {
+		gap: var(--nsf-panel-row-gap) var(--wp--preset--spacing--20);
+	}
+
+	.nsf-form input:not([type="checkbox"], [type="radio"], [type="submit"], [type="hidden"]),
+	.nsf-form textarea,
+	.nsf-form select {
+		padding-inline: var(--wp--preset--spacing--30);
+		font-weight: 400;
+	}
+
+	.nsf-form textarea {
+		padding-block: var(--wp--preset--spacing--20);
+	}
+
+	.nsf-form__section,
+	.nsf-form .gsection_title {
+		color: var(--wp--preset--color--primary-blue);
+		line-height: 1.4286;
+		text-box: trim-both cap alphabetic;
+	}
+
+	.nsf-form__choices {
+		gap: var(--wp--preset--spacing--20);
+		margin: 0;
+	}
+
+	.nsf-form__choices legend,
+	.nsf-form .gfield--type-radio .gfield_label,
+	.nsf-form .gfield--type-checkbox .gfield_label {
+		margin-bottom: var(--wp--preset--spacing--20);
+		color: var(--wp--preset--color--primary-blue);
+		font-weight: 600;
+	}
+
+	.nsf-form__choice input,
+	.nsf-form .gfield-choice-input {
+		flex: none;
+		box-sizing: border-box;
+		width: var(--wp--custom--control--checkbox);
+		height: var(--wp--custom--control--checkbox);
+		margin: 0;
+		padding: 0;
+		border: var(--wp--custom--border--hairline) solid var(--wp--preset--color--medium-blue);
+		border-radius: var(--wp--custom--radius--checkbox);
+		background: var(--wp--preset--color--white);
+		appearance: none;
+		cursor: pointer;
+
+		&[type="radio"] {
+			border-radius: 50%;
+		}
+
+		&:checked {
+			border-color: var(--wp--preset--color--primary-blue);
+			background: var(--wp--preset--color--primary-blue);
+			box-shadow: inset 0 0 0 var(--wp--custom--border--rule) var(--wp--preset--color--white);
+		}
+
+		&:focus-visible {
+			outline: var(--wp--custom--border--button) solid var(--wp--preset--color--primary-blue);
+			outline-offset: var(--wp--custom--border--button);
+		}
+
+		&:disabled {
+			cursor: not-allowed;
+		}
+	}
+
+	.nsf-form__footer {
+		margin-top: 0;
+	}
+}

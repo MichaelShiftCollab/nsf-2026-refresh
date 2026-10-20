@@ -140,8 +140,8 @@
 	gap: var(--wp--preset--spacing--20);
 	align-items: center;
 	margin: 0;
-	/* 44px rows: a 24px line and 10px above and below. */
-	padding-block: calc(var(--wp--preset--spacing--10) + 2px);
+	/* 44px rows: a 24px line, 10px above and 10px below with the rule. */
+	padding-block: calc(var(--wp--preset--spacing--10) + 2px) calc(var(--wp--preset--spacing--10) + 2px - var(--wp--custom--border--hairline));
 	border-bottom: var(--wp--custom--border--hairline) solid var(--wp--preset--color--light-blue);
 	color: var(--wp--preset--color--primary-blue);
 	font-weight: 600;

@@ -4,7 +4,7 @@
  * Slug: nsf/cta-sponsorship-prospectus
  * Categories: nsf-ctas
  * Keywords: sponsorship, prospectus, form, cta
- * Description: Heading and copy beside the Sponsorship Prospectus form. Wireframe 489:89.
+ * Description: Heading and copy beside the Sponsorship Prospectus form. Figma 577:883.
  *
  * @package NSF
  */
@@ -17,8 +17,8 @@
 <h2 class="wp-block-heading"><?php esc_html_e( 'Ready to Make Sleep a Priority? Get the Sponsorship Prospectus.', 'nsf' ); ?></h2>
 <!-- /wp:heading -->
 
-<!-- wp:paragraph -->
-<p><?php esc_html_e( 'Join forces with the National Sleep Foundation and put your brand at the forefront of better sleep health. Complete the form below to receive our Sponsorship Prospectus and explore opportunities for collaboration.', 'nsf' ); ?></p>
+<!-- wp:paragraph {"className":"nsf-trim"} -->
+<p class="nsf-trim"><?php esc_html_e( 'Join forces with the National Sleep Foundation and put your brand at the forefront of better sleep health. Complete the form below to receive our Sponsorship Prospectus and explore opportunities for collaboration.', 'nsf' ); ?></p>
 <!-- /wp:paragraph -->
 <!-- /wp:nsf/cta-form --></div>
 <!-- /wp:group -->
