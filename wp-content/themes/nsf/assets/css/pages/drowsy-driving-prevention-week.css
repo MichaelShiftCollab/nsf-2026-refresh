@@ -199,6 +199,14 @@
 	font-weight: 600;
 }
 
+/* Date and place on one line at desktop, wider than the intro. */
+@media (min-width: 1100px) {
+
+	.nsf-ddpw-forum__details {
+		white-space: nowrap;
+	}
+}
+
 .nsf-ddpw-forum__graphic img {
 	display: block;
 	width: 100%;
