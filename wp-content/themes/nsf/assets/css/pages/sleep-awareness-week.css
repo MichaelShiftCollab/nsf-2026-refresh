@@ -113,6 +113,14 @@
 	gap: var(--nsf-saw-gap-20);
 }
 
+/* The eyebrow keeps the mockup's double spaces and runs into the gap. */
+@media (min-width: 1200px) {
+
+	.nsf-saw-hero__copy > .is-style-eyebrow {
+		white-space: pre;
+	}
+}
+
 /* The campaign's own sun watermark behind the photos. */
 .nsf-saw-cluster::before {
 	background-image: url(../../images/sleep-awareness-week/saw-hero-watermark.png);
@@ -313,8 +321,10 @@
 .nsf-saw-toolkit .nsf-form textarea {
 	min-height: var(--wp--custom--control--field-height);
 	height: var(--wp--custom--control--field-height);
+	padding-block: calc((var(--wp--custom--control--field-height) - 1.5em - 2px) / 2);
 	border-radius: var(--wp--custom--radius--pill);
-	resize: vertical;
+	line-height: 1.5;
+	resize: none;
 }
 
 @media (max-width: 1099px) {
