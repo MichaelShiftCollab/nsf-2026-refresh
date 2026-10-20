@@ -1,0 +1,21 @@
+/*
+ * Campaign band watermarks (Figma 580:796). The sun of the default Best
+ * Slept Self® band lives with the photo cluster in style.css; the Drowsy
+ * Driving Prevention Week® and Sleep Awareness Week® bands swap it for their
+ * own shape, positioned as percentages of the 568 x 460 cluster frame.
+ */
+.nsf-photo-cluster--drowsy-driving::before {
+	top: -11.96%;
+	left: 14.08%;
+	width: 80.99%;
+	height: 100%;
+	background-image: url(../../images/home/steering-wheel-watermark.webp);
+}
+
+.nsf-photo-cluster--sleep-awareness::before {
+	top: -13.04%;
+	left: 4.05%;
+	width: 101.06%;
+	height: 102.39%;
+	background-image: url(../../images/home/saw-watermark.webp);
+}

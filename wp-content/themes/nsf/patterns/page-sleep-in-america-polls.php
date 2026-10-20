@@ -5,7 +5,7 @@
  * Categories: nsf-pages
  * Post Types: page
  * Keywords: sleep in america, polls, research, reports, page
- * Description: Sleep in America® Polls page body for the "No Title" template: title band with a photo, recent polls as poll entries (with and without a cover), and earlier poll topics by year. Placeholder copy from the mockup.
+ * Description: Sleep in America® Polls page body for the "No Title" template: title band with the poll logo and a photo, recent polls as poll entries (with and without a cover), and earlier poll topics by year. Placeholder copy from the mockup.
  *
  * @package NSF
  */
@@ -27,19 +27,19 @@ $nsf_sap_topics = function ( $items ) {
 };
 
 $nsf_tbp = array(
-	'eyebrow'      => '',
-	'heading'      => 'Sleep in America<sup>®</sup> Polls',
-	'subtitle'     => __( 'The Sleep in America® Poll is the National Sleep Foundation’s premier annual review of current sleep topics. The poll was first conducted in 1991.', 'nsf' ),
-	'image'        => 'assets/images/home/research.jpg',
-	'crumbs_above' => true,
-	'overlap'      => true,
-	'sheet'        => 'lightest-blue',
+	'eyebrow'  => __( 'Research', 'nsf' ),
+	'heading'  => 'Sleep in America<sup>®</sup> Polls',
+	'subtitle' => __( 'The Sleep in America® Poll is the National Sleep Foundation’s premier annual review of current sleep topics. The poll was first conducted in 1991.', 'nsf' ),
+	'image'    => 'assets/images/home/research.jpg',
+	'logo'     => 'assets/images/sleep-in-america-polls-logo.png',
+	'logo_alt' => __( 'Sleep in America® Poll', 'nsf' ),
+	'mark'     => 'chart',
 );
 require __DIR__ . '/title-band-photo.php';
 ?>
 
-<!-- wp:group {"metadata":{"name":"Polls"},"align":"full","className":"is-style-section-lightest-blue nsf-sap-polls","style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|section"}}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull is-style-section-lightest-blue nsf-sap-polls" style="padding-top:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--section)"><?php
+<!-- wp:group {"metadata":{"name":"Polls"},"align":"full","className":"is-style-section-lightest-blue nsf-sap-polls","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull is-style-section-lightest-blue nsf-sap-polls" style="padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--60)"><?php
 $nsf_polls = array(
 	array(
 		'year'    => '2026',
@@ -47,7 +47,7 @@ $nsf_polls = array(
 		'summary' => __( 'The 2026 Poll focused on the sleep health of American youth, specifically children ages 0 to 13. Almost everyone (95%) agrees that good sleep is essential to overall family functioning, but nearly half of parents rarely or never talk with children about the importance of sleep.', 'nsf' ),
 		'button'  => __( 'Download 2026 Poll Results (PDF)', 'nsf' ),
 		'link'    => __( 'Read the 2026 news release', 'nsf' ),
-		'cover'   => 'navy',
+		'cover'   => true,
 	),
 	array(
 		'year'    => '2025',
@@ -55,7 +55,7 @@ $nsf_polls = array(
 		'summary' => __( 'The 2025 Poll explored the link between sleep health and flourishing in life. Nearly 9 in 10 adults (88%) who report good sleep satisfaction are flourishing, while less than half (47%) of those with poor sleep satisfaction experience the same level of well-being.', 'nsf' ),
 		'button'  => __( 'Download 2025 Summary of Findings (PDF)', 'nsf' ),
 		'link'    => __( 'Read the 2025 news release', 'nsf' ),
-		'cover'   => 'sunrise',
+		'cover'   => true,
 	),
 	array(
 		'year'    => '2024',
@@ -63,7 +63,7 @@ $nsf_polls = array(
 		'summary' => __( 'The 2024 Poll found that healthy sleep behaviors are closely linked to mental health in teens. Nearly 80% of teens who earn a grade of “B” or higher for practicing healthy sleep behaviors are also free of significant depressive symptoms.', 'nsf' ),
 		'button'  => __( 'Download 2024 Summary of Findings (PDF)', 'nsf' ),
 		'link'    => __( 'Read the 2024 news release', 'nsf' ),
-		'cover'   => '',
+		'cover'   => false,
 	),
 	array(
 		'year'    => '2023',
@@ -71,7 +71,7 @@ $nsf_polls = array(
 		'summary' => __( 'The 2023 Poll shows sleep health is strongly associated with mental health in the general population.', 'nsf' ),
 		'button'  => __( 'Download 2023 Summary of Findings (PDF)', 'nsf' ),
 		'link'    => __( 'Read the 2023 news release', 'nsf' ),
-		'cover'   => 'blue',
+		'cover'   => true,
 	),
 );
 foreach ( $nsf_polls as $nsf_poll ) {
@@ -81,8 +81,8 @@ foreach ( $nsf_polls as $nsf_poll ) {
 ?></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"metadata":{"name":"Additional poll topics"},"align":"full","className":"is-style-section-white nsf-sap-topics","style":{"spacing":{"padding":{"top":"var:preset|spacing|section","bottom":"var:preset|spacing|section"}}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull is-style-section-white nsf-sap-topics" style="padding-top:var(--wp--preset--spacing--section);padding-bottom:var(--wp--preset--spacing--section)"><!-- wp:heading -->
+<!-- wp:group {"metadata":{"name":"Additional poll topics"},"align":"full","className":"is-style-section-white nsf-sap-topics","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|section"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull is-style-section-white nsf-sap-topics" style="padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--section)"><!-- wp:heading -->
 <h2 class="wp-block-heading">Additional Sleep in America<sup>®</sup> Poll topics</h2>
 <!-- /wp:heading -->
 
@@ -122,7 +122,7 @@ $nsf_sap_topics(
 ?></div>
 <!-- /wp:group -->
 
-<!-- wp:paragraph {"className":"nsf-sap-contact"} -->
-<p class="nsf-sap-contact"><?php esc_html_e( 'For historical poll data, contact', 'nsf' ); ?> <a href="mailto:research@thensf.org">research@thensf.org</a>.</p>
+<!-- wp:paragraph {"className":"nsf-sap-contact nsf-trim"} -->
+<p class="nsf-sap-contact nsf-trim"><?php esc_html_e( 'For historical poll data, contact', 'nsf' ); ?> <a href="mailto:research@thensf.org">research@thensf.org</a>.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
