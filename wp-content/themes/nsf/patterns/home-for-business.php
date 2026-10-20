@@ -82,7 +82,7 @@
 <!-- wp:group {"metadata":{"name":"Actions"},"className":"nsf-actions","style":{"spacing":{"blockGap":"var:preset|spacing|30"}},"layout":{"type":"flex","flexWrap":"wrap","verticalAlignment":"center"}} -->
 <div class="wp-block-group nsf-actions"><!-- wp:buttons -->
 <div class="wp-block-buttons"><!-- wp:button {"className":"is-style-secondary"} -->
-<div class="wp-block-button is-style-secondary"><a class="wp-block-button__link wp-element-button" href="/sleeptech-network/membership/"><?php esc_html_e( 'Join the network', 'nsf' ); ?></a></div>
+<div class="wp-block-button is-style-secondary"><a class="wp-block-button__link wp-element-button" href="/about-sleeptech/sleeptech-network/membership-application/"><?php esc_html_e( 'Join the network', 'nsf' ); ?></a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons -->
 

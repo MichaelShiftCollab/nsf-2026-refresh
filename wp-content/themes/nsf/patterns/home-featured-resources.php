@@ -35,7 +35,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"is-style-link nsf-trim"} -->
-<p class="is-style-link nsf-trim"><a href="/sleep-learning-zone/"><?php esc_html_e( 'Visit the Sleep Learning Zone®', 'nsf' ); ?></a></p>
+<p class="is-style-link nsf-trim"><a href="/sleep-health-resources/sleep-health-topics/"><?php esc_html_e( 'Visit the Sleep Learning Zone®', 'nsf' ); ?></a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group -->

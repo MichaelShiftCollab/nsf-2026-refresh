@@ -71,14 +71,14 @@ function nsf_stub_page( $title, $slug, $parent = 0, $content = '' ) {
 }
 
 $nsf_hub      = nsf_stub_page( 'Sleep Health Resources', 'sleep-health-resources' );
-$nsf_blog     = nsf_stub_page( 'Sleep Learning Zone®', 'sleep-learning-zone', $nsf_hub );
+$nsf_blog     = nsf_stub_page( 'Sleep Learning Zone®', 'sleep-health-topics', $nsf_hub );
 $nsf_programs = nsf_stub_page( 'National Programs', 'national-programs' );
-nsf_stub_page( 'Drowsy Driving Prevention Week®', 'drowsy-driving-prevention-week', $nsf_programs, 'Sleep First. Drive Alert.® NSF’s annual campaign encourages everyone to prioritize sleep and drive when they are alert and refreshed.' );
+nsf_stub_page( 'Drowsy Driving Prevention Week®', 'drowsy-driving-prevention', $nsf_programs, 'Sleep First. Drive Alert.® NSF’s annual campaign encourages everyone to prioritize sleep and drive when they are alert and refreshed.' );
 nsf_stub_page( 'Sleep Awareness Week®', 'sleep-awareness-week', $nsf_programs, 'NSF’s annual campaign to celebrate sleep health and help everyone sleep better.' );
 nsf_stub_page( 'Best Slept Self®', 'best-slept-self', $nsf_programs, 'Simple steps to sleep well and be your best slept self.' );
 $nsf_research = nsf_stub_page( 'Research', 'research' );
-nsf_stub_page( 'Sleep in America® Polls', 'sleep-in-america-polls', $nsf_research, 'NSF’s annual poll on how Americans sleep, from drowsy driving to family sleep habits.' );
-foreach ( array( 'SleepTech®' => 'sleeptech', 'SleepMark®' => 'sleepmark', 'Media Center' => 'media-center', 'About Us' => 'about-us', 'Contact Us' => 'contact-us' ) as $nsf_title => $nsf_slug ) {
+nsf_stub_page( 'Sleep in America® Polls', 'sleep-in-america-polls', nsf_stub_page( 'NSF Research Reports', 'nsf-research-reports', $nsf_research ), 'NSF’s annual poll on how Americans sleep, from drowsy driving to family sleep habits.' );
+foreach ( array( 'SleepTech®' => 'about-sleeptech', 'SleepMark®' => 'sleepmark', 'Media Center' => 'media-center', 'About Us' => 'mission-and-goals', 'Contact Us' => 'contact' ) as $nsf_title => $nsf_slug ) {
 	nsf_stub_page( $nsf_title, $nsf_slug );
 }
 

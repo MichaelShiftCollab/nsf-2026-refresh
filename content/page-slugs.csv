@@ -1,0 +1,20 @@
+new_index,page,old_url,new_path,notes
+/00,Home,https://www.thensf.org/,/,
+/10.00,National Programs,,/national-programs/,New page
+/10.10,Sleep Awareness Week®,https://www.thensf.org/sleep-awareness-week/,/national-programs/sleep-awareness-week/,
+/10.20,Drowsy Driving Prevention Week®,https://www.thensf.org/drowsy-driving-prevention/,/national-programs/drowsy-driving-prevention/,
+/10.20.10,Drowsy Driving Prevention Resources,,/national-programs/drowsy-driving-prevention/drowsy-driving-prevention-resources/,New page
+/10.30,Best Slept Self®,,/national-programs/best-slept-self/,New page
+/20.00,Sleep Health Resources (Resource Hub),,/sleep-health-resources/,New page
+/20.12,Sleep Learning Zone® (blog),https://www.thensf.org/sleep-health-topics/,/sleep-health-resources/sleep-health-topics/,
+/30.00,Research,,/research/,New page
+/30.30,NSF Research Reports,,/research/nsf-research-reports/,New page
+/30.30.10,Sleep in America® Polls,https://www.thensf.org/sleep-in-america-polls/,/research/nsf-research-reports/sleep-in-america-polls/,
+/40.00,SleepTech®,https://www.thensf.org/about-sleeptech/,/about-sleeptech/,
+/40.20,SleepTech® Network,https://www.thensf.org/sleeptech-network/,/about-sleeptech/sleeptech-network/,
+/40.20.10,SleepTech® Network Membership,https://www.thensf.org/sleeptech-network/membership-application/,/about-sleeptech/sleeptech-network/membership-application/,
+/50.00,SleepMark®,https://www.thensf.org/sleepmark/,/sleepmark/,
+/60.00,Media Center,https://www.thensf.org/media-center/,/media-center/,
+/70.00,About Us,https://www.thensf.org/mission-and-goals/,/mission-and-goals/,
+/80.10,Contact Us,https://www.thensf.org/contact/,/contact/,
+/80.40,Privacy Policy,https://www.thensf.org/privacy-policy/,/privacy-policy/,

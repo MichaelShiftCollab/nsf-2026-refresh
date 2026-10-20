@@ -22,7 +22,7 @@ $nsf_link = fn( $label, $url, $class = '' ) => '<!-- wp:navigation-link ' . wp_j
 	JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE
 ) . ' /-->';
 $nsf_utility = array(
-	array( __( 'About Us', 'nsf' ), '/about-us/' ),
+	array( __( 'About Us', 'nsf' ), '/mission-and-goals/' ),
 	array( __( 'Contact', 'nsf' ), '/contact/' ),
 	array( __( 'Media Center', 'nsf' ), '/media-center/' ),
 );
@@ -53,7 +53,7 @@ foreach ( $nsf_utility as $nsf_item ) {
 echo $nsf_link( __( 'National Programs', 'nsf' ), '/national-programs/' ) . "\n"; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 echo $nsf_link( __( 'Sleep Health Resources', 'nsf' ), '/sleep-health-resources/' ) . "\n"; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 echo $nsf_link( __( 'Research', 'nsf' ), '/research/' ) . "\n"; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-echo $nsf_link( 'SleepTech<sup>®</sup>', '/sleeptech-network/' ) . "\n"; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+echo $nsf_link( 'SleepTech<sup>®</sup>', '/about-sleeptech/' ) . "\n"; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 echo $nsf_link( 'SleepMark<sup>®</sup>', '/sleepmark/' ) . "\n"; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 foreach ( $nsf_utility as $nsf_item ) {
 	echo $nsf_link( $nsf_item[0], $nsf_item[1], 'nsf-nav-utility-item' ) . "\n"; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped

@@ -63,7 +63,7 @@ $nsf_panel = function ( $title, $items, $link, $url ) {
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"is-style-link nsf-trim"} -->
-<p class="is-style-link nsf-trim"><a href="/research/sleep-in-america-polls/"><?php esc_html_e( 'Read the findings', 'nsf' ); ?></a></p>
+<p class="is-style-link nsf-trim"><a href="/research/nsf-research-reports/sleep-in-america-polls/"><?php esc_html_e( 'Read the findings', 'nsf' ); ?></a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:column -->
 

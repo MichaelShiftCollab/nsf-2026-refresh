@@ -60,6 +60,6 @@
 <!-- /wp:group -->
 
 <!-- wp:paragraph {"className":"is-style-link nsf-trim"} -->
-<p class="is-style-link nsf-trim"><a href="/about-us/"><?php esc_html_e( 'Find out more about NSF', 'nsf' ); ?></a></p>
+<p class="is-style-link nsf-trim"><a href="/mission-and-goals/"><?php esc_html_e( 'Find out more about NSF', 'nsf' ); ?></a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->

@@ -14,18 +14,19 @@
 
 defined( 'ABSPATH' ) || exit;
 
-// Path => [ title, subtitle, template ]. Each page's content is the
-// nsf/page-<last slug> pattern. Pages whose title band differs from the
+// Path => [ title, subtitle, template, pattern ]. Each page's content is the
+// nsf/page-<pattern> pattern (the last slug when no pattern is given). Slugs
+// follow the content plan's old-site URLs (content/page-slugs.csv). Pages whose title band differs from the
 // standard one (an eyebrow, a photo, a contact box) use the "No Title"
 // template and start with their own title band section.
 $nsf_interior_pages = array(
-	'national-programs'                                                     => array( 'National Programs', '', '' ),
-	'national-programs/sleep-awareness-week'                                => array( 'Sleep Awareness Week®', '', 'no-title' ),
-	'national-programs/drowsy-driving-prevention-week'                      => array( 'Drowsy Driving Prevention Week®', '', 'no-title' ),
-	'national-programs/drowsy-driving-prevention-week/drowsy-driving-prevention-resources' => array( 'Drowsy Driving Prevention Resources', '', 'no-title' ),
-	'research/nsf-research-reports/sleep-in-america-polls'                  => array( 'Sleep in America® Polls', '', 'no-title' ),
-	'sleeptech/sleeptech-network/sleeptech-network-membership'              => array( 'SleepTech® Network Membership', '', '' ),
-	'media-center'                                                          => array( 'Media Center', '', 'no-title' ),
+	'national-programs'                                                   => array( 'National Programs', '', '' ),
+	'national-programs/sleep-awareness-week'                              => array( 'Sleep Awareness Week®', '', 'no-title' ),
+	'national-programs/drowsy-driving-prevention'                         => array( 'Drowsy Driving Prevention Week®', '', 'no-title', 'drowsy-driving-prevention-week' ),
+	'national-programs/drowsy-driving-prevention/drowsy-driving-prevention-resources' => array( 'Drowsy Driving Prevention Resources', '', 'no-title' ),
+	'research/nsf-research-reports/sleep-in-america-polls'                => array( 'Sleep in America® Polls', '', 'no-title' ),
+	'about-sleeptech/sleeptech-network/membership-application'            => array( 'SleepTech® Network Membership', '', '', 'sleeptech-network-membership' ),
+	'media-center'                                                        => array( 'Media Center', '', 'no-title' ),
 );
 
 $nsf_only = array_filter( $args ?? array() );
@@ -46,7 +47,7 @@ function nsf_interior_page( $path, $title ) {
 	$slug   = array_pop( $parts );
 	$names  = array(
 		'nsf-research-reports' => 'NSF Research Reports',
-		'sleeptech'            => 'SleepTech®',
+		'about-sleeptech'      => 'SleepTech®',
 		'sleeptech-network'    => 'SleepTech® Network',
 	);
 	$parent = $parts ? nsf_interior_page( implode( '/', $parts ), $names[ end( $parts ) ] ?? ucwords( str_replace( '-', ' ', end( $parts ) ) ) ) : 0;
@@ -67,9 +68,10 @@ foreach ( $nsf_interior_pages as $nsf_path => $nsf_page ) {
 	if ( $nsf_only && ! in_array( $nsf_slug, $nsf_only, true ) ) {
 		continue;
 	}
-	$nsf_pattern = $nsf_registry->get_registered( 'nsf/page-' . $nsf_slug );
+	$nsf_name    = $nsf_page[3] ?? $nsf_slug;
+	$nsf_pattern = $nsf_registry->get_registered( 'nsf/page-' . $nsf_name );
 	if ( ! $nsf_pattern ) {
-		WP_CLI::warning( "No nsf/page-{$nsf_slug} pattern yet; skipped {$nsf_path}." );
+		WP_CLI::warning( "No nsf/page-{$nsf_name} pattern yet; skipped {$nsf_path}." );
 		continue;
 	}
 	$nsf_id = nsf_interior_page( $nsf_path, $nsf_page[0] );

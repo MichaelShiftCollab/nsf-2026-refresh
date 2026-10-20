@@ -81,7 +81,7 @@ $nsf_np_card = function ( $image, $eyebrow, $title, $text, $url ) {
 <!-- wp:group {"metadata":{"name":"Cards"},"className":"nsf-np-cards","layout":{"type":"default"}} -->
 <div class="wp-block-group nsf-np-cards"><?php
 $nsf_np_card( 'assets/images/home/campaign-large.jpg', __( 'March 8–14, 2026', 'nsf' ), __( 'Sleep Awareness Week®', 'nsf' ), __( 'Our annual observance of the connection between sleep and health, anchored by the Sleep in America® Poll.', 'nsf' ), '/national-programs/sleep-awareness-week/' );
-$nsf_np_card( 'assets/images/home/campaign-small-left.jpg', __( 'November 1–7, 2026', 'nsf' ), __( 'Drowsy Driving Prevention Week®', 'nsf' ), __( 'Sleep First. Drive Alert.® — a week focused on the risk of driving while sleep-deprived.', 'nsf' ), '/national-programs/drowsy-driving-prevention-week/' );
+$nsf_np_card( 'assets/images/home/campaign-small-left.jpg', __( 'November 1–7, 2026', 'nsf' ), __( 'Drowsy Driving Prevention Week®', 'nsf' ), __( 'Sleep First. Drive Alert.® — a week focused on the risk of driving while sleep-deprived.', 'nsf' ), '/national-programs/drowsy-driving-prevention/' );
 $nsf_np_card( 'assets/images/home/campaign-small-right.jpg', __( 'Year-round', 'nsf' ), __( 'Best Slept Self®', 'nsf' ), __( 'Six small steps, day and night, that add up to better sleep health.', 'nsf' ), '/national-programs/best-slept-self/' );
 ?></div>
 <!-- /wp:group --></div>

@@ -61,7 +61,7 @@
 	{
 		"name": "blog-archive",
 		"group": "archive",
-		"url": "/sleep-health-resources/sleep-learning-zone/",
+		"url": "/sleep-health-resources/sleep-health-topics/",
 		"selector": "main",
 		"ignore": [
 			".nsf-card__media"
@@ -271,7 +271,7 @@
 	{
 		"name": "drowsy-driving-prevention-week",
 		"group": "interior",
-		"url": "/national-programs/drowsy-driving-prevention-week/",
+		"url": "/national-programs/drowsy-driving-prevention/",
 		"ignore": [
 			".nsf-photo",
 			".wp-block-image img",
@@ -285,7 +285,7 @@
 	{
 		"name": "drowsy-driving-resource-center",
 		"group": "interior",
-		"url": "/national-programs/drowsy-driving-prevention-week/drowsy-driving-prevention-resources/",
+		"url": "/national-programs/drowsy-driving-prevention/drowsy-driving-prevention-resources/",
 		"ignore": [
 			".nsf-photo",
 			".wp-block-image img",
@@ -312,7 +312,7 @@
 	{
 		"name": "sleeptech-network-membership",
 		"group": "interior",
-		"url": "/sleeptech/sleeptech-network/sleeptech-network-membership/",
+		"url": "/about-sleeptech/sleeptech-network/membership-application/",
 		"ignore": [
 			"header.site-header",
 			".nsf-signup",

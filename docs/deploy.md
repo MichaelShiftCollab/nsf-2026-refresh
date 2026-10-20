@@ -47,6 +47,8 @@ for s in home-page listing-pages interior-pages; do
 done
 ```
 
+On an environment set up before October 20, also send `bin/dev/page-slugs.php` (renames pages to the content plan's slugs) and `bin/dev/home-page.php` (refreshes Home's links) the same way.
+
 Skip the private test pages (`cta-test-page`, `card-test-page`, `faq-logos-test-page`) unless you want them there. `wp nsf seed --delete` removes the sample content before launch.
 
 ## Still to do on the environment

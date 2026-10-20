@@ -141,3 +141,10 @@ Answers to the open questions in the build spec and build plan. Newest first.
 - Header Flag JavaScript location (needed for step 10)
 - Copy for the 12 empty page docs (step 17)
 - Zoho module and field mapping (step 16)
+
+## October 20, 2026 (Michael: page slugs from the content sheet)
+
+- Page slugs follow the URL column of the CONTENT PLAN tab in NSF Website Content Sheets.xlsx (each new page paired with an old-site page). The sheet's New Page Url column is empty, so the old URLs are the desired slugs.
+- Michael chose "Hierarchy + slugs": pages keep the new hierarchy, and the last part of each path is the old page's slug, for example /national-programs/sleep-awareness-week/. Old URLs redirect at launch (step 17).
+- The full list is content/page-slugs.csv. Changed: Drowsy Driving Prevention Week (drowsy-driving-prevention), Sleep Learning Zone (sleep-health-topics), SleepTech (about-sleeptech), SleepTech Network Membership (membership-application), About Us (mission-and-goals), Contact Us (contact). Sleep in America Polls lives only under NSF Research Reports; the stub under Research is gone.
+
