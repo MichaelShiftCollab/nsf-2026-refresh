@@ -81,7 +81,7 @@ $nsf_saw_logos = function ( $count ) {
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"is-style-link"} -->
-<p class="is-style-link"><a href="/about-us/"><?php esc_html_e( 'Get to know the NSF', 'nsf' ); ?></a></p>
+<p class="is-style-link"><a href="/mission-and-goals/"><?php esc_html_e( 'Get to know the NSF', 'nsf' ); ?></a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group --></div>
@@ -138,7 +138,7 @@ require __DIR__ . '/../inc/post-cards.php';
 ?>
 
 <!-- wp:paragraph {"className":"is-style-link"} -->
-<p class="is-style-link"><a href="/sleep-health-resources/sleep-learning-zone/"><?php esc_html_e( 'Read our Sleep Health Topics blog', 'nsf' ); ?></a></p>
+<p class="is-style-link"><a href="/sleep-health-resources/sleep-health-topics/"><?php esc_html_e( 'Read our Sleep Health Topics blog', 'nsf' ); ?></a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 

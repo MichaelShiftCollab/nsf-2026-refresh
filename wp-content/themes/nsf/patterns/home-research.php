@@ -63,7 +63,7 @@ $nsf_panel = function ( $title, $items, $link, $url ) {
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"is-style-link nsf-trim"} -->
-<p class="is-style-link nsf-trim"><a href="/research/sleep-in-america-polls/"><?php esc_html_e( 'Read the findings', 'nsf' ); ?></a></p>
+<p class="is-style-link nsf-trim"><a href="/research/nsf-research-reports/sleep-in-america-polls/"><?php esc_html_e( 'Read the findings', 'nsf' ); ?></a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:column -->
 
@@ -76,8 +76,8 @@ $nsf_panel = function ( $title, $items, $link, $url ) {
 
 <!-- wp:group {"metadata":{"name":"Panels"},"style":{"spacing":{"blockGap":"var:preset|spacing|gutter"}},"layout":{"type":"grid","columnCount":3,"minimumColumnWidth":"16rem"}} -->
 <div class="wp-block-group"><?php
-$nsf_panel( __( 'NSF Research Tools', 'nsf' ), array( __( 'Sleep Health Index®', 'nsf' ), __( 'Sleep Satisfaction Tool®', 'nsf' ), __( 'Best Slept Self® Questionnaire', 'nsf' ) ), __( 'Explore the tools', 'nsf' ), '/research/research-tools/' );
-$nsf_panel( __( 'NSF Publications', 'nsf' ), array( __( 'Sleep in America® Polls', 'nsf' ), __( 'Guidelines', 'nsf' ), __( 'Survey results & infographics', 'nsf' ) ), __( 'Browse publications', 'nsf' ), '/research/publications/' );
+$nsf_panel( __( 'NSF Research Tools', 'nsf' ), array( __( 'Sleep Health Index®', 'nsf' ), __( 'Sleep Satisfaction Tool®', 'nsf' ), __( 'Best Slept Self® Questionnaire', 'nsf' ) ), __( 'Explore the tools', 'nsf' ), '/research/nsf-sleep-measures/' );
+$nsf_panel( __( 'NSF Publications', 'nsf' ), array( __( 'Sleep in America® Polls', 'nsf' ), __( 'Guidelines', 'nsf' ), __( 'Survey results & infographics', 'nsf' ) ), __( 'Browse publications', 'nsf' ), '/research/nsf-publications/' );
 $nsf_panel( __( 'Sleep Health: Journal of the NSF', 'nsf' ), array( __( 'Current issue', 'nsf' ), __( 'For authors', 'nsf' ), __( 'Editorial board', 'nsf' ) ), __( 'Visit the journal', 'nsf' ), 'https://www.sleephealthjournal.org/' );
 ?></div>
 <!-- /wp:group --></div>

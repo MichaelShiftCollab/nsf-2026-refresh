@@ -81,7 +81,7 @@ $nsf_np_card = function ( $image, $eyebrow, $title, $text, $url ) {
 <!-- wp:group {"metadata":{"name":"Cards"},"className":"nsf-np-cards","layout":{"type":"default"}} -->
 <div class="wp-block-group nsf-np-cards"><?php
 $nsf_np_card( 'assets/images/home/campaign-large.jpg', __( 'March 8–14, 2026', 'nsf' ), __( 'Sleep Awareness Week®', 'nsf' ), __( 'Our annual observance of the connection between sleep and health, anchored by the Sleep in America® Poll.', 'nsf' ), '/national-programs/sleep-awareness-week/' );
-$nsf_np_card( 'assets/images/home/campaign-small-left.jpg', __( 'November 1–7, 2026', 'nsf' ), __( 'Drowsy Driving Prevention Week®', 'nsf' ), __( 'Sleep First. Drive Alert.® — a week focused on the risk of driving while sleep-deprived.', 'nsf' ), '/national-programs/drowsy-driving-prevention-week/' );
+$nsf_np_card( 'assets/images/home/campaign-small-left.jpg', __( 'November 1–7, 2026', 'nsf' ), __( 'Drowsy Driving Prevention Week®', 'nsf' ), __( 'Sleep First. Drive Alert.® — a week focused on the risk of driving while sleep-deprived.', 'nsf' ), '/national-programs/drowsy-driving-prevention/' );
 $nsf_np_card( 'assets/images/home/campaign-small-right.jpg', __( 'Year-round', 'nsf' ), __( 'Best Slept Self®', 'nsf' ), __( 'Six small steps, day and night, that add up to better sleep health.', 'nsf' ), '/national-programs/best-slept-self/' );
 ?></div>
 <!-- /wp:group --></div>
@@ -104,7 +104,7 @@ $nsf_np_card( 'assets/images/home/campaign-small-right.jpg', __( 'Year-round', '
 
 <!-- wp:buttons {"className":"nsf-np-actions"} -->
 <div class="wp-block-buttons nsf-np-actions"><!-- wp:button -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="/national-programs/reshaping-employee-wellness/"><?php esc_html_e( 'Learn about the program', 'nsf' ); ?></a></div>
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="/national-programs/employee-wellness/"><?php esc_html_e( 'Learn about the program', 'nsf' ); ?></a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons --></div>
 <!-- /wp:group -->
@@ -135,7 +135,7 @@ $nsf_np_card( 'assets/images/home/campaign-small-right.jpg', __( 'Year-round', '
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"is-style-link nsf-np-actions"} -->
-<p class="is-style-link nsf-np-actions"><a href="/national-programs/key-issues/"><?php esc_html_e( 'See our key issues', 'nsf' ); ?></a></p>
+<p class="is-style-link nsf-np-actions"><a href="/national-programs/issues/"><?php esc_html_e( 'See our key issues', 'nsf' ); ?></a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group --></div>

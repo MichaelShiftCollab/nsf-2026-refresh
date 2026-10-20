@@ -17,6 +17,6 @@ echo nsf_campaign_band_markup( // phpcs:ignore WordPress.Security.EscapeOutput.O
 		'text'    => __( 'Drowsy driving puts everyone on the road at risk. Learn the warning signs and how to plan ahead for alert driving.', 'nsf' ),
 		'note'    => __( 'Find events, toolkits and resources for this year’s campaign.', 'nsf' ),
 		'button'  => __( 'Get involved', 'nsf' ),
-		'url'     => '/national-programs/drowsy-driving-prevention-week/',
+		'url'     => '/national-programs/drowsy-driving-prevention/',
 	)
 );

@@ -2,6 +2,13 @@
 
 Answers to the open questions in the build spec and build plan. Newest first.
 
+## October 20, 2026 (Michael)
+
+| Question | Decision |
+| :--- | :--- |
+| Page slugs | From the CONTENT PLAN tab of "NSF Website Content Sheets": a new page paired with an old-site page keeps that page's slug. Pages stay nested under their section, so the full URL is the parents' slugs plus the slug. New pages take a slug from their title. The slugs are listed in `content/site-outline.md`. Changed: Drowsy Driving Prevention Week® `drowsy-driving-prevention`, Sleep Learning Zone® `sleep-health-topics`, SleepTech® `about-sleeptech`, SleepTech® Network Membership `membership-application`, About Us `mission-and-goals`, Contact Us `contact`. `bin/dev/page-slugs.php` renames these pages on an existing site |
+| Pages without copy | `bin/dev/listing-pages.php` creates a placeholder page for every page in the site outline, so menus and links do not 404 before migration (step 17) |
+
 ## October 16, 2026 (Michael: "just defaults")
 
 | Question | Decision |
@@ -25,7 +32,7 @@ Answers to the open questions in the build spec and build plan. Newest first.
 | Title band | The Inner Page Heading gradient with a white sheet whose top-right corner is rounded (block style "Title band"). Pages, Resources, search and 404 use it, replacing the Lightest Blue stand-in |
 | Pages whose band has more than a title | They use the "No Title" template (full-width content only) and start with a title band section: the plain `nsf/title-band` pattern, or one with a photo or a contact box |
 | Page subtitle | `nsf_subtitle` meta on pages too, set in the editor's "Title band" panel |
-| Page URLs | From the site outline until the page docs give URLs (step 17): `/national-programs/…`, `/research/nsf-research-reports/sleep-in-america-polls/`, `/sleeptech/sleeptech-network/sleeptech-network-membership/`, `/media-center/` |
+| Page URLs | Superseded October 20 (page slugs from the content plan). From the site outline until the page docs give URLs (step 17): `/national-programs/…`, `/research/nsf-research-reports/sleep-in-america-polls/`, `/sleeptech/sleeptech-network/sleeptech-network-membership/`, `/media-center/` |
 | Page section CSS | One file per page in `assets/css/pages/`, available on every page and in the editor so sections can be reused anywhere |
 | Statistic on a tinted section | Turns white with the card shadow and rounded top-right corner, as in the Resource single mockup |
 | Related Content at tablet width | Two cards across, one on phones |

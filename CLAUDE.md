@@ -48,6 +48,7 @@ npm run wp -- nsf seed [--delete]  # 30 sample resources, 20 posts and 8 press r
 npm run wp -- nsf reindex          # rebuild the Resource Hub table sort keys
 npm run wp -- eval-file bin/dev/card-test-page.php  # rebuild the private Card Test page
 npm run wp -- eval-file bin/dev/listing-pages.php   # Sleep Learning Zone® posts page and stub pages for search (add `delete` to remove)
+npm run wp -- eval-file bin/dev/page-slugs.php     # rename pages to the content plan slugs; run before listing-pages.php and interior-pages.php
 npm run wp -- eval-file bin/dev/home-page.php       # rebuild the Home page from the nsf/home pattern (add keep to keep its content)
 npm run wp -- eval-file bin/dev/cta-test-page.php   # rebuild the private CTA Test page and the prospectus Thank you page
 npm run wp -- eval-file bin/dev/faq-logos-test-page.php  # rebuild the private FAQ and Logo Test page

@@ -119,7 +119,7 @@ require __DIR__ . '/title-band-photo.php';
 
 <!-- wp:group {"className":"nsf-rc-grid nsf-rc-grid--2","layout":{"type":"default"}} -->
 <div class="wp-block-group nsf-rc-grid nsf-rc-grid--2"><?php
-$nsf_rc_activity( 'assets/images/home/campaign-large.jpg', __( 'November 1–7, 2026', 'nsf' ), 'Drowsy Driving Prevention Week<sup>®</sup>', __( 'Sleep First. Drive Alert.® NSF’s annual campaign encourages everyone to prioritize sleep and drive alert and refreshed.', 'nsf' ), __( 'Visit the campaign →', 'nsf' ), '/national-programs/drowsy-driving-prevention-week/', true );
+$nsf_rc_activity( 'assets/images/home/campaign-large.jpg', __( 'November 1–7, 2026', 'nsf' ), 'Drowsy Driving Prevention Week<sup>®</sup>', __( 'Sleep First. Drive Alert.® NSF’s annual campaign encourages everyone to prioritize sleep and drive alert and refreshed.', 'nsf' ), __( 'Visit the campaign →', 'nsf' ), '/national-programs/drowsy-driving-prevention/', true );
 $nsf_rc_activity( 'assets/images/home/campaign-small-right.jpg', __( 'October 29, Washington, DC', 'nsf' ), __( 'NSF Drowsy Driving Forum', 'nsf' ), __( 'Leaders from transportation, public health, policymaking and industry meet to address drowsy driving as a solvable public safety issue.', 'nsf' ), __( 'Learn more and register →', 'nsf' ), '#', false );
 ?></div>
 <!-- /wp:group --></div>

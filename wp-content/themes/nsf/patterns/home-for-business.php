@@ -82,12 +82,12 @@
 <!-- wp:group {"metadata":{"name":"Actions"},"className":"nsf-actions","style":{"spacing":{"blockGap":"var:preset|spacing|30"}},"layout":{"type":"flex","flexWrap":"wrap","verticalAlignment":"center"}} -->
 <div class="wp-block-group nsf-actions"><!-- wp:buttons -->
 <div class="wp-block-buttons"><!-- wp:button {"className":"is-style-secondary"} -->
-<div class="wp-block-button is-style-secondary"><a class="wp-block-button__link wp-element-button" href="/sleeptech-network/membership/"><?php esc_html_e( 'Join the network', 'nsf' ); ?></a></div>
+<div class="wp-block-button is-style-secondary"><a class="wp-block-button__link wp-element-button" href="/about-sleeptech/sleeptech-network/membership-application/"><?php esc_html_e( 'Join the network', 'nsf' ); ?></a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons -->
 
 <!-- wp:paragraph {"className":"is-style-link nsf-trim"} -->
-<p class="is-style-link nsf-trim"><a href="/sleeptech-network/sleeptech-award/"><?php esc_html_e( 'Apply for the award', 'nsf' ); ?></a></p>
+<p class="is-style-link nsf-trim"><a href="/about-sleeptech/sleeptech-award/"><?php esc_html_e( 'Apply for the award', 'nsf' ); ?></a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group --></div>

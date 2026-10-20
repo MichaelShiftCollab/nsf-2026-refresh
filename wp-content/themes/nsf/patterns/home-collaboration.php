@@ -30,7 +30,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"nsf-trim nsf-inline-link"} -->
-<p class="nsf-trim nsf-inline-link"><?php esc_html_e( 'Interested in collaborating?', 'nsf' ); ?>  <a href="/sponsorship-opportunities/"><?php esc_html_e( 'Sponsorship opportunities', 'nsf' ); ?></a></p>
+<p class="nsf-trim nsf-inline-link"><?php esc_html_e( 'Interested in collaborating?', 'nsf' ); ?>  <a href="/mission-and-goals/sponsorship-opportunities/"><?php esc_html_e( 'Sponsorship opportunities', 'nsf' ); ?></a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:column -->
 
