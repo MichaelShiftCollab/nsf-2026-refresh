@@ -1,7 +1,7 @@
 <?php
 /**
- * Related Content render: three featured image cards, each with its type as
- * the eyebrow. Picked items come first; resources sharing a topic with the
+ * Related Content render (Figma 571:66): three text items, each with a top
+ * rule, its type as the eyebrow, its title and a Read more link. Picked items come first; resources sharing a topic with the
  * current post, then the newest resources, fill any empty cards.
  *
  * @package NSF
@@ -11,10 +11,6 @@
  */
 
 defined( 'ABSPATH' ) || exit;
-
-// The cards and their grid use the Content Card and Featured Resources styles.
-wp_enqueue_style( 'nsf-content-card-style' );
-wp_enqueue_style( 'nsf-featured-resources-style' );
 
 $nsf_current = get_post( $block->context['postId'] ?? get_the_ID() );
 $nsf_posts   = array();
@@ -59,20 +55,14 @@ if ( ! $nsf_posts ) {
 	return;
 }
 ?>
-<div <?php echo get_block_wrapper_attributes( array( 'class' => 'nsf-featured nsf-related' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
-	<ul class="nsf-featured__list">
+<div <?php echo get_block_wrapper_attributes( array( 'class' => 'nsf-related' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
+	<ul class="nsf-related__list">
 		<?php foreach ( $nsf_posts as $nsf_post ) : ?>
-			<?php
-			$nsf_card = nsf_content_card_data(
-				$nsf_post,
-				array(
-					'variant'     => 'featured-image',
-					'eyebrow'     => nsf_content_type_label( $nsf_post ),
-					'showExcerpt' => false,
-				)
-			);
-			?>
-			<li><?php echo nsf_content_card_html( $nsf_card, 'featured-image', 3 ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></li>
+			<li class="nsf-related__item">
+				<p class="nsf-related__eyebrow"><?php echo esc_html( nsf_content_type_label( $nsf_post ) ); ?></p>
+				<h3 class="nsf-related__title"><a href="<?php echo esc_url( get_permalink( $nsf_post ) ); ?>"><?php echo esc_html( get_the_title( $nsf_post ) ); ?></a></h3>
+				<p class="nsf-related__more" aria-hidden="true"><?php esc_html_e( 'Read more', 'nsf' ); ?> <span>&rarr;</span></p>
+			</li>
 		<?php endforeach; ?>
 	</ul>
 </div>

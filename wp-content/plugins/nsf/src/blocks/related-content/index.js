@@ -1,5 +1,5 @@
 /**
- * Related Content: three picked items shown as featured image cards.
+ * Related Content: three picked items shown as text items.
  */
 import { registerBlockType } from '@wordpress/blocks';
 import { __, sprintf } from '@wordpress/i18n';
@@ -8,6 +8,7 @@ import { PanelBody } from '@wordpress/components';
 import ServerSideRender from '@wordpress/server-side-render';
 
 import metadata from './block.json';
+import './style.scss';
 import PostPicker from '../../components/post-picker';
 
 function Edit( { attributes, setAttributes, context } ) {

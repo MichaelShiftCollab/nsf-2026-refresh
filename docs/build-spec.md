@@ -263,7 +263,7 @@ The NSF plugin ships 13 custom blocks; everything else is a pattern of core bloc
 | Featured Resources | Final | Editor picks 3 items; shows featured image cards |
 | Resource Filter Controls | Final | Search box; Topic, Audience, Type facets from terms with posts, with counts; \+/– collapse; "Show more" after 6; active chips with "Clear all"; sort (default newest); result count; Cards/Table toggle kept in a cookie |
 | Resource Results | Final | Cards view or Table view (Title, Type, Topic, Audience, Date, each sortable with an arrow); AJAX pagination; URL keeps filter state |
-| Related Content | Provisional | Editor picks 3 posts or pages; featured image cards with each item's type as eyebrow |
+| Related Content | Provisional | Editor picks 3 posts or pages; text items (top rule, type eyebrow, title, Read more) as in the mockup |
 | General CTA Row | Provisional | Heading, text, one button to a page or a mailto |
 | Flexible CTA with Link | Provisional | Heading, copy, button link (e.g. donation page) |
 | Flexible CTA with Form | Provisional | Heading, copy, Gravity Form picker |

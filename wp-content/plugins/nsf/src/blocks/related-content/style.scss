@@ -1,0 +1,81 @@
+/*
+ * Related Content (Figma 571:66): three columns, each with a Light Blue top
+ * rule, an orange uppercase eyebrow, a Primary Blue title and Read more.
+ * The whole item is clickable through the title link. Stacks below 782px.
+ */
+.nsf-related__list {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: var(--wp--preset--spacing--gutter);
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.nsf-related__item {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: var(--wp--preset--spacing--20);
+	padding-top: var(--wp--preset--spacing--40);
+	border-top: var(--wp--custom--border--hairline) solid var(--wp--preset--color--light-blue);
+
+	> * {
+		margin: 0;
+	}
+}
+
+.nsf-related__eyebrow {
+	color: var(--wp--preset--color--dark-orange);
+	font-size: var(--wp--preset--font-size--x-small);
+	font-weight: 700;
+	line-height: 1.4286;
+	letter-spacing: var(--wp--custom--letter-spacing--caps);
+	text-transform: uppercase;
+}
+
+.nsf-related__title {
+	font-family: var(--wp--preset--font-family--open-sans);
+	font-size: var(--wp--preset--font-size--medium);
+	font-weight: 600;
+	line-height: 1.3333;
+
+	a {
+		color: var(--wp--preset--color--primary-blue);
+		text-decoration: none;
+
+		&::after {
+			content: "";
+			position: absolute;
+			inset: 0;
+		}
+	}
+}
+
+.nsf-related__more {
+	color: var(--wp--preset--color--primary-blue);
+	font-size: var(--wp--preset--font-size--small);
+	font-weight: 700;
+	line-height: 1.5;
+
+	span {
+		margin-left: 0.25em;
+		transition: margin-left 0.15s ease;
+	}
+}
+
+.nsf-related__item:hover .nsf-related__title a,
+.nsf-related__title a:focus-visible {
+	text-decoration: underline;
+}
+
+.nsf-related__item:hover .nsf-related__more span {
+	margin-left: 0.5em;
+}
+
+@media (max-width: 781px) {
+
+	.nsf-related__list {
+		grid-template-columns: minmax(0, 1fr);
+	}
+}

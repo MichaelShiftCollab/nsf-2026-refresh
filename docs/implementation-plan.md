@@ -112,7 +112,7 @@ Site breadcrumbs function for the site should be extended such that single posts
 
 - Related content can mix types (ex: a news release, a page, a Sleep Learning Zone post). Each item shows its type as an eyebrow.
 
-- Related content uses content cards with featured image.
+- Related content uses text items (top rule, type eyebrow, title, Read more), per the styled mockup; this replaces the original featured image cards.
 
 **Deliverables:**
 
@@ -334,7 +334,7 @@ Light Blue.
 
   - Content cards with navy fill (ex: links to related content child pages). Wireframed on the “Plan items — added wireframes” sheet.
 
-  - Content cards with featured image (ex: links to blog posts). Used for the Home Sleep Health Resources 3-up and research panels, the Sleep Awareness Week® 4-up grid, the Drowsy Driving Prevention Resource Center event, blog and download cards, the Drowsy Driving Prevention Week® resource grid and Resource related content.
+  - Content cards with featured image (ex: links to blog posts). Used for the Home Sleep Health Resources 3-up and research panels, the Sleep Awareness Week® 4-up grid, the Drowsy Driving Prevention Resource Center event, blog and download cards, the and Drowsy Driving Prevention Week® resource grid.
 
   - The Home Sleep Health Resources cards are picked by an editor. The other card sets are query loops.
 

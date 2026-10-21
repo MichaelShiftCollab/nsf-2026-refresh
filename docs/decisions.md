@@ -141,6 +141,8 @@ Answers to the open questions in the build spec and build plan. Newest first.
 | Gated Resource download | Download button and file details are hidden until the Gated Download block (step 9) exists, so the file URL never reaches the page |
 | Related Content eyebrow | Resource Type for Resources, "Article / Blog post" for posts (as in the hub), the top-level section for pages |
 | Related Content with fewer than 3 picks | Resources sharing a topic with the current item fill the empty cards, then the newest Resources |
+| Mockups vs. the plan | Where a styled Figma mockup and the implementation plan or spec disagree, the mockup wins (Michael, October 21) |
+| Related Content style | Text items as in the Resource mockup (571:66): top rule, type eyebrow, title, Read more. Replaces the plan's featured image cards |
 | Statistics row | One shared grid (`inc/statistics-grid.php`) of Statistic panels for the 2- and 4-across patterns (step 9) and the Resource layout (step 12) |
 
 ## Deferred
