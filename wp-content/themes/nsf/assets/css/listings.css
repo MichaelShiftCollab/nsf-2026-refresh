@@ -354,7 +354,7 @@
 	padding: var(--wp--preset--spacing--20) 0;
 	color: var(--wp--preset--color--primary-blue);
 	font-size: var(--wp--preset--font-size--small);
-	font-weight: var(--wp--custom--font-weight--semi-bold);
+	font-weight: var(--wp--custom--font-weight--bold);
 	line-height: 1.5;
 	text-decoration: none;
 }

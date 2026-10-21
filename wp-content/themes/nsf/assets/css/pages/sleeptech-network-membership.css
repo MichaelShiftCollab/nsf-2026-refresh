@@ -1,35 +1,53 @@
 /*
- * SleepTech® Network Membership (build plan step 15): intro copy and the
+ * SleepTech® Network Membership (Figma 506:212): intro copy and the
  * membership application panel around the NSF Form block.
  */
 
-.nsf-membership-intro__text {
-	font-size: var(--wp--custom--font-size--body-medium);
-	line-height: 1.5556;
-}
-
-.nsf-membership-form.nsf-membership-form {
-	border-top-right-radius: var(--wp--custom--radius--photo-medium);
-	box-shadow: var(--wp--preset--shadow--card);
+/* Lead: Paragraph 1 (32/40). */
+.nsf-membership-intro__lead.nsf-membership-intro__lead {
+	line-height: 1.25;
 }
 
 .nsf-membership-form.nsf-membership-form {
 	display: flex;
 	flex-direction: column;
 	gap: var(--wp--preset--spacing--20);
+	padding: var(--wp--preset--spacing--40);
+	border-radius: var(--wp--custom--radius--card);
 }
 
 .nsf-membership-form > * {
 	margin-block: 0;
 }
 
+.nsf-membership-form .is-style-eyebrow-small {
+	color: var(--wp--preset--color--primary-blue);
+}
+
 .nsf-membership-form .wp-block-nsf-form {
 	margin: 0;
 }
 
-@media (max-width: 781px) {
+/* Consent checkbox: an outlined Primary Blue box. */
+.nsf-membership-form .nsf-form__choice input[type="checkbox"] {
+	flex: none;
+	box-sizing: border-box;
+	width: var(--wp--custom--control--checkbox);
+	height: var(--wp--custom--control--checkbox);
+	margin: 0;
+	padding: 0;
+	border: var(--wp--custom--border--hairline) solid var(--wp--preset--color--primary-blue);
+	border-radius: var(--wp--custom--radius--checkbox);
+	background: var(--wp--preset--color--white);
+	appearance: none;
+}
 
-	.nsf-membership-form.nsf-membership-form {
-		padding: var(--wp--preset--spacing--40);
-	}
+.nsf-membership-form .nsf-form__choice input[type="checkbox"]:checked {
+	background: var(--wp--preset--color--primary-blue);
+	box-shadow: inset 0 0 0 var(--wp--custom--border--rule) var(--wp--preset--color--white);
+}
+
+.nsf-membership-form .nsf-form__choice input[type="checkbox"]:focus-visible {
+	outline: var(--wp--custom--border--button) solid var(--wp--preset--color--primary-blue);
+	outline-offset: var(--wp--custom--border--button);
 }

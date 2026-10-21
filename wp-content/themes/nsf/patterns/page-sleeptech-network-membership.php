@@ -13,22 +13,22 @@
 ?>
 <!-- wp:group {"metadata":{"name":"Intro"},"align":"full","className":"is-style-section-white nsf-membership-intro","style":{"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|section"}}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group alignfull is-style-section-white nsf-membership-intro" style="padding-top:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--section)"><!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|30"}},"layout":{"type":"constrained","contentSize":"820px","justifyContent":"left"}} -->
-<div class="wp-block-group"><!-- wp:paragraph {"className":"is-style-paragraph-2","textColor":"primary-blue"} -->
-<p class="is-style-paragraph-2 has-primary-blue-color has-text-color"><?php echo esc_html__( 'The National Sleep Foundation’s SleepTech® Network is a community platform for industry innovators and leaders dedicated to advancing technology’s promise for sleep health.', 'nsf' ); ?></p>
+<div class="wp-block-group"><!-- wp:paragraph {"className":"nsf-membership-intro__lead nsf-trim","textColor":"primary-blue","fontSize":"large"} -->
+<p class="nsf-membership-intro__lead nsf-trim has-primary-blue-color has-text-color has-large-font-size"><?php echo esc_html__( 'The National Sleep Foundation’s SleepTech® Network is a community platform for industry innovators and leaders dedicated to advancing technology’s promise for sleep health.', 'nsf' ); ?></p>
 <!-- /wp:paragraph -->
 
-<!-- wp:paragraph {"className":"nsf-membership-intro__text"} -->
-<p class="nsf-membership-intro__text"><?php echo esc_html__( 'By joining the network, companies receive evidence-based and consensus-driven recommendations, standards, and content from NSF that can help today’s technology designers, developers, and manufacturers who are working to help improve people’s sleep.', 'nsf' ); ?></p>
+<!-- wp:paragraph {"className":"is-style-paragraph-2 nsf-trim"} -->
+<p class="is-style-paragraph-2 nsf-trim"><?php echo esc_html__( 'By joining the network, companies receive evidence-based and consensus-driven recommendations, standards, and content from NSF that can help today’s technology designers, developers, and manufacturers who are working to help improve people’s sleep.', 'nsf' ); ?></p>
 <!-- /wp:paragraph -->
 
-<!-- wp:paragraph {"className":"nsf-membership-intro__text"} -->
-<p class="nsf-membership-intro__text"><?php echo esc_html__( 'Joining the network is easy. Complete the membership application below.', 'nsf' ); ?></p>
+<!-- wp:paragraph {"className":"is-style-paragraph-2 nsf-trim"} -->
+<p class="is-style-paragraph-2 nsf-trim"><?php echo esc_html__( 'Joining the network is easy. Complete the membership application below.', 'nsf' ); ?></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"metadata":{"name":"Join the Network"},"align":"full","className":"is-style-section-lightest-blue nsf-band nsf-membership-join","style":{"spacing":{"padding":{"top":"var:preset|spacing|section","bottom":"var:preset|spacing|section"},"blockGap":"var:preset|spacing|40"}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull is-style-section-lightest-blue nsf-band nsf-membership-join" style="padding-top:var(--wp--preset--spacing--section);padding-bottom:var(--wp--preset--spacing--section)"><!-- wp:heading -->
+<!-- wp:group {"metadata":{"name":"Join the Network"},"align":"full","className":"is-style-section-lightest-blue nsf-membership-join","style":{"spacing":{"padding":{"top":"var:preset|spacing|section","bottom":"var:preset|spacing|section"},"blockGap":"var:preset|spacing|40"}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull is-style-section-lightest-blue nsf-membership-join" style="padding-top:var(--wp--preset--spacing--section);padding-bottom:var(--wp--preset--spacing--section)"><!-- wp:heading -->
 <h2 class="wp-block-heading"><?php echo esc_html__( 'Join the Network', 'nsf' ); ?></h2>
 <!-- /wp:heading -->
 

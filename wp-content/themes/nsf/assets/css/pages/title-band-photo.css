@@ -8,6 +8,7 @@
  */
 
 .nsf-tbp {
+
 	/* Steering wheel frame (567:30): 568 x 440. */
 	--nsf-tbp-ratio: 568 / 440;
 	--nsf-tbp-photo-top: 6.364%;
