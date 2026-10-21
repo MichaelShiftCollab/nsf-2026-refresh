@@ -47,6 +47,8 @@ for s in home-page listing-pages interior-pages; do
 done
 ```
 
+Without SSH access, run **Actions > Refresh pages > Run workflow** instead. It sends the named scripts (default `interior-pages`) over the same deploy key. Re-run it after a deploy that changes a page pattern or template, since page content lives in the database.
+
 Skip the private test pages (`cta-test-page`, `card-test-page`, `faq-logos-test-page`) unless you want them there. `wp nsf seed --delete` removes the sample content before launch.
 
 ## Still to do on the environment

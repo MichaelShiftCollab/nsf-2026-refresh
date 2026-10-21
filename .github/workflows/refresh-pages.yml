@@ -1,0 +1,50 @@
+# Re-runs page scripts from bin/dev/ on the WP Engine environment, so page
+# content stored in the database (interior pages, Home, listing pages) picks
+# up pattern and template changes without anyone needing SSH access. Uses the
+# same key and environment as the deploy. Run it from Actions > Refresh pages
+# > Run workflow once the deploy has finished. See docs/deploy.md.
+name: Refresh pages
+
+on:
+  workflow_dispatch:
+    inputs:
+      scripts:
+        description: Page scripts to run, separated by spaces (home-page, listing-pages, interior-pages, page-slugs)
+        default: interior-pages
+        required: true
+
+concurrency:
+  group: wpengine-deploy
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    if: vars.WPE_ENV != ''
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up the SSH key
+        env:
+          KEY: ${{ secrets.WPE_SSHG_KEY_PRIVATE }}
+        run: |
+          mkdir -p ~/.ssh
+          printf '%s\n' "$KEY" > ~/.ssh/wpengine
+          chmod 600 ~/.ssh/wpengine
+          ssh-keyscan -t rsa,ed25519 "${{ vars.WPE_ENV }}.ssh.wpengine.net" >> ~/.ssh/known_hosts 2>/dev/null
+
+      - name: Run the page scripts
+        env:
+          ENV: ${{ vars.WPE_ENV }}
+          SCRIPTS: ${{ inputs.scripts }}
+        run: |
+          for s in $SCRIPTS; do
+            case "$s" in
+              home-page|listing-pages|interior-pages|page-slugs) ;;
+              *) echo "Unknown page script: $s" >&2; exit 1 ;;
+            esac
+            echo "::group::$s"
+            ssh -i ~/.ssh/wpengine "$ENV@$ENV.ssh.wpengine.net" "cd sites/$ENV && wp eval-file -" < "bin/dev/$s.php"
+            echo "::endgroup::"
+          done
+          ssh -i ~/.ssh/wpengine "$ENV@$ENV.ssh.wpengine.net" "cd sites/$ENV && wp cache flush"
