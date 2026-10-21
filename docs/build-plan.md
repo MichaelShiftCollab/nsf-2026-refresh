@@ -1,6 +1,6 @@
 # NSF Website Build Plan for Claude Code
 
-Version: October 14, 2026
+Version: October 14, 2026 · Status updated October 21, 2026
 Source of truth for features: `docs/implementation-plan.md` (converted from *NSF Implementation Plan 2026-10-14.docx*)
 Figma file: [NSF-2026](https://www.figma.com/design/mVNfIISs9yQQurddJagkfU/NSF-2026)
 
@@ -15,6 +15,49 @@ Run the steps in order. Each step has:
 Commit after each step passes. Steps 7 to 15 can be reordered if a mockup arrives late. Each one depends only on steps 1 to 6.
 
 The screenshot comparison in step 2 is the test for every visual step. Mockups use placeholder copy, so some difference is expected. A failing comparison means: open the diff image and look. Fix layout, spacing, color and type differences. Ignore copy differences.
+
+---
+
+## Where we stand (October 21, 2026)
+
+Ten of the nineteen steps are done, four are built and waiting on outside files, and five are blocked or not started. Everything below is on `main` and deployed to the development site (thensf2026dev).
+
+**How "done" is measured**
+- **Matches the mockup:** the visual harness (step 2) compares the page with its Figma export and passes at 10% mismatch or less. Copy and stand-in photos account for most of what is left.
+- **Accessible:** `npm run test:a11y` runs axe against WCAG 2.2 A and AA on the 15 main pages at 1440 and 390 with no violations. Orange text uses Dark Orange and orange buttons use Dark Blue text to meet contrast (docs/decisions.md).
+- **Works:** behavior tests pass: `test:hub` (filters, URL state, Cards/Table), `test:home`, `test:global` (header, search, alert banner) and `test:cta` (forms, gated download). Every block is valid in the editor.
+- **Lint and build:** `npm run lint` and `npm run build` are clean.
+
+**Screenshot results:** 25 of 25 comparisons that have a mockup pass. Twelve more entries (CTA blocks, FAQ, logo grids, statistics, pull quote) have no exported mockup image and were checked against Figma by eye.
+
+| Step | Status | Standard reached | What is left |
+|---|---|---|---|
+| 1 · Repo, child theme, NSF plugin | Done | Builds cleanly; theme and plugin active | — |
+| 2 · Screenshot harness | Done | 37 entries; HTML report | — |
+| 3 · Design tokens, style guide | 95% | Style guide passes at 1440 | Family font files (headings use a stand-in serif) |
+| 4 · Forms in code | 55% | Seven form definitions in `plugins/nsf/forms/`; forms show a styled preview | Gravity Forms zip and license; the `wp nsf forms import` command; SleepTech company type list |
+| 5 · Header, footer, menus | 90% | Header, sign-up row and footer pass at 1440, 781 and 600 | Logo and 35th anniversary seal SVGs; social profile URLs (now `#`) |
+| 6 · Content model, cards | Done | Card test passes at 3 widths; seed and seed delete work | — |
+| 7 · Resource Hub | Done | Cards, table and filtered views pass at 3 widths; hub behavior test passes | — |
+| 8 · Home | 95% | Passes at 1440, 781 and 600 | Six hero photos (stand-ins rotate today) |
+| 9 · CTAs and callouts | 95% | Built to the Plan items sheet and the Components frames | Gravity Forms; address for the email CTA |
+| 10 · Header Flag | 50% | The hanging tab on Drowsy Driving Prevention Week matches its mockup (518:278, hover 520:331) as a pattern | The block the plan describes, with on/off, label and link type (anchor, PDF, page) controls, so it can go on any page |
+| 11 · FAQ, sponsor grid | Done | FAQ with FAQPage JSON-LD; logo grids | — |
+| 12 · Resource single | Done | Passes at 1440 (2.6%); Related Content now text items as in the mockup | — |
+| 13 · Search results | Done | Passes at 1440, with and without a filter | — |
+| 14 · Archives and 404 | Done | Blog, topic archive and 404 pass at 1440 | Topic archive is compared above the fold only (four sample posts) |
+| 15 · Interior pages | Done | All seven pass at 1440: National Programs 2.4%, Sleep Awareness Week 3.9%, Drowsy Driving Prevention Week 9.2%, Resource Center 2.8%, Polls 1.4%, SleepTech Membership 2.6%, Media Center 2.0% | Tablet and phone mockups for these pages (checked only for no sideways scroll at 390, 600 and 781) |
+| 16 · Zoho CRM | Not started | — | Gravity Forms; Zoho modules and field mapping (deferred by decision) |
+| 17 · Content migration | 25% | All 43 pages in the content plan exist with the right parent and slug (checked one by one, October 21); 43 page docs exported to `content/pages/` | Copy for the 12 empty page docs; the migration script; meta descriptions; blog posts and Resources source; redirects |
+| 18 · WP Engine deploy | Done (development) | Every push to `main` deploys to thensf2026dev; Actions > Refresh pages re-runs the page scripts without SSH | Staging and production are not set up from this repo (staging is off limits for now) |
+| 19 · Final visual check | Not started | — | Mockup sign-off, real content, all widths |
+
+**Site structure and slugs.** The page tree matches the CONTENT PLAN tab of "NSF Website Content Sheets" row for row (43 of 43). A page paired with an old-site page uses that page's slug; new pages use a slug from their title (Sleep Health Resources keeps `sleep-health-resources`, its page doc title). The full list is in `content/site-outline.md`. One extra page exists outside the plan: `/prospectus-thank-you/`, the gated download success page.
+
+**Changes from this plan since October 14**
+- The redesigned Figma mockups (October 20) replaced the older frames for steps 12 to 15. Where a styled mockup and this plan disagree, the mockup wins.
+- The new mockups are 1440 only, so steps 12 to 15 pass at 1440; 781 and 600 are checked for layout, not against a design.
+- Development (thensf2026dev) stands in for staging in step 18.
 
 ---
 
@@ -43,20 +86,20 @@ All mockups are needed at 1440, 781 and 600 widths. A step can start once its 14
 |---|---|---|---|
 | Styling | [362:219](https://www.figma.com/design/mVNfIISs9yQQurddJagkfU/NSF-2026?node-id=362-219) | Ready | 3 |
 | Shared components | [464:2](https://www.figma.com/design/mVNfIISs9yQQurddJagkfU/NSF-2026?node-id=464-2) | Ready (1440) | 5, 6 |
-| Header, alert banner, footer, newsletter sign-up row (if not all in Shared components) | — | To come | 5 |
+| Header, alert banner, footer, newsletter sign-up row (if not all in Shared components) | In Shared components | Ready | 5 |
 | Content cards: outline and icon, navy fill, featured image | — | To come (featured image card is on Home and Resources) | 6 |
 | Sleep Health Resources, cards view | [1440](https://www.figma.com/design/mVNfIISs9yQQurddJagkfU/NSF-2026?node-id=154-431) · [781](https://www.figma.com/design/mVNfIISs9yQQurddJagkfU/NSF-2026?node-id=182-2) · [600](https://www.figma.com/design/mVNfIISs9yQQurddJagkfU/NSF-2026?node-id=187-185) | Ready | 7 |
 | Sleep Health Resources, table view | [1440](https://www.figma.com/design/mVNfIISs9yQQurddJagkfU/NSF-2026?node-id=154-681) · [781](https://www.figma.com/design/mVNfIISs9yQQurddJagkfU/NSF-2026?node-id=188-2) · [600](https://www.figma.com/design/mVNfIISs9yQQurddJagkfU/NSF-2026?node-id=190-2) | Ready | 7 |
-| Home | [1440](https://www.figma.com/design/mVNfIISs9yQQurddJagkfU/NSF-2026?node-id=464-67) | Ready (1440); 781 and 600 to come | 8 |
+| Home | [1440](https://www.figma.com/design/mVNfIISs9yQQurddJagkfU/NSF-2026?node-id=464-67) | Ready at 1440, 781 and 600 | 8 |
 | Best Slept Self band, options A/B/C | [A](https://www.figma.com/design/mVNfIISs9yQQurddJagkfU/NSF-2026?node-id=471-60) · [B](https://www.figma.com/design/mVNfIISs9yQQurddJagkfU/NSF-2026?node-id=471-74) · [C](https://www.figma.com/design/mVNfIISs9yQQurddJagkfU/NSF-2026?node-id=471-88) | Ready; option to be chosen | 8 |
-| Campaign band, Drowsy Driving Prevention Week® and Sleep Awareness Week® versions | — | To come | 8 |
-| General CTA row, Flexible CTAs, Contact Us CTA, Statistics row, Participation Toolkit, gated download form and success page | — | To come | 9 |
-| Header Flag | — | To come | 10 |
+| Campaign band, Drowsy Driving Prevention Week® and Sleep Awareness Week® versions | [580:796](https://www.figma.com/design/mVNfIISs9yQQurddJagkfU/NSF-2026?node-id=580-796) | Ready (1440) | 8 |
+| General CTA row, Flexible CTAs, Contact Us CTA, Statistics row, Participation Toolkit, gated download form and success page | [Plan items 577:799](https://www.figma.com/design/mVNfIISs9yQQurddJagkfU/NSF-2026?node-id=577-799) | Ready (1440) | 9 |
+| Header Flag (hanging tab) | [518:278](https://www.figma.com/design/mVNfIISs9yQQurddJagkfU/NSF-2026?node-id=518-278) · [hover 520:331](https://www.figma.com/design/mVNfIISs9yQQurddJagkfU/NSF-2026?node-id=520-331) | Ready (1440) | 10 |
 | FAQ accordion, Sponsor/Collaborator grid | — | To come | 11 |
-| Resource single | — | To come | 12 |
-| Search results | — | To come | 13 |
-| Sleep Learning Zone archive, topic archive, 404 | — | To come | 14 |
-| National Programs, Sleep Awareness Week®, SleepTech® Network Membership, Sleep in America® Polls, Drowsy Driving Prevention Resource Center, Drowsy Driving Prevention Week®, Media Center | — | To come | 15 |
+| Resource single | [571:2](https://www.figma.com/design/mVNfIISs9yQQurddJagkfU/NSF-2026?node-id=571-2) | Ready (1440) | 12 |
+| Search results | [542:332](https://www.figma.com/design/mVNfIISs9yQQurddJagkfU/NSF-2026?node-id=542-332) | Ready (1440) | 13 |
+| Sleep Learning Zone archive, topic archive, 404 | [552:509](https://www.figma.com/design/mVNfIISs9yQQurddJagkfU/NSF-2026?node-id=552-509) · [546:390](https://www.figma.com/design/mVNfIISs9yQQurddJagkfU/NSF-2026?node-id=546-390) · [555:2](https://www.figma.com/design/mVNfIISs9yQQurddJagkfU/NSF-2026?node-id=555-2) | Ready (1440) | 14 |
+| National Programs, Sleep Awareness Week®, SleepTech® Network Membership, Sleep in America® Polls, Drowsy Driving Prevention Resource Center, Drowsy Driving Prevention Week®, Media Center | 497:60 · 505:154 · 506:212 · 561:564 · 567:2 · 519:270 · 574:2 | Ready (1440); 781 and 600 not planned | 15 |
 
 Wireframes for all of these are on the [Wireframe detailed](https://www.figma.com/design/mVNfIISs9yQQurddJagkfU/NSF-2026?node-id=2-21) page. Until a mockup exists, Claude Code can build structure from the wireframe and come back for styling.
 
@@ -303,7 +346,7 @@ Read docs/implementation-plan.md section "Resource CPT Single". Use the Resource
 
 1. Extend breadcrumbs for Resources to show the taxonomy, with middle terms linking to the Resource Hub with that filter applied.
 2. single-resource template: title band (breadcrumb, H1, subtitle, byline), overview pattern (cover, download button, file details from step 6, summary), Statistics row for key findings, Related Content block, disclaimer.
-3. Related Content block: editor picks 3 posts or pages, shown as featured image cards with each item's type as the eyebrow.
+3. Related Content block: editor picks 3 posts or pages, shown as text items (top rule, type eyebrow, title, Read more) as in the mockup.
 ```
 
 **Test:** the comparison passes at all three widths using a seeded Resource. Breadcrumb links open the hub with the filter applied.
@@ -430,6 +473,43 @@ Point the visual harness at the staging URL and run every entry in /tests/visual
 
 These affect the steps noted. Answer them before the step starts.
 
-1. **Topic** (Resource Hub, step 7): which taxonomy does the Topic facet and table column use?
+1. ~~**Topic** (Resource Hub, step 7)~~: answered, a new hierarchical `topic` taxonomy.
 2. **Blog posts and Resources** (step 17): the Word docs cover pages. Where do the existing Sleep Learning Zone posts and the Resources come from: a WordPress export of the current site, or somewhere else?
-3. **Header Flag JavaScript** (step 10): where is the current implementation?
+3. **Header Flag JavaScript** (step 10): the hanging tab was built new from its mockup. Is the old script still needed, or can step 10 finish as a new block?
+
+---
+
+## Not covered by this plan or the mockups
+
+These came up during the build and are not spoken to in the plan, the spec or the mockups. Each needs an owner or a decision before launch.
+
+**Content and URLs**
+- **Redirects.** The spec keeps the Redirection plugin, but no step builds the old-to-new URL map. Most old pages sat at the root (`/sleep-awareness-week/`) and now live under a section (`/national-programs/sleep-awareness-week/`), so every one needs a 301. The content plan already pairs them; the REDIRECTS tab needs filling and importing. Old blog post and Resource URLs need the same check.
+- **Blog posts, Resources, press releases and media files.** No source or migration step yet (open question 2). The site has sample content only; `wp nsf seed --delete` removes it.
+- **Pages with no copy.** Twelve page docs are empty, and pages without a mockup (Research, NSF Sleep Measures, Key Issues and others) have no layout direction beyond the page doc.
+- **Tablet and phone mockups** for the October 20 pages. They were built responsive but not checked against a design.
+
+**SEO and sharing**
+- Choose the SEO plugin (the spec proposes keeping All in One SEO) and load each page's meta description from the content plan.
+- Open Graph and social share images per page, and a default.
+- XML sitemap, robots rules, and making sure development and staging stay out of search results.
+- Structured data beyond the FAQ (Organization, Article for posts, Event for Sleep Awareness Week and the Drowsy Driving forum).
+
+**Forms and data**
+- Spam protection for every form (Akismet is proposed; honeypot or Turnstile is worth deciding).
+- Who gets each form's notification email, and the FluentSMTP sending setup.
+- Where the newsletter sign-up goes (Zoho, or an email platform) and the double opt-in wording.
+- Privacy wording on forms that collect personal data, and how long entries are kept in Gravity Forms.
+
+**Brand and assets**
+- Family font license and files; Concept 1A logo, seal and favicon SVGs; real photography to replace stand-ins.
+- Higher-resolution campaign logos and graphics: the ones in the build are 1x captures from Figma.
+- Sign-off on the accessibility color changes (Dark Orange text, Dark Blue text on orange buttons).
+
+**Operations and launch**
+- Analytics (GA4 tag or MonsterInsights) and a cookie consent banner if tracking requires it.
+- Plugin list confirmation (spec, "Plugins") and installing them on WP Engine.
+- Staging and production environments, the database and uploads move, DNS and SSL cutover, and a launch checklist.
+- Editor roles, locked or unlocked patterns, and a short editor guide for swapping the campaign band, the alert banner and the hanging tab.
+- Backups, uptime monitoring and 404 monitoring after launch.
+- Video hosting and embed privacy for the forum video on the Resource Center (YouTube privacy mode or another host).
