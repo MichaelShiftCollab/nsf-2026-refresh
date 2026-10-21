@@ -4,7 +4,7 @@
  * Slug: nsf/title-band-contact
  * Categories: nsf-sections
  * Keywords: title, heading, banner, contact, media, press
- * Description: Page heading and intro on the Inner Page Heading gradient, with a white contact box on the right that overlaps the band's sheet. Media Center mockup. For pages on the "No Title" template.
+ * Description: Page heading and intro on the Inner Page Heading gradient, with a white contact box on the right. Media Center mockup (Figma 574:25). For pages on the "No Title" template.
  *
  * @package NSF
  */

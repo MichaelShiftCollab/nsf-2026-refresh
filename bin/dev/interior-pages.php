@@ -19,7 +19,7 @@ defined( 'ABSPATH' ) || exit;
 // standard one (an eyebrow, a photo, a contact box) use the "No Title"
 // template and start with their own title band section.
 $nsf_interior_pages = array(
-	'national-programs'                                                 => array( 'National Programs', '', '', 'national-programs' ),
+	'national-programs'                                                 => array( 'National Programs', '', 'no-title', 'national-programs' ),
 	'national-programs/sleep-awareness-week'                            => array( 'Sleep Awareness Week®', '', 'no-title', 'sleep-awareness-week' ),
 	'national-programs/drowsy-driving-prevention'                       => array( 'Drowsy Driving Prevention Week®', '', 'no-title', 'drowsy-driving-prevention-week' ),
 	'national-programs/drowsy-driving-prevention/drowsy-driving-prevention-resources' => array( 'Drowsy Driving Prevention Resources', '', 'no-title', 'drowsy-driving-prevention-resources' ),

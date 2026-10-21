@@ -741,8 +741,10 @@ strong {
 .is-style-section-lightest-blue .is-style-stat,
 .is-style-section-light-orange .is-style-stat {
 	background-color: var(--wp--preset--color--white);
-	border-top-right-radius: var(--wp--custom--radius--photo-medium);
-	box-shadow: var(--wp--preset--shadow--card);
+	border: var(--wp--custom--border--hairline) solid var(--wp--preset--color--light-blue);
+	border-radius: var(--wp--custom--radius--card);
+	box-shadow: none;
+	padding: calc(var(--wp--preset--spacing--40) + var(--wp--preset--spacing--10));
 }
 
 /* ® and ™ in headings sit small and raised, as in the mockups. */

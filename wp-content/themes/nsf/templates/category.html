@@ -1,23 +1,23 @@
 <!-- wp:template-part {"slug":"header","tagName":"header","className":"site-header"} /-->
 
-<!-- wp:group {"tagName":"main","className":"site-content nsf-listing","style":{"spacing":{"margin":{"top":"0"},"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|70"}}},"layout":{"type":"constrained"}} -->
-<main class="wp-block-group site-content nsf-listing" style="margin-top:0;padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--70)"><!-- wp:group {"metadata":{"name":"Intro"},"className":"nsf-listing-intro","style":{"spacing":{"blockGap":"var:preset|spacing|20"}},"layout":{"type":"default"}} -->
-<div class="wp-block-group nsf-listing-intro"><!-- wp:nsf/breadcrumbs /-->
+<!-- wp:group {"tagName":"main","className":"site-content nsf-listing","style":{"spacing":{"margin":{"top":"0"},"padding":{"top":"0","bottom":"var:preset|spacing|70"}}},"layout":{"type":"constrained"}} -->
+<main class="wp-block-group site-content nsf-listing" style="margin-top:0;padding-top:0;padding-bottom:var(--wp--preset--spacing--70)"><!-- wp:group {"metadata":{"name":"Title band"},"align":"full","className":"is-style-section-title-band nsf-title-band nsf-listing-band","style":{"spacing":{"blockGap":"var:preset|spacing|20"}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull is-style-section-title-band nsf-title-band nsf-listing-band"><!-- wp:nsf/breadcrumbs /-->
 
 <!-- wp:query-title {"type":"archive","showPrefix":false} /-->
 
-<!-- wp:term-description {"className":"is-style-paragraph-2"} /--></div>
+<!-- wp:term-description {"fontSize":"medium","style":{"typography":{"lineHeight":"1.3333"}}} /--></div>
 <!-- /wp:group -->
 
-<!-- wp:query {"queryId":1,"query":{"perPage":9,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true},"metadata":{"name":"Posts in this topic"},"className":"nsf-archive-results","style":{"spacing":{"margin":{"top":"var:preset|spacing|60"},"blockGap":"var:preset|spacing|30"}}} -->
-<div class="wp-block-query nsf-archive-results" style="margin-top:var(--wp--preset--spacing--60)"><!-- wp:search {"label":"Search the Sleep Learning Zone®","showLabel":false,"placeholder":"Search the Sleep Learning Zone®","buttonText":"Search","buttonPosition":"button-inside","buttonUseIcon":true,"query":{"post_type":"post"},"className":"nsf-search nsf-search--compact"} /-->
+<!-- wp:query {"queryId":1,"query":{"perPage":9,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true},"metadata":{"name":"Posts in this topic"},"className":"nsf-archive-results","style":{"spacing":{"blockGap":"var:preset|spacing|30"}}} -->
+<div class="wp-block-query nsf-archive-results"><!-- wp:search {"label":"Search the Sleep Learning Zone®","showLabel":false,"placeholder":"Search the Sleep Learning Zone®","buttonText":"Search","query":{"post_type":"post"},"className":"nsf-search nsf-search--wide"} /-->
 
 <!-- wp:paragraph {"metadata":{"name":"Post count","bindings":{"content":{"source":"nsf/listing","args":{"key":"count"}}}},"className":"nsf-listing-count"} -->
 <p class="nsf-listing-count"></p>
 <!-- /wp:paragraph -->
 
 <!-- wp:post-template {"style":{"spacing":{"blockGap":"var:preset|spacing|gutter"}},"layout":{"type":"grid","columnCount":3,"minimumColumnWidth":"16rem"}} -->
-<!-- wp:nsf/content-card {"eyebrowSource":"none","showExcerpt":false,"showDate":true} /-->
+<!-- wp:nsf/content-card {"className":"nsf-listing-card","eyebrowSource":"none","showExcerpt":false,"showDate":true} /-->
 <!-- /wp:post-template -->
 
 <!-- wp:query-pagination {"paginationArrow":"arrow","className":"nsf-pagination","layout":{"type":"flex","justifyContent":"center"}} -->

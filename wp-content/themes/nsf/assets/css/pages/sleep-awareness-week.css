@@ -1,16 +1,19 @@
 /*
- * Sleep Awareness Week® (mockup pages/sleep-awareness-week, wireframe
- * 155:103). Classes are prefixed nsf-saw- because every page stylesheet
- * loads on every page. Sizes without a theme.json token (20px and 18px body
- * copy, the 380px poll logo column) are set once here.
+ * Sleep Awareness Week® (mockup 505:154). Classes are prefixed nsf-saw-
+ * because every page stylesheet loads in the editor. Sizes without a
+ * theme.json token (the logo and placeholder boxes, the 568px photo cluster
+ * column, gaps of 18 and 20px) are set once here.
  */
 
+.nsf-saw-hero,
 .nsf-saw-section,
 .nsf-saw-toolkit {
-	--nsf-saw-gap: calc(var(--wp--preset--spacing--40) + var(--wp--preset--spacing--10));
-	--nsf-saw-text-lg: var(--wp--custom--font-size--body-large);
-	--nsf-saw-text-md: var(--wp--custom--font-size--body-medium);
+	--nsf-saw-gap: var(--wp--preset--spacing--50);
+	--nsf-saw-cluster: 568px;
+	--nsf-saw-gap-18: 18px;
+	--nsf-saw-gap-20: 20px;
 	--nsf-saw-logo-height: 80px;
+	--nsf-saw-narrow: 900px;
 }
 
 /* Vertical rhythm: flex stacks with gaps instead of block margins. */
@@ -26,6 +29,11 @@
 
 .nsf-saw-section > *,
 .nsf-saw-stack > *,
+.nsf-saw-hero__grid > *,
+.nsf-saw-split > *,
+.nsf-saw-columns > *,
+.nsf-saw-feature > *,
+.nsf-saw-findings > *,
 .nsf-saw-finding > * {
 	margin-block: 0 !important;
 }
@@ -36,64 +44,134 @@
 	gap: var(--wp--preset--spacing--20);
 }
 
-.nsf-saw-stack > .nsf-saw-actions {
-	margin-top: var(--wp--preset--spacing--10) !important;
+.nsf-saw-stack--18 {
+	gap: var(--nsf-saw-gap-18);
 }
 
-.nsf-saw-text-lg {
-	font-size: var(--nsf-saw-text-lg);
-	line-height: 1.5;
-}
-
-.nsf-saw-text-md {
-	font-size: var(--nsf-saw-text-md);
-	line-height: 1.5556;
+.nsf-saw-stack--20 {
+	gap: var(--nsf-saw-gap-20);
 }
 
 .nsf-saw-measure {
-	max-width: 820px;
+	max-width: 840px;
 }
 
-/* Copy beside a photo or placeholder. */
-.nsf-saw-split {
+.nsf-saw-heading-narrow,
+.nsf-saw-note {
+	max-width: var(--nsf-saw-narrow);
+}
+
+/* Logos and badges: fixed boxes from the mockup. */
+.nsf-saw-section .wp-block-image,
+.nsf-saw-hero .nsf-saw-logo {
+	margin: 0;
+}
+
+.nsf-saw-logo img,
+.nsf-saw-badge img,
+.nsf-saw-finding__icon img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+.nsf-saw-logo--hero img {
+	width: 360px;
+}
+
+.nsf-saw-badge img {
+	width: 120px;
+}
+
+.nsf-saw-logo--bss img {
+	width: 220px;
+}
+
+.nsf-saw-logo--poll img {
+	width: 360px;
+}
+
+.nsf-saw-logo--vertical img {
+	width: 200px;
+	margin-inline: auto;
+}
+
+/* Campaign hero: copy beside the photo cluster, one rounded corner. */
+.nsf-saw-hero {
+	overflow: hidden;
+	border-top-right-radius: var(--wp--custom--radius--band);
+}
+
+.nsf-saw-hero__grid {
 	display: grid;
-	grid-template-columns: minmax(0, 1fr) minmax(0, var(--wp--custom--split--panel-width));
-	gap: var(--wp--custom--split--copy-gap);
+	grid-template-columns: minmax(0, 1fr) minmax(0, var(--nsf-saw-cluster));
+	gap: var(--nsf-saw-gap);
 	align-items: center;
 }
 
-.nsf-saw-split > *,
-.nsf-saw-columns > *,
-.nsf-saw-findings > *,
-.nsf-saw-feature > * {
-	margin: 0 !important;
+.nsf-saw-hero__copy {
+	gap: var(--nsf-saw-gap-20);
 }
 
-.nsf-saw-photo img {
-	display: block;
-	width: 100%;
-	height: 380px;
-	object-fit: cover;
-	border-top-right-radius: var(--wp--custom--radius--photo-medium);
+/* The eyebrow keeps the mockup's double spaces and runs into the gap. */
+@media (min-width: 1200px) {
+
+	.nsf-saw-hero__copy > .is-style-eyebrow {
+		white-space: pre;
+	}
 }
 
+/* The campaign's own sun watermark behind the photos. */
+.nsf-saw-cluster::before {
+	background-image: url(../../images/sleep-awareness-week/saw-hero-watermark.png);
+}
+
+/* Two columns of copy. */
 .nsf-saw-columns {
 	display: grid;
 	grid-template-columns: repeat(2, minmax(0, 1fr));
 	gap: var(--wp--custom--split--copy-gap);
 }
 
-/* Dashed placeholder for the infographic. */
+/* Copy beside the infographic placeholder. */
+.nsf-saw-split {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) minmax(0, 460px);
+	gap: var(--nsf-saw-gap);
+	align-items: center;
+}
+
+.nsf-saw-download {
+	color: var(--wp--preset--color--primary-blue);
+	font-size: var(--wp--preset--font-size--small);
+	font-weight: 700;
+	line-height: 1.5;
+}
+
+.nsf-saw-download a {
+	text-decoration: none;
+}
+
+.nsf-saw-download a::after {
+	content: "\00a0\00a0↓";
+}
+
+.nsf-saw-download a:hover {
+	text-decoration: underline;
+	text-underline-offset: 0.15em;
+}
+
 .nsf-saw-placeholder {
 	display: grid;
 	place-items: center;
 	height: 300px;
-	border: var(--wp--custom--border--button) dashed var(--wp--preset--color--medium-blue);
-	border-radius: var(--wp--custom--radius--card);
+	border: var(--wp--custom--border--hairline) solid var(--wp--preset--color--light-blue);
+	border-radius: 0 var(--wp--custom--radius--frame) 0 var(--wp--custom--radius--frame);
 	background: var(--wp--preset--color--white);
-	color: var(--wp--preset--color--primary-blue);
+	color: var(--wp--preset--color--gray);
 	font-size: var(--wp--preset--font-size--x-small);
 	font-weight: 700;
+	line-height: 1.4286;
 	letter-spacing: var(--wp--custom--letter-spacing--caps);
 	text-transform: uppercase;
 }
@@ -102,52 +180,38 @@
 	margin: 0;
 }
 
-/* White to Lightest Blue section. */
-.nsf-saw-fade {
-	background: linear-gradient(180deg, var(--wp--preset--color--white) 0%, var(--wp--preset--color--lightest-blue) 100%);
+/* Article cards: outlined, square image, link at the foot. */
+.nsf-saw-articles .nsf-card--featured-image {
+	border: var(--wp--custom--border--hairline) solid var(--wp--preset--color--light-blue);
+	border-radius: var(--wp--custom--radius--card);
+	box-shadow: none;
 }
 
-/* Article cards {
-	display: grid;
-	grid-template-columns: repeat(4, minmax(0, 1fr));
-	gap: var(--wp--preset--spacing--gutter);
+.nsf-saw-articles .nsf-card--featured-image .nsf-card__media {
+	border-radius: 0;
 }
 
-/* Poll feature: logo box beside the copy, in a Lightest Blue frame. */
+.nsf-saw-articles .nsf-card__body {
+	padding: var(--wp--preset--spacing--30) var(--nsf-saw-gap-20) var(--wp--preset--spacing--40);
+}
+
+.nsf-saw-articles .nsf-card__more {
+	padding-top: var(--wp--preset--spacing--30);
+	color: var(--wp--preset--color--primary-blue);
+	font-weight: 700;
+}
+
+/* Sleep in America® Poll: logo beside the copy. */
 .nsf-saw-feature {
 	display: grid;
-	grid-template-columns: 380px minmax(0, 1fr);
-	overflow: hidden;
-	border-top-right-radius: var(--wp--custom--radius--photo-medium);
-	background: var(--wp--preset--color--lightest-blue);
+	grid-template-columns: minmax(0, 360px) minmax(0, 1fr);
+	gap: var(--nsf-saw-gap);
+	align-items: center;
 }
 
-.nsf-saw-feature__logo {
-	display: grid;
-	align-content: start;
-	justify-items: center;
-	min-height: 300px;
-	padding-top: var(--wp--preset--spacing--50);
-	background: var(--wp--preset--color--light-blue);
-	color: var(--wp--preset--color--primary-blue);
-	font-size: var(--wp--preset--font-size--x-small);
-	font-weight: 700;
-	letter-spacing: var(--wp--custom--letter-spacing--caps);
-	text-transform: uppercase;
-}
-
-.nsf-saw-feature__logo > p {
-	margin: 0;
-}
-
-.nsf-saw-feature__copy {
-	justify-content: center;
-	padding: var(--wp--preset--spacing--50);
-}
-
-/* Findings band. */
-.nsf-saw-band {
-	border-top-right-radius: var(--wp--custom--radius--band);
+/* Findings: icon beside the copy, two by two. */
+.nsf-saw-findings-head {
+	align-items: stretch;
 }
 
 .nsf-saw-findings {
@@ -157,75 +221,66 @@
 }
 
 .nsf-saw-finding {
-	--nsf-saw-icon: 48px;
-	position: relative;
 	display: flex;
-	flex-direction: column;
-	gap: var(--wp--preset--spacing--10);
-	padding: var(--wp--preset--spacing--40);
-	padding-left: calc(var(--wp--preset--spacing--40) + var(--nsf-saw-icon) + var(--wp--preset--spacing--20) + 4px);
+	gap: var(--nsf-saw-gap-20);
+	align-items: flex-start;
+	min-height: 180px;
+	box-sizing: border-box;
+	padding: 28px;
 	border-radius: var(--wp--custom--radius--card);
-	background: var(--wp--preset--color--white);
-	box-shadow: var(--wp--preset--shadow--card);
 }
 
-/* Sun icon in a Lightest Blue circle. */
-.nsf-saw-finding::before,
-.nsf-saw-finding::after {
-	content: "";
-	position: absolute;
-	top: var(--wp--preset--spacing--40);
-	left: var(--wp--preset--spacing--40);
-	width: var(--nsf-saw-icon);
-	height: var(--nsf-saw-icon);
+.nsf-saw-finding__icon {
+	flex: none;
+	width: 100px;
 }
 
-.nsf-saw-finding::before {
-	border-radius: 50%;
-	background: var(--wp--preset--color--lightest-blue);
+.nsf-saw-finding__icon img {
+	width: 100px;
 }
 
-.nsf-saw-finding::after {
-	background: var(--wp--preset--color--primary-blue);
-	-webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Ccircle cx='12' cy='12' r='4'/%3E%3Cpath d='M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4'/%3E%3C/svg%3E") center / 24px no-repeat;
-	mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Ccircle cx='12' cy='12' r='4'/%3E%3Cpath d='M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4'/%3E%3C/svg%3E") center / 24px no-repeat;
+.nsf-saw-finding > .nsf-saw-stack {
+	flex: 1;
+	min-width: 0;
 }
 
-.nsf-saw-finding__title {
-	font-family: var(--wp--preset--font-family--open-sans);
-	font-size: var(--nsf-saw-text-lg);
-	font-weight: 600;
-	line-height: 1.4;
+.nsf-saw-findings-band .is-style-card-heading {
+	color: var(--wp--preset--color--white);
 }
 
-.nsf-saw-callout {
-	padding-left: var(--wp--preset--spacing--40);
-	border-left: var(--wp--custom--border--rule) solid var(--wp--preset--color--primary-orange);
-}
-
-.nsf-saw-callout__text {
-	max-width: 820px;
-	color: var(--wp--preset--color--primary-blue);
+.nsf-saw-note {
 	font-size: var(--wp--custom--font-size--card-title);
 	font-weight: 600;
 	line-height: 1.3333;
 }
 
-/* Poll report CTA on the light multi gradient. */
-.nsf-cta-row.nsf-saw-cta {
-	background: linear-gradient(180deg, var(--wp--preset--color--light-blue) 0%, var(--wp--preset--color--light-orange) 100%);
+.nsf-saw-crisis {
+	font-size: var(--wp--preset--font-size--small);
+	font-style: italic;
+	line-height: 1.5;
 }
 
-.nsf-saw-cta h2 {
-	font-size: 36px;
-	line-height: 1.2222;
+/* Poll report CTA: copy on the left, button centred. */
+.nsf-saw-cta {
+	align-items: center;
 }
 
-/* Logo grids: fixed-height boxes, 8 or 7 across. */
+/* Sponsors and collaborators. */
+.nsf-saw-section--logos {
+	gap: calc(var(--wp--preset--spacing--40) + var(--wp--preset--spacing--10));
+}
+
+.nsf-saw-logos-heading.nsf-saw-logos-heading {
+	font-family: var(--wp--preset--font-family--open-sans);
+	font-size: var(--wp--preset--font-size--large);
+	font-weight: 600;
+	line-height: 1.25;
+}
+
 .nsf-saw-logos {
 	display: grid;
 	grid-template-columns: repeat(8, minmax(0, 1fr));
-	gap: 18px;
+	gap: var(--nsf-saw-gap-20);
 }
 
 .nsf-saw-logos--7 {
@@ -235,39 +290,50 @@
 .nsf-saw-logos.is-style-logos > .wp-block-image img {
 	height: var(--nsf-saw-logo-height) !important;
 	aspect-ratio: auto;
-	border: var(--wp--custom--border--button) solid var(--wp--preset--color--light-blue);
+	padding: var(--wp--preset--spacing--20);
+	border: var(--wp--custom--border--hairline) solid var(--wp--preset--color--light-blue);
 	border-radius: var(--wp--custom--radius--card);
 	background: var(--wp--preset--color--white);
 }
 
-/* Participation Toolkit band. */
-.nsf-saw-toolkit {
-	border-top-right-radius: var(--wp--custom--radius--band);
-	background: linear-gradient(180deg, var(--wp--preset--color--light-blue) 0%, var(--wp--preset--color--light-orange) 100%);
-}
-
-.nsf-saw-toolkit .nsf-split__copy {
-	padding-top: var(--wp--preset--spacing--20);
+/* Participation Toolkit: copy beside the form panel. */
+.nsf-saw-toolkit .nsf-split {
+	grid-template-columns: minmax(0, 538fr) minmax(0, 602fr);
 }
 
 .nsf-saw-toolkit .nsf-split__copy > * + * {
-	margin-top: var(--wp--preset--spacing--20);
+	margin-top: var(--nsf-saw-gap-18);
 }
 
 .nsf-saw-toolkit .nsf-split__panel {
-	padding: var(--wp--preset--spacing--50);
-	border-top-right-radius: var(--wp--custom--radius--photo-medium);
-	box-shadow: var(--wp--preset--shadow--card);
+	padding: var(--wp--preset--spacing--40);
+}
+
+.nsf-saw-toolkit .nsf-split__eyebrow.nsf-split__eyebrow {
+	margin-bottom: var(--wp--preset--spacing--20);
+	color: var(--wp--preset--color--primary-blue);
+}
+
+.nsf-saw-toolkit .nsf-form.is-preview {
+	gap: var(--wp--preset--spacing--20);
+}
+
+.nsf-saw-toolkit .nsf-form textarea {
+	min-height: var(--wp--custom--control--field-height);
+	height: var(--wp--custom--control--field-height);
+	padding-block: calc((var(--wp--custom--control--field-height) - 1.5em - 2px) / 2);
+	border-radius: var(--wp--custom--radius--pill);
+	line-height: 1.5;
+	resize: none;
 }
 
 @media (max-width: 1099px) {
 
-	.nsf-saw-split {
+	.nsf-saw-hero__grid {
 		grid-template-columns: minmax(0, 1fr);
-		gap: var(--nsf-saw-gap);
 	}
 
-	.nsf-saw-feature {
+	.nsf-saw-split {
 		grid-template-columns: minmax(0, 1fr);
 	}
 
@@ -277,36 +343,45 @@
 	}
 }
 
+@media (max-width: 899px) {
+
+	.nsf-saw-toolkit .nsf-split {
+		grid-template-columns: minmax(0, 1fr);
+	}
+}
+
 @media (max-width: 781px) {
 
-	.nsf-saw-section.nsf-saw-intro {
-		padding-top: var(--wp--preset--spacing--30) !important;
+	.nsf-saw-hero {
+		border-top-right-radius: var(--wp--custom--radius--band-tablet);
 	}
 
+	.nsf-saw-feature,
 	.nsf-saw-findings {
-		gap: var(--wp--preset--spacing--30);
+		grid-template-columns: minmax(0, 1fr);
 	}
 
 	.nsf-saw-logos,
 	.nsf-saw-logos--7 {
 		grid-template-columns: repeat(3, minmax(0, 1fr));
 	}
-
-	.nsf-saw-toolkit .nsf-split__panel {
-		padding: var(--wp--preset--spacing--40);
-	}
 }
 
 @media (max-width: 600px) {
 
-	.nsf-saw-columns,
-	.nsf-saw-findings {
+	.nsf-saw-columns {
 		grid-template-columns: minmax(0, 1fr);
-		gap: var(--wp--preset--spacing--30);
+		gap: var(--wp--preset--spacing--40);
 	}
 
-	.nsf-saw-feature__copy {
-		padding: var(--wp--preset--spacing--40);
+	.nsf-saw-finding {
+		flex-direction: column;
+		padding: var(--wp--preset--spacing--20) 0;
+	}
+
+	.nsf-saw-finding__icon,
+	.nsf-saw-finding__icon img {
+		width: 72px;
 	}
 
 	.nsf-saw-logos,

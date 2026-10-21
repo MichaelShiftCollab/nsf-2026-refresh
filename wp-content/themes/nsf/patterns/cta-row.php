@@ -23,7 +23,7 @@
 
 <!-- wp:buttons -->
 <div class="wp-block-buttons"><!-- wp:button -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="/contact/"><?php esc_html_e( 'Go to the form →', 'nsf' ); ?></a></div>
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="/contact/"><?php esc_html_e( 'Go to the form  →', 'nsf' ); ?></a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons -->
 <!-- /wp:nsf/cta-row -->

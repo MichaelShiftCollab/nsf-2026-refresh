@@ -1,14 +1,15 @@
 /*
- * General CTA Row (wireframe 489:196): Lightest Blue band, copy on the left,
- * one button on the right; stacks below 782px.
+ * General CTA Row (Figma 577:990): White to Light Blue band with frame
+ * corners top right and bottom left, an Open Sans heading and one line of
+ * copy on the left, one button on the right; stacks below 782px.
  */
 .nsf-cta-row {
 	display: flex;
 	align-items: center;
 	gap: var(--wp--preset--spacing--50);
-	padding: var(--wp--preset--spacing--50) var(--wp--preset--spacing--60);
-	border-radius: var(--wp--custom--radius--card);
-	background: var(--wp--preset--color--lightest-blue);
+	padding: calc(var(--wp--preset--spacing--50) + var(--wp--preset--spacing--10)) var(--wp--preset--spacing--60);
+	border-radius: 0 var(--wp--custom--radius--frame);
+	background: linear-gradient(to bottom, var(--wp--preset--color--white), var(--wp--preset--color--light-blue));
 
 	> .nsf-cta-row__copy {
 		flex: 1;
@@ -20,7 +21,18 @@
 		}
 
 		> * + * {
-			margin-top: var(--wp--preset--spacing--10);
+			margin-top: var(--wp--preset--spacing--20);
+		}
+
+		> .wp-block-heading {
+			font-family: var(--wp--preset--font-family--open-sans);
+			font-size: var(--wp--preset--font-size--large);
+			font-weight: 600;
+			line-height: 1.25;
+		}
+
+		> p {
+			text-box: trim-both cap alphabetic;
 		}
 	}
 
@@ -32,6 +44,8 @@
 	@media (max-width: 781px) {
 		flex-direction: column;
 		align-items: flex-start;
-		padding: var(--wp--preset--spacing--40);
+		gap: var(--wp--preset--spacing--40);
+		padding: var(--wp--preset--spacing--50) var(--wp--preset--spacing--40);
+		border-radius: 0 var(--wp--custom--radius--photo-medium);
 	}
 }

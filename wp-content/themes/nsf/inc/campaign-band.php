@@ -2,9 +2,11 @@
 /**
  * Markup for the Campaign band patterns (Home mockup 473:60 and 464:121).
  *
- * The three versions share one layout: copy and a button on the left, a
- * cluster of three photos over a faded watermark on the right. An editor
- * swaps one version for another by hand.
+ * The three versions (Figma 580:796) share one layout: copy and a button on
+ * the left, a cluster of three photos over a faded watermark on the right.
+ * Each version has its own watermark: a sun (Best Slept Self®), a steering
+ * wheel (Drowsy Driving Prevention Week®) or the Sleep Awareness Week® sunrise.
+ * An editor swaps one version for another by hand.
  *
  * @package NSF
  */
@@ -22,11 +24,13 @@ defined( 'ABSPATH' ) || exit;
  *     @type string $note    Small paragraph under it.
  *     @type string $button  Button text.
  *     @type string $url     Button link.
+ *     @type string $variant Optional watermark: 'drowsy-driving' or 'sleep-awareness'. Default sun.
  * }
  * @return string
  */
 function nsf_campaign_band_markup( $band ) {
-	$image = fn( $file ) => esc_url( get_theme_file_uri( 'assets/images/home/' . $file ) );
+	$image   = fn( $file ) => esc_url( get_theme_file_uri( 'assets/images/home/' . $file ) );
+	$cluster = 'nsf-photo-cluster' . ( empty( $band['variant'] ) ? '' : ' nsf-photo-cluster--' . sanitize_html_class( $band['variant'] ) );
 	ob_start();
 	?>
 <!-- wp:group {"metadata":{"name":"<?php echo esc_attr( $band['name'] ); ?>"},"align":"full","className":"is-style-section-light-blue-to-light-orange nsf-band","style":{"spacing":{"padding":{"top":"var:preset|spacing|section","bottom":"var:preset|spacing|section"}}},"layout":{"type":"constrained"}} -->
@@ -56,8 +60,8 @@ function nsf_campaign_band_markup( $band ) {
 <!-- /wp:column -->
 
 <!-- wp:column {"verticalAlignment":"center","width":"568px"} -->
-<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:568px"><!-- wp:group {"metadata":{"name":"Photo cluster"},"className":"nsf-photo-cluster","layout":{"type":"default"}} -->
-<div class="wp-block-group nsf-photo-cluster"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"nsf-photo-cluster__large"} -->
+<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:568px"><!-- wp:group {"metadata":{"name":"Photo cluster"},"className":"<?php echo esc_attr( $cluster ); ?>","layout":{"type":"default"}} -->
+<div class="wp-block-group <?php echo esc_attr( $cluster ); ?>"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"nsf-photo-cluster__large"} -->
 <figure class="wp-block-image size-full nsf-photo-cluster__large"><img src="<?php echo $image( 'campaign-large.jpg' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>" alt=""/></figure>
 <!-- /wp:image -->
 

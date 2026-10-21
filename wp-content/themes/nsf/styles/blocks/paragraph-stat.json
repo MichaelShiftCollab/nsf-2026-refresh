@@ -8,7 +8,7 @@
 	],
 	"styles": {
 		"color": {
-			"text": "var(--wp--preset--color--primary-blue)"
+			"text": "var(--wp--preset--color--dark-orange)"
 		},
 		"typography": {
 			"fontFamily": "var(--wp--preset--font-family--test-family)",

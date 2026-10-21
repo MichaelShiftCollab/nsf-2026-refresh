@@ -14,6 +14,7 @@ import ServerSideRender from '@wordpress/server-side-render';
 
 import { FormPicker } from '../../editor/controls';
 import metadata from './block.json';
+import './style.scss';
 
 const TEMPLATE = [
 	[

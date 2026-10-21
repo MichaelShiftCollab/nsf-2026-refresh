@@ -48,39 +48,51 @@
 	{
 		"name": "search",
 		"group": "search",
-		"url": "/?s=sleep",
-		"selector": "main"
+		"url": "/?s=drowsy+driving",
+		"widths": [
+			1440
+		]
 	},
 	{
 		"name": "search-filtered",
 		"group": "search",
 		"mockup": "search",
 		"url": "/?s=sleep&filter=topic:sleep-disorders,category:sleep-disorders",
-		"selector": "main"
+		"widths": [
+			1440
+		]
 	},
 	{
 		"name": "blog-archive",
 		"group": "archive",
 		"url": "/sleep-health-resources/sleep-health-topics/",
-		"selector": "main",
 		"ignore": [
 			".nsf-card__media"
+		],
+		"widths": [
+			1440
 		]
 	},
 	{
 		"name": "topic-archive",
 		"group": "archive",
 		"url": "/category/sleep-disorders/",
-		"selector": "main",
 		"ignore": [
 			".nsf-card__media"
-		]
+		],
+		"widths": [
+			1440
+		],
+		"fullPage": false,
+		"heightTolerance": 75
 	},
 	{
 		"name": "404",
 		"group": "archive",
 		"url": "/this-page-does-not-exist/",
-		"selector": "main"
+		"widths": [
+			1440
+		]
 	},
 	{
 		"name": "home",
@@ -239,7 +251,10 @@
 			".nsf-signup",
 			".nsf-footer"
 		],
-		"heightTolerance": 25
+		"heightTolerance": 25,
+		"widths": [
+			1440
+		]
 	},
 	{
 		"name": "national-programs",
@@ -252,6 +267,9 @@
 			"header.site-header",
 			".nsf-signup",
 			".nsf-footer"
+		],
+		"widths": [
+			1440
 		]
 	},
 	{
@@ -266,6 +284,9 @@
 			".nsf-signup",
 			".nsf-footer",
 			".nsf-card__media"
+		],
+		"widths": [
+			1440
 		]
 	},
 	{
@@ -280,6 +301,9 @@
 			".nsf-signup",
 			".nsf-footer",
 			".nsf-card__media"
+		],
+		"widths": [
+			1440
 		]
 	},
 	{
@@ -294,6 +318,9 @@
 			".nsf-signup",
 			".nsf-footer",
 			".nsf-card__media"
+		],
+		"widths": [
+			1440
 		]
 	},
 	{
@@ -307,6 +334,9 @@
 			"header.site-header",
 			".nsf-signup",
 			".nsf-footer"
+		],
+		"widths": [
+			1440
 		]
 	},
 	{
@@ -320,6 +350,9 @@
 			".nsf-photo",
 			".wp-block-image img",
 			".wp-block-cover__image-background"
+		],
+		"widths": [
+			1440
 		]
 	},
 	{
@@ -333,6 +366,9 @@
 			".nsf-photo",
 			".wp-block-image img",
 			".wp-block-cover__image-background"
+		],
+		"widths": [
+			1440
 		]
 	}
 ]

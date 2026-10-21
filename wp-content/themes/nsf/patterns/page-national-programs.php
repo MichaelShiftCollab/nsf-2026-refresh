@@ -5,7 +5,7 @@
  * Categories: nsf-pages
  * Post Types: page
  * Keywords: national programs, campaigns, page
- * Description: National Programs page body under the standard Title band: intro with a photo, three campaign cards, Reshaping Employee Wellness and Key Issues rows. Placeholder copy from the mockup.
+ * Description: National Programs page body for the "No Title" template (Figma 497:60, hero option A): dark blue hero with a two-photo cluster, three campaign cards, Reshaping Employee Wellness and Key Issues rows. Placeholder copy from the mockup.
  *
  * @package NSF
  */
@@ -49,21 +49,31 @@ $nsf_np_card = function ( $image, $eyebrow, $title, $text, $url ) {
 	<?php
 };
 ?>
-<!-- wp:group {"metadata":{"name":"Intro"},"align":"full","className":"is-style-section-white nsf-np-intro","style":{"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|section"}}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull is-style-section-white nsf-np-intro" style="padding-top:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--section)"><!-- wp:group {"className":"nsf-np-split","layout":{"type":"default"}} -->
-<div class="wp-block-group nsf-np-split"><!-- wp:group {"className":"nsf-np-stack","layout":{"type":"default"}} -->
-<div class="wp-block-group nsf-np-stack"><!-- wp:paragraph {"className":"is-style-paragraph-2","textColor":"primary-blue"} -->
-<p class="is-style-paragraph-2 has-primary-blue-color has-text-color"><?php esc_html_e( 'NSF’s national programs bring sleep health to the public — annual campaigns that reach millions, a workplace initiative for employers, and the issues we work on year-round.', 'nsf' ); ?></p>
+<!-- wp:group {"metadata":{"name":"Hero"},"align":"full","className":"nsf-np-hero","layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull nsf-np-hero"><!-- wp:group {"className":"nsf-np-hero__grid","layout":{"type":"default"}} -->
+<div class="wp-block-group nsf-np-hero__grid"><!-- wp:group {"className":"nsf-np-hero__copy","layout":{"type":"default"}} -->
+<div class="wp-block-group nsf-np-hero__copy"><!-- wp:heading {"level":1,"textColor":"white"} -->
+<h1 class="wp-block-heading has-white-color has-text-color"><?php esc_html_e( 'National Programs', 'nsf' ); ?></h1>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"className":"is-style-paragraph-2","textColor":"white"} -->
+<p class="is-style-paragraph-2 has-white-color has-text-color"><?php esc_html_e( 'NSF’s national programs bring sleep health to the public — annual campaigns that reach millions, a workplace initiative for employers, and the issues we work on year-round.', 'nsf' ); ?></p>
 <!-- /wp:paragraph -->
 
-<!-- wp:paragraph {"className":"nsf-np-note"} -->
-<p class="nsf-np-note"><?php esc_html_e( 'Placeholder copy throughout — page content in development', 'nsf' ); ?></p>
+<!-- wp:paragraph {"className":"nsf-np-note","textColor":"white"} -->
+<p class="nsf-np-note has-white-color has-text-color"><?php esc_html_e( 'Placeholder copy throughout — page content in development', 'nsf' ); ?></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
-<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"nsf-np-photo nsf-np-photo--intro nsf-photo"} -->
-<figure class="wp-block-image size-full nsf-np-photo nsf-np-photo--intro nsf-photo"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/home/hero-1.jpg' ) ); ?>" alt=""/></figure>
+<!-- wp:group {"metadata":{"name":"Photo cluster"},"className":"nsf-np-cluster","layout":{"type":"default"}} -->
+<div class="wp-block-group nsf-np-cluster"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"nsf-np-cluster__large nsf-photo"} -->
+<figure class="wp-block-image size-full nsf-np-cluster__large nsf-photo"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/home/research.jpg' ) ); ?>" alt=""/></figure>
+<!-- /wp:image -->
+
+<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"nsf-np-cluster__small nsf-photo"} -->
+<figure class="wp-block-image size-full nsf-np-cluster__small nsf-photo"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/home/hero-1.jpg' ) ); ?>" alt=""/></figure>
 <!-- /wp:image --></div>
+<!-- /wp:group --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group -->
 
@@ -110,13 +120,13 @@ $nsf_np_card( 'assets/images/home/campaign-small-right.jpg', __( 'Year-round', '
 <!-- /wp:group -->
 
 <!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"nsf-np-photo nsf-photo"} -->
-<figure class="wp-block-image size-full nsf-np-photo nsf-photo"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/home/research.jpg' ) ); ?>" alt=""/></figure>
+<figure class="wp-block-image size-full nsf-np-photo nsf-photo"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/home/campaign-small-left.jpg' ) ); ?>" alt=""/></figure>
 <!-- /wp:image --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"metadata":{"name":"Key Issues"},"align":"full","className":"nsf-np-section nsf-np-band","style":{"spacing":{"padding":{"top":"var:preset|spacing|section","bottom":"var:preset|spacing|section"}}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull nsf-np-section nsf-np-band" style="padding-top:var(--wp--preset--spacing--section);padding-bottom:var(--wp--preset--spacing--section)"><!-- wp:group {"className":"nsf-np-row nsf-np-row--flip","layout":{"type":"default"}} -->
+<!-- wp:group {"metadata":{"name":"Key Issues"},"align":"full","className":"is-style-section-white nsf-np-section","style":{"spacing":{"padding":{"top":"var:preset|spacing|section","bottom":"var:preset|spacing|section"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull is-style-section-white nsf-np-section" style="padding-top:var(--wp--preset--spacing--section);padding-bottom:var(--wp--preset--spacing--section)"><!-- wp:group {"className":"nsf-np-row nsf-np-row--flip","layout":{"type":"default"}} -->
 <div class="wp-block-group nsf-np-row nsf-np-row--flip"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"nsf-np-photo nsf-photo"} -->
 <figure class="wp-block-image size-full nsf-np-photo nsf-photo"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/home/card-1.jpg' ) ); ?>" alt=""/></figure>
 <!-- /wp:image -->

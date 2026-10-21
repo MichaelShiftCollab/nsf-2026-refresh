@@ -1,14 +1,113 @@
 /*
- * National Programs (mockup pages/national-programs, wireframe 155:2):
- * intro beside a photo, campaign cards 3-up, and two photo rows.
+ * National Programs (Figma 497:60, hero option A; "No Title" template):
+ * dark blue hero with a two-photo cluster and a bullhorn watermark,
+ * campaign cards 3-up, and two photo rows. Sizes with no theme.json token
+ * (the 600px photo cluster, the 560px watermark and its offsets, the
+ * small photo's 25% shadow) come from the mockup and are set once here.
  * Classes are prefixed nsf-np- because every page stylesheet loads on
  * every page.
  */
 
-.nsf-np-intro,
+.nsf-np-hero,
 .nsf-np-section {
 	--nsf-np-gap: calc(var(--wp--preset--spacing--40) + var(--wp--preset--spacing--10));
 	--nsf-np-photo-width: 520px;
+	--nsf-np-row-gap: calc(var(--wp--preset--spacing--40) + var(--wp--preset--spacing--40));
+	--nsf-np-cluster-width: 600px;
+}
+
+/*
+ * Hero: Primary Blue to Dark Blue band with a rounded top-right corner,
+ * white copy beside a two-photo cluster, and a faint bullhorn behind.
+ */
+.nsf-np-hero {
+	position: relative;
+	overflow: hidden;
+	padding-top: calc(var(--wp--preset--spacing--60) + var(--wp--preset--spacing--20));
+	padding-bottom: var(--wp--preset--spacing--70);
+	border-top-right-radius: var(--wp--custom--radius--band);
+	background: var(--wp--preset--gradient--primary-blue-to-dark-blue);
+	color: var(--wp--preset--color--white);
+}
+
+.nsf-np-hero::before {
+	content: "";
+	position: absolute;
+	top: 20px;
+	left: calc(50% + 40px);
+	width: 560px;
+	aspect-ratio: 1;
+	background: url(../../images/national-programs-bullhorn.svg) center / contain no-repeat;
+	opacity: 0.08;
+	pointer-events: none;
+}
+
+.nsf-np-hero__grid {
+	position: relative;
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) var(--nsf-np-cluster-width);
+	gap: calc(var(--wp--preset--spacing--30) + var(--wp--preset--spacing--30));
+	align-items: center;
+}
+
+.nsf-np-hero__grid > *,
+.nsf-np-hero__copy > * {
+	margin: 0 !important;
+}
+
+.nsf-np-hero__copy {
+	display: flex;
+	flex-direction: column;
+	gap: var(--wp--preset--spacing--30);
+}
+
+.nsf-np-hero .nsf-np-note {
+	opacity: 0.75;
+}
+
+/* Photo cluster: a large photo, a smaller one over its lower left. */
+.nsf-np-cluster {
+	position: relative;
+	width: 100%;
+	max-width: var(--nsf-np-cluster-width);
+	aspect-ratio: 600 / 420;
+}
+
+.nsf-np-cluster .wp-block-image {
+	position: absolute;
+	margin: 0;
+}
+
+.nsf-np-cluster .wp-block-image img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.nsf-np-cluster__large {
+	top: 0;
+	right: 0;
+	width: 80%;
+	height: 85.7143%;
+}
+
+.nsf-np-cluster__large img {
+	border-top-right-radius: var(--wp--custom--radius--frame);
+	border-bottom-left-radius: var(--wp--custom--radius--frame);
+}
+
+.nsf-np-cluster__small {
+	bottom: 0;
+	left: 0;
+	width: 36.6667%;
+	height: 42.8571%;
+}
+
+.nsf-np-cluster__small img {
+	border-top-right-radius: var(--wp--custom--radius--photo-medium);
+	border-bottom-left-radius: var(--wp--custom--radius--photo-medium);
+	box-shadow: 0 8px 24px 0 color-mix(in srgb, var(--wp--preset--color--dark-blue) 25%, transparent);
 }
 
 /* Vertical rhythm: flex stacks with gaps instead of block margins. */
@@ -35,24 +134,22 @@
 	gap: var(--wp--preset--spacing--20);
 }
 
-/* Copy beside a photo, centered. */
-.nsf-np-split,
-.nsf-np-row {
-	display: grid;
-	grid-template-columns: minmax(0, 1fr) minmax(0, var(--wp--custom--split--panel-width));
-	gap: var(--wp--custom--split--copy-gap);
-	align-items: center;
+.nsf-np-row .nsf-np-stack {
+	gap: calc(var(--wp--preset--spacing--20) + 2px);
 }
 
+/* Copy beside a photo, centered. */
 .nsf-np-row {
+	display: grid;
 	grid-template-columns: minmax(0, 1fr) var(--nsf-np-photo-width);
+	gap: var(--nsf-np-row-gap);
+	align-items: center;
 }
 
 .nsf-np-row--flip {
 	grid-template-columns: var(--nsf-np-photo-width) minmax(0, 1fr);
 }
 
-.nsf-np-split > *,
 .nsf-np-row > * {
 	margin: 0 !important;
 }
@@ -62,11 +159,8 @@
 	width: 100%;
 	height: 320px;
 	object-fit: cover;
-	border-top-right-radius: var(--wp--custom--radius--photo-medium);
-}
-
-.nsf-np-photo--intro img {
-	height: 360px;
+	border-top-right-radius: var(--wp--custom--radius--frame);
+	border-bottom-left-radius: var(--wp--custom--radius--frame);
 }
 
 .nsf-np-note {
@@ -77,11 +171,12 @@
 
 .nsf-np-text-lg {
 	font-size: var(--wp--preset--font-size--medium);
-	line-height: 1.5;
+	line-height: 1.3333;
 }
 
-.nsf-np-stack > .nsf-np-actions {
-	margin-top: var(--wp--preset--spacing--10) !important;
+/* The mockup trims the large copy to its cap height; pull it in to match. */
+.nsf-np-row .nsf-np-text-lg {
+	margin-block: calc(-1 * var(--wp--preset--spacing--10)) !important;
 }
 
 /* Campaign cards. */
@@ -98,8 +193,9 @@
 .nsf-np-card {
 	display: flex;
 	flex-direction: column;
+	gap: var(--wp--preset--spacing--20);
 	overflow: hidden;
-	border-top-right-radius: var(--wp--custom--radius--photo-medium);
+	border-top-right-radius: var(--wp--custom--radius--frame);
 	background: var(--wp--preset--color--white);
 	box-shadow: var(--wp--preset--shadow--card);
 }
@@ -111,7 +207,7 @@
 .nsf-np-card__image img {
 	display: block;
 	width: 100%;
-	aspect-ratio: 16 / 9;
+	height: 200px;
 	object-fit: cover;
 }
 
@@ -122,7 +218,7 @@
 	justify-content: space-between;
 	gap: var(--wp--preset--spacing--30);
 	margin: 0 !important;
-	padding: var(--wp--preset--spacing--30);
+	padding: var(--wp--preset--spacing--30) var(--wp--preset--spacing--30) var(--wp--preset--spacing--40);
 }
 
 .nsf-np-card__text {
@@ -131,15 +227,21 @@
 	gap: var(--wp--preset--spacing--10);
 }
 
-/* Key Issues band: white to Lightest Blue, rounded top-right corner. */
-.nsf-np-band {
-	border-top-right-radius: var(--wp--custom--radius--band);
-	background: linear-gradient(180deg, var(--wp--preset--color--white) 0%, var(--wp--preset--color--lightest-blue) 100%);
-}
-
 @media (max-width: 1099px) {
 
-	.nsf-np-split,
+	.nsf-np-hero__grid {
+		grid-template-columns: minmax(0, 1fr);
+		gap: var(--wp--preset--spacing--50);
+	}
+
+	.nsf-np-hero::before {
+		top: auto;
+		bottom: -80px;
+		left: auto;
+		right: -80px;
+		width: 420px;
+	}
+
 	.nsf-np-row,
 	.nsf-np-row--flip {
 		grid-template-columns: minmax(0, 1fr);
@@ -153,12 +255,20 @@
 
 @media (max-width: 781px) {
 
+	.nsf-np-hero {
+		border-top-right-radius: var(--wp--custom--radius--band-tablet);
+	}
+
+	.nsf-np-hero h1 {
+		font-size: var(--wp--preset--font-size--x-large);
+	}
+
 	.nsf-np-cards {
 		grid-template-columns: repeat(2, minmax(0, 1fr));
 		gap: var(--wp--preset--spacing--30);
 	}
 
-	.nsf-np-photo:not(.nsf-np-photo--intro) img {
+	.nsf-np-photo img {
 		height: 300px;
 	}
 

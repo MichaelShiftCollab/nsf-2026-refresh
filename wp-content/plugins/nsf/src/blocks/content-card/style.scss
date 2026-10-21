@@ -116,14 +116,20 @@
 		}
 	}
 
-	// Navy fill: related child pages (provisional, from the wireframe).
+	// Navy fill: related child pages (Figma 577:1008). Dark Blue, 16px
+	// corners, Medium Orange eyebrow, white text and a bold link.
 	&--navy {
+		border-radius: var(--wp--custom--radius--card);
 		background: var(--wp--preset--color--dark-blue);
-		color: var(--wp--preset--color--light-blue);
+		color: var(--wp--preset--color--white);
 
 		.nsf-card__body {
 			gap: var(--wp--preset--spacing--20);
-			padding: var(--wp--preset--spacing--40);
+			padding: calc(var(--wp--preset--spacing--40) + var(--wp--preset--spacing--10)) var(--wp--preset--spacing--40);
+		}
+
+		.nsf-card__more {
+			font-weight: 700;
 		}
 
 		.nsf-card__eyebrow {
