@@ -1,7 +1,8 @@
 /* eslint-disable no-console */
 // Screenshot comparison: captures each pages.json entry at each width with Playwright,
 // compares it to tests/visual/mockups/<mockup>-<width>.png with pixelmatch, and writes
-// screenshots, diffs, results.json and report.html to tests/visual/results.
+// screenshots, diffs, results.json and report.html to tests/visual/results, or to
+// the folder in VISUAL_RESULTS so parallel runs do not clear each other's results.
 //
 // Usage: npm run test:visual [-- --grep <text>] [--base-url <url>]
 import fs from 'node:fs/promises';
@@ -12,7 +13,9 @@ import { PNG } from 'pngjs';
 import pixelmatch from 'pixelmatch';
 
 const dir = path.dirname( fileURLToPath( import.meta.url ) );
-const resultsDir = path.join( dir, 'results' );
+const resultsDir = process.env.VISUAL_RESULTS
+	? path.resolve( process.env.VISUAL_RESULTS )
+	: path.join( dir, 'results' );
 const DEFAULT_THRESHOLD = 10; // percent mismatch allowed
 const DEFAULT_HEIGHT_TOLERANCE = 15; // percent of mockup height the page may differ by
 
