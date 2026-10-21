@@ -10,6 +10,40 @@
 	margin: 0;
 }
 
+/* Text the listing mockups trim to cap height and baseline. */
+.nsf-listing-band > p,
+.nsf-listing-band > .wp-block-term-description p,
+.nsf-listing-band .nsf-breadcrumbs__item,
+.nsf-listing-count,
+.nsf-filter,
+.nsf-result__meta p,
+.nsf-result__title,
+.nsf-result__excerpt p,
+.nsf-404-search > p,
+.nsf-kicker.wp-block-heading,
+.nsf-link-list a {
+	text-box: trim-both cap alphabetic;
+}
+
+/* Breadcrumb on the topic archive (546:413): regular weight, solid slash,
+   10px between items, 20px above the title. */
+.nsf-listing-band .nsf-breadcrumbs {
+	margin-bottom: calc(var(--wp--preset--spacing--20) * 1.25);
+}
+
+.nsf-listing-band .nsf-breadcrumbs__list {
+	gap: 0.7143em;
+}
+
+.nsf-listing-band .nsf-breadcrumbs__item + .nsf-breadcrumbs__item::before {
+	margin-right: 0.7143em;
+	opacity: 1;
+}
+
+.nsf-listing-band .nsf-breadcrumbs [aria-current] {
+	font-weight: inherit;
+}
+
 /* Intro and topic description: a measure of 840px, left-aligned with the
    heading (the constrained layout keeps the full content width). */
 .nsf-listing-band > p,
@@ -25,13 +59,26 @@
 	margin: 0;
 }
 
-/* The listing starts a little below the band's white sheet. */
+/* The listing starts 24px below the band's white sheet. */
 .nsf-listing-band + .wp-block-query {
 	padding-top: var(--wp--preset--spacing--30);
 }
 
-.nsf-listing-band + .nsf-search-results {
-	padding-top: var(--wp--preset--spacing--20);
+/* Search results (542:362): count, filters, list and pagination 32px
+   apart; blog and topic archives (552:534): count 40px under the search,
+   cards 32px under the count. */
+.nsf-listing .wp-block-query > * {
+	margin-block: 0;
+}
+
+.nsf-search-results .nsf-search-filters,
+.nsf-search-results .nsf-result-list,
+.nsf-archive-results .wp-block-post-template {
+	margin-top: var(--wp--preset--spacing--40);
+}
+
+.nsf-archive-results .nsf-search + .nsf-listing-count {
+	margin-top: calc(var(--wp--preset--spacing--40) + var(--wp--preset--spacing--10));
 }
 
 /* Search fields */
@@ -43,12 +90,33 @@
 	max-width: 400px;
 }
 
-/* Field and outside button, as in the listing mockups. */
+/* Field and outside button, as in the listing mockups: a 720px field,
+   16px gap. The mockups' button is 47px; the theme's is 43px, so the row
+   keeps the mockups' 47px slot with the field centred in it. */
 .nsf-search--wide {
+	--nsf-search-field: var(--wp--custom--control--field-height);
 	max-width: 860px;
+	padding-block: calc((var(--wp--custom--control--height) + 2 * var(--wp--custom--border--button) - var(--nsf-search-field)) / 2);
 }
 
-.nsf-search--wide .wp-block-search__inside-wrapper {
+/* The blog mockup's field is the shorter control height (552:535). */
+.blog .nsf-search--wide {
+	--nsf-search-field: var(--wp--custom--control--height);
+}
+
+.nsf-search--wide .wp-block-search__input.wp-block-search__input {
+	flex: 0 1 720px;
+	min-width: 0;
+	height: var(--nsf-search-field);
+	font-weight: var(--wp--custom--font-weight--regular);
+	padding-left: calc(var(--wp--custom--control--padding-inline) + var(--wp--custom--border--button));
+}
+
+.nsf-listing-band .nsf-search--wide .wp-block-search__input {
+	color: var(--wp--preset--color--dark-blue);
+}
+
+.nsf-search--wide .wp-block-search__inside-wrapper.wp-block-search__inside-wrapper {
 	gap: var(--wp--preset--spacing--20);
 }
 
@@ -114,14 +182,6 @@
 }
 
 /* Count and kicker lines */
-.nsf-search + .nsf-listing-count {
-	margin-top: var(--wp--preset--spacing--40);
-}
-
-.nsf-archive-results .wp-block-post-template {
-	margin-top: var(--wp--preset--spacing--30);
-}
-
 .nsf-listing-count {
 	margin: 0;
 	color: var(--wp--preset--color--primary-blue);
@@ -135,12 +195,12 @@
 }
 
 .nsf-listing-intro > p,
-.nsf-listing-intro > .wp-block-term-description,
-.nsf-404-search > p {
+.nsf-listing-intro > .wp-block-term-description {
 	max-width: 840px;
 }
 
 .nsf-kicker.wp-block-heading {
+	margin: 0;
 	color: var(--wp--preset--color--gray);
 	font-family: var(--wp--preset--font-family--open-sans);
 	font-size: var(--wp--preset--font-size--x-small);
@@ -155,15 +215,13 @@
 	display: flex;
 	flex-wrap: wrap;
 	gap: var(--wp--custom--control--gap);
-	margin-top: var(--wp--preset--spacing--30);
 }
 
+/* Pill 41px tall: 14px above and below the trimmed label (542:366). */
 .nsf-filter {
-	display: inline-flex;
+	display: inline-block;
 	box-sizing: border-box;
-	align-items: center;
-	min-height: var(--wp--custom--control--height);
-	padding: 0 var(--wp--custom--control--padding-inline);
+	padding: calc(var(--wp--preset--spacing--20) - var(--wp--custom--border--button)) var(--wp--custom--control--padding-inline);
 	border: 1px solid var(--wp--preset--color--medium-blue);
 	border-radius: var(--wp--custom--radius--pill);
 	background: var(--wp--preset--color--white);
@@ -192,24 +250,26 @@
 	outline-offset: var(--wp--custom--border--button);
 }
 
-/* Search results list */
-.nsf-result-list {
-	margin-top: var(--wp--preset--spacing--40);
-}
-
+/* Search results list: 32px above and below, 16px between lines. */
 .nsf-result-list > li {
 	margin: 0;
-	padding: var(--wp--preset--spacing--30) 0;
+	padding: var(--wp--preset--spacing--40) 0;
 	border-bottom: 1px solid var(--wp--preset--color--light-blue);
 }
 
+/* Block flow rather than the group's flex column: Chrome sizes a trimmed
+   flex item as one line, so wrapped titles overlapped the next line. */
 .nsf-result.wp-block-group {
-	gap: calc(var(--wp--preset--spacing--10) / 2);
+	display: block;
 }
 
 .nsf-result > * {
 	max-width: 880px;
 	margin: 0;
+}
+
+.nsf-result.wp-block-group > * + * {
+	margin-top: var(--wp--preset--spacing--20);
 }
 
 .nsf-result__meta {
@@ -228,7 +288,7 @@
 
 .nsf-result__eyebrow + .nsf-result__date::before {
 	content: "·";
-	margin: 0 0.6em;
+	margin: 0 0.7143em;
 }
 
 .nsf-result__title.wp-block-post-title {
@@ -240,6 +300,7 @@
 }
 
 .nsf-result__title a {
+	display: inline;
 	color: inherit;
 	text-decoration: none;
 }
@@ -253,6 +314,7 @@
 
 .nsf-result__excerpt p {
 	margin: 0;
+	color: var(--wp--preset--color--gray);
 	font-size: var(--wp--preset--font-size--small);
 	line-height: 1.5;
 }
@@ -269,13 +331,29 @@
 
 .nsf-listing-card.nsf-card {
 	flex: 1;
-	border: 1px solid var(--wp--preset--color--light-blue);
+	border: var(--wp--custom--border--hairline) solid var(--wp--preset--color--light-blue);
 	border-radius: var(--wp--custom--radius--card);
 	box-shadow: none;
 }
 
+/* As in the mockups (552:542), the outline sits inside the card's box: the
+   photo runs under it, 380 x 214, and the card is 411px tall. */
 .nsf-listing-card .nsf-card__media {
+	margin: calc(var(--wp--custom--border--hairline) * -1) calc(var(--wp--custom--border--hairline) * -1) 0;
 	border-top-right-radius: 0;
+}
+
+.nsf-listing-card .nsf-card__body {
+	padding-bottom: calc(var(--wp--preset--spacing--40) - var(--wp--custom--border--hairline));
+}
+
+/* Every card in the three-across grid is as tall as one with a
+   three-line title. */
+@media (min-width: 782px) {
+
+	.nsf-listing-card .nsf-card__title {
+		min-height: calc(2lh + 1cap);
+	}
 }
 
 .nsf-listing-card .nsf-card__meta {
@@ -283,7 +361,11 @@
 	padding-top: var(--wp--preset--spacing--10);
 }
 
-/* Pagination: same pills as the Resource Hub. */
+/* Pagination: same pills as the Resource Hub, 48px under the list. */
+.nsf-listing .wp-block-query > .nsf-pagination {
+	margin-top: var(--wp--preset--spacing--50);
+}
+
 .nsf-pagination {
 	gap: 10px;
 	margin-top: var(--wp--preset--spacing--50);
@@ -333,9 +415,26 @@
 	color: var(--wp--preset--color--white);
 }
 
-/* 404: "Where to go instead" link columns */
-.nsf-link-columns {
+/* 404 (555:27): lead, search and links 48px apart, starting 24px under
+   the band. */
+.nsf-title-band + .nsf-404-search {
+	padding-top: var(--wp--preset--spacing--30);
+}
+
+.nsf-404-search > p {
+	max-width: 820px;
 	margin: 0;
+	color: var(--wp--preset--color--gray);
+}
+
+.nsf-404-search > .nsf-search {
+	margin-top: var(--wp--preset--spacing--50);
+}
+
+/* 404: "Where to go instead" link columns, 60px apart */
+.nsf-link-columns.wp-block-columns {
+	column-gap: calc(var(--wp--preset--spacing--50) + var(--wp--custom--control--gap));
+	margin: var(--wp--preset--spacing--30) 0 0;
 }
 
 .nsf-link-list {
@@ -351,7 +450,7 @@
 
 .nsf-link-list a {
 	display: block;
-	padding: var(--wp--preset--spacing--20) 0;
+	padding: calc(var(--wp--preset--spacing--20) + var(--wp--custom--border--button) * 2) 0;
 	color: var(--wp--preset--color--primary-blue);
 	font-size: var(--wp--preset--font-size--small);
 	font-weight: var(--wp--custom--font-weight--bold);
@@ -368,7 +467,7 @@
 
 .nsf-link-list__arrow {
 	display: inline-block;
-	margin-left: 0.4em;
+	margin-left: calc(var(--wp--custom--control--gap) - 0.28em);
 }
 
 @media (prefers-reduced-motion: no-preference) {

@@ -94,8 +94,8 @@ $nsf_tbp = array(
 require __DIR__ . '/title-band-photo.php';
 ?>
 
-<!-- wp:group {"metadata":{"name":"About the program"},"align":"full","className":"is-style-section-lightest-blue nsf-rc-about","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60"}}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull is-style-section-lightest-blue nsf-rc-about" style="padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--60)"><!-- wp:group {"className":"nsf-rc-about__copy","layout":{"type":"default"}} -->
+<!-- wp:group {"metadata":{"name":"About the program"},"align":"full","className":"is-style-section-white nsf-rc-about","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull is-style-section-white nsf-rc-about" style="padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--60)"><!-- wp:group {"className":"nsf-rc-about__copy","layout":{"type":"default"}} -->
 <div class="wp-block-group nsf-rc-about__copy"><!-- wp:paragraph {"className":"nsf-trim"} -->
 <p class="nsf-trim"><?php esc_html_e( 'National Sleep Foundation is the public’s leading authority on sleep and its impact on health, well-being, performance, and safety. For over 35 years, NSF has advanced education, research, public awareness, and stakeholder engagement to reduce drowsy driving and improve roadway safety. Drowsy driving prevention is a core focus area within NSF’s broader sleep health and safety efforts.', 'nsf' ); ?></p>
 <!-- /wp:paragraph -->

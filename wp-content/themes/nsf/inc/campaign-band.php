@@ -33,9 +33,9 @@ function nsf_campaign_band_markup( $band ) {
 	$cluster = 'nsf-photo-cluster' . ( empty( $band['variant'] ) ? '' : ' nsf-photo-cluster--' . sanitize_html_class( $band['variant'] ) );
 	ob_start();
 	?>
-<!-- wp:group {"metadata":{"name":"<?php echo esc_attr( $band['name'] ); ?>"},"align":"full","className":"is-style-section-light-blue-to-light-orange nsf-band","style":{"spacing":{"padding":{"top":"var:preset|spacing|section","bottom":"var:preset|spacing|section"}}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull is-style-section-light-blue-to-light-orange nsf-band" style="padding-top:var(--wp--preset--spacing--section);padding-bottom:var(--wp--preset--spacing--section)"><!-- wp:columns {"verticalAlignment":"center","className":"nsf-band__columns","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|50","left":"var:preset|spacing|70"}}}} -->
-<div class="wp-block-columns are-vertically-aligned-center nsf-band__columns"><!-- wp:column {"verticalAlignment":"center","style":{"spacing":{"blockGap":"var:preset|spacing|20"}}} -->
+<!-- wp:group {"metadata":{"name":"<?php echo esc_attr( $band['name'] ); ?>"},"align":"full","className":"nsf-band","gradient":"light-multi","textColor":"gray","style":{"spacing":{"padding":{"top":"var:preset|spacing|section","bottom":"var:preset|spacing|section"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull nsf-band has-gray-color has-light-multi-gradient-background has-text-color has-background" style="padding-top:var(--wp--preset--spacing--section);padding-bottom:var(--wp--preset--spacing--section)"><!-- wp:columns {"verticalAlignment":"center","className":"nsf-band__columns","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|50","left":"var:preset|spacing|70"}}}} -->
+<div class="wp-block-columns are-vertically-aligned-center nsf-band__columns"><!-- wp:column {"verticalAlignment":"center","style":{"spacing":{"blockGap":"18px"}}} -->
 <div class="wp-block-column is-vertically-aligned-center"><!-- wp:paragraph {"className":"is-style-eyebrow"} -->
 <p class="is-style-eyebrow"><?php echo esc_html( $band['eyebrow'] ); ?></p>
 <!-- /wp:paragraph -->

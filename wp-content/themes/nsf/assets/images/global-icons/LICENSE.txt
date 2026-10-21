@@ -1,0 +1,6 @@
+Social icons (instagram, facebook-f, x-twitter, linkedin-in, youtube, bluesky):
+Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com
+License - https://fontawesome.com/license/free (Icons: CC BY 4.0)
+These are the icons the Footer mockup (Figma 464:66) uses.
+
+search.svg: drawn for the header search icon (Figma 464:13).

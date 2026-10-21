@@ -1,10 +1,10 @@
 /*
  * Title band with photo (pattern nsf/title-band-photo; mockups
  * pages/drowsy-driving-resource-center 567:25 and pages/sleep-in-america-polls
- * 561:587): copy beside a 568px photo frame on the Light Blue to Light
- * Orange gradient, with a faded shape behind the photo. The photo and the
- * shape are placed as percentages of the Figma frame so they scale as one
- * piece. Classes are prefixed nsf-tbp-.
+ * 561:587): copy beside a 568px photo frame on the Light Multi gradient
+ * (Lightest Blue to Light Orange), with a faded shape behind the photo. The
+ * photo and the shape are placed as percentages of the Figma frame so they
+ * scale as one piece. Classes are prefixed nsf-tbp-.
  */
 
 .nsf-tbp {
@@ -21,6 +21,9 @@
 	--nsf-tbp-mark-ratio: 1;
 	--nsf-tbp-mark-opacity: 0.14;
 	margin-block: 0 !important;
+
+	/* Figma "Gradients/Light Multi" (567:25, 561:587). */
+	background: var(--wp--preset--gradient--light-multi) !important;
 }
 
 /* Bar chart frame (561:592): 568 x 420. */

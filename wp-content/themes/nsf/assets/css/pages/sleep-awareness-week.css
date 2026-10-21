@@ -230,6 +230,15 @@
 	border-radius: var(--wp--custom--radius--card);
 }
 
+/* Desktop: fixed 180px boxes as in Figma; the longest copy runs into
+   the bottom padding. */
+@media (min-width: 782px) {
+
+	.nsf-saw-finding {
+		padding-bottom: 0;
+	}
+}
+
 .nsf-saw-finding__icon {
 	flex: none;
 	width: 100px;
@@ -306,7 +315,13 @@
 }
 
 .nsf-saw-toolkit .nsf-split__panel {
+	--nsf-panel-row-gap: var(--wp--preset--spacing--20);
 	padding: var(--wp--preset--spacing--40);
+}
+
+.nsf-saw-toolkit .nsf-split__panel .nsf-form input:not([type="checkbox"], [type="radio"], [type="submit"], [type="hidden"]),
+.nsf-saw-toolkit .nsf-split__panel .nsf-form textarea {
+	padding-inline: var(--wp--custom--control--padding-inline);
 }
 
 .nsf-saw-toolkit .nsf-split__eyebrow.nsf-split__eyebrow {
@@ -319,6 +334,7 @@
 }
 
 .nsf-saw-toolkit .nsf-form textarea {
+	display: block;
 	min-height: var(--wp--custom--control--field-height);
 	height: var(--wp--custom--control--field-height);
 	padding-block: calc((var(--wp--custom--control--field-height) - 1.5em - 2px) / 2);

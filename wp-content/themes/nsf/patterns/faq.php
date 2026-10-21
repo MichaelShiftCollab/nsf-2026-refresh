@@ -59,7 +59,7 @@
 <!-- /wp:details --></div>
 <!-- /wp:group -->
 
-<!-- wp:paragraph -->
-<p>Have a question? Email <a href="mailto:SleepTech@theNSF.org">SleepTech@theNSF.org</a>.</p>
+<!-- wp:paragraph {"className":"nsf-trim"} -->
+<p class="nsf-trim">Have a question? Email <a href="mailto:SleepTech@theNSF.org">SleepTech@theNSF.org</a>.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->

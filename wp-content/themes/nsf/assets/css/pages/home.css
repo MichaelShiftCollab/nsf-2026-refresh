@@ -1,0 +1,59 @@
+/*
+ * Home sections (Home mockup 464:67). Gaps the spacing presets do not carry:
+ * 20px after a heading group (464:105, 464:133) and between the business
+ * panel items (464:199), 18px inside the research panels (464:173), 28px
+ * after the collaboration eyebrow (464:230) and between a button and its
+ * link, 40px between the resource links (464:157) and inside the business
+ * panels.
+ */
+.nsf-home-section {
+	--nsf-home-gap-intro: 20px;
+	--nsf-home-gap-panel: 18px;
+	--nsf-home-gap-actions: 28px;
+	--nsf-home-gap-links: 40px;
+	--nsf-home-panel-padding: 40px;
+}
+
+/* Heading group, then the intro paragraph. */
+.nsf-home-intro.nsf-home-intro > * + * {
+	margin-block-start: var(--nsf-home-gap-intro);
+}
+
+/* "Browse all…" and "Visit…" links. */
+.nsf-home-links.nsf-home-links {
+	column-gap: var(--nsf-home-gap-links);
+}
+
+/* Research link panels: title, list and link 18px apart. */
+.nsf-home-panels .is-style-panel-outline > * + * {
+	margin-block-start: var(--nsf-home-gap-panel);
+}
+
+/* For business panels: 40px padding, items 20px apart. */
+.nsf-home-business .is-style-panel {
+	padding: var(--nsf-home-panel-padding);
+}
+
+.nsf-home-business .is-style-panel.is-style-panel > * + * {
+	margin-block-start: var(--nsf-home-gap-intro);
+}
+
+.nsf-home-business .nsf-form.is-preview,
+.nsf-home-business .nsf-form form {
+	row-gap: var(--wp--preset--spacing--20);
+}
+
+/* The fields' 16px gap plus this makes the 20px gap above the button. */
+.nsf-home-business .nsf-form__footer {
+	margin-top: calc(var(--nsf-home-gap-intro) - var(--wp--preset--spacing--20));
+}
+
+.nsf-home-business .nsf-form__footer,
+.nsf-home-business .nsf-actions.nsf-actions {
+	column-gap: var(--nsf-home-gap-actions);
+}
+
+/* Featured collaboration: eyebrow, then the row 28px below. */
+.nsf-home-collab.nsf-home-collab > * + * {
+	margin-block-start: var(--nsf-home-gap-actions);
+}

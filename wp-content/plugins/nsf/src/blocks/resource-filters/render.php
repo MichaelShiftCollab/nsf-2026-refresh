@@ -20,7 +20,8 @@ $nsf_cleared = nsf_hub_url( nsf_hub_params( array( 'sort' => $nsf_params['sort']
 		<form id="nsf-hub-form" class="nsf-hub-form" method="get" action="<?php echo esc_url( nsf_hub_base() ); ?>">
 			<div class="nsf-hub-search">
 				<label class="screen-reader-text" for="nsf-hub-q"><?php esc_html_e( 'Search resources and blog', 'nsf' ); ?></label>
-				<input type="search" id="nsf-hub-q" name="q" value="<?php echo esc_attr( $nsf_params['q'] ); ?>" placeholder="<?php esc_attr_e( 'Search resources and blog', 'nsf' ); ?>" autocomplete="off">
+				<input type="search" id="nsf-hub-q" name="q" value="<?php echo esc_attr( $nsf_params['q'] ); ?>" placeholder="<?php esc_attr_e( 'Search resources', 'nsf' ); ?>" autocomplete="off">
+				<button type="submit" class="nsf-hub-search__submit wp-element-button"><?php esc_html_e( 'Search', 'nsf' ); ?></button>
 			</div>
 			<div class="nsf-hub-filters__header">
 				<h2 class="nsf-hub-filters__title"><?php esc_html_e( 'Filters', 'nsf' ); ?></h2>

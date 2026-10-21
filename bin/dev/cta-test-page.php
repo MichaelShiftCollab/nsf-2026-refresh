@@ -68,6 +68,11 @@ function nsf_cta_test_section( $id, $markup, $section ) {
 	if ( $section ) {
 		return "<!-- wp:group {\"anchor\":\"{$id}\",\"align\":\"full\",\"layout\":{\"type\":\"default\"}} -->\n<div id=\"{$id}\" class=\"wp-block-group alignfull\">{$markup}</div>\n<!-- /wp:group -->\n\n";
 	}
+	// The CTA rows sit in a 56px band in the Plan items sheet (577:993).
+	if ( str_starts_with( $id, 'cta-row' ) ) {
+		$pad = 'calc(var(--wp--preset--spacing--50) + var(--wp--preset--spacing--10))';
+		return "<!-- wp:group {\"anchor\":\"{$id}\",\"align\":\"full\",\"className\":\"is-style-section-white\",\"style\":{\"spacing\":{\"padding\":{\"top\":\"{$pad}\",\"bottom\":\"{$pad}\"}}},\"layout\":{\"type\":\"constrained\"}} -->\n<div id=\"{$id}\" class=\"wp-block-group alignfull is-style-section-white\" style=\"padding-top:{$pad};padding-bottom:{$pad}\">{$markup}</div>\n<!-- /wp:group -->\n\n";
+	}
 	return "<!-- wp:group {\"anchor\":\"{$id}\",\"align\":\"full\",\"className\":\"is-style-section-white\",\"style\":{\"spacing\":{\"padding\":{\"top\":\"var:preset|spacing|section\",\"bottom\":\"var:preset|spacing|section\"}}},\"layout\":{\"type\":\"constrained\"}} -->\n<div id=\"{$id}\" class=\"wp-block-group alignfull is-style-section-white\" style=\"padding-top:var(--wp--preset--spacing--section);padding-bottom:var(--wp--preset--spacing--section)\">{$markup}</div>\n<!-- /wp:group -->\n\n";
 }
 

@@ -12,16 +12,15 @@
 	align-items: start;
 }
 
-.nsf-title-band-contact__copy {
-	padding-top: var(--wp--preset--spacing--20);
-}
-
 .nsf-title-band-contact__copy > * {
 	margin-block: 0;
 }
 
+/* Intro trimmed to cap height and baseline, 16px under the H1
+   (Figma 574:26). */
 .nsf-title-band-contact .is-style-paragraph-2 {
 	max-width: 820px;
+	text-box: trim-both cap alphabetic;
 }
 
 /* Media contact box (Figma 574:29): 16px corners, soft card shadow, rows
@@ -65,7 +64,12 @@
 	text-decoration: underline;
 }
 
-/* Key facts (Figma 574:35): orange numbers in Lightest Blue panels. */
+/* Key facts (Figma 574:35): orange numbers in Lightest Blue panels, 40px
+   under the heading. */
+.nsf-media-key-facts > .nsf-stats.nsf-stats {
+	margin-top: calc(var(--wp--preset--spacing--40) + var(--wp--preset--spacing--10));
+}
+
 .nsf-media-key-facts .is-style-stat.is-style-stat {
 	padding: calc(var(--wp--preset--spacing--40) + var(--wp--preset--spacing--10)) var(--wp--preset--spacing--40);
 }
@@ -202,7 +206,8 @@
 }
 
 .nsf-press-list {
-	margin: 0;
+	margin-inline: 0;
+	margin-bottom: 0;
 	padding: 0;
 	list-style: none;
 }
@@ -254,7 +259,7 @@
 	display: inline-flex;
 	box-sizing: border-box;
 	align-items: center;
-	min-height: var(--wp--custom--control--height);
+	min-height: calc(var(--wp--custom--control--height) + 2 * var(--wp--custom--border--button));
 	padding: 0 var(--wp--preset--spacing--40);
 	border: var(--wp--custom--border--button) solid var(--wp--preset--color--primary-blue);
 	border-radius: var(--wp--custom--radius--pill);

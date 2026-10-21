@@ -190,6 +190,13 @@
 	background-image: url(../../images/drowsy-driving-prevention-week/steering-wheel-watermark.png);
 }
 
+/* Labels set with two spaces around a separator or arrow (Figma keeps them). */
+.nsf-ddpw-hero .is-style-eyebrow,
+.nsf-ddpw-forum__details,
+.nsf-ddpw-section .wp-block-button__link {
+	white-space: pre-wrap;
+}
+
 /* Forum. */
 .nsf-ddpw-forum {
 	gap: var(--wp--preset--spacing--40);
@@ -203,12 +210,14 @@
 @media (min-width: 1100px) {
 
 	.nsf-ddpw-forum__details {
-		white-space: nowrap;
+		white-space: pre;
 	}
 }
 
 .nsf-ddpw-forum__graphic img {
 	display: block;
+	box-sizing: border-box;
+	border: var(--wp--custom--border--hairline) solid var(--wp--preset--color--light-blue);
 	width: 100%;
 	height: auto;
 	aspect-ratio: 1;
@@ -234,7 +243,7 @@
 	gap: 18px;
 	align-items: center;
 	justify-content: center;
-	padding: var(--wp--preset--spacing--20) calc(var(--wp--preset--spacing--40) + var(--wp--preset--spacing--10));
+	padding: 13px calc(var(--wp--preset--spacing--40) + var(--wp--preset--spacing--10));
 	border-radius: var(--wp--custom--radius--card);
 	background: var(--wp--preset--color--white);
 }
@@ -247,7 +256,7 @@
 	width: var(--nsf-ddpw-feature);
 	max-width: 100%;
 	margin-inline: auto !important;
-	padding: calc(var(--wp--preset--spacing--40) + var(--wp--preset--spacing--20)) var(--wp--preset--spacing--60);
+	padding: calc(var(--wp--preset--spacing--40) + var(--wp--preset--spacing--20)) 60px;
 	border-radius: 0 var(--wp--custom--radius--frame);
 }
 
@@ -287,8 +296,14 @@
 	line-height: 1.5;
 }
 
+/* Survey bullets are a full bullet, not the middle dot of the Dot list. */
+.nsf-ddpw-dots.is-style-dot li::before {
+	content: "•\00a0\00a0";
+}
+
 /* Article cards: outline, 16px corners and a 200px image (mockup). */
 .nsf-ddpw-section .nsf-card--featured-image {
+	gap: var(--wp--preset--spacing--20);
 	border: var(--wp--custom--border--hairline) solid var(--wp--preset--color--light-blue);
 	border-radius: var(--wp--custom--radius--card);
 	box-shadow: none;
@@ -311,7 +326,7 @@
 
 /* Sponsors and collaborators. */
 .nsf-ddpw-sponsors {
-	gap: var(--wp--preset--spacing--40);
+	gap: calc(var(--wp--preset--spacing--40) + var(--wp--preset--spacing--10));
 }
 
 .nsf-ddpw-subhead {

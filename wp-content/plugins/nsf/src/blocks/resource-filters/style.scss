@@ -8,8 +8,21 @@
 	font-family: var(--wp--preset--font-family--open-sans);
 }
 
+// Search field and button (549:448): the field takes the width the button
+// leaves, 16px apart.
+.nsf-hub-search {
+	display: flex;
+	gap: var(--wp--preset--spacing--20);
+}
+
+.nsf-hub-search__submit {
+	flex: none;
+}
+
 .nsf-hub-search input {
 	box-sizing: border-box;
+	flex: 1;
+	min-width: 0;
 	width: 100%;
 	height: var(--wp--custom--control--height);
 	padding: 0 var(--wp--custom--control--padding-inline);
@@ -81,7 +94,8 @@
 .nsf-hub-facet__header {
 	display: flex;
 	justify-content: space-between;
-	padding-bottom: var(--wp--preset--spacing--10);
+	// 28px tall with the 2px rule inside it, as in Figma (154:483).
+	padding-bottom: calc(var(--wp--preset--spacing--10) - var(--wp--custom--border--button));
 	border-bottom: var(--wp--custom--border--button) solid var(--wp--preset--color--light-blue);
 	color: var(--wp--preset--color--primary-blue);
 	font-size: var(--wp--preset--font-size--x-small);
@@ -160,9 +174,12 @@
 	font-size: var(--wp--preset--font-size--x-small);
 }
 
+// Show more (435:48): 16px below the last option, 16px above and below the
+// text trimmed to cap height and baseline.
 .nsf-hub-facet__more {
-	margin-top: var(--wp--preset--spacing--10);
-	padding: var(--wp--preset--spacing--10) 0;
+	margin-top: var(--wp--preset--spacing--20);
+	padding: var(--wp--preset--spacing--20) 0;
+	text-box: trim-both cap alphabetic;
 	border: 0;
 	background: none;
 	color: var(--wp--preset--color--primary-blue);

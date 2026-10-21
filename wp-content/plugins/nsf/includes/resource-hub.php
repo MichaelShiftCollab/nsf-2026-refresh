@@ -606,7 +606,7 @@ function nsf_hub_render_table( $query, $params ) {
 	foreach ( $query->posts as $post ) {
 		$labels = nsf_hub_item_labels( $post );
 		$rows  .= sprintf(
-			'<tr><th scope="row" class="nsf-hub-table__title"><a href="%1$s">%2$s</a></th><td>%3$s</td><td>%4$s</td><td>%5$s</td><td class="nsf-hub-table__date"><time datetime="%6$s">%7$s</time></td></tr>',
+			'<tr><th scope="row" class="nsf-hub-table__title"><a href="%1$s">%2$s</a></th><td class="nsf-hub-table__type">%3$s</td><td class="nsf-hub-table__topic">%4$s</td><td class="nsf-hub-table__audience">%5$s</td><td class="nsf-hub-table__date"><time datetime="%6$s">%7$s</time></td></tr>',
 			esc_url( get_permalink( $post ) ),
 			esc_html( wp_strip_all_tags( get_the_title( $post ) ) ),
 			esc_html( $labels['type'] ),

@@ -10,8 +10,8 @@
  */
 
 ?>
-<!-- wp:group {"metadata":{"name":"Featured collaboration"},"align":"full","className":"is-style-section-white","style":{"spacing":{"padding":{"top":"var:preset|spacing|section","bottom":"var:preset|spacing|section"},"blockGap":"var:preset|spacing|30"}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull is-style-section-white" style="padding-top:var(--wp--preset--spacing--section);padding-bottom:var(--wp--preset--spacing--section)"><!-- wp:paragraph {"className":"is-style-eyebrow"} -->
+<!-- wp:group {"metadata":{"name":"Featured collaboration"},"align":"full","className":"is-style-section-white nsf-home-section nsf-home-collab","style":{"spacing":{"padding":{"top":"var:preset|spacing|section","bottom":"var:preset|spacing|section"},"blockGap":"var:preset|spacing|30"}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull is-style-section-white nsf-home-section nsf-home-collab" style="padding-top:var(--wp--preset--spacing--section);padding-bottom:var(--wp--preset--spacing--section)"><!-- wp:paragraph {"className":"is-style-eyebrow"} -->
 <p class="is-style-eyebrow"><?php esc_html_e( 'Featured collaboration', 'nsf' ); ?></p>
 <!-- /wp:paragraph -->
 
@@ -30,7 +30,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"nsf-trim nsf-inline-link"} -->
-<p class="nsf-trim nsf-inline-link"><?php esc_html_e( 'Interested in collaborating?', 'nsf' ); ?>  <a href="/mission-and-goals/sponsorship-opportunities/"><?php esc_html_e( 'Sponsorship opportunities', 'nsf' ); ?></a></p>
+<p class="nsf-trim nsf-inline-link"><?php esc_html_e( 'Interested in collaborating?', 'nsf' ); ?>&nbsp; <a href="/mission-and-goals/sponsorship-opportunities/"><?php esc_html_e( 'Sponsorship opportunities', 'nsf' ); ?></a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:column -->
 

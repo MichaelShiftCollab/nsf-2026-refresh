@@ -34,6 +34,21 @@
 	}
 }
 
+// Stacked featured cards (187:205): 40px apart, with a taller 536 x 310 image.
+.nsf-featured:not(.is-style-short-image):not(.nsf-related) {
+
+	@container (max-width: 599px) {
+
+		.nsf-featured__list {
+			gap: calc(var(--wp--preset--spacing--40) + var(--wp--preset--spacing--10));
+		}
+
+		.nsf-card__media {
+			aspect-ratio: var(--wp--custom--card--image-ratio-stacked, 536 / 310);
+		}
+	}
+}
+
 // Short image (Home mockup 464:138): a 150px image and a 40px gap to the text.
 .nsf-featured.is-style-short-image {
 

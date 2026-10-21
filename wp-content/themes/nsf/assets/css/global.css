@@ -1,0 +1,110 @@
+/*
+ * Header, sign-up row and footer details from Shared components (Figma 464:2)
+ * that style.css does not set. Loaded on every page and in the editor.
+ */
+:root {
+	--nsf-global-signup-gap: 40px; /* Sign up 464:24: copy to form. */
+	--nsf-global-brand-gap: 10px; /* Footer 464:39: logo to tagline. */
+	--nsf-global-footer-bottom: 56px; /* Footer 464:66: bottom padding. */
+	--nsf-global-search-icon: url(../images/global-icons/search.svg);
+}
+
+/* Header search (464:13): a 20px magnifier, handle to the bottom right. */
+.nsf-header-search .wp-block-search__button svg {
+	display: none;
+}
+
+.nsf-header-search .wp-block-search__button::before {
+	content: "";
+	width: var(--wp--custom--header--icon-size);
+	height: var(--wp--custom--header--icon-size);
+	background: currentcolor;
+	-webkit-mask: var(--nsf-global-search-icon) center / contain no-repeat;
+	mask: var(--nsf-global-search-icon) center / contain no-repeat;
+}
+
+/* Sign up (464:36): 40px from the copy to the form; a 43px email field. */
+.nsf-signup.nsf-signup > * + * {
+	margin-block-start: var(--nsf-global-signup-gap);
+}
+
+.nsf-signup .nsf-form input:not([type="checkbox"], [type="radio"], [type="submit"]) {
+	height: var(--wp--custom--control--height);
+}
+
+/* Footer (464:66). */
+.nsf-footer {
+	padding-bottom: var(--nsf-global-footer-bottom);
+}
+
+.nsf-footer__logo a {
+	display: block;
+}
+
+.nsf-footer__top > .wp-block-group.wp-block-group {
+	gap: var(--nsf-global-brand-gap);
+}
+
+/* The rule keeps the footer's 32px gap above it, as below it. */
+.nsf-footer__rule.nsf-footer__rule {
+	margin-block-start: var(--wp--preset--spacing--40);
+}
+
+/*
+ * Social icons: the mockup's Font Awesome brand marks, 22px tall at their
+ * own widths, 22px apart, drawn as masks over the core Social Icons links.
+ */
+.nsf-footer__social .wp-social-link {
+	--nsf-social-ratio: 1;
+	width: calc(var(--wp--custom--footer--social-size) * var(--nsf-social-ratio));
+	height: var(--wp--custom--footer--social-size);
+}
+
+/* The mask sits on a pseudo-element so the link's focus outline stays. */
+.nsf-footer__social .wp-social-link a {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+.nsf-footer__social .wp-social-link a::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: currentcolor;
+	-webkit-mask: var(--nsf-social-icon) center / contain no-repeat;
+	mask: var(--nsf-social-icon) center / contain no-repeat;
+}
+
+.nsf-footer__social .wp-social-link svg {
+	visibility: hidden;
+}
+
+.nsf-footer__social .wp-social-link-instagram {
+	--nsf-social-icon: url(../images/global-icons/instagram.svg);
+	--nsf-social-ratio: calc(448 / 512);
+}
+
+.nsf-footer__social .wp-social-link-facebook {
+	--nsf-social-icon: url(../images/global-icons/facebook-f.svg);
+	--nsf-social-ratio: calc(320 / 512);
+}
+
+.nsf-footer__social .wp-social-link-x {
+	--nsf-social-icon: url(../images/global-icons/x-twitter.svg);
+}
+
+.nsf-footer__social .wp-social-link-linkedin {
+	--nsf-social-icon: url(../images/global-icons/linkedin-in.svg);
+	--nsf-social-ratio: calc(448 / 512);
+}
+
+.nsf-footer__social .wp-social-link-youtube {
+	--nsf-social-icon: url(../images/global-icons/youtube.svg);
+	--nsf-social-ratio: calc(576 / 512);
+}
+
+.nsf-footer__social .wp-social-link-bluesky {
+	--nsf-social-icon: url(../images/global-icons/bluesky.svg);
+	--nsf-social-ratio: calc(576 / 512);
+}

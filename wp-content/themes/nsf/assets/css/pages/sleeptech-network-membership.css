@@ -8,12 +8,56 @@
 	line-height: 1.25;
 }
 
+/* Application panel (Figma 506:249): 40px padding; eyebrow, field rows,
+   consent and button 18px apart; paired fields 18px apart. */
 .nsf-membership-form.nsf-membership-form {
+	--nsf-membership-gap: calc(var(--wp--custom--control--gap) * 1.5);
 	display: flex;
 	flex-direction: column;
-	gap: var(--wp--preset--spacing--20);
-	padding: var(--wp--preset--spacing--40);
+	gap: var(--nsf-membership-gap);
+	padding: calc(var(--wp--preset--spacing--40) + var(--wp--preset--spacing--10));
 	border-radius: var(--wp--custom--radius--card);
+}
+
+.nsf-membership-form .nsf-form.is-preview,
+.nsf-membership-form .nsf-form .gform_fields {
+	gap: var(--nsf-membership-gap);
+}
+
+/* Field text in Open Sans Regular, as in the mockup; the preview's
+   disabled dropdown keeps full opacity. */
+.nsf-membership-form .nsf-form input:not([type="checkbox"], [type="radio"], [type="submit"], [type="hidden"]),
+.nsf-membership-form .nsf-form textarea,
+.nsf-membership-form .nsf-form select {
+	font-weight: 400;
+	opacity: 1;
+}
+
+/* Message field: 93px tall, 24px corners, text 16px from the top. */
+.nsf-membership-form .nsf-form textarea {
+	min-height: calc(var(--wp--custom--control--field-height) + var(--wp--preset--spacing--40) + var(--wp--preset--spacing--20));
+	display: block;
+	padding-block: calc(var(--wp--preset--spacing--20) - (1lh - 1cap) / 2);
+	border-radius: var(--wp--preset--spacing--30);
+	line-height: 1.5;
+	resize: vertical;
+}
+
+/* Consent: box top-aligned with the first line, 12px from the text. */
+.nsf-membership-form .nsf-form__choices {
+	margin: 0;
+}
+
+.nsf-membership-form .nsf-form__choice {
+	align-items: flex-start;
+}
+
+.nsf-membership-form .nsf-form__choice span {
+	text-box: trim-both cap alphabetic;
+}
+
+.nsf-membership-form .nsf-form__footer {
+	margin-top: 0;
 }
 
 .nsf-membership-form > * {

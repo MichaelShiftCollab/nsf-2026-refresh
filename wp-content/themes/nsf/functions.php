@@ -22,6 +22,13 @@ function nsf_theme_enqueue_styles() {
 		array(),
 		wp_get_theme()->get( 'Version' )
 	);
+	// Header, sign-up row and footer refinements.
+	wp_enqueue_style(
+		'nsf-global',
+		get_theme_file_uri( 'assets/css/global.css' ),
+		array( 'nsf-theme' ),
+		wp_get_theme()->get( 'Version' )
+	);
 }
 add_action( 'wp_enqueue_scripts', 'nsf_theme_enqueue_styles' );
 
@@ -90,6 +97,12 @@ function nsf_theme_page_style_classes( $file ) {
  * WordPress prints small ones inline instead of as render-blocking links.
  */
 function nsf_theme_enqueue_page_styles() {
+	if ( is_singular( 'resource' ) ) {
+		$file = 'assets/css/pages/resource-single.css';
+		wp_enqueue_style( 'nsf-page-resource-single', get_theme_file_uri( $file ), array( 'nsf-theme' ), wp_get_theme()->get( 'Version' ) );
+		wp_style_add_data( 'nsf-page-resource-single', 'path', get_theme_file_path( $file ) );
+		return;
+	}
 	if ( ! is_page() ) {
 		return;
 	}
@@ -159,7 +172,7 @@ add_filter( 'render_block_core/image', 'nsf_theme_image_dimensions' );
  * Show the interior page section styles in the editor.
  */
 function nsf_theme_page_editor_styles() {
-	add_editor_style( nsf_theme_page_styles() );
+	add_editor_style( array_merge( array( 'assets/css/global.css' ), nsf_theme_page_styles() ) );
 }
 add_action( 'after_setup_theme', 'nsf_theme_page_editor_styles' );
 

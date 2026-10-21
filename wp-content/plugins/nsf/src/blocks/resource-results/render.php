@@ -37,8 +37,7 @@ $nsf_wrapper = get_block_wrapper_attributes(
 	<div class="nsf-hub-toolbar">
 		<button type="button" class="nsf-hub-filters-button" data-hub-open aria-controls="nsf-hub-filters" aria-expanded="false">
 			<svg class="nsf-hub-filters-button__icon" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M1 3.5h7M12 3.5h3M1 8h2M7 8h8M1 12.5h9M14 12.5h1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/><circle cx="10" cy="3.5" r="1.75" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="5" cy="8" r="1.75" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12.5" r="1.75" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
-			<?php esc_html_e( 'Filters', 'nsf' ); ?>
-			<span data-hub-part="active"><?php echo $nsf_parts['active'] ? esc_html( '(' . $nsf_parts['active'] . ')' ) : ''; ?></span>
+			<span><?php esc_html_e( 'Filters', 'nsf' ); ?> <span data-hub-part="active"><?php echo $nsf_parts['active'] ? esc_html( '(' . $nsf_parts['active'] . ')' ) : ''; ?></span></span>
 		</button>
 		<div class="nsf-hub-toolbar__end">
 			<p class="nsf-hub-count" data-hub-part="count" role="status"><?php echo esc_html( $nsf_parts['count'] ); ?></p>

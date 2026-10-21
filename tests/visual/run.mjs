@@ -16,7 +16,7 @@ const dir = path.dirname( fileURLToPath( import.meta.url ) );
 const resultsDir = process.env.VISUAL_RESULTS
 	? path.resolve( process.env.VISUAL_RESULTS )
 	: path.join( dir, 'results' );
-const DEFAULT_THRESHOLD = 10; // percent mismatch allowed
+const DEFAULT_THRESHOLD = 3; // percent mismatch allowed
 const DEFAULT_HEIGHT_TOLERANCE = 15; // percent of mockup height the page may differ by
 
 const args = process.argv.slice( 2 );

@@ -22,7 +22,13 @@
 		"name": "hub-default",
 		"group": "resources",
 		"url": "/sleep-health-resources/",
-		"selector": "#resource-browser"
+		"selector": "#resource-featured",
+		"ignore": [
+			".nsf-card__media"
+		],
+		"threshold": 5,
+		"note": "Content: seeded featured titles run 5 to 7 lines against 2 in the mockup. Height tolerance 25% for the same reason at 781.",
+		"heightTolerance": 25
 	},
 	{
 		"name": "hub-filtered",
@@ -32,7 +38,9 @@
 		"selector": "#resource-browser",
 		"ignore": [
 			".nsf-card__media"
-		]
+		],
+		"threshold": 9,
+		"note": "Content: 14 results against 128, and metadata lines that wrap to two lines."
 	},
 	{
 		"name": "hub-table",
@@ -43,7 +51,9 @@
 			{
 				"click": "[data-view=\"table\"]"
 			}
-		]
+		],
+		"threshold": 5,
+		"note": "Content: 9 rows against 10, titles of different lengths."
 	},
 	{
 		"name": "search",
@@ -51,7 +61,9 @@
 		"url": "/?s=drowsy+driving",
 		"widths": [
 			1440
-		]
+		],
+		"threshold": 9,
+		"note": "Content: 10 results and no pagination against 8 results with pagination; different filter buttons."
 	},
 	{
 		"name": "search-filtered",
@@ -60,7 +72,9 @@
 		"url": "/?s=sleep&filter=topic:sleep-disorders,category:sleep-disorders",
 		"widths": [
 			1440
-		]
+		],
+		"threshold": 5,
+		"note": "Content: different results and filter buttons."
 	},
 	{
 		"name": "blog-archive",
@@ -92,7 +106,9 @@
 		"url": "/this-page-does-not-exist/",
 		"widths": [
 			1440
-		]
+		],
+		"threshold": 5,
+		"note": "Heading font: the H1 box is 64px against 60px in Figma, so everything below sits lower."
 	},
 	{
 		"name": "home",
@@ -104,7 +120,9 @@
 		],
 		"ignore": [
 			".nsf-card__media"
-		]
+		],
+		"threshold": 7,
+		"note": "Heading font: 56px H2 boxes and headings that wrap in the stand-in serif push each later section down."
 	},
 	{
 		"name": "home-tablet-phone",
@@ -119,8 +137,8 @@
 			".nsf-card__media"
 		],
 		"mockup": "home",
-		"threshold": 15,
-		"note": "HTML kit mockups (not Figma); the kit's stand-in heading font and untrimmed text spacing drift the page by 1–3% of its height"
+		"threshold": 10,
+		"note": "Heading font, as on desktop; the 781 and 600 references are built from the kit, not Figma frames."
 	},
 	{
 		"name": "global-header",
@@ -145,14 +163,22 @@
 		"group": "cta",
 		"url": "/cta-test/",
 		"selector": "#cta-row",
-		"auth": true
+		"auth": true,
+		"mockup": "cta-row",
+		"widths": [
+			1440
+		]
 	},
 	{
 		"name": "cta-row-email",
 		"group": "cta",
 		"url": "/cta-test/",
 		"selector": "#cta-row-email",
-		"auth": true
+		"auth": true,
+		"mockup": "cta-row-email",
+		"widths": [
+			1440
+		]
 	},
 	{
 		"name": "cta-link",
@@ -166,14 +192,22 @@
 		"group": "cta",
 		"url": "/cta-test/",
 		"selector": "#cta-contact",
-		"auth": true
+		"auth": true,
+		"mockup": "cta-contact",
+		"widths": [
+			1440
+		]
 	},
 	{
 		"name": "cta-sponsorship",
 		"group": "cta",
 		"url": "/cta-test/",
 		"selector": "#cta-sponsorship",
-		"auth": true
+		"auth": true,
+		"mockup": "cta-sponsorship",
+		"widths": [
+			1440
+		]
 	},
 	{
 		"name": "cta-toolkit",
@@ -190,6 +224,10 @@
 		"auth": true,
 		"ignore": [
 			"#cta-gated .nsf-gated__cover"
+		],
+		"mockup": "cta-gated",
+		"widths": [
+			1440
 		]
 	},
 	{
@@ -216,15 +254,65 @@
 	{
 		"name": "cta-gated-success",
 		"group": "cta",
-		"url": "/prospectus-thank-you/",
-		"selector": ".nsf-gated-success"
+		"mockup": "cta-gated-success",
+		"url": "/cta-test/",
+		"auth": true,
+		"actions": [
+			{
+				"fill": "#cta-gated form input[name=\"input_1\"]",
+				"value": "Test Company"
+			},
+			{
+				"fill": "#cta-gated form input[name=\"input_3\"]",
+				"value": "Test"
+			},
+			{
+				"fill": "#cta-gated form input[name=\"input_4\"]",
+				"value": "Person"
+			},
+			{
+				"fill": "#cta-gated form input[name=\"input_5\"]",
+				"value": "Tester"
+			},
+			{
+				"fill": "#cta-gated form input[name=\"input_6\"]",
+				"value": "test@example.com"
+			},
+			{
+				"check": "#cta-gated form input[type=\"checkbox\"]"
+			},
+			{
+				"click": "#cta-gated form button[type=\"submit\"]"
+			},
+			{
+				"waitFor": ".nsf-gated-success__cover"
+			},
+			{
+				"wait": 500
+			}
+		],
+		"selector": "main",
+		"ignore": [
+			".nsf-gated-success__cover"
+		],
+		"widths": [
+			1440
+		],
+		"threshold": 9,
+		"note": "Content: longer success copy, plus a one-item breadcrumb the Thank you page still shows (Figma 577:980 has none)."
 	},
 	{
 		"name": "faq",
 		"group": "faq-logos",
 		"url": "/faq-logo-test/",
 		"selector": "#faq",
-		"auth": true
+		"auth": true,
+		"mockup": "faq",
+		"widths": [
+			1440
+		],
+		"threshold": 5,
+		"note": "Heading font: H2 box and two-line questions are a few px taller."
 	},
 	{
 		"name": "logos-tiered",
@@ -287,7 +375,9 @@
 		],
 		"widths": [
 			1440
-		]
+		],
+		"threshold": 5,
+		"note": "Heading font: each H2 box is about 10px taller; content: shorter second row of resource cards."
 	},
 	{
 		"name": "drowsy-driving-prevention-week",
@@ -304,7 +394,9 @@
 		],
 		"widths": [
 			1440
-		]
+		],
+		"threshold": 10,
+		"note": "Content and font: 4 sample drowsy driving posts against 6, shorter titles; the stand-in serif wraps the callout heading to three lines."
 	},
 	{
 		"name": "drowsy-driving-resource-center",

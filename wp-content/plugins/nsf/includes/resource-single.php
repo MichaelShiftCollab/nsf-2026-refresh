@@ -327,3 +327,4 @@ function nsf_resource_gate_section( $content ) {
 	return $content . do_blocks( $section );
 }
 add_filter( 'the_content', 'nsf_resource_gate_section', 20 );
+

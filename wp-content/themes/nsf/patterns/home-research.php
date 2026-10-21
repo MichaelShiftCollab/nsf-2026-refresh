@@ -37,8 +37,8 @@ $nsf_panel = function ( $title, $items, $link, $url ) {
 	<?php
 };
 ?>
-<!-- wp:group {"metadata":{"name":"Research"},"align":"full","className":"is-style-section-white","style":{"spacing":{"padding":{"top":"var:preset|spacing|section","bottom":"var:preset|spacing|section"},"blockGap":"var:preset|spacing|50"}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull is-style-section-white" style="padding-top:var(--wp--preset--spacing--section);padding-bottom:var(--wp--preset--spacing--section)"><!-- wp:group {"metadata":{"name":"Heading group"},"style":{"spacing":{"blockGap":"var:preset|spacing|20"}},"layout":{"type":"default"}} -->
+<!-- wp:group {"metadata":{"name":"Research"},"align":"full","className":"is-style-section-white nsf-home-section","style":{"spacing":{"padding":{"top":"var:preset|spacing|section","bottom":"var:preset|spacing|section"},"blockGap":"var:preset|spacing|50"}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull is-style-section-white nsf-home-section" style="padding-top:var(--wp--preset--spacing--section);padding-bottom:var(--wp--preset--spacing--section)"><!-- wp:group {"metadata":{"name":"Heading group"},"style":{"spacing":{"blockGap":"var:preset|spacing|20"}},"layout":{"type":"default"}} -->
 <div class="wp-block-group"><!-- wp:paragraph {"className":"is-style-eyebrow"} -->
 <p class="is-style-eyebrow"><?php esc_html_e( 'Research', 'nsf' ); ?></p>
 <!-- /wp:paragraph -->
@@ -74,8 +74,8 @@ $nsf_panel = function ( $title, $items, $link, $url ) {
 <!-- /wp:column --></div>
 <!-- /wp:columns -->
 
-<!-- wp:group {"metadata":{"name":"Panels"},"style":{"spacing":{"blockGap":"var:preset|spacing|gutter"}},"layout":{"type":"grid","columnCount":3,"minimumColumnWidth":"16rem"}} -->
-<div class="wp-block-group"><?php
+<!-- wp:group {"metadata":{"name":"Panels"},"className":"nsf-home-panels","style":{"spacing":{"blockGap":"var:preset|spacing|gutter"}},"layout":{"type":"grid","columnCount":3,"minimumColumnWidth":"16rem"}} -->
+<div class="wp-block-group nsf-home-panels"><?php
 $nsf_panel( __( 'NSF Research Tools', 'nsf' ), array( __( 'Sleep Health Index®', 'nsf' ), __( 'Sleep Satisfaction Tool®', 'nsf' ), __( 'Best Slept Self® Questionnaire', 'nsf' ) ), __( 'Explore the tools', 'nsf' ), '/research/nsf-sleep-measures/' );
 $nsf_panel( __( 'NSF Publications', 'nsf' ), array( __( 'Sleep in America® Polls', 'nsf' ), __( 'Guidelines', 'nsf' ), __( 'Survey results & infographics', 'nsf' ) ), __( 'Browse publications', 'nsf' ), '/research/nsf-publications/' );
 $nsf_panel( __( 'Sleep Health: Journal of the NSF', 'nsf' ), array( __( 'Current issue', 'nsf' ), __( 'For authors', 'nsf' ), __( 'Editorial board', 'nsf' ) ), __( 'Visit the journal', 'nsf' ), 'https://www.sleephealthjournal.org/' );

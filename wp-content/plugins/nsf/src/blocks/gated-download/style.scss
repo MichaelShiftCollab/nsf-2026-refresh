@@ -45,6 +45,10 @@
 	gap: calc(var(--wp--custom--control--gap) + var(--wp--preset--spacing--10));
 }
 
+.nsf-gated.nsf-gated > * {
+	margin-block: 0;
+}
+
 .nsf-gated__text > *,
 .nsf-gated > .nsf-file-details {
 	margin-block: 0;
@@ -67,7 +71,12 @@
 	flex-direction: column;
 	align-items: flex-start;
 	gap: var(--wp--preset--spacing--30);
-	max-width: 720px;
+	max-width: 760px;
+
+	// The button's own box, not its line, sets the gap to the file details.
+	> .wp-block-button {
+		display: flex;
+	}
 }
 
 .nsf-gated-success__text > *,

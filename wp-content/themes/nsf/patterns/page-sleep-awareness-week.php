@@ -42,8 +42,8 @@ $nsf_saw_logos = function ( $count ) {
 
 $nsf_saw_home_image = fn( $file ) => esc_url( get_theme_file_uri( 'assets/images/home/' . $file ) );
 ?>
-<!-- wp:group {"metadata":{"name":"Campaign hero"},"align":"full","className":"is-style-section-light-blue-to-light-orange nsf-saw-hero","style":{"spacing":{"padding":{"top":"var:preset|spacing|section","bottom":"var:preset|spacing|section"}}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull is-style-section-light-blue-to-light-orange nsf-saw-hero" style="padding-top:var(--wp--preset--spacing--section);padding-bottom:var(--wp--preset--spacing--section)"><!-- wp:group {"className":"nsf-saw-hero__grid","layout":{"type":"default"}} -->
+<!-- wp:group {"metadata":{"name":"Campaign hero"},"align":"full","className":"nsf-saw-hero","gradient":"light-multi","textColor":"gray","style":{"spacing":{"padding":{"top":"var:preset|spacing|section","bottom":"var:preset|spacing|section"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull nsf-saw-hero has-gray-color has-light-multi-gradient-background has-text-color has-background" style="padding-top:var(--wp--preset--spacing--section);padding-bottom:var(--wp--preset--spacing--section)"><!-- wp:group {"className":"nsf-saw-hero__grid","layout":{"type":"default"}} -->
 <div class="wp-block-group nsf-saw-hero__grid"><!-- wp:group {"className":"nsf-saw-stack nsf-saw-hero__copy","layout":{"type":"default"}} -->
 <div class="wp-block-group nsf-saw-stack nsf-saw-hero__copy"><?php $nsf_saw_image( 'saw-2026-logo-horizontal.png', 'nsf-saw-logo nsf-saw-logo--hero', __( 'Sleep Awareness Week® 2026, powered by the National Sleep Foundation', 'nsf' ) ); ?>
 

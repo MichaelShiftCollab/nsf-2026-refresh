@@ -1,0 +1,84 @@
+/*
+ * Resource single (template single-resource, mockup resource-single 571:2):
+ * the title band, the overview (cover, download, file details, summary),
+ * key findings and Related Content as the Figma frame spaces them. Text the
+ * mockup trims to cap height and baseline is trimmed here too. Scoped to
+ * body.single-resource because every page stylesheet loads on every page.
+ */
+
+/* Title band (571:25): breadcrumb, heading, subtitle and byline 20px apart. */
+.nsf-resource-band.nsf-resource-band > * + * {
+	margin-block-start: calc(var(--wp--preset--spacing--20) * 1.25);
+}
+
+.nsf-resource-band .nsf-breadcrumbs__item,
+.nsf-resource-band > p {
+	text-box: trim-both cap alphabetic;
+}
+
+.nsf-resource-band .nsf-breadcrumbs__list {
+	gap: 0.7143em;
+}
+
+.nsf-resource-band .nsf-breadcrumbs__item + .nsf-breadcrumbs__item::before {
+	margin-right: 0.7143em;
+	opacity: 1;
+}
+
+.nsf-resource-band .nsf-breadcrumbs [aria-current] {
+	font-weight: inherit;
+}
+
+/* Subtitle measure of 820px, left-aligned (the constrained layout keeps the
+   full content width). */
+.nsf-resource-band > .is-style-paragraph-2 {
+	padding-right: max(0px, calc(100% - 820px));
+}
+
+/* Overview (571:36): the cover, button and file details 24px apart. */
+.single-resource .nsf-resource-overview > .wp-block-column:first-child > * + * {
+	margin-block-start: var(--wp--preset--spacing--30);
+}
+
+.single-resource .nsf-resource-overview .wp-block-post-featured-image {
+	box-shadow: var(--wp--preset--shadow--card);
+}
+
+.single-resource .nsf-resource-overview .wp-block-post-featured-image img {
+	display: block;
+	aspect-ratio: 4 / 5 !important;
+}
+
+.single-resource .nsf-resource-overview .has-x-small-font-size {
+	color: var(--wp--preset--color--gray);
+	line-height: 1.4286;
+}
+
+.single-resource .nsf-resource-overview p {
+	text-box: trim-both cap alphabetic;
+}
+
+/* Key findings (571:47): heading, stats and button 40px apart; each Statistic
+   holds the number on the H2 line height and its text 24px below. */
+.single-resource .wp-block-post-content > .is-style-section-lightest-blue > * + * {
+	margin-block-start: calc(var(--wp--preset--spacing--40) + var(--wp--preset--spacing--10));
+}
+
+.single-resource .is-style-stat > * + * {
+	margin-block-start: var(--wp--preset--spacing--30);
+}
+
+.single-resource .is-style-stat > p {
+	margin-block-end: 0;
+	text-box: trim-both cap alphabetic;
+}
+
+.single-resource .is-style-stat .is-style-stat-number {
+	line-height: 1.1667;
+	text-box: normal;
+}
+
+/* Related content (571:66): heading and items 40px apart. */
+.single-resource .wp-block-post-content > .wp-block-group:has(> .wp-block-nsf-related-content) > * + * {
+	margin-block-start: calc(var(--wp--preset--spacing--40) + var(--wp--preset--spacing--10));
+}

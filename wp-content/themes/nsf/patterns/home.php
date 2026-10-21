@@ -16,7 +16,7 @@ $nsf_hero = array(
 			'url' => get_theme_file_uri( 'assets/images/home/' . $file ),
 			'alt' => '',
 		),
-		array( 'hero-1.jpg', 'campaign-large.jpg', 'research.jpg', 'card-1.jpg', 'campaign-small-left.jpg', 'campaign-small-right.jpg' )
+		array( 'home-hero-1.jpg', 'hero-1.jpg', 'campaign-large.jpg', 'research.jpg', 'card-1.jpg', 'campaign-small-left.jpg' )
 	),
 );
 ?>

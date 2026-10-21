@@ -28,21 +28,21 @@ $nsf_np_card = function ( $image, $eyebrow, $title, $text, $url ) {
 
 <!-- wp:group {"className":"nsf-np-card__body","layout":{"type":"default"}} -->
 <div class="wp-block-group nsf-np-card__body"><!-- wp:group {"className":"nsf-np-card__text","layout":{"type":"default"}} -->
-<div class="wp-block-group nsf-np-card__text"><!-- wp:paragraph {"className":"is-style-eyebrow-small"} -->
-<p class="is-style-eyebrow-small"><?php echo esc_html( $eyebrow ); ?></p>
+<div class="wp-block-group nsf-np-card__text"><!-- wp:paragraph {"className":"is-style-eyebrow-small nsf-trim"} -->
+<p class="is-style-eyebrow-small nsf-trim"><?php echo esc_html( $eyebrow ); ?></p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":3,"className":"is-style-card-heading"} -->
-<h3 class="wp-block-heading is-style-card-heading"><?php echo esc_html( $title ); ?></h3>
+<!-- wp:heading {"level":3,"className":"is-style-card-heading nsf-trim"} -->
+<h3 class="wp-block-heading is-style-card-heading nsf-trim"><?php echo esc_html( $title ); ?></h3>
 <!-- /wp:heading -->
 
-<!-- wp:paragraph -->
-<p><?php echo esc_html( $text ); ?></p>
+<!-- wp:paragraph {"className":"nsf-trim"} -->
+<p class="nsf-trim"><?php echo esc_html( $text ); ?></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
-<!-- wp:paragraph {"className":"is-style-link"} -->
-<p class="is-style-link"><a href="<?php echo esc_url( $url ); ?>"><?php esc_html_e( 'Learn more', 'nsf' ); ?></a></p>
+<!-- wp:paragraph {"className":"is-style-link nsf-trim"} -->
+<p class="is-style-link nsf-trim"><a href="<?php echo esc_url( $url ); ?>"><?php esc_html_e( 'Learn more', 'nsf' ); ?></a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group -->
@@ -56,12 +56,12 @@ $nsf_np_card = function ( $image, $eyebrow, $title, $text, $url ) {
 <h1 class="wp-block-heading has-white-color has-text-color"><?php esc_html_e( 'National Programs', 'nsf' ); ?></h1>
 <!-- /wp:heading -->
 
-<!-- wp:paragraph {"className":"is-style-paragraph-2","textColor":"white"} -->
-<p class="is-style-paragraph-2 has-white-color has-text-color"><?php esc_html_e( 'NSF’s national programs bring sleep health to the public — annual campaigns that reach millions, a workplace initiative for employers, and the issues we work on year-round.', 'nsf' ); ?></p>
+<!-- wp:paragraph {"className":"is-style-paragraph-2 nsf-trim","textColor":"white"} -->
+<p class="is-style-paragraph-2 nsf-trim has-white-color has-text-color"><?php esc_html_e( 'NSF’s national programs bring sleep health to the public — annual campaigns that reach millions, a workplace initiative for employers, and the issues we work on year-round.', 'nsf' ); ?></p>
 <!-- /wp:paragraph -->
 
-<!-- wp:paragraph {"className":"nsf-np-note","textColor":"white"} -->
-<p class="nsf-np-note has-white-color has-text-color"><?php esc_html_e( 'Placeholder copy throughout — page content in development', 'nsf' ); ?></p>
+<!-- wp:paragraph {"className":"nsf-np-note nsf-trim","textColor":"white"} -->
+<p class="nsf-np-note nsf-trim has-white-color has-text-color"><?php esc_html_e( 'Placeholder copy throughout — page content in development', 'nsf' ); ?></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -108,8 +108,8 @@ $nsf_np_card( 'assets/images/home/campaign-small-right.jpg', __( 'Year-round', '
 <h2 class="wp-block-heading"><?php esc_html_e( 'Reshaping Employee Wellness', 'nsf' ); ?></h2>
 <!-- /wp:heading -->
 
-<!-- wp:paragraph {"className":"nsf-np-text-lg"} -->
-<p class="nsf-np-text-lg"><?php esc_html_e( 'Sleep belongs in workplace wellness. This program gives employers the research, guidance and materials to make sleep health part of how their people are supported.', 'nsf' ); ?></p>
+<!-- wp:paragraph {"className":"nsf-np-text-lg nsf-trim"} -->
+<p class="nsf-np-text-lg nsf-trim"><?php esc_html_e( 'Sleep belongs in workplace wellness. This program gives employers the research, guidance and materials to make sleep health part of how their people are supported.', 'nsf' ); ?></p>
 <!-- /wp:paragraph -->
 
 <!-- wp:buttons {"className":"nsf-np-actions"} -->
@@ -140,12 +140,12 @@ $nsf_np_card( 'assets/images/home/campaign-small-right.jpg', __( 'Year-round', '
 <h2 class="wp-block-heading"><?php esc_html_e( 'Key Issues', 'nsf' ); ?></h2>
 <!-- /wp:heading -->
 
-<!-- wp:paragraph {"className":"nsf-np-text-lg"} -->
-<p class="nsf-np-text-lg"><?php esc_html_e( 'The sleep health issues NSF works on year-round — drowsy driving, school start times, sleep health equity — with the position statements and research behind each one.', 'nsf' ); ?></p>
+<!-- wp:paragraph {"className":"nsf-np-text-lg nsf-trim"} -->
+<p class="nsf-np-text-lg nsf-trim"><?php esc_html_e( 'The sleep health issues NSF works on year-round — drowsy driving, school start times, sleep health equity — with the position statements and research behind each one.', 'nsf' ); ?></p>
 <!-- /wp:paragraph -->
 
-<!-- wp:paragraph {"className":"is-style-link nsf-np-actions"} -->
-<p class="is-style-link nsf-np-actions"><a href="/national-programs/issues/"><?php esc_html_e( 'See our key issues', 'nsf' ); ?></a></p>
+<!-- wp:paragraph {"className":"is-style-link nsf-np-actions nsf-trim"} -->
+<p class="is-style-link nsf-np-actions nsf-trim"><a href="/national-programs/issues/"><?php esc_html_e( 'See our key issues', 'nsf' ); ?></a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group --></div>

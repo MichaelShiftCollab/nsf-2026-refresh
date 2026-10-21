@@ -12,6 +12,11 @@
 .nsf-split__panel {
 	--nsf-panel-row-gap: calc(var(--wp--custom--control--gap) + var(--wp--preset--spacing--10));
 
+	// 40px padding all round (Figma 577:849, 577:891, 577:939).
+	&.nsf-split__panel {
+		padding: calc(var(--wp--preset--spacing--40) + var(--wp--preset--spacing--10));
+	}
+
 	.nsf-form.is-preview:not(.nsf-form--inline),
 	.nsf-form .gform_fields {
 		gap: var(--nsf-panel-row-gap) var(--wp--preset--spacing--20);
@@ -24,28 +29,42 @@
 		font-weight: 400;
 	}
 
+	// Message field: 120px tall, text 16px from the top edge.
 	.nsf-form textarea {
-		padding-block: var(--wp--preset--spacing--20);
+		display: block;
+		min-height: calc(var(--wp--preset--spacing--30) * 5);
+		padding-block: calc(var(--wp--preset--spacing--20) - (1lh - 1cap) / 2);
+		line-height: 1.5;
 	}
 
+	// Section label: a 20px line, untrimmed, 20px above the first row.
 	.nsf-form__section,
 	.nsf-form .gsection_title {
 		color: var(--wp--preset--color--primary-blue);
 		line-height: 1.4286;
-		text-box: trim-both cap alphabetic;
 	}
 
+	// Choices: 18px rows 20px apart, the group label trimmed to cap height
+	// and baseline 20px above them.
 	.nsf-form__choices {
-		gap: var(--wp--preset--spacing--20);
+		gap: var(--nsf-panel-row-gap);
 		margin: 0;
 	}
 
 	.nsf-form__choices legend,
 	.nsf-form .gfield--type-radio .gfield_label,
 	.nsf-form .gfield--type-checkbox .gfield_label {
-		margin-bottom: var(--wp--preset--spacing--20);
+		margin-bottom: var(--nsf-panel-row-gap);
 		color: var(--wp--preset--color--primary-blue);
 		font-weight: 600;
+		text-box: trim-both cap alphabetic;
+	}
+
+	.nsf-form__choice > span,
+	.nsf-form .gchoice label,
+	.nsf-form__description,
+	.nsf-form .gfield_description {
+		text-box: trim-both cap alphabetic;
 	}
 
 	.nsf-form__choice input,

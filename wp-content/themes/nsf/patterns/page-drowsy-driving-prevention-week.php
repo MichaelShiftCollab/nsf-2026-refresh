@@ -73,8 +73,8 @@ $nsf_ddpw_logos = function ( $count ) {
 ?>
 <?php require __DIR__ . '/hanging-tab.php'; ?>
 
-<!-- wp:group {"metadata":{"name":"Campaign hero"},"align":"full","className":"is-style-section-light-blue-to-light-orange nsf-ddpw-hero","style":{"spacing":{"padding":{"top":"var:preset|spacing|section","bottom":"var:preset|spacing|section"}}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull is-style-section-light-blue-to-light-orange nsf-ddpw-hero" style="padding-top:var(--wp--preset--spacing--section);padding-bottom:var(--wp--preset--spacing--section)"><!-- wp:group {"className":"nsf-ddpw-hero__grid","layout":{"type":"default"}} -->
+<!-- wp:group {"metadata":{"name":"Campaign hero"},"align":"full","className":"nsf-ddpw-hero","gradient":"light-multi","textColor":"gray","style":{"spacing":{"padding":{"top":"var:preset|spacing|section","bottom":"var:preset|spacing|section"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull nsf-ddpw-hero has-gray-color has-light-multi-gradient-background has-text-color has-background" style="padding-top:var(--wp--preset--spacing--section);padding-bottom:var(--wp--preset--spacing--section)"><!-- wp:group {"className":"nsf-ddpw-hero__grid","layout":{"type":"default"}} -->
 <div class="wp-block-group nsf-ddpw-hero__grid"><!-- wp:group {"className":"nsf-ddpw-hero__copy","layout":{"type":"default"}} -->
 <div class="wp-block-group nsf-ddpw-hero__copy"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"nsf-ddpw-hero__logo"} -->
 <figure class="wp-block-image size-full nsf-ddpw-hero__logo"><img src="<?php echo esc_url( $nsf_ddpw_img( 'ddpw-logo.png' ) ); ?>" alt="<?php esc_attr_e( 'National Sleep Foundation’s Drowsy Driving Prevention Week®', 'nsf' ); ?>"/></figure>

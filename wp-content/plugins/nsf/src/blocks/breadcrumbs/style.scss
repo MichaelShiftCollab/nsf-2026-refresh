@@ -1,13 +1,15 @@
-// Breadcrumbs: small links separated by slashes.
+// Breadcrumbs: small links separated by solid slashes, 10px apart, every
+// item in regular weight (topic archive 546:413, Resource 571:26).
 
 .nsf-breadcrumbs {
+	--nsf-breadcrumbs-gap: 10px;
 	font-size: var(--wp--preset--font-size--x-small);
 	line-height: 1.4286;
 
 	&__list {
 		display: flex;
 		flex-wrap: wrap;
-		gap: var(--wp--preset--spacing--10);
+		gap: var(--nsf-breadcrumbs-gap);
 		margin: 0;
 		padding: 0;
 		list-style: none;
@@ -15,8 +17,7 @@
 
 	&__item + &__item::before {
 		content: "/";
-		margin-right: var(--wp--preset--spacing--10);
-		opacity: 0.6;
+		margin-right: var(--nsf-breadcrumbs-gap);
 	}
 
 	a {
@@ -27,9 +28,5 @@
 		&:focus {
 			text-decoration: underline;
 		}
-	}
-
-	[aria-current] {
-		font-weight: 600;
 	}
 }

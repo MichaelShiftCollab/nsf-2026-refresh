@@ -1,0 +1,32 @@
+/*
+ * Sleep Health Resources (Resource Hub, pattern nsf/resource-hub): section
+ * spacing from the cards view mockups (154:431 at 1440, 182:2 at 781,
+ * 187:185 at 600).
+ */
+
+/* Intro (154:453): 8px above the paragraph, 48px below it at every width. */
+.nsf-hub-intro.nsf-hub-intro {
+	padding-top: var(--wp--preset--spacing--10);
+	padding-bottom: calc(var(--wp--preset--spacing--40) + var(--wp--preset--spacing--20));
+}
+
+/* Featured (154:457): 56px above and below at 1440; 48px on tablets and
+   phones (44px at 781 and 48px at 600 in Figma). */
+.nsf-hub-featured.nsf-hub-featured {
+	padding-top: calc(var(--wp--preset--spacing--40) + var(--wp--preset--spacing--30));
+	padding-bottom: calc(var(--wp--preset--spacing--40) + var(--wp--preset--spacing--30));
+}
+
+/* Filters and results (154:475): 48px above, 64px below at every width. */
+.nsf-hub-browser.nsf-hub-browser {
+	padding-top: calc(var(--wp--preset--spacing--40) + var(--wp--preset--spacing--20));
+	padding-bottom: calc(var(--wp--preset--spacing--40) * 2);
+}
+
+@media (max-width: 781px) {
+
+	.nsf-hub-featured.nsf-hub-featured {
+		padding-top: calc(var(--wp--preset--spacing--40) + var(--wp--preset--spacing--20));
+		padding-bottom: calc(var(--wp--preset--spacing--40) + var(--wp--preset--spacing--20));
+	}
+}

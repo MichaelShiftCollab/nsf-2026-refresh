@@ -66,8 +66,9 @@
 		white-space: nowrap;
 	}
 
+	// Room for the arrow: "Sort: Most recent  ▾" is one 188px pill (154:517).
 	select {
-		padding: 0 1.25em 0 0;
+		padding: 0 0.75em 0 0;
 		border: 0;
 		background: transparent;
 		color: inherit;
@@ -173,7 +174,12 @@
 	}
 }
 
-// Cards.
+// Cards: Figma draws the 1px outline inside the 362px card, so the body
+// gives the bottom border back (154:534).
+.nsf-hub-cards .nsf-card--result .nsf-card__body {
+	padding-bottom: calc(var(--wp--preset--spacing--40) - var(--wp--custom--border--hairline));
+}
+
 .nsf-hub-cards {
 	display: grid;
 	grid-template-columns: minmax(0, 1fr);
@@ -182,12 +188,23 @@
 	padding: 0;
 	list-style: none;
 
+	// One column (187:243): a taller 536 x 311 thumbnail.
+	@container (max-width: 559px) {
+
+		.nsf-card__media {
+			aspect-ratio: var(--wp--custom--card--image-ratio-stacked, 536 / 310);
+		}
+	}
+
+	// Two columns (182:104): 32px apart.
 	@container (min-width: 560px) {
 		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: var(--wp--preset--spacing--40);
 	}
 
 	@container (min-width: 820px) {
 		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: var(--wp--preset--spacing--gutter);
 	}
 }
 
@@ -243,8 +260,8 @@
 	}
 
 	.nsf-hub-table__arrow {
-		margin-left: 0.4em;
-		font-size: 0.7em;
+		margin-left: 0.25em;
+		font-size: 0.6em;
 	}
 
 	tbody th,
@@ -293,7 +310,120 @@
 	}
 }
 
-// Pagination.
+// Table on tablets (188:104): Figma's 781 columns, and 14px cells whose
+// line box (not the cap height) starts 24px down.
+@container (max-width: 819px) {
+
+	.nsf-hub-table {
+
+		.nsf-hub-table__title {
+			width: 33.1%;
+		}
+
+		.nsf-hub-table__type {
+			width: 17.1%;
+		}
+
+		.nsf-hub-table__topic {
+			width: 18.8%;
+		}
+
+		.nsf-hub-table__audience {
+			width: 18.5%;
+		}
+
+		.nsf-hub-table__date {
+			width: 12.5%;
+		}
+
+		tbody td {
+			font-size: var(--wp--preset--font-size--x-small);
+			line-height: 1.4286;
+			text-box: normal;
+		}
+	}
+}
+
+// Table on phones (190:55): each row stacks the title over one meta line,
+// "TYPE · Topic · Audience · Date". The header stays for screen readers;
+// the Sort menu above sorts.
+@container (max-width: 559px) {
+
+	.nsf-hub-table {
+		display: block;
+		min-width: 0;
+
+		thead {
+			position: absolute;
+			width: 1px;
+			height: 1px;
+			overflow: hidden;
+			clip-path: inset(50%);
+		}
+
+		tbody {
+			display: block;
+		}
+
+		tbody tr {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: baseline;
+			row-gap: var(--wp--preset--spacing--20);
+			padding: var(--wp--preset--spacing--30) var(--wp--preset--spacing--20);
+		}
+
+		tbody th,
+		tbody td,
+		tbody tr > [class] {
+			display: block;
+			width: auto;
+			padding: 0;
+		}
+
+		tbody th {
+			flex: 0 0 100%;
+		}
+
+		tbody td {
+			color: var(--wp--preset--color--primary-blue);
+			font-size: var(--wp--preset--font-size--x-small);
+			line-height: 1.4286;
+			text-box: trim-both cap alphabetic;
+
+			&:empty {
+				display: none;
+			}
+
+			+ td::before {
+				content: "·";
+				margin: 0 0.5em;
+			}
+		}
+
+		tbody .nsf-hub-table__type {
+			color: var(--wp--preset--color--dark-orange);
+			font-weight: 700;
+			letter-spacing: var(--wp--custom--letter-spacing--caps);
+			text-transform: uppercase;
+		}
+
+		.nsf-hub-table__type + td::before {
+			margin-left: var(--wp--preset--spacing--10);
+		}
+	}
+
+	.nsf-hub-table-wrap {
+		overflow: visible;
+	}
+}
+
+// Pagination: 24px below the results like the other toolbar rows, then 16px
+// above the pills (154:590).
+.nsf-hub-pagination {
+	margin-top: var(--wp--preset--spacing--30);
+}
+
 .nsf-hub-pagination ul {
 	display: flex;
 	flex-wrap: wrap;

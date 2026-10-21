@@ -251,6 +251,7 @@ strong {
 }
 
 .nsf-form textarea {
+	display: block;
 	height: auto;
 	min-height: calc(var(--wp--custom--control--field-height) * 3);
 	padding-block: var(--wp--preset--spacing--20);
@@ -754,4 +755,9 @@ h3 sup {
 	font-size: 0.6em;
 	line-height: 0;
 	vertical-align: 0.6em;
+}
+
+/* Button labels keep the two spaces before an arrow, as in the mockups. */
+.wp-block-button__link {
+	white-space: pre-wrap;
 }

@@ -19,3 +19,8 @@
 	height: 102.39%;
 	background-image: url(../../images/home/saw-watermark.webp);
 }
+
+/* Eyebrows set with two spaces around the separator (Figma keeps them). */
+.nsf-band__columns .is-style-eyebrow {
+	white-space: pre-wrap;
+}
