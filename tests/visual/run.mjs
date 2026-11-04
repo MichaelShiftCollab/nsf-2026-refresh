@@ -207,6 +207,32 @@ for ( const entry of pages ) {
 					'#wpadminbar{display:none!important}html{margin-top:0!important}',
 			} );
 			await page.evaluate( () => document.fonts.ready );
+			// Load lazy images below the fold, which a full-page capture
+			// would otherwise show empty, and wait for any image still loading.
+			await page.evaluate( () =>
+				Promise.all(
+					[ ...document.querySelectorAll( 'img' ) ].map( ( img ) => {
+						if ( img.loading === 'lazy' ) {
+							img.loading = 'eager';
+						}
+						return img.complete
+							? null
+							: new Promise( ( resolve ) => {
+									img.addEventListener( 'load', resolve );
+									img.addEventListener( 'error', resolve );
+								} );
+					} )
+				)
+			);
+			// Decode every image too: an image marked decoding="async" can be
+			// left unpainted in an element capture taken right after the swap.
+			await page.evaluate( () =>
+				Promise.all(
+					[ ...document.querySelectorAll( 'img' ) ].map( ( img ) =>
+						img.decode().catch( () => null )
+					)
+				)
+			);
 			// Park the pointer so no hover state leaks in from the login click.
 			await page.mouse.move( 0, 0 );
 			await runActions( page, entry.actions );

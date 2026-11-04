@@ -10,10 +10,10 @@
  */
 
 ?>
-<!-- wp:group {"metadata":{"name":"For business"},"align":"full","className":"is-style-section-light-orange nsf-home-section nsf-home-business","style":{"spacing":{"padding":{"top":"var:preset|spacing|section","bottom":"var:preset|spacing|section"},"blockGap":"var:preset|spacing|50"}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull is-style-section-light-orange nsf-home-section nsf-home-business" style="padding-top:var(--wp--preset--spacing--section);padding-bottom:var(--wp--preset--spacing--section)"><!-- wp:group {"metadata":{"name":"Heading group"},"style":{"spacing":{"blockGap":"var:preset|spacing|20"}},"layout":{"type":"default"}} -->
-<div class="wp-block-group"><!-- wp:paragraph {"className":"is-style-eyebrow"} -->
-<p class="is-style-eyebrow"><?php esc_html_e( 'For business', 'nsf' ); ?></p>
+<!-- wp:group {"metadata":{"name":"For business"},"align":"full","className":"is-style-section-primary-blue-to-dark-blue nsf-home-section nsf-home-business","style":{"spacing":{"padding":{"top":"var:preset|spacing|section","bottom":"var:preset|spacing|section"},"blockGap":"var:preset|spacing|50"}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull is-style-section-primary-blue-to-dark-blue nsf-home-section nsf-home-business" style="padding-top:var(--wp--preset--spacing--section);padding-bottom:var(--wp--preset--spacing--section)"><!-- wp:group {"metadata":{"name":"Heading group"},"style":{"spacing":{"blockGap":"var:preset|spacing|20"}},"layout":{"type":"constrained","contentSize":"840px","justifyContent":"left"}} -->
+<div class="wp-block-group"><!-- wp:paragraph {"className":"is-style-eyebrow","textColor":"primary-orange"} -->
+<p class="is-style-eyebrow has-primary-orange-color has-text-color"><?php esc_html_e( 'For business', 'nsf' ); ?></p>
 <!-- /wp:paragraph -->
 
 <!-- wp:heading -->
@@ -21,9 +21,13 @@
 <!-- /wp:heading --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"metadata":{"name":"Panels"},"style":{"spacing":{"blockGap":"var:preset|spacing|gutter"}},"layout":{"type":"grid","columnCount":2,"minimumColumnWidth":"20rem"}} -->
-<div class="wp-block-group"><!-- wp:group {"metadata":{"name":"SleepMark®"},"className":"is-style-panel","style":{"spacing":{"blockGap":"var:preset|spacing|20"}},"layout":{"type":"default"}} -->
-<div class="wp-block-group is-style-panel"><!-- wp:heading {"level":3} -->
+<!-- wp:group {"metadata":{"name":"Panels"},"style":{"spacing":{"blockGap":"var:preset|spacing|gutter"}},"className":"nsf-business-panels","layout":{"type":"grid","columnCount":2,"minimumColumnWidth":"20rem"}} -->
+<div class="wp-block-group nsf-business-panels"><!-- wp:group {"metadata":{"name":"SleepMark®"},"className":"is-style-panel","style":{"spacing":{"blockGap":"var:preset|spacing|20"}},"layout":{"type":"default"}} -->
+<div class="wp-block-group is-style-panel"><!-- wp:image {"width":"104px","height":"104px","sizeSlug":"full","linkDestination":"none","className":"nsf-business-logo"} -->
+<figure class="wp-block-image size-full is-resized nsf-business-logo"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/brand/logo-sleepmark.png' ) ); ?>" alt="<?php esc_attr_e( 'SleepMark® seal', 'nsf' ); ?>" style="width:104px;height:104px"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":3} -->
 <h3 class="wp-block-heading"><?php esc_html_e( 'SleepMark®', 'nsf' ); ?></h3>
 <!-- /wp:heading -->
 
@@ -53,7 +57,11 @@
 <!-- /wp:group -->
 
 <!-- wp:group {"metadata":{"name":"SleepTech® Network"},"className":"is-style-panel","style":{"spacing":{"blockGap":"var:preset|spacing|20"}},"layout":{"type":"default"}} -->
-<div class="wp-block-group is-style-panel"><!-- wp:heading {"level":3} -->
+<div class="wp-block-group is-style-panel"><!-- wp:image {"width":"104px","height":"104px","sizeSlug":"full","linkDestination":"none","className":"nsf-business-logo"} -->
+<figure class="wp-block-image size-full is-resized nsf-business-logo"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/brand/logo-sleeptech.png' ) ); ?>" alt="<?php esc_attr_e( 'SleepTech® logo', 'nsf' ); ?>" style="width:104px;height:104px"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":3} -->
 <h3 class="wp-block-heading"><?php esc_html_e( 'SleepTech® Network', 'nsf' ); ?></h3>
 <!-- /wp:heading -->
 
@@ -81,8 +89,8 @@
 
 <!-- wp:group {"metadata":{"name":"Actions"},"className":"nsf-actions","style":{"spacing":{"blockGap":"var:preset|spacing|30"}},"layout":{"type":"flex","flexWrap":"wrap","verticalAlignment":"center"}} -->
 <div class="wp-block-group nsf-actions"><!-- wp:buttons -->
-<div class="wp-block-buttons"><!-- wp:button {"className":"is-style-secondary"} -->
-<div class="wp-block-button is-style-secondary"><a class="wp-block-button__link wp-element-button" href="/about-sleeptech/sleeptech-network/membership-application/"><?php esc_html_e( 'Join the network', 'nsf' ); ?></a></div>
+<div class="wp-block-buttons"><!-- wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="/about-sleeptech/sleeptech-network/membership-application/"><?php esc_html_e( 'Join the network', 'nsf' ); ?></a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons -->
 

@@ -10,8 +10,8 @@
  */
 
 ?>
-<!-- wp:group {"metadata":{"name":"Featured from Sleep Health Resources"},"align":"full","className":"is-style-section-lightest-blue nsf-home-section","style":{"spacing":{"padding":{"top":"var:preset|spacing|section","bottom":"var:preset|spacing|section"},"blockGap":"var:preset|spacing|50"}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull is-style-section-lightest-blue nsf-home-section" style="padding-top:var(--wp--preset--spacing--section);padding-bottom:var(--wp--preset--spacing--section)"><!-- wp:group {"metadata":{"name":"Intro"},"className":"nsf-home-intro","style":{"spacing":{"blockGap":"var:preset|spacing|20"}},"layout":{"type":"constrained","contentSize":"840px","justifyContent":"left"}} -->
+<!-- wp:group {"metadata":{"name":"Featured from Sleep Health Resources"},"align":"full","className":"is-style-section-light-blue-to-white nsf-home-section","style":{"spacing":{"padding":{"top":"var:preset|spacing|section","bottom":"var:preset|spacing|section"},"blockGap":"var:preset|spacing|50"}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull is-style-section-light-blue-to-white nsf-home-section" style="padding-top:var(--wp--preset--spacing--section);padding-bottom:var(--wp--preset--spacing--section)"><!-- wp:group {"metadata":{"name":"Intro"},"className":"nsf-home-intro","style":{"spacing":{"blockGap":"var:preset|spacing|20"}},"layout":{"type":"constrained","contentSize":"840px","justifyContent":"left"}} -->
 <div class="wp-block-group nsf-home-intro"><!-- wp:group {"metadata":{"name":"Heading group"},"style":{"spacing":{"blockGap":"var:preset|spacing|20"}},"layout":{"type":"default"}} -->
 <div class="wp-block-group"><!-- wp:paragraph {"className":"is-style-eyebrow"} -->
 <p class="is-style-eyebrow"><?php esc_html_e( 'Sleep Health Resources', 'nsf' ); ?></p>

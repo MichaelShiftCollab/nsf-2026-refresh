@@ -29,8 +29,8 @@ $nsf_utility = array(
 ?>
 <!-- wp:nsf/alert-banner {"text":"<?php echo esc_attr( __( 'National Sleep Foundation’s Drowsy Driving Forum  |  October 29 in Washington, DC  |', 'nsf' ) ); ?>","linkText":"<?php esc_attr_e( 'Register Now', 'nsf' ); ?>","url":"/drowsy-driving-forum/","align":"full"} /-->
 
-<!-- wp:group {"metadata":{"name":"Nav bar"},"align":"full","className":"nsf-header","style":{"spacing":{"padding":{"top":"var:preset|spacing|30"},"margin":{"top":"0"}},"border":{"bottom":{"color":"var:preset|color|light-blue","width":"1px","style":"solid"}}},"backgroundColor":"white","layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull nsf-header has-white-background-color has-background" style="border-bottom-color:var(--wp--preset--color--light-blue);border-bottom-style:solid;border-bottom-width:1px;margin-top:0;padding-top:var(--wp--preset--spacing--30)"><!-- wp:group {"className":"nsf-header__bar","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
+<!-- wp:group {"metadata":{"name":"Nav bar"},"align":"full","className":"nsf-header","style":{"spacing":{"padding":{"top":"var:preset|spacing|30"},"margin":{"top":"0"}},"shadow":"var:preset|shadow|header"},"backgroundColor":"white","layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull nsf-header has-white-background-color has-background" style="margin-top:0;padding-top:var(--wp--preset--spacing--30);box-shadow:var(--wp--preset--shadow--header)"><!-- wp:group {"className":"nsf-header__bar","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
 <div class="wp-block-group nsf-header__bar"><!-- wp:image {"width":"180px","sizeSlug":"full","linkDestination":"custom","className":"nsf-header__logo"} -->
 <figure class="wp-block-image size-full is-resized nsf-header__logo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/brand/logo-nsf.png' ) ); ?>" alt="<?php esc_attr_e( 'National Sleep Foundation home', 'nsf' ); ?>" style="width:180px"/></a></figure>
 <!-- /wp:image -->

@@ -5,7 +5,7 @@
  * Categories: nsf-pages
  * Post Types: page
  * Keywords: drowsy driving, resource center, forum, infographics, reports, page
- * Description: Drowsy Driving Prevention Resource Center page body for the "No Title" template: title band with a photo, about the program, activity cards, the forum video with speakers, and blog, infographic and report cards. Placeholder copy from the mockup.
+ * Description: Drowsy Driving Prevention Resource Center page body for the "No Title" template: a centered title band, the campaign logo beside the about copy, activity cards, the forum video with speakers, and blog, infographic and report cards. Placeholder copy from the mockup.
  *
  * @package NSF
  */
@@ -71,33 +71,43 @@ $nsf_rc_speaker = function () {
 };
 
 /**
- * A small Primary Blue label over a group of cards.
+ * An orange eyebrow label over a group of cards.
  *
  * @param string $label Label text.
  */
 $nsf_rc_subhead = function ( $label ) {
 	?>
-<!-- wp:paragraph {"className":"is-style-eyebrow-small nsf-rc-subhead"} -->
-<p class="is-style-eyebrow-small nsf-rc-subhead"><?php echo esc_html( $label ); ?></p>
+<!-- wp:paragraph {"className":"is-style-eyebrow nsf-rc-subhead"} -->
+<p class="is-style-eyebrow nsf-rc-subhead"><?php echo esc_html( $label ); ?></p>
 <!-- /wp:paragraph -->
 
 	<?php
 };
 
-$nsf_tbp = array(
-	'eyebrow'  => __( 'National Programs', 'nsf' ),
-	'heading'  => __( 'Drowsy Driving Prevention Resource Center', 'nsf' ),
-	'subtitle' => __( 'Drowsy driving is impaired driving, and is responsible for more than one in every five crash-related fatalities. These aren’t just statistics: they represent real people, families, and communities. Drowsy driving is largely preventable.', 'nsf' ),
-	'image'    => 'assets/images/home/hero-1.jpg',
-	'mark'     => 'wheel',
-);
-require __DIR__ . '/title-band-photo.php';
 ?>
+<!-- wp:group {"metadata":{"name":"Hero"},"align":"full","className":"is-style-section-light-blue-to-light-orange nsf-rc-hero","style":{"spacing":{"padding":{"top":"var:preset|spacing|section","bottom":"var:preset|spacing|section"}}},"layout":{"type":"constrained","contentSize":"800px"}} -->
+<div class="wp-block-group alignfull is-style-section-light-blue-to-light-orange nsf-rc-hero" style="padding-top:var(--wp--preset--spacing--section);padding-bottom:var(--wp--preset--spacing--section)"><!-- wp:paragraph {"align":"center","className":"is-style-eyebrow"} -->
+<p class="has-text-align-center is-style-eyebrow"><?php esc_html_e( 'National Programs', 'nsf' ); ?></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"textAlign":"center","level":1} -->
+<h1 class="wp-block-heading has-text-align-center"><?php esc_html_e( 'Drowsy Driving Prevention Resource Center', 'nsf' ); ?></h1>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"align":"center","className":"is-style-paragraph-2 nsf-trim"} -->
+<p class="has-text-align-center is-style-paragraph-2 nsf-trim"><?php esc_html_e( 'Drowsy driving is impaired driving, and is responsible for more than one in every five crash-related fatalities. These aren’t just statistics: they represent real people, families, and communities. Drowsy driving is largely preventable.', 'nsf' ); ?></p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
 
 <!-- wp:group {"metadata":{"name":"About the program"},"align":"full","className":"is-style-section-white nsf-rc-about","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60"}}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull is-style-section-white nsf-rc-about" style="padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--60)"><!-- wp:group {"className":"nsf-rc-about__copy","layout":{"type":"default"}} -->
-<div class="wp-block-group nsf-rc-about__copy"><!-- wp:paragraph {"className":"nsf-trim"} -->
-<p class="nsf-trim"><?php esc_html_e( 'National Sleep Foundation is the public’s leading authority on sleep and its impact on health, well-being, performance, and safety. For over 35 years, NSF has advanced education, research, public awareness, and stakeholder engagement to reduce drowsy driving and improve roadway safety. Drowsy driving prevention is a core focus area within NSF’s broader sleep health and safety efforts.', 'nsf' ); ?></p>
+<div class="wp-block-group alignfull is-style-section-white nsf-rc-about" style="padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--60)"><!-- wp:group {"className":"nsf-rc-about__grid","layout":{"type":"default"}} -->
+<div class="wp-block-group nsf-rc-about__grid"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"nsf-rc-about__logo"} -->
+<figure class="wp-block-image size-full nsf-rc-about__logo"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/drowsy-driving-prevention-week/ddpw-logo-large.png' ) ); ?>" alt="<?php esc_attr_e( 'National Sleep Foundation’s Drowsy Driving Prevention Week®', 'nsf' ); ?>"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:group {"className":"nsf-rc-about__copy","layout":{"type":"default"}} -->
+<div class="wp-block-group nsf-rc-about__copy"><!-- wp:paragraph {"className":"is-style-paragraph-2 nsf-trim","textColor":"primary-blue"} -->
+<p class="is-style-paragraph-2 nsf-trim has-primary-blue-color has-text-color"><?php esc_html_e( 'National Sleep Foundation is the public’s leading authority on sleep and its impact on health, well-being, performance, and safety. For over 35 years, NSF has advanced education, research, public awareness, and stakeholder engagement to reduce drowsy driving and improve roadway safety. Drowsy driving prevention is a core focus area within NSF’s broader sleep health and safety efforts.', 'nsf' ); ?></p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"nsf-trim"} -->
@@ -107,6 +117,7 @@ require __DIR__ . '/title-band-photo.php';
 <!-- wp:paragraph {"className":"nsf-trim"} -->
 <p class="nsf-trim"><?php esc_html_e( 'Drowsy Driving Prevention Week® and NSF’s annual Drowsy Driving Forum serve as anchor activities within these year-round efforts. NSF brings together leaders from transportation, public health, policymaking, and industry to address drowsy driving as a critical and solvable public safety issue.', 'nsf' ); ?></p>
 <!-- /wp:paragraph --></div>
+<!-- /wp:group --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group -->
 
@@ -123,8 +134,8 @@ $nsf_rc_activity( 'assets/images/drowsy-driving-prevention-week/forum-graphic.pn
 <!-- /wp:group --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"metadata":{"name":"Forum video"},"align":"full","className":"is-style-section-primary-blue nsf-rc-section","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60"}}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull is-style-section-primary-blue nsf-rc-section" style="padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--60)"><!-- wp:heading -->
+<!-- wp:group {"metadata":{"name":"Forum video"},"align":"full","className":"is-style-section-primary-blue-to-dark-blue nsf-rc-section","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull is-style-section-primary-blue-to-dark-blue nsf-rc-section" style="padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--60)"><!-- wp:heading -->
 <h2 class="wp-block-heading"><?php esc_html_e( '2025 Forum', 'nsf' ); ?></h2>
 <!-- /wp:heading -->
 

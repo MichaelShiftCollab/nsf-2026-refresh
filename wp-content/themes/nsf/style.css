@@ -52,16 +52,61 @@ strong {
 	margin-block: 0;
 }
 
-/* Campaign band (Home mockup 464:121): gradient, one rounded corner. */
-.nsf-band {
-	overflow: hidden;
-	border-top-right-radius: var(--wp--custom--radius--band);
+/*
+ * Campaign band (Home mockup 641:1000): a full-width photo strip, then a white
+ * card that overlaps it, with a round badge centered on the card's top edge.
+ */
+.nsf-band__photo.nsf-band__photo {
+	height: var(--wp--custom--band--photo-height);
+	margin: 0;
+}
+
+.nsf-band__photo.nsf-band__photo img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.nsf-band__card.nsf-band__card {
+	position: relative;
+	width: calc(100% - var(--wp--style--root--padding-left) - var(--wp--style--root--padding-right));
+	max-width: var(--wp--style--global--content-size);
+	margin-top: calc(-1 * var(--wp--custom--band--overlap));
+	padding: var(--wp--custom--band--card-padding-top) var(--wp--preset--spacing--80) var(--wp--preset--spacing--section);
+	border-radius: 0 var(--wp--custom--radius--band) 0 var(--wp--custom--radius--band);
+	background: var(--wp--preset--color--white);
+	box-shadow: var(--wp--preset--shadow--callout);
+}
+
+.nsf-band__card > * {
+	max-width: 100%;
+}
+
+/* Badge: the campaign mark in a white circle centered on the card's edge. */
+.nsf-band__badge.nsf-band__badge {
+	position: absolute;
+	top: calc(-1 * var(--wp--custom--band--badge) / 2);
+	left: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: var(--wp--custom--band--badge);
+	height: var(--wp--custom--band--badge);
+	margin: 0;
+	border-radius: 50%;
+	background: var(--wp--preset--color--white);
+	transform: translateX(-50%);
+}
+
+.nsf-band__badge img {
+	width: var(--wp--custom--band--badge-image);
+	height: auto;
 }
 
 @media (max-width: 781px) {
 
-	.nsf-band {
-		border-top-right-radius: var(--wp--custom--radius--band-tablet);
+	.nsf-band__card.nsf-band__card {
+		border-radius: 0 var(--wp--custom--radius--band-tablet) 0 var(--wp--custom--radius--band-tablet);
 	}
 }
 
@@ -165,6 +210,19 @@ strong {
 	.nsf-feature-row__copy {
 		padding-right: var(--wp--preset--spacing--50);
 	}
+}
+
+/* Outline icon over a heading (Home mockup 641:987): a 40px line box. */
+.nsf-icon.nsf-icon {
+	display: flex;
+	align-items: center;
+	height: var(--wp--custom--icon--box);
+	margin: 0;
+}
+
+.nsf-icon img {
+	width: auto;
+	height: auto;
 }
 
 /* Logo boxes (Home mockup 464:238). */
@@ -462,11 +520,13 @@ strong {
 /*
  * Header (Header mockup 464:22): logo on the left; utility menu with search
  * over the main menu on the right. Below 1100px both menus move into the
- * main menu's overlay, opened by the menu button. The 1px rule sits inside
- * the mockup's 24px bottom padding.
+ * main menu's overlay, opened by the menu button. A soft drop shadow under
+ * the nav bar (Header shadow preset) sits over the section below it.
  */
 .nsf-header {
-	padding-bottom: calc(var(--wp--preset--spacing--30) - 1px);
+	position: relative;
+	z-index: 2;
+	padding-bottom: var(--wp--preset--spacing--30);
 }
 
 .nsf-header__logo {

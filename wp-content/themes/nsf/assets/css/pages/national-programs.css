@@ -1,9 +1,9 @@
 /*
- * National Programs (Figma 497:60, hero option A; "No Title" template):
- * dark blue hero with a two-photo cluster and a bullhorn watermark,
+ * National Programs (Figma 641:1203; "No Title" template): dark blue hero
+ * with an orange rule under the H1, a two-photo cluster over a pale swoosh,
  * campaign cards 3-up, and two photo rows. Sizes with no theme.json token
- * (the 600px photo cluster, the 560px watermark and its offsets, the
- * small photo's 25% shadow) come from the mockup and are set once here.
+ * (the 600px photo cluster, the swoosh and its offsets, the photos' 25%
+ * shadow, the 64px rule) come from the mockup and are set once here.
  * Classes are prefixed nsf-np- because every page stylesheet loads on
  * every page.
  */
@@ -18,28 +18,16 @@
 
 /*
  * Hero: Primary Blue to Dark Blue band with a rounded top-right corner,
- * white copy beside a two-photo cluster, and a faint bullhorn behind.
+ * white copy beside a two-photo cluster, and a pale swoosh behind it.
  */
 .nsf-np-hero {
 	position: relative;
 	overflow: hidden;
-	padding-top: calc(var(--wp--preset--spacing--60) + var(--wp--preset--spacing--20));
+	padding-top: var(--wp--preset--spacing--section);
 	padding-bottom: var(--wp--preset--spacing--70);
 	border-top-right-radius: var(--wp--custom--radius--band);
 	background: var(--wp--preset--gradient--primary-blue-to-dark-blue);
 	color: var(--wp--preset--color--white);
-}
-
-.nsf-np-hero::before {
-	content: "";
-	position: absolute;
-	top: 20px;
-	left: calc(50% + 40px);
-	width: 560px;
-	aspect-ratio: 1;
-	background: url(../../images/national-programs-bullhorn.svg) center / contain no-repeat;
-	opacity: 0.08;
-	pointer-events: none;
 }
 
 .nsf-np-hero__grid {
@@ -61,16 +49,39 @@
 	gap: var(--wp--preset--spacing--30);
 }
 
+/* A 64px orange rule between the H1 and the intro (641:1210). */
+.nsf-np-hero .nsf-np-rule.nsf-np-rule {
+	width: 64px;
+	height: 4px;
+	border: 0;
+	opacity: 1;
+}
+
 .nsf-np-hero .nsf-np-note {
 	opacity: 0.75;
 }
 
-/* Photo cluster: a large photo, a smaller one over its lower left. */
+/*
+ * Photo cluster (641:1213, 600 x 420): a large photo that runs 19px past the
+ * frame on the right, a smaller one over its lower left, and the swoosh
+ * (641:1214) behind both, cut off by the hero's edges.
+ */
 .nsf-np-cluster {
 	position: relative;
 	width: 100%;
 	max-width: var(--nsf-np-cluster-width);
 	aspect-ratio: 600 / 420;
+}
+
+.nsf-np-cluster::before {
+	content: "";
+	position: absolute;
+	top: 6.1905%;
+	left: 6.6667%;
+	width: 113.3333%;
+	aspect-ratio: 680 / 544;
+	background: url(../../images/national-programs/swoosh.svg) left top / contain no-repeat;
+	pointer-events: none;
 }
 
 .nsf-np-cluster .wp-block-image {
@@ -83,13 +94,14 @@
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
+	box-shadow: 0 8px 24px 0 color-mix(in srgb, var(--wp--preset--color--dark-blue) 25%, transparent);
 }
 
 .nsf-np-cluster__large {
 	top: 0;
-	right: 0;
-	width: 80%;
-	height: 85.7143%;
+	left: 20%;
+	width: 83.1667%;
+	height: 89.0476%;
 }
 
 .nsf-np-cluster__large img {
@@ -98,16 +110,15 @@
 }
 
 .nsf-np-cluster__small {
-	bottom: 0;
+	top: 49.0476%;
 	left: 0;
-	width: 36.6667%;
-	height: 42.8571%;
+	width: 42.8333%;
+	height: 50%;
 }
 
 .nsf-np-cluster__small img {
 	border-top-right-radius: var(--wp--custom--radius--photo-medium);
 	border-bottom-left-radius: var(--wp--custom--radius--photo-medium);
-	box-shadow: 0 8px 24px 0 color-mix(in srgb, var(--wp--preset--color--dark-blue) 25%, transparent);
 }
 
 /* Vertical rhythm: flex stacks with gaps instead of block margins. */
@@ -135,7 +146,7 @@
 }
 
 .nsf-np-row .nsf-np-stack {
-	gap: calc(var(--wp--preset--spacing--20) + 2px);
+	gap: var(--wp--preset--spacing--30);
 }
 
 /* Copy beside a photo, centered. */
@@ -227,14 +238,6 @@
 	.nsf-np-hero__grid {
 		grid-template-columns: minmax(0, 1fr);
 		gap: var(--wp--preset--spacing--50);
-	}
-
-	.nsf-np-hero::before {
-		top: auto;
-		bottom: -80px;
-		left: auto;
-		right: -80px;
-		width: 420px;
 	}
 
 	.nsf-np-row,

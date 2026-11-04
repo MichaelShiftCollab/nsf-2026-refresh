@@ -1,12 +1,14 @@
 <?php
 /**
- * Markup for the Campaign band patterns (Home mockup 473:60 and 464:121).
+ * Markup for the Campaign band patterns (Home mockup 641:1000).
  *
- * The three versions (Figma 580:796) share one layout: copy and a button on
- * the left, a cluster of three photos over a faded watermark on the right.
- * Each version has its own watermark: a sun (Best Slept Self®), a steering
- * wheel (Drowsy Driving Prevention Week®) or the Sleep Awareness Week® sunrise.
- * An editor swaps one version for another by hand.
+ * The three versions share one layout: a full-width photo strip, a white
+ * card with one rounded corner on each diagonal that overlaps the strip, and
+ * a round badge centered on the card's top edge. The eyebrow, heading, text,
+ * note and button are centered in the card. Each version has its own badge:
+ * the Best Slept Self® figure, the Drowsy Driving Prevention Week® wheel or
+ * the Sleep Awareness Week® sun and moon. An editor swaps one version for
+ * another by hand.
  *
  * @package NSF
  */
@@ -24,57 +26,52 @@ defined( 'ABSPATH' ) || exit;
  *     @type string $note    Small paragraph under it.
  *     @type string $button  Button text.
  *     @type string $url     Button link.
- *     @type string $variant Optional watermark: 'drowsy-driving' or 'sleep-awareness'. Default sun.
+ *     @type string $variant Optional: 'drowsy-driving' or 'sleep-awareness'. Default Best Slept Self®.
  * }
  * @return string
  */
 function nsf_campaign_band_markup( $band ) {
-	$image   = fn( $file ) => esc_url( get_theme_file_uri( 'assets/images/home/' . $file ) );
-	$cluster = 'nsf-photo-cluster' . ( empty( $band['variant'] ) ? '' : ' nsf-photo-cluster--' . sanitize_html_class( $band['variant'] ) );
+	$badges  = array(
+		'drowsy-driving'  => 'drowsy-driving-prevention-week/ddpw-wheel-dashed.png',
+		'sleep-awareness' => 'sleep-awareness-week/sun-moon-badge.png',
+	);
+	$variant = $band['variant'] ?? '';
+	$badge   = esc_url( get_theme_file_uri( 'assets/images/' . ( $badges[ $variant ] ?? 'home/badge-best-slept-self.png' ) ) );
+	$photo   = esc_url( get_theme_file_uri( 'assets/images/home/campaign-strip.jpg' ) );
 	ob_start();
 	?>
-<!-- wp:group {"metadata":{"name":"<?php echo esc_attr( $band['name'] ); ?>"},"align":"full","className":"nsf-band","gradient":"light-multi","textColor":"gray","style":{"spacing":{"padding":{"top":"var:preset|spacing|section","bottom":"var:preset|spacing|section"}}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull nsf-band has-gray-color has-light-multi-gradient-background has-text-color has-background" style="padding-top:var(--wp--preset--spacing--section);padding-bottom:var(--wp--preset--spacing--section)"><!-- wp:columns {"verticalAlignment":"center","className":"nsf-band__columns","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|50","left":"var:preset|spacing|70"}}}} -->
-<div class="wp-block-columns are-vertically-aligned-center nsf-band__columns"><!-- wp:column {"verticalAlignment":"center","style":{"spacing":{"blockGap":"18px"}}} -->
-<div class="wp-block-column is-vertically-aligned-center"><!-- wp:paragraph {"className":"is-style-eyebrow"} -->
-<p class="is-style-eyebrow"><?php echo esc_html( $band['eyebrow'] ); ?></p>
+<!-- wp:group {"metadata":{"name":"<?php echo esc_attr( $band['name'] ); ?>"},"align":"full","className":"nsf-band","backgroundColor":"white","textColor":"gray","style":{"spacing":{"padding":{"top":"0","bottom":"var:preset|spacing|70","left":"0","right":"0"},"blockGap":"0"}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull nsf-band has-gray-color has-white-background-color has-text-color has-background" style="padding-top:0;padding-right:0;padding-bottom:var(--wp--preset--spacing--70);padding-left:0"><!-- wp:image {"align":"full","sizeSlug":"full","linkDestination":"none","className":"nsf-band__photo"} -->
+<figure class="wp-block-image alignfull size-full nsf-band__photo"><img src="<?php echo $photo; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>" alt=""/></figure>
+<!-- /wp:image -->
+
+<!-- wp:group {"metadata":{"name":"Card"},"className":"nsf-band__card","style":{"spacing":{"blockGap":"var:preset|spacing|30"}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
+<div class="wp-block-group nsf-band__card"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"nsf-band__badge"} -->
+<figure class="wp-block-image size-full nsf-band__badge"><img src="<?php echo $badge; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>" alt=""/></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph {"align":"center","className":"is-style-eyebrow"} -->
+<p class="has-text-align-center is-style-eyebrow"><?php echo esc_html( $band['eyebrow'] ); ?></p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading -->
-<h2 class="wp-block-heading"><?php echo esc_html( $band['heading'] ); ?></h2>
+<!-- wp:heading {"textAlign":"center"} -->
+<h2 class="wp-block-heading has-text-align-center"><?php echo esc_html( $band['heading'] ); ?></h2>
 <!-- /wp:heading -->
 
-<!-- wp:paragraph {"className":"is-style-paragraph-2 nsf-trim"} -->
-<p class="is-style-paragraph-2 nsf-trim"><?php echo esc_html( $band['text'] ); ?></p>
+<!-- wp:paragraph {"align":"center","className":"is-style-paragraph-2 nsf-trim"} -->
+<p class="has-text-align-center is-style-paragraph-2 nsf-trim"><?php echo esc_html( $band['text'] ); ?></p>
 <!-- /wp:paragraph -->
 
-<!-- wp:paragraph {"className":"nsf-trim"} -->
-<p class="nsf-trim"><?php echo esc_html( $band['note'] ); ?></p>
+<!-- wp:paragraph {"align":"center","className":"nsf-trim"} -->
+<p class="has-text-align-center nsf-trim"><?php echo esc_html( $band['note'] ); ?></p>
 <!-- /wp:paragraph -->
 
-<!-- wp:buttons -->
+<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
 <div class="wp-block-buttons"><!-- wp:button -->
 <div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="<?php echo esc_url( $band['url'] ); ?>"><?php echo esc_html( $band['button'] ); ?></a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons --></div>
-<!-- /wp:column -->
-
-<!-- wp:column {"verticalAlignment":"center","width":"568px"} -->
-<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:568px"><!-- wp:group {"metadata":{"name":"Photo cluster"},"className":"<?php echo esc_attr( $cluster ); ?>","layout":{"type":"default"}} -->
-<div class="wp-block-group <?php echo esc_attr( $cluster ); ?>"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"nsf-photo-cluster__large"} -->
-<figure class="wp-block-image size-full nsf-photo-cluster__large"><img src="<?php echo $image( 'campaign-large.jpg' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>" alt=""/></figure>
-<!-- /wp:image -->
-
-<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"nsf-photo-cluster__right"} -->
-<figure class="wp-block-image size-full nsf-photo-cluster__right"><img src="<?php echo $image( 'campaign-small-right.jpg' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>" alt=""/></figure>
-<!-- /wp:image -->
-
-<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"nsf-photo-cluster__left"} -->
-<figure class="wp-block-image size-full nsf-photo-cluster__left"><img src="<?php echo $image( 'campaign-small-left.jpg' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>" alt=""/></figure>
-<!-- /wp:image --></div>
 <!-- /wp:group --></div>
-<!-- /wp:column --></div>
-<!-- /wp:columns --></div>
 <!-- /wp:group -->
 	<?php
 	return ob_get_clean();

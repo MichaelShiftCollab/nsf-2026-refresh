@@ -1,0 +1,3 @@
+Outline icons (search, clipboard-list, globe-americas, screwdriver-wrench, file, book-open, download):
+Font Awesome 7 Pro (Regular), as used in the NSF 2026 Figma mockups (641:970). Exported from Figma as outlines.
+Font Awesome Pro requires a license: https://fontawesome.com/license
