@@ -1,6 +1,6 @@
 # NSF Website Build Plan for Claude Code
 
-Version: October 14, 2026 · Status updated October 21, 2026
+Version: October 14, 2026 · Status updated November 5, 2026
 Source of truth for features: `docs/implementation-plan.md` (converted from *NSF Implementation Plan 2026-10-14.docx*)
 Figma file: [NSF-2026](https://www.figma.com/design/mVNfIISs9yQQurddJagkfU/NSF-2026)
 
@@ -18,42 +18,49 @@ The screenshot comparison in step 2 is the test for every visual step. Mockups u
 
 ---
 
-## Where we stand (October 21, 2026, after the strict mockup pass)
+## Where we stand (November 5, 2026, after the November mockup update)
 
-Ten of the nineteen steps are done, four are built and waiting on outside files, and five are blocked or not started. Everything below is on `main`, deployed to the development site (thensf2026dev), and its page content refreshed there.
+Ten of the nineteen steps are done, four are built and waiting on outside files, and five are blocked or not started. Everything below is on `main`, deployed to the development site (thensf2026dev), and its page content refreshed there (Refresh pages ran `home-page interior-pages` on November 5).
+
+**What changed since October 21**
+- The designer revised Home (641:971), National Programs (641:1203) and the Drowsy Driving Prevention Resource Center (641:1538) on a new Figma page, "Mockups for Client Review" (641:970); the October frames moved to "Archived". The header master gained a Light Blue drop shadow. All 25 changes are built (PR #7; change list in the Claude Doc "NSF Figma mockup changes (Nov 2026)").
+- The new Campaign band (photo strip, overlapping card, centered badge) replaces the old band in all three versions: Best Slept Self®, Drowsy Driving Prevention Week® and Sleep Awareness Week®.
+- The new frames are 1440 only. Home's 781 and 600 references are now screenshots of the build (a regression check, not a design check) until the designer supplies tablet and phone frames.
+- New stand-in assets are 1x exports from Figma (campaign band photo, Best Slept Self® badge, National Programs hero photos, SleepMark® and SleepTech® logos, a larger Drowsy Driving Prevention Week® logo). The new outline icons are Font Awesome 7 Pro, which needs a license (`assets/images/icons/LICENSE.txt`).
+- The screenshot harness now waits for and decodes every image before capture.
 
 **How "done" is measured**
-- **Matches the mockup:** every page with a Figma frame was compared side by side with the live frame, section by section, and every difference in layout, spacing, sizing, alignment, colour, borders, radii, icons and type was fixed (the strict pass, October 21). The screenshot harness (step 2) now passes at **3% pixel mismatch** by default, down from 10%. Pixel mismatch can't reach 0%: a browser draws text slightly differently from Figma.
+- **Matches the mockup:** every page with a Figma frame was compared side by side with the live frame, section by section, and every difference in layout, spacing, sizing, alignment, colour, borders, radii, icons and type was fixed (the strict pass, October 21, and the November update). The screenshot harness (step 2) passes at **3% pixel mismatch** by default. Pixel mismatch can't reach 0%: a browser draws text slightly differently from Figma.
 - **Allowed exceptions:** an entry may pass above 3% only when the remaining difference is the stand-in heading font or content (sample copy, posts, photos), never layout. Each one says why in its `note` in `tests/visual/pages.json`.
 - **Not fixed on purpose:** the heading font family (Family isn't installed; a stand-in serif is used), sample copy and photos, and the accessibility colours below.
-- **Accessible:** `npm run test:a11y` runs axe against WCAG 2.2 A and AA on the 15 main pages at 1440 and 390 with no violations. Orange text uses Dark Orange and orange buttons use Dark Blue text to meet contrast (docs/decisions.md).
-- **Works:** behavior tests pass: `test:hub` (filters, URL state, Cards/Table), `test:home`, `test:global` (header, search, alert banner) and `test:cta` (forms, gated download). Every block is valid in the editor.
+- **Accessible:** `npm run test:a11y` runs axe against WCAG 2.2 A and AA on the main pages at 1440 and 390 with no violations. Orange text uses Dark Orange and orange buttons use Dark Blue text to meet contrast (docs/decisions.md).
+- **Works:** behavior tests pass after the November update: `test:hub` (filters, URL state, Cards/Table), `test:home`, `test:global` (header, search, alert banner) and `test:cta` (forms, gated download). Every block is valid in the editor.
 - **Lint and build:** `npm run lint` and `npm run build` are clean.
 
-**Screenshot results:** 37 of 37 comparisons pass; 21 are at or under 3%.
+**Screenshot results (local, November 5):** 35 of 37 comparisons pass. The two that fail did so on `main` before the November update too (see "Next up").
 
 | Comparison | Mismatch | Note |
 |---|---|---|
 | Style guide | 0.35% | |
-| Header · Sign-up row · Footer | 2.03% · 2.92% · 0.34% | |
+| Header · Sign-up row · Footer | 3.00% · 2.92% · 0.34% | Header against the new shadowed master |
 | Cards (featured image) | 1.23% | |
-| Home 1440 · 781 · 600 | 5.44% · 7.45% · 9.31% | Heading font: taller H2 boxes and wrapped headings push sections down. 781/600 compare against the kit, not Figma frames |
+| Home 1440 · 781 · 600 | 5.59% · 0% · 0% | Heading font at 1440; 781/600 compare against screenshots of the build |
 | Resource Hub featured 1440 · 781 · 600 | 1.82% · 3.44% · 3.52% | Content: sample featured titles run 5 to 7 lines |
 | Resource Hub filtered 1440 · 781 · 600 | 2.32% · 7.79% · 4.02% | Content: 14 results against 128, longer metadata |
 | Resource Hub table 1440 · 781 · 600 | 2.95% · 3.31% · 4.43% | Content: 9 rows against 10 |
-| Search · Search with filter | 8.31% · 3.89% | Content: 10 results, no pagination, different filters |
-| Blog · Topic archive · 404 | 2.07% · 1.43% · 3.91% | 404: heading font |
-| Resource page | 2.03% | |
-| National Programs | 1.87% | |
+| Search · Search with filter | **11.05% (fails, limit 9%)** · 4.02% | Content: 11 local results against 42, different filters |
+| Blog · Topic archive · 404 | 2.20% · **10.50% (fails, limit 3%)** · 4.13% | Topic archive: see "Next up" |
+| Resource page | 2.13% | |
+| National Programs | 2.46% | November frame |
 | Sleep Awareness Week | 3.26% | Heading font; shorter sample cards |
 | Drowsy Driving Prevention Week | 8.58% | Content: 4 sample posts against 6; heading font wraps the callout heading |
-| Drowsy Driving Resource Center | 2.20% | |
+| Drowsy Driving Resource Center | 2.41% | November frame |
 | Sleep in America Polls | 1.39% | |
-| SleepTech Network Membership | 1.83% | |
-| Media Center | 2.42% | |
+| SleepTech Network Membership | 1.95% | |
+| Media Center | 2.49% | |
 | CTA row · CTA row (email) | 0.65% · 0.68% | |
 | Contact Us CTA · Sponsorship CTA · Gated download | 1.37% · 1.93% · 1.27% | |
-| Gated download success | 7.83% | Content: longer copy; a breadcrumb the mockup doesn't have |
+| Gated download success | 8.41% | Content: longer copy; a breadcrumb the mockup doesn't have |
 | FAQ | 3.65% | Heading font |
 
 Seven components have no Figma frame and are not compared: link CTA, Participation Toolkit, Statistics row (2 and 4 across), pull quote, tiered and untiered logo grids.
@@ -61,36 +68,45 @@ Seven components have no Figma frame and are not compared: link CTA, Participati
 | Step | Status | Standard reached | What is left |
 |---|---|---|---|
 | 1 · Repo, child theme, NSF plugin | Done | Builds cleanly; theme and plugin active | — |
-| 2 · Screenshot harness | Done | 37 entries; HTML report | — |
-| 3 · Design tokens, style guide | 95% | Style guide 0.35% at 1440; buttons 47px as on the Styling page; Light Multi hero gradient; H2 40px at phone and tablet widths | Family font files (headings use a stand-in serif) |
+| 2 · Screenshot harness | Done | 37 entries; HTML report; x/y crops; waits for and decodes every image | — |
+| 3 · Design tokens, style guide | 95% | Style guide 0.35%; header and callout shadow presets added in November | Family font files (headings use a stand-in serif) |
 | 4 · Forms in code | 55% | Seven form definitions in `plugins/nsf/forms/`; forms show a styled preview | Gravity Forms zip and license; the `wp nsf forms import` command; SleepTech company type list |
-| 5 · Header, footer, menus | 90% | Header 2.0%, sign-up row 2.9%, footer 0.3%; Font Awesome brand icons for social links | Logo and 35th anniversary seal SVGs; social profile URLs (now `#`) |
+| 5 · Header, footer, menus | 90% | Header 3.0% against the November shadowed header, sign-up row 2.9%, footer 0.3% | Logo and 35th anniversary seal SVGs; social profile URLs (now `#`) |
 | 6 · Content model, cards | Done | Card test passes at 3 widths; seed and seed delete work | — |
-| 7 · Resource Hub | Done | Featured, filtered and table views compared at 1440, 781 and 600 (all within content-only exceptions); new search button and phone table layout from Figma; hub behavior test passes | — |
-| 8 · Home | 95% | Spacing matches Figma at 1440, 781 and 600; what's left is the heading font (5.4% at 1440) | Six hero photos (stand-ins rotate today) |
-| 9 · CTAs and callouts | 95% | Seven blocks compared to the Plan items sheet (577:799), most under 2%; seven blocks have no Figma frame | Gravity Forms; address for the email CTA |
-| 10 · Header Flag | 50% | The hanging tab on Drowsy Driving Prevention Week matches its mockup (518:278, hover 520:331) as a pattern | The block the plan describes, with on/off, label and link type (anchor, PDF, page) controls, so it can go on any page |
-| 11 · FAQ, sponsor grid | Done | FAQ 3.65% against 577:806, with FAQPage JSON-LD; logo grids (no Figma frame) | — |
-| 12 · Resource single | Done | 2.0% at 1440, height exact; Related Content as text items, as in the mockup | — |
-| 13 · Search results | Done | Layout matches 542:332; 8.3% and 3.9% from sample results only | — |
-| 14 · Archives and 404 | Done | Blog 2.1%, topic archive 1.4%, 404 3.9% | Topic archive is compared above the fold only (four sample posts) |
-| 15 · Interior pages | Done | Strict pass at 1440: National Programs 1.9%, Sleep Awareness Week 3.3%, Drowsy Driving Prevention Week 8.6% (sample posts), Resource Center 2.2%, Polls 1.4%, SleepTech Membership 1.8%, Media Center 2.4% | Tablet and phone mockups for these pages (checked only for no sideways scroll at 390, 600 and 781) |
+| 7 · Resource Hub | Done | Featured, filtered and table views at 1440, 781 and 600 | — |
+| 8 · Home | 95% | November frame (641:971) at 5.6%, the heading font; new Campaign band in all three versions | Six hero photos; full-size badge, band photo and For Business logos; tablet and phone frames |
+| 9 · CTAs and callouts | 95% | Seven blocks compared to the Plan items sheet (577:799), most under 2% | Gravity Forms; address for the email CTA |
+| 10 · Header Flag | 50% | The hanging tab on Drowsy Driving Prevention Week matches its mockup (518:278, hover 520:331) as a pattern | The block the plan describes, with on/off, label and link type (anchor, PDF, page) controls |
+| 11 · FAQ, sponsor grid | Done | FAQ 3.65% with FAQPage JSON-LD; logo grids (no Figma frame) | — |
+| 12 · Resource single | Done | 2.1% at 1440 | — |
+| 13 · Search results | 95% | Layout matches 542:332 | Comparison fails locally on content (11 results against 42); re-check on the development site |
+| 14 · Archives and 404 | 95% | Blog 2.2%, 404 4.1% | Topic archive fails (10.5%): see "Next up" |
+| 15 · Interior pages | Done at 1440 | National Programs and Resource Center on their November frames (2.5%, 2.4%); the others unchanged | Tablet and phone frames (checked only for no sideways scroll at 390, 600 and 781); full-size hero photos and Drowsy Driving Prevention Week® logo |
 | 16 · Zoho CRM | Not started | — | Gravity Forms; Zoho modules and field mapping (deferred by decision) |
-| 17 · Content migration | 25% | All 43 pages in the content plan exist with the right parent and slug (checked one by one, October 21); 43 page docs exported to `content/pages/` | Copy for the 12 empty page docs; the migration script; meta descriptions; blog posts and Resources source; redirects |
-| 18 · WP Engine deploy | Done (development) | Every push to `main` deploys to thensf2026dev; Actions > Refresh pages re-runs the page scripts without SSH (last run October 21, after the strict pass) | Staging and production are not set up from this repo (staging is off limits for now) |
+| 17 · Content migration | 25% | All 43 pages in the content plan exist with the right parent and slug; 43 page docs in `content/pages/` | Copy for the 12 empty page docs; the migration script; meta descriptions; blog posts and Resources source; redirects |
+| 18 · WP Engine deploy | Done (development) | Every push to `main` deploys to thensf2026dev; Refresh pages last ran November 5 | Staging and production are not set up from this repo |
 | 19 · Final visual check | Not started | — | Mockup sign-off, real content, all widths |
 
-**Site structure and slugs.** Re-checked October 21 after the strict pass: the page tree matches the CONTENT PLAN tab of "NSF Website Content Sheets" row for row (43 of 43), and every page paired with an old-site URL uses that URL's last segment as its slug, exactly. A page paired with an old-site page uses that page's slug; new pages use a slug from their title (Sleep Health Resources keeps `sleep-health-resources`, its page doc title). The full list is in `content/site-outline.md`. One extra page exists outside the plan: `/prospectus-thank-you/`, the gated download success page.
+**Next up, in order**
+1. **Check the November pages on the development site** in a browser, at desktop, tablet and phone widths.
+2. **Sign-offs from NSF and the designer:** approval of the "Mockups for Client Review" page; the Font Awesome Pro license, or a swap to the closest Free icons; tablet and phone frames for the new sections.
+3. **Topic archive and search comparisons.** The topic archive mockup shows the category description under an Open Sans Bold H1; the build shows the serif H1 and no description (the local Sleep Disorders category has none). Decide the H1 style, add the term descriptions to `content/taxonomy-terms.json`, and re-run both comparisons against the development site's content.
+4. **Gravity Forms:** install and license it, build `wp nsf forms import`, connect the CTA forms (steps 4 and 9), then Zoho (step 16).
+5. **Header Flag block** (step 10).
+6. **Content migration and redirects** (step 17), once the source for blog posts and Resources is known.
+7. **Staging, then the final visual check** on real content (steps 18 and 19).
+
+**Site structure and slugs.** Re-checked October 21: the page tree matches the CONTENT PLAN tab of "NSF Website Content Sheets" row for row (43 of 43). The full list is in `content/site-outline.md`. One extra page exists outside the plan: `/prospectus-thank-you/`, the gated download success page.
 
 **Changes from this plan since October 14**
-- The redesigned Figma mockups (October 20) replaced the older frames for steps 12 to 15. Where a styled mockup and this plan disagree, the mockup wins.
-- The new mockups are 1440 only, so steps 12 to 15 pass at 1440; 781 and 600 are checked for layout, not against a design.
+- The redesigned Figma mockups (October 20) replaced the older frames for steps 12 to 15, and the November update (641:970) replaced Home, National Programs and the Resource Center again. Where a styled mockup and this plan disagree, the mockup wins.
+- The new mockups are 1440 only, so these pages pass at 1440; 781 and 600 are checked for layout, not against a design.
 - Development (thensf2026dev) stands in for staging in step 18.
-- The Figma file changed after the October 20 export (the Resource Center, the hub filters, the Home hero photo and the gradient swatch). All mockup PNGs were re-exported from the live file on October 21. Re-export again whenever the design changes.
+- Re-export the mockup PNGs (`tests/visual/pull.mjs`) whenever the design changes.
 
-**Design questions from the strict pass**
-- **Button height.** Figma draws buttons at 47px on the Styling page and most frames, but at 43px in a few (Home's primary buttons, four on Drowsy Driving Prevention Week, the SleepTech submit). The build uses 47px everywhere. The designer should pick one.
-- **Heading line spacing.** The H2 style is 48/56 and H1 56/64, but frames rendered without Test Family draw headings tighter (about 46px per H2 line). The build follows the style. Revisit when the Family files arrive.
+**Design questions still open**
+- **Button height.** Figma draws buttons at 47px on the Styling page and most frames, but at 43px in a few. The build uses 47px everywhere. The designer should pick one.
+- **Heading line spacing.** The H2 style is 48/56 and H1 56/64, but frames rendered without Test Family draw headings tighter. Revisit when the Family files arrive.
 - **Logo boxes** show a placeholder image, not the mockup's white box with "LOGO"; real logos replace both.
 
 ---
@@ -124,8 +140,8 @@ All mockups are needed at 1440, 781 and 600 widths. A step can start once its 14
 | Content cards: outline and icon, navy fill, featured image | — | To come (featured image card is on Home and Resources) | 6 |
 | Sleep Health Resources, cards view | [1440](https://www.figma.com/design/mVNfIISs9yQQurddJagkfU/NSF-2026?node-id=154-431) · [781](https://www.figma.com/design/mVNfIISs9yQQurddJagkfU/NSF-2026?node-id=182-2) · [600](https://www.figma.com/design/mVNfIISs9yQQurddJagkfU/NSF-2026?node-id=187-185) | Ready | 7 |
 | Sleep Health Resources, table view | [1440](https://www.figma.com/design/mVNfIISs9yQQurddJagkfU/NSF-2026?node-id=154-681) · [781](https://www.figma.com/design/mVNfIISs9yQQurddJagkfU/NSF-2026?node-id=188-2) · [600](https://www.figma.com/design/mVNfIISs9yQQurddJagkfU/NSF-2026?node-id=190-2) | Ready | 7 |
-| Home | [1440](https://www.figma.com/design/mVNfIISs9yQQurddJagkfU/NSF-2026?node-id=464-67) | Ready at 1440, 781 and 600 | 8 |
-| Best Slept Self band, options A/B/C | [A](https://www.figma.com/design/mVNfIISs9yQQurddJagkfU/NSF-2026?node-id=471-60) · [B](https://www.figma.com/design/mVNfIISs9yQQurddJagkfU/NSF-2026?node-id=471-74) · [C](https://www.figma.com/design/mVNfIISs9yQQurddJagkfU/NSF-2026?node-id=471-88) | Ready; option to be chosen | 8 |
+| Home | [1440, November](https://www.figma.com/design/mVNfIISs9yQQurddJagkfU/NSF-2026?node-id=641-971) | Ready at 1440; the October 781 and 600 frames are superseded | 8 |
+| Campaign band (Best Slept Self®) | In the November Home frame (641:1000) | Ready (1440); replaces options A/B/C | 8 |
 | Campaign band, Drowsy Driving Prevention Week® and Sleep Awareness Week® versions | [580:796](https://www.figma.com/design/mVNfIISs9yQQurddJagkfU/NSF-2026?node-id=580-796) | Ready (1440) | 8 |
 | General CTA row, Flexible CTAs, Contact Us CTA, Statistics row, Participation Toolkit, gated download form and success page | [Plan items 577:799](https://www.figma.com/design/mVNfIISs9yQQurddJagkfU/NSF-2026?node-id=577-799) | Ready (1440) | 9 |
 | Header Flag (hanging tab) | [518:278](https://www.figma.com/design/mVNfIISs9yQQurddJagkfU/NSF-2026?node-id=518-278) · [hover 520:331](https://www.figma.com/design/mVNfIISs9yQQurddJagkfU/NSF-2026?node-id=520-331) | Ready (1440) | 10 |
@@ -133,7 +149,7 @@ All mockups are needed at 1440, 781 and 600 widths. A step can start once its 14
 | Resource single | [571:2](https://www.figma.com/design/mVNfIISs9yQQurddJagkfU/NSF-2026?node-id=571-2) | Ready (1440) | 12 |
 | Search results | [542:332](https://www.figma.com/design/mVNfIISs9yQQurddJagkfU/NSF-2026?node-id=542-332) | Ready (1440) | 13 |
 | Sleep Learning Zone archive, topic archive, 404 | [552:509](https://www.figma.com/design/mVNfIISs9yQQurddJagkfU/NSF-2026?node-id=552-509) · [546:390](https://www.figma.com/design/mVNfIISs9yQQurddJagkfU/NSF-2026?node-id=546-390) · [555:2](https://www.figma.com/design/mVNfIISs9yQQurddJagkfU/NSF-2026?node-id=555-2) | Ready (1440) | 14 |
-| National Programs, Sleep Awareness Week®, SleepTech® Network Membership, Sleep in America® Polls, Drowsy Driving Prevention Resource Center, Drowsy Driving Prevention Week®, Media Center | 497:60 · 505:154 · 506:212 · 561:564 · 567:2 · 519:270 · 574:2 | Ready (1440); 781 and 600 not planned | 15 |
+| National Programs, Sleep Awareness Week®, SleepTech® Network Membership, Sleep in America® Polls, Drowsy Driving Prevention Resource Center, Drowsy Driving Prevention Week®, Media Center | 641:1203 (November) · 505:154 · 506:212 · 561:564 · 641:1538 (November) · 519:270 · 574:2 | Ready (1440); 781 and 600 not planned | 15 |
 
 Wireframes for all of these are on the [Wireframe detailed](https://www.figma.com/design/mVNfIISs9yQQurddJagkfU/NSF-2026?node-id=2-21) page. Until a mockup exists, Claude Code can build structure from the wireframe and come back for styling.
 
