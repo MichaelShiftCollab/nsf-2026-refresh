@@ -4,13 +4,13 @@
  * Slug: nsf/home
  * Categories: nsf-pages
  * Keywords: home, front page
- * Description: The whole Home page (Home mockup 464:67): Home Hero, What we do, the Best Slept Self® campaign band, featured resources, Research, For business and featured collaboration.
+ * Description: The whole Home page (Home mockup 641:971): Home Hero, What we do, the Best Slept Self® campaign band, featured resources, Research, For business and featured collaboration.
  *
  * @package NSF
  */
 
 $nsf_hero = array(
-	'heading' => __( 'Improving health and well being by advancing sleep health', 'nsf' ),
+	'heading' => __( 'Improving<br>health and well<br>being by advancing sleep health', 'nsf' ),
 	'images'  => array_map(
 		fn( $file ) => array(
 			'url' => get_theme_file_uri( 'assets/images/home/' . $file ),

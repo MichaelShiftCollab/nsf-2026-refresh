@@ -56,6 +56,10 @@ $nsf_np_card = function ( $image, $eyebrow, $title, $text, $url ) {
 <h1 class="wp-block-heading has-white-color has-text-color"><?php esc_html_e( 'National Programs', 'nsf' ); ?></h1>
 <!-- /wp:heading -->
 
+<!-- wp:separator {"className":"nsf-np-rule","backgroundColor":"primary-orange"} -->
+<hr class="wp-block-separator has-text-color has-primary-orange-color has-alpha-channel-opacity has-primary-orange-background-color has-background nsf-np-rule"/>
+<!-- /wp:separator -->
+
 <!-- wp:paragraph {"className":"is-style-paragraph-2 nsf-trim","textColor":"white"} -->
 <p class="is-style-paragraph-2 nsf-trim has-white-color has-text-color"><?php esc_html_e( 'NSF’s national programs bring sleep health to the public — annual campaigns that reach millions, a workplace initiative for employers, and the issues we work on year-round.', 'nsf' ); ?></p>
 <!-- /wp:paragraph -->
@@ -67,11 +71,11 @@ $nsf_np_card = function ( $image, $eyebrow, $title, $text, $url ) {
 
 <!-- wp:group {"metadata":{"name":"Photo cluster"},"className":"nsf-np-cluster","layout":{"type":"default"}} -->
 <div class="wp-block-group nsf-np-cluster"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"nsf-np-cluster__large nsf-photo"} -->
-<figure class="wp-block-image size-full nsf-np-cluster__large nsf-photo"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/home/research.jpg' ) ); ?>" alt=""/></figure>
+<figure class="wp-block-image size-full nsf-np-cluster__large nsf-photo"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/national-programs/hero-large.jpg' ) ); ?>" alt=""/></figure>
 <!-- /wp:image -->
 
 <!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"nsf-np-cluster__small nsf-photo"} -->
-<figure class="wp-block-image size-full nsf-np-cluster__small nsf-photo"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/home/hero-1.jpg' ) ); ?>" alt=""/></figure>
+<figure class="wp-block-image size-full nsf-np-cluster__small nsf-photo"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/national-programs/hero-small.jpg' ) ); ?>" alt=""/></figure>
 <!-- /wp:image --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group --></div>
@@ -144,9 +148,11 @@ $nsf_np_card( 'assets/images/home/campaign-small-right.jpg', __( 'Year-round', '
 <p class="nsf-np-text-lg nsf-trim"><?php esc_html_e( 'The sleep health issues NSF works on year-round — drowsy driving, school start times, sleep health equity — with the position statements and research behind each one.', 'nsf' ); ?></p>
 <!-- /wp:paragraph -->
 
-<!-- wp:paragraph {"className":"is-style-link nsf-np-actions nsf-trim"} -->
-<p class="is-style-link nsf-np-actions nsf-trim"><a href="/national-programs/issues/"><?php esc_html_e( 'See our key issues', 'nsf' ); ?></a></p>
-<!-- /wp:paragraph --></div>
+<!-- wp:buttons {"className":"nsf-np-actions"} -->
+<div class="wp-block-buttons nsf-np-actions"><!-- wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="/national-programs/issues/"><?php esc_html_e( 'See our key issues', 'nsf' ); ?></a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group -->

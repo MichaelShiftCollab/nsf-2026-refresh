@@ -1,29 +1,64 @@
 /*
- * Drowsy Driving Prevention Resource Center (mockup
- * pages/drowsy-driving-resource-center 567:2): about copy on white,
- * activity cards, the forum video with speakers on Primary Blue, and blog,
- * infographic and report cards. Classes are prefixed nsf-rc- (this page)
+ * Drowsy Driving Prevention Resource Center (Figma 641:1538): a centered
+ * title band, the campaign logo beside the about copy, activity cards, the
+ * forum video with speakers on the Primary Blue to Dark Blue gradient, and
+ * blog, infographic and report cards. Classes are prefixed nsf-rc- (this page)
  * and nsf-dl- (pattern nsf/download-cards) because every page stylesheet
  * loads on every page.
  */
 
-/* About (567:32): three paragraphs, 880px wide, 24px apart. */
-.nsf-rc-about__copy {
+/*
+ * Title band (641:1542): eyebrow, H1 and lead centered in 800px on the
+ * Light Multi gradient, with the band's rounded top-right corner.
+ */
+.nsf-rc-hero {
 	display: flex;
 	flex-direction: column;
 	gap: var(--wp--preset--spacing--30);
+	margin-block: 0 !important;
+	border-top-right-radius: var(--wp--custom--radius--band);
+	background: var(--wp--preset--gradient--light-multi) !important;
 }
 
-.nsf-rc-about__copy > * {
-	max-width: 880px;
+.nsf-rc-hero > * {
+	width: 100%;
 	margin-block: 0 !important;
 }
 
-/* Sections: heading and content stacked 40px apart. */
+/* About (641:1547): the 400px campaign logo, then the copy, 48px apart. */
+.nsf-rc-about__grid {
+	display: grid;
+	grid-template-columns: minmax(0, 400px) minmax(0, 1fr);
+	gap: var(--wp--preset--spacing--50);
+	align-items: start;
+}
+
+.nsf-rc-about__grid > *,
+.nsf-rc-about__logo.nsf-rc-about__logo {
+	margin: 0;
+}
+
+.nsf-rc-about__logo img {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+.nsf-rc-about__copy {
+	display: flex;
+	flex-direction: column;
+	gap: var(--wp--preset--spacing--40);
+}
+
+.nsf-rc-about__copy > * {
+	margin-block: 0 !important;
+}
+
+/* Sections: heading and content stacked 56px apart (641:1553). */
 .nsf-rc-section {
 	display: flex;
 	flex-direction: column;
-	gap: calc(var(--wp--preset--spacing--40) + var(--wp--preset--spacing--10));
+	gap: calc(var(--wp--preset--spacing--40) + var(--wp--preset--spacing--30));
 }
 
 .nsf-rc-section > *,
@@ -39,10 +74,6 @@
 
 .nsf-rc-section > * {
 	width: 100%;
-}
-
-.nsf-rc-resources {
-	gap: calc(var(--wp--preset--spacing--40) + var(--wp--preset--spacing--30));
 }
 
 /* Card grids. */
@@ -111,7 +142,7 @@
 
 .nsf-dl-grid.is-contain .nsf-dl-card__image img {
 	object-fit: contain;
-	padding: var(--wp--preset--spacing--20);
+	padding: var(--wp--preset--spacing--10);
 }
 
 /* Card text: top group, then the link at the bottom. */
@@ -121,7 +152,7 @@
 	display: flex;
 	flex: 1;
 	flex-direction: column;
-	gap: var(--wp--preset--spacing--20);
+	gap: var(--wp--preset--spacing--30);
 	justify-content: space-between;
 	padding: var(--wp--preset--spacing--30) var(--wp--preset--spacing--30) var(--wp--preset--spacing--40);
 }
@@ -156,8 +187,16 @@
 	text-decoration: none;
 }
 
+/* Download icon (641:1634): 14 x 16, 8px after the text, in the link color. */
 .nsf-dl-card__link a::after {
-	content: "\00a0\00a0↓";
+	content: "";
+	display: inline-block;
+	width: 14px;
+	height: 16px;
+	margin-left: var(--wp--preset--spacing--10);
+	background-color: currentcolor;
+	vertical-align: -2px;
+	mask: url(../../images/icons/download.svg) center / contain no-repeat;
 }
 
 .nsf-dl-card__link a:hover {
@@ -261,15 +300,11 @@
 	font-weight: 600;
 }
 
-/* Resource groups (567:78): a Primary Blue label, then cards. */
+/* Resource groups (641:1599): an orange eyebrow, then cards 24px below. */
 .nsf-rc-group {
 	display: flex;
 	flex-direction: column;
 	gap: var(--wp--preset--spacing--30);
-}
-
-.nsf-rc-subhead.nsf-rc-subhead {
-	color: var(--wp--preset--color--primary-blue);
 }
 
 /* Drawn cover when a download card has no image. */
@@ -306,7 +341,22 @@
 	text-transform: uppercase;
 }
 
+@media (max-width: 1099px) {
+
+	.nsf-rc-about__grid {
+		grid-template-columns: minmax(0, 1fr);
+	}
+
+	.nsf-rc-about__logo img {
+		max-width: 280px;
+	}
+}
+
 @media (max-width: 781px) {
+
+	.nsf-rc-hero {
+		border-top-right-radius: var(--wp--custom--radius--band-tablet);
+	}
 
 	.nsf-dl-grid {
 		grid-template-columns: repeat(2, minmax(0, 1fr));

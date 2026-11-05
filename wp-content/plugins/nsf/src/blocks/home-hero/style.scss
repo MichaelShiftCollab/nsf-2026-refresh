@@ -1,8 +1,10 @@
-// Home Hero (Home mockup 464:89): H1 on the left over the slideshow on the
-// right. At 1440 the hero is 622px tall so it ends at the fold of a
-// 1440 x 800 viewport under the 178px header.
+// Home Hero (Home mockup 641:974): a 72px H1 on the left over the slideshow
+// on the right, on the white to Light Orange gradient. At 1440 the hero is
+// 622px tall so it ends at the fold of a 1440 x 800 viewport under the 178px
+// header.
 
 .nsf-hero {
+	background: var(--wp--preset--gradient--light-orange-to-white);
 	padding-block: var(--wp--preset--spacing--40) var(--wp--custom--hero--padding-bottom);
 	padding-inline: var(--wp--style--root--padding-right) var(--wp--style--root--padding-left);
 
@@ -21,7 +23,8 @@
 		max-width: var(--wp--custom--hero--heading-width);
 		margin: 0;
 		padding-bottom: var(--wp--custom--hero--heading-offset);
-		font-size: var(--wp--preset--font-size--xx-large);
+		font-size: var(--wp--custom--hero--heading-size);
+		line-height: var(--wp--custom--hero--heading-line-height);
 	}
 
 	&__slides {

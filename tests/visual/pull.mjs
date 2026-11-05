@@ -60,21 +60,18 @@ if ( todo.length ) {
 			continue;
 		}
 		let png = Buffer.from( await ( await fetch( url ) ).arrayBuffer() );
-		// "crop": { "y", "height" } keeps a band of the frame, e.g. Home
-		// without the header and footer, which are tested on their own.
+		// "crop": { "x", "y", "width", "height" } keeps part of the frame,
+		// e.g. Home without the header and footer, which are tested on their
+		// own. x and width (default 0 and the full width) drop the 8px the
+		// header's drop shadow adds on each side of a frame's export.
 		if ( m.crop ) {
 			const full = PNG.sync.read( png );
-			const out = new PNG( { width: full.width, height: m.crop.height } );
-			PNG.bitblt(
-				full,
-				out,
-				0,
-				m.crop.y,
-				full.width,
-				m.crop.height,
-				0,
-				0
-			);
+			const x = m.crop.x ?? 0;
+			const y = m.crop.y ?? 0;
+			const width = m.crop.width ?? full.width - x;
+			const height = m.crop.height ?? full.height - y;
+			const out = new PNG( { width, height } );
+			PNG.bitblt( full, out, x, y, width, height, 0, 0 );
 			png = PNG.sync.write( out );
 		}
 		await fs.writeFile( m.file, png );

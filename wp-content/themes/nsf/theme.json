@@ -301,8 +301,10 @@
 				"alert": "15px"
 			},
 			"hero": {
-				"heading-width": "760px",
-				"heading-offset": "38px",
+				"heading-width": "640px",
+				"heading-offset": "0px",
+				"heading-size": "clamp(44px, calc(3.33vw + 24px), 72px)",
+				"heading-line-height": "1.1111",
 				"image-width": "849px",
 				"image-ratio": "849 / 550",
 				"padding-bottom": "40px"
@@ -312,7 +314,9 @@
 				"image-ratio-stacked": "536 / 310"
 			},
 			"logo-box": {
-				"height": "100px"
+				"height": "100px",
+				"width": "225px",
+				"divider": "138px"
 			},
 			"alert": {
 				"padding-block": "14px",
@@ -342,6 +346,16 @@
 				"panel-width": "640px",
 				"copy-gap": "60px"
 			},
+			"band": {
+				"photo-height": "clamp(240px, 27.78vw, 400px)",
+				"overlap": "clamp(64px, 7.08vw, 102px)",
+				"card-padding-top": "clamp(104px, 10.28vw, 148px)",
+				"badge": "clamp(176px, 16.25vw, 234px)",
+				"badge-image": "clamp(126px, 11.67vw, 168px)"
+			},
+			"icon": {
+				"box": "40px"
+			},
 			"stat": {
 				"number-size": "48px"
 			}
@@ -358,6 +372,16 @@
 					"name": "Photo",
 					"slug": "photo",
 					"shadow": "0 8px 24px 0 color-mix(in srgb, var(--wp--preset--color--dark-blue) 18%, transparent)"
+				},
+				{
+					"name": "Header",
+					"slug": "header",
+					"shadow": "0 4px 8px 0 color-mix(in srgb, var(--wp--preset--color--light-blue) 50%, transparent)"
+				},
+				{
+					"name": "Callout",
+					"slug": "callout",
+					"shadow": "0 0 24px 0 color-mix(in srgb, var(--wp--preset--color--light-blue) 75%, transparent)"
 				}
 			]
 		}

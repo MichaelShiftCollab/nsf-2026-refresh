@@ -1,17 +1,16 @@
 /*
- * Home sections (Home mockup 464:67). Gaps the spacing presets do not carry:
- * 20px after a heading group (464:105, 464:133) and between the business
- * panel items (464:199), 18px inside the research panels (464:173), 28px
- * after the collaboration eyebrow (464:230) and between a button and its
- * link, 40px between the resource links (464:157) and inside the business
- * panels.
+ * Home sections (Home mockup 641:971). Gaps the spacing presets do not carry:
+ * 20px after a heading group (641:980, 641:1014), 28px between a button and
+ * its link, 40px between the resource links (641:1038) and inside the
+ * business panels, 43px above a research panel's link.
  */
 .nsf-home-section {
 	--nsf-home-gap-intro: 20px;
-	--nsf-home-gap-panel: 18px;
 	--nsf-home-gap-actions: 28px;
 	--nsf-home-gap-links: 40px;
 	--nsf-home-panel-padding: 40px;
+	--nsf-home-gap-panel-link: 43px;
+	--nsf-home-feature-padding-right: clamp(48px, 8.61vw, 124px);
 }
 
 /* Heading group, then the intro paragraph. */
@@ -24,18 +23,71 @@
 	column-gap: var(--nsf-home-gap-links);
 }
 
-/* Research link panels: title, list and link 18px apart. */
-.nsf-home-panels .is-style-panel-outline > * + * {
-	margin-block-start: var(--nsf-home-gap-panel);
+/* Research link panels (641:1053): icon, title 16px below, list 24px below
+ * that, and the link 43px under the list. */
+.nsf-home-panels .nsf-link-panel > .nsf-icon + * {
+	margin-block-start: var(--wp--preset--spacing--20);
 }
 
-/* For business panels: 40px padding, items 20px apart. */
+.nsf-home-panels .nsf-link-panel > h3 + * {
+	margin-block-start: var(--wp--preset--spacing--30);
+}
+
+.nsf-home-panels .nsf-link-panel > .is-style-link {
+	margin-block-start: var(--nsf-home-gap-panel-link);
+}
+
+/* Featured research (641:1045): image first, copy 48px from it and 124px
+ * from the right edge. */
+.nsf-home-section .nsf-feature-row__copy {
+	padding-left: 0;
+	padding-right: var(--nsf-home-feature-padding-right);
+}
+
+@media (max-width: 781px) {
+
+	.nsf-home-section .nsf-feature-row__copy {
+		padding-inline: var(--wp--preset--spacing--50);
+	}
+}
+
+/*
+ * For business (641:1083): white panels on the blue gradient, each as tall
+ * as its content. Logo, then the title 8px below; title, text and list 24px
+ * apart; the form or the actions 40px under the list.
+ */
+.nsf-business-panels.nsf-business-panels {
+	align-items: start;
+}
+
 .nsf-home-business .is-style-panel {
 	padding: var(--nsf-home-panel-padding);
 }
 
 .nsf-home-business .is-style-panel.is-style-panel > * + * {
-	margin-block-start: var(--nsf-home-gap-intro);
+	margin-block-start: var(--wp--preset--spacing--30);
+}
+
+.nsf-home-business .is-style-panel.is-style-panel > .nsf-business-logo + * {
+	margin-block-start: var(--wp--preset--spacing--10);
+}
+
+.nsf-home-business .is-style-panel.is-style-panel > .wp-block-list + * {
+	margin-block-start: var(--nsf-home-panel-padding);
+}
+
+.nsf-home-business .is-style-panel.is-style-panel > .is-style-eyebrow-small + * {
+	margin-block-start: var(--wp--preset--spacing--20);
+}
+
+.nsf-business-logo.nsf-business-logo {
+	margin: 0;
+}
+
+/* The section's white headings and links stay blue inside the panels. */
+.nsf-home-business .is-style-panel h3,
+.nsf-home-business .is-style-panel a:not(.wp-element-button) {
+	color: var(--wp--preset--color--primary-blue);
 }
 
 .nsf-home-business .nsf-form.is-preview,
@@ -43,9 +95,8 @@
 	row-gap: var(--wp--preset--spacing--20);
 }
 
-/* The fields' 16px gap plus this makes the 20px gap above the button. */
 .nsf-home-business .nsf-form__footer {
-	margin-top: calc(var(--nsf-home-gap-intro) - var(--wp--preset--spacing--20));
+	margin-top: 0;
 }
 
 .nsf-home-business .nsf-form__footer,
@@ -53,7 +104,29 @@
 	column-gap: var(--nsf-home-gap-actions);
 }
 
-/* Featured collaboration: eyebrow, then the row 28px below. */
-.nsf-home-collab.nsf-home-collab > * + * {
-	margin-block-start: var(--nsf-home-gap-actions);
+/*
+ * Featured collaboration (641:1126), centered: the logo row has 32px above
+ * and below it, two 225px boxes 40px either side of a 138px divider.
+ */
+.nsf-home-collab .nsf-logo-pair.nsf-logo-pair {
+	gap: var(--nsf-home-gap-links);
+	padding-block: var(--wp--preset--spacing--40);
+}
+
+.nsf-home-collab .nsf-logo-box.nsf-logo-box {
+	flex: 0 1 var(--wp--custom--logo-box--width);
+	border-color: var(--wp--preset--color--gray);
+}
+
+.nsf-logo-pair__divider.nsf-logo-pair__divider {
+	align-self: stretch;
+	width: var(--wp--custom--border--hairline);
+	height: auto;
+	min-height: var(--wp--custom--logo-box--divider);
+	margin: 0;
+	border: 0;
+}
+
+.nsf-home-collab .nsf-inline-link a {
+	font-weight: 700;
 }

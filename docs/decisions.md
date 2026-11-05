@@ -144,6 +144,8 @@ Answers to the open questions in the build spec and build plan. Newest first.
 | Mockups vs. the plan | Where a styled Figma mockup and the implementation plan or spec disagree, the mockup wins (Michael, October 21) |
 | Related Content style | Text items as in the Resource mockup (571:66): top rule, type eyebrow, title, Read more. Replaces the plan's featured image cards |
 | Statistics row | One shared grid (`inc/statistics-grid.php`) of Statistic panels for the 2- and 4-across patterns (step 9) and the Resource layout (step 12) |
+| November 2026 mockups | Home (641:971), National Programs (641:1203) and the Drowsy Driving Prevention Resource Center (641:1538) follow the designer's November update, plus the header's Light Blue shadow site-wide. The new Campaign band layout (photo strip, overlapping card, centered badge) applies to all three band versions. Tablet and phone layouts for the new sections are our call until the designer sends 781 and 600 frames |
+| Stand-in assets from Figma | The new hero photos, Best Slept Self® badge, SleepMark® and SleepTech® logos and DDPW logo are 1x exports from the mockup; swap in full-size originals from NSF. The pillar and panel icons are Font Awesome 7 Pro (see `assets/images/icons/LICENSE.txt`) |
 
 ## Deferred
 
